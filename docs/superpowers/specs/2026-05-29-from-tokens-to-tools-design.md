@@ -268,7 +268,8 @@ OpenAI 文档)。
 ```
 src/data/
 ├── examples/
-│   ├── example-manifest.ts
+│   ├── (manifests 不在这里;UI 直接从 `scripts/record/manifests/<id>.yaml` import,
+│   │   通过 vite-plugin-yaml,**单一来源**,避免 manifest 在两处重复)
 │   ├── downloads-bigfiles/
 │   │   ├── tokenize.zh.json
 │   │   ├── tokenize.en.json
@@ -293,8 +294,10 @@ src/data/
 (见 §6 规则 #5)。如果用 `{zh, en}` 嵌套对象,无法表达"zh 5 轮、en 7 轮"。
 所以每个数据文件内的 `thought` / `observation` / `terminationNote` / `reasoning`
 都是**单语言纯字符串**,不再嵌套 `{zh, en}` 对象。
-只有 manifest(`example-manifest.ts` 里的 `name` / `taskPrompt` /
-`ToolSpec.description`)保留 `{zh, en}` 形式,因为那是录制配置 + UI 静态文案。
+只有 manifest(`scripts/record/manifests/<id>.yaml` 里的 `name` / `taskPrompt` /
+工具描述)保留 `{zh, en}` 形式,因为那是录制配置 + UI 静态文案的单一来源。
+**UI 通过 `vite-plugin-yaml` 直接 import 这些 YAML,避免 manifest 在 src/ 和
+scripts/ 两处重复。**
 
 **运行时加载:** 当前选中的 example × 当前语言 = 一组 5 个 JSON 文件。语言切换时
 重新 import 对应 `*.<lang>.json`。
@@ -305,8 +308,9 @@ src/data/
 校验。下面展示等价的 TS 类型签名以便阅读;实际仓库里的代码是对应的 Zod 定义。**
 
 **类型分两层:**
-- **manifest 层**(`example-manifest.ts`):保留 `{zh, en}` 双语对象,因为这是
-  录制配置和 UI 静态文案
+- **manifest 层**(`scripts/record/manifests/<id>.yaml`,通过 `vite-plugin-yaml`
+  在 UI 和录制脚本两端共用):保留 `{zh, en}` 双语对象,因为这是录制配置和 UI
+  静态文案的单一来源
 - **recording 层**(每个 example 目录下的 `*.zh.json` / `*.en.json`):**所有
   文本字段是单语言纯字符串**,因为两种语言的录制 shape 可能不同
 
@@ -379,7 +383,8 @@ type AgentLoopData = {
     observation: unknown;        // 可能被截短到 2000 字符,见 §6 规则 #4
   }>;
   terminationReason: 'text-final' | 'final-action-called' | 'max-iter';
-  terminationNote: string;       // 单语言
+  finalText?: string;            // 仅 terminationReason='text-final' 时存在,模型最后那段 text-only 回答
+  terminationNote: string;       // 一句话给用户的解释,单语言
 };
 
 type TopologyData = {
@@ -412,10 +417,12 @@ type TopologyData = {
 ```ts
 type Tool<Args, Result> = {
   name: string;
-  schema: JSONSchema;
-  isFinalAction?: boolean;       // 是否允许作为 agent loop 的终止动作
+  schema: JSONSchema;             // OpenAI function calling 的 parameters schema
   exec(args: Args, ctx: ToolContext): Promise<Result>;
 };
+// final-action 不在 Tool 本身声明,而是在 example manifest 的 `finalActionTools`
+// 列表里指定 —— 同一个 tool 在不同 example 里可能是 / 不是 final action,所以
+// 这是 per-example 的属性,不是 per-tool 的
 
 type ToolContext = {
   fs?: InMemoryFs;                                  // 内存 FS,仅 downloads 例子用
@@ -435,7 +442,7 @@ type ToolContext = {
 - Node 版(`scripts/record/node-context.ts`):`notify` / `clipboard` / `storage` 都是
   mock(打 log + 把数据塞进 in-memory map),`fetch` 用 Node 18+ 的内置 fetch
 
-| 工具 | final-action? | 执行方式 |
+| 工具 | 在当前 4 examples 里作为 final-action? | 执行方式 |
 |---|---|---|
 | `list_directory(path)` | 否 | `ctx.fs.list(path)`,fs 来自 `data/sandboxes/downloads-bigfiles/fs.json` 装入的 Map |
 | `get_file_size(path)` | 否 | `ctx.fs.stat(path).size` |
@@ -452,9 +459,9 @@ type ToolContext = {
 
 - 📦 sandbox(内存 FS) + 💾 纯本地副作用(`save_*` / `send_notification`):
   状态完全确定,运行时实跑必然等于录制时 observation。
-- 🌐 live API(weather / Wikipedia / HN): 远端会变。**v1 默认用 `topology.json`
+- 🌐 live API(weather / Wikipedia / HN): 远端会变。**v1 默认用 `topology.<lang>.json`
   里录制时捕获的 observation,不真调 live**(observation 是 agent-loops.ts 实跑
-  时的真实结果,落盘进 topology.json),以保证与模型预录 reasoning 一致;
+  时的真实结果,落盘进 topology.<lang>.json),以保证与模型预录 reasoning 一致;
   Station 5 提供一个"🔄 从 live 刷新"按钮,点击后真调一次 API。**刷新行为只更新
   Station 5 当前显示的 observation 卡片;Station 6/7 不受影响,因为它们的下游推理
   是基于录制时快照的**。刷新后 UI 显示一个浅黄横条:"⚠️ 你看到的是当前 live 数据。
@@ -478,7 +485,7 @@ type ToolContext = {
 | `sampling.ts` | 从 `logits.json` 的 steps 里**选熵最高**的那个作为 baseStep。**跑 4 次** OpenAI,共享前缀 prompt 到 baseStep,各自换 sampling 参数:greedy (`temperature:0`) / low-temp (`temperature:0.5`) / top-p (`top_p:0.9, temperature:1`) / high-temp (`temperature:1.5`);**故意不设 seed**(要看不同路径)。录后续 ~20 token | 4 |
 | `function-calls.ts` | **带 tools 模式**,system prompt 要求 `Thought: <一句话>\n然后调工具`,跑一次拿 reasoning + tool call。再跑两次额外抓 top-3 候选工具 | 1-3 |
 | `agent-loops.ts` | 跑两次完整 agent loop:`--mode=reactive` 用 ReAct 风 prompt;`--mode=deliberative` 用"先输出 plan,然后按 plan 执行"风 prompt。`MAX_ITERATIONS=10`。两次都用 `src/tools/*` + Node-context 真实执行工具 | 2 |
-| (无独立 cache-live.ts) | live 工具的 observation 在 `agent-loops.ts` 实跑时已落盘到 `topology.json`,无需独立缓存脚本 | — |
+| (无独立 cache-live.ts) | live 工具的 observation 在 `agent-loops.ts` 实跑时已落盘到 `topology.<lang>.json`,无需独立缓存脚本 | — |
 
 **总录制量估算:** 每 example ~8 次模型调用,× 2 语言 = ~16 次,× 4 example = ~64 次
 gpt-4.1 调用,总成本约 $3-8。
