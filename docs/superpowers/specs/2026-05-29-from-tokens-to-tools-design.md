@@ -42,6 +42,9 @@
 - **数据懒加载:** 首屏只 import 默认 example × 默认语言的 5 个 JSON。切例子或切
   语言时 `import('@/data/examples/' + id + '/topology.' + lang + '.json')` 等懒载,
   Vite 自动 code split。
+- **Loading 态:** 切例子/切语言触发的 import 通常 50-200ms。期间当前 station 的
+  内容透明度降到 0.4 + 显示一个小的"白板蹭笔"动画作为 loading 指示。加载完成后
+  渐显新内容。**禁止白屏。**
 
 ## 3. 技术栈
 
@@ -100,8 +103,13 @@
 ### Station 3 · Sampling(最 hands-on 的一站)
 
 - **What:** 从 Station 2 的分布里挑下一个 token,并继续往后走若干步。
-- **Visual:** 4 条彩色采样路径动画(greedy / top-k=5 / top-p=0.9 / temperature=1.5),
-  从同一个 baseStep 分岔出去。
+- **Visual:** 4 条彩色采样路径动画,从同一个 baseStep 分岔出去。
+  4 条路径用 **OpenAI Chat Completions 实际支持的参数组合**(OpenAI 不支持 `top_k`,
+  所以不用):
+  - `greedy` (`temperature=0`)
+  - `low-temp` (`temperature=0.5`)
+  - `top-p` (`top_p=0.9, temperature=1.0`)
+  - `high-temp` (`temperature=1.5`)
 - **关键:这 4 条路径是真实模型跑 4 次的结果**,不是离线模拟。每条路径在录制时
   都是用对应的采样参数实跑 OpenAI(共享前缀 prompt,只改 sampling 参数),
   录下完整的 ~20 token 后续序列。详见 §9 `sampling.ts`。
@@ -315,12 +323,23 @@ type Example = {
 
 // ========== recording 层(单语,每文件只装一种语言)==========
 
+// 所有 recording JSON 文件统一带 _meta 头部,记录录制来源
+type RecordingMeta = {
+  model: string;                 // e.g. "gpt-4.1"
+  recordedAt: string;            // ISO 8601
+  scriptVersion: string;         // e.g. "logits.ts@a8e8a32"
+  seed?: number;                 // sampling.ts 不带 seed,其他都带
+  lang: 'zh' | 'en';
+};
+
 type TokenizeData = {
+  _meta: RecordingMeta;
   prompt: string;                // 单语言:加载 tokenize.zh.json 拿 zh 版,反之亦然
   tokens: Array<{ id: number; text: string; byteRange: [number, number] }>;
 };
 
 type LogitsData = {
+  _meta: RecordingMeta;
   steps: Array<{
     stepIndex: number;
     contextPreview: string;
@@ -329,24 +348,27 @@ type LogitsData = {
 };
 
 type SamplingData = {
-  baseStep: number;
+  _meta: RecordingMeta;
+  baseStep: number;              // 从 logits.json 的 steps 里挑熵最高的那个 step 作为分岔点
   baseStepLogprobs: Array<{ token: string; tokenId: number; logprob: number }>;
   // 4 条 path 来自 4 次独立的 OpenAI 调用,共享前缀 prompt(到 baseStep 为止),
   // 只换 sampling 参数,各自录完整后续序列
   paths: Array<{
-    method: 'greedy' | 'topK' | 'topP' | 'temperature';
+    method: 'greedy' | 'low-temp' | 'top-p' | 'high-temp';
     params: Record<string, number>;
     tokens: string[];            // 真实录制的后续 token 序列,长度 ~15-25
   }>;
 };
 
 type FunctionCallData = {
+  _meta: RecordingMeta;
   reasoning: string;             // 单语言
   toolCandidates: Array<{ name: string; logprob: number }>;
   call: { name: string; arguments: Record<string, unknown> };
 };
 
 type AgentLoopData = {
+  // 注意:这是 nested 类型,不直接对应一个 JSON 文件;_meta 在外层 TopologyData
   iterations: Array<{
     thought: string;             // 从 ReAct prompt 强制输出的 "Thought:" 行 parse 出
     action: { name: string; arguments: Record<string, unknown> };
@@ -357,6 +379,7 @@ type AgentLoopData = {
 };
 
 type TopologyData = {
+  _meta: RecordingMeta;
   // 即 topology.zh.json / topology.en.json 的根 schema
   reactive: AgentLoopData;       // Station 5/6 都从这里取数据
   deliberative: {
@@ -448,7 +471,7 @@ type ToolContext = {
 |---|---|---|
 | `tokenize.ts` | 用 tiktoken (cl100k_base) 切 task prompt | 本地,0 API |
 | `logits.ts` | **纯文本回答模式**(不带 tools),OpenAI Chat Completions `logprobs:true, top_logprobs:20, temperature: 1.0`。从完整答复里挑 8-12 个 step。挑选启发式(按命中顺序,直到凑齐 8-12):(1) 熵高于阈值(> 1.5 nats);(2) top-1 与 top-2 logprob 差距 < 1.0(model 在两个 token 间犹豫);(3) top-1 是空白 / 标点 / 格式 token(教学点"格式 token 吃掉很多概率");(4) 兜底用均匀采样补齐 | 1 |
-| `sampling.ts` | 从 logits 录制中选一个 baseStep。**跑 4 次** OpenAI,共享前缀 prompt 到 baseStep,各自换 sampling 参数(greedy / top_k=5 / top_p=0.9 / temperature=1.5),录后续 ~20 token | 4 |
+| `sampling.ts` | 从 `logits.json` 的 steps 里**选熵最高**的那个作为 baseStep。**跑 4 次** OpenAI,共享前缀 prompt 到 baseStep,各自换 sampling 参数:greedy (`temperature:0`) / low-temp (`temperature:0.5`) / top-p (`top_p:0.9, temperature:1`) / high-temp (`temperature:1.5`);**故意不设 seed**(要看不同路径)。录后续 ~20 token | 4 |
 | `function-calls.ts` | **带 tools 模式**,system prompt 要求 `Thought: <一句话>\n然后调工具`,跑一次拿 reasoning + tool call。再跑两次额外抓 top-3 候选工具 | 1-3 |
 | `agent-loops.ts` | 跑两次完整 agent loop:`--mode=reactive` 用 ReAct 风 prompt;`--mode=deliberative` 用"先输出 plan,然后按 plan 执行"风 prompt。`MAX_ITERATIONS=10`。两次都用 `src/tools/*` + Node-context 真实执行工具 | 2 |
 | (无独立 cache-live.ts) | live 工具的 observation 在 `agent-loops.ts` 实跑时已落盘到 `topology.json`,无需独立缓存脚本 | — |
@@ -456,8 +479,27 @@ type ToolContext = {
 **总录制量估算:** 每 example ~8 次模型调用,× 2 语言 = ~16 次,× 4 example = ~64 次
 gpt-4.1 调用,总成本约 $3-8。
 
-**System prompt 模板**(每个 example 在 `manifests/<example-id>.yaml` 单独配置后
-合并通用骨架):
+**`manifests/<example-id>.yaml` schema:**
+
+```yaml
+id: downloads-bigfiles               # example id,与目录名一致
+name:
+  zh: "找大文件"
+  en: "Find big downloads"
+taskPrompt:
+  zh: "列出 ~/Downloads 里大于 1GB 的文件"
+  en: "List files larger than 1GB in ~/Downloads"
+tools:                               # 该 example 允许的 tool 名(实际定义在 src/tools/)
+  - list_directory
+  - get_file_size
+finalActionTools: []                 # text-final 终止;无 final action 工具
+systemPromptExtras:                  # 拼接到通用 system prompt 骨架后
+  zh: ""
+  en: ""
+sandboxFixture: downloads-bigfiles   # 引用 src/data/sandboxes/<id>/fs.json,可选
+```
+
+**System prompt 模板**(通用骨架,manifest 的 `systemPromptExtras` 拼到末尾):
 
 ```
 You are an autonomous agent. Available tools: <tool list>.
@@ -500,6 +542,12 @@ score by content, not just title.
 - **运行时不需要任何 API key**:所有预录 JSON 在 repo 里。
 - 运行 `npm run record -- --example=<example-id>` 触发该例子的全部脚本。
 - 模型默认 `gpt-4.1`,具体在 `scripts/record/config.ts` 里定义。
+- **`seed` 参数**:除 `sampling.ts` 外的所有脚本都设 `seed`(在 `config.ts` 里
+  定义,如 `seed: 42`),保证模型不变情况下可复现重录。sampling.ts 不设 seed
+  以保留路径间的真实差异。
+- **每个录制 JSON 包含 `_meta` 字段**记录来源:`{model, recordedAt, scriptVersion,
+  seed?: number, lang: 'zh'|'en'}`,便于后续追踪和 debug。Zod schema 把 `_meta`
+  作为必填头部。
 - 录制脚本输出的 JSON 在落盘前用 Zod schema 校验一遍(类型与 §7 对齐),
   防止结构漂移。
 - **Node 版本:** ≥ 18(为内置 fetch)。脚本用 `tsx` 直接跑 TS,不需要预编译。
