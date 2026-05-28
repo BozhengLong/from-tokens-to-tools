@@ -32,6 +32,16 @@
   1-(当前-1)显示新例子的"已看过"终态(final frame)。
 - **语言切换:** 切语言时如果当前 station 有 in-flight 动画(逐字流出之类),
   重置当前 station 的 timeline 到 0,文案换语言后重播。其他 station 文本静默替换。
+- **状态重置粒度(切例子 / 切语言时):** 重置范围包括 scroll-linked animation
+  progress、Station 3 的 sampling 参数(temperature/top-k/top-p 回默认)、
+  Station 5 的 observation 折叠态、Station 6 的 step-through 当前 iteration、
+  Station 7 的并行步进位置 —— **所有 station 的交互状态都回到默认值**。Zustand
+  store 提供一个 `resetAllStationState()` action。
+- **初始 example:** 默认加载 `downloads-bigfiles`(本地沙箱、无网络依赖、最直观
+  地贴近"控制电脑"主题)。
+- **数据懒加载:** 首屏只 import 默认 example × 默认语言的 5 个 JSON。切例子或切
+  语言时 `import('@/data/examples/' + id + '/topology.' + lang + '.json')` 等懒载,
+  Vite 自动 code split。
 
 ## 3. 技术栈
 
@@ -41,9 +51,13 @@
 - **Zustand**(全局 state:current example / current language / 各 station 的动画
   timeline 进度 / `ToolOutputStore`)。轻、对 Framer Motion 友好、不用 Context 嵌套
 - **Zod**(运行时 JSON schema 校验,见 §11)
-- KaTeX(只用于 Station 3 的 softmax 公式;通过 dynamic import 懒加载,不进首屏 bundle)
-- Patrick Hand / Caveat 字体(手写体,自托管 woff2,通过 CSS `font-display: swap`
-  懒加载,首屏先用系统衬线)
+- KaTeX(只用于 Station 3 的 softmax 公式;JS + CSS 都通过 dynamic import 懒加载,
+  不进首屏 bundle)
+- 字体全部**自托管 woff2**(零网络依赖):
+  - Patrick Hand / Caveat(手写体,用于标题和钩子)—— `font-display: swap`,
+    首屏先用系统衬线 fallback
+  - Inter(正文无衬线)—— 用 `inter-var.woff2` variable font,~20KB,
+    `font-display: swap`
 - 沙箱: 自研轻量内存 FS(`Map<path, {size, mtime}>`,只存元数据,无文件内容)。
   不引 `@zenfs/core` —— 该例子只用到 `list_directory` / `get_file_size`,真实 FS API 是 overkill
 - 静态构建,部署到 Netlify / Vercel / GitHub Pages 任意
@@ -65,6 +79,9 @@
 - **CJK 边界处理:** BPE 是 byte-level,中文字符可能跨多个 byte token。胶囊上
   标注"占 N 个字节",hover 时高亮原文中对应的 byte range,即便它不是完整字符
   也照实展示(这本身就是教学点:"模型看到的不是字符,是 UTF-8 字节的 BPE 重组")。
+- **实现注意:** `byteRange` 是 UTF-8 字节索引;JS 字符串是 UTF-16 code units。
+  高亮映射需用 `TextEncoder.encode(prompt)` 得到字节数组,然后用累积长度反查
+  字符串切片位置。封装在 `utils/byteToCharRange.ts`。
 - **Interact:** 切换 example 重放;hover 任意 token 看高亮原文位置。
 - **钩子:** "AI 不读字。它读的是这串数字。"
 
@@ -152,13 +169,28 @@
     编号步骤列表),**然后**按 plan 逐步执行,中途不允许重新规划。
 - **Visual:** 左右分栏。左侧 Station 6 的回路时间线(已建立)。右侧白板上先画出
   完整 plan(编号列表 + 箭头),然后每个 step 依次"打勾",观察过程中 plan 不变。
-- **Interact:** 并行步进两侧;到任意时点暂停看对比;切换不同 example 看两种拓扑
+  iterations 列表很长时垂直滚动(单侧分栏内滚动,不影响页面滚动)。
+- **Interact:** 步进控件默认**左右联动(lockstep)**,便于一对一对比;提供
+  "解耦"切换让两侧独立步进。暂停 / resume 影响双侧。切换不同 example 看两种拓扑
   对相同任务的差异表现。
 - **钩子:** "同一个任务,两种 agent。一个是'走着看',一个是'想清楚再走'。
   真实的 Claude / Codex 是两者混合。"
 - **教学点:** Deliberative 拓扑提前承诺了路径,如果中途某步失败/被环境改变,
   reactive 能调整,deliberative 会撞墙。这是 agent 设计里真实存在的权衡 ——
   我们不用造一个深度任务树来强行展示"规划",规划本身的存在与权衡才是要讲的东西。
+
+### Epilogue · 故事的收束
+
+Station 7 之后页面到底。展示一段 2-3 句的总结(中英双语):
+> "你刚才走过的 7 个台阶,每一步都是一个**约定**(或一个**设计选择**)。它们叠在
+> 一起,把一个只会输出概率分布的神经网络,变成一个可以控制你电脑的 agent。
+> 没有魔法,只有约定。"
+
+收束段下方放 4 个链接:本项目源码 / `recording-notes.md`(看录制流程透明度)/
+README roadmap / 致谢(列出引用的论文 / 参考站点,例如 3B1B、ReAct 论文、
+OpenAI 文档)。
+
+不放评论区、不放邮件订阅、不放分享按钮 —— 收束应该收束,不再要用户的下一个动作。
 
 ## 5. 4 个 Example
 
@@ -173,13 +205,16 @@
 | `wikipedia-tweet` | 读 Wikipedia "Transformer (machine learning model)" 条目,写一条 ≤280 字符的 tweet 介绍它 | `fetch_wikipedia_article`, `save_tweet_draft({text})` | `save_tweet_draft` | 提炼要点、压缩到 280 字 | 🌐 cached(Wikipedia API)+ 💾 真剪贴板写入 |
 | `hn-weekend-pick` | 拉 HN top 30,挑一个最适合周末读的 | `fetch_hn_top`, `fetch_hn_story(id)`, `save_recommendation({id, title, reason})` | `save_recommendation` | 评估周末适合度、挑选、写理由 | 🌐 cached(HN API)+ 💾 真 localStorage 写入 |
 
-**final-action 工具有真副作用**(详见 §8):
-- `send_notification` → 真 `new Notification(...)`,无权限时降级 toast
-- `save_tweet_draft` → 真 `navigator.clipboard.writeText(...)`,把 tweet 文本写到剪贴板
-- `save_recommendation` → 真 `localStorage.setItem(...)`,下次访问能在 onboarding 处看到上次的推荐
+**final-action 工具有真副作用**(详见 §8;受浏览器 API 的用户手势约束做了适配):
+- `send_notification` → 浏览器 `Notification.permission` 三分支处理(granted 真发 /
+  denied 直接 toast / default 走 toast + 内嵌"启用通知"链接以满足手势要求)
+- `save_tweet_draft` → 渲染推文卡片 + "📋 复制"按钮,**用户点击**才真调
+  `navigator.clipboard.writeText`(规避 scroll-driven 回放无法满足用户手势的限制)
+- `save_recommendation` → 真 `localStorage.setItem(...)`(无手势限制),下次访问
+  在 onboarding 处看到上次的推荐
 
 这样 Station 5 钩子"**你的代码**动你的硬盘 / 浏览器"在每个 example 都有可证实的兑现 ——
-不是纯展示用的"假交付物"。
+不是纯展示用的"假交付物",但也诚实承认浏览器安全模型对自动回放的限制。
 
 ## 6. 数据完整性规则
 
@@ -193,11 +228,20 @@
    `temperature`),录完整后续 token 序列。
 3. **Tool 执行 = 真代码,真沙箱。** 不存在手编 observation。
 4. **截断允许,改写禁止。** 文本太长用 `slice(0, n)` 截 + 省略号,
-   不删中间几句话。
-5. **双语:** 同一 prompt 跑两次(zh / en),分别存,承认两种语言下推理路径
-   可能略有不同。每个 example 的总录制量约为:logits ×1 + sampling ×4 + 
-   function-calls ×1 + agent-loops ×2(reactive + deliberative) = ~8 次模型调用,
-   ×2 语言 = ~16 次。4 examples 约 64 次模型调用,gpt-4.1 总成本估算 $3-8。
+   不删中间几句话。具体规则:
+   - reasoning / thought 文本:每个 ≤ 500 字符,超出尾部截
+   - tool observation 文本字段(如 Wikipedia 文章正文):≤ 2000 字符,
+     截后附 `"... [truncated, original N chars]"` 标记
+   - **录制时模型看到的是完整 observation**(从工具实际返回),只是落盘进 JSON
+     时截短。模型的下游推理基于完整内容,显示给用户的是截短版 —— 这一点 UI
+     在 Station 5 标注"展示已截短,原长 N 字符"
+5. **双语:** 同一 prompt 跑两次(zh / en),分别存,承认两种语言下**推理路径**
+   **以及 tool 调用序列本身都可能不同**(模型在不同语言下可能 fetch 不同次数、
+   选择不同 tool 顺序)。UI 不假设 zh / en 同构,Station 6 / 7 的 iterations
+   长度和 plan 结构可以异质。**这本身是教学点:语言条件化影响 agent 行为。**
+   每个 example 的总录制量约为:logits ×1 + sampling ×4 + function-calls ×1 +
+   agent-loops ×2(reactive + deliberative) = ~8 次模型调用,×2 语言 = ~16 次。
+   4 examples 约 64 次模型调用,gpt-4.1 总成本估算 $3-8。
 6. **唯一一处"重算"允许:** Station 3 的 temperature 滑块在前端基于真实抓到的
    top-20 logprobs **重新 softmax**(只影响 baseStep 一步的视觉柔化,不影响已录的
    4 条完整路径),这是把模型的真实分布在 vocab 子空间里做温度变换 ——
@@ -214,12 +258,16 @@ src/data/
 ├── examples/
 │   ├── example-manifest.ts
 │   ├── downloads-bigfiles/
-│   │   ├── tokenize.json
-│   │   ├── logits.json
-│   │   ├── sampling.json
-│   │   ├── function-calls.json
-│   │   ├── execution.json        # live 工具的缓存 observation(运行时默认源)
-│   │   └── topology.json         # Station 6 读 .reactive,Station 7 读完整(避免重复存)
+│   │   ├── tokenize.zh.json
+│   │   ├── tokenize.en.json
+│   │   ├── logits.zh.json
+│   │   ├── logits.en.json
+│   │   ├── sampling.zh.json
+│   │   ├── sampling.en.json
+│   │   ├── function-calls.zh.json
+│   │   ├── function-calls.en.json
+│   │   ├── topology.zh.json
+│   │   └── topology.en.json
 │   ├── shanghai-weather/
 │   ├── wikipedia-tweet/
 │   └── hn-weekend-pick/
@@ -229,9 +277,29 @@ src/data/
 └── i18n/{zh,en}.ts
 ```
 
-### 7.2 核心 TypeScript 类型(`src/types/recording.ts` 节选)
+**文件按语言拆的原因:** 两种语言的录制可能产生不同 iteration 数、不同 tool 序列
+(见 §6 规则 #5)。如果用 `{zh, en}` 嵌套对象,无法表达"zh 5 轮、en 7 轮"。
+所以每个数据文件内的 `thought` / `observation` / `terminationNote` / `reasoning`
+都是**单语言纯字符串**,不再嵌套 `{zh, en}` 对象。
+只有 manifest(`example-manifest.ts` 里的 `name` / `taskPrompt` /
+`ToolSpec.description`)保留 `{zh, en}` 形式,因为那是录制配置 + UI 静态文案。
+
+**运行时加载:** 当前选中的 example × 当前语言 = 一组 5 个 JSON 文件。语言切换时
+重新 import 对应 `*.<lang>.json`。
+
+### 7.2 核心数据 schema (`src/types/schemas.ts`,Zod-first)
+
+**单一来源原则:用 Zod 写 schema,TS 类型用 `z.infer` 推出,Zod 同时承担运行时
+校验。下面展示等价的 TS 类型签名以便阅读;实际仓库里的代码是对应的 Zod 定义。**
+
+**类型分两层:**
+- **manifest 层**(`example-manifest.ts`):保留 `{zh, en}` 双语对象,因为这是
+  录制配置和 UI 静态文案
+- **recording 层**(每个 example 目录下的 `*.zh.json` / `*.en.json`):**所有
+  文本字段是单语言纯字符串**,因为两种语言的录制 shape 可能不同
 
 ```ts
+// ========== manifest 层(双语) ==========
 type ToolSpec = {
   name: string;                  // 例如 "list_directory"
   description: { zh: string; en: string };
@@ -242,11 +310,13 @@ type Example = {
   id: string;
   name: { zh: string; en: string };
   taskPrompt: { zh: string; en: string };
-  tools: ToolSpec[];             // 该 example 允许使用的工具集
+  tools: ToolSpec[];
 };
 
+// ========== recording 层(单语,每文件只装一种语言)==========
+
 type TokenizeData = {
-  prompt: string;
+  prompt: string;                // 单语言:加载 tokenize.zh.json 拿 zh 版,反之亦然
   tokens: Array<{ id: number; text: string; byteRange: [number, number] }>;
 };
 
@@ -266,41 +336,42 @@ type SamplingData = {
   paths: Array<{
     method: 'greedy' | 'topK' | 'topP' | 'temperature';
     params: Record<string, number>;
-    tokens: string[];  // 真实录制的后续 token 序列,长度 ~15-25
+    tokens: string[];            // 真实录制的后续 token 序列,长度 ~15-25
   }>;
 };
 
 type FunctionCallData = {
-  reasoning: { zh: string; en: string };
+  reasoning: string;             // 单语言
   toolCandidates: Array<{ name: string; logprob: number }>;
   call: { name: string; arguments: Record<string, unknown> };
 };
 
 type AgentLoopData = {
   iterations: Array<{
-    thought: { zh: string; en: string };       // 从 ReAct prompt 强制输出的 "Thought:" 行 parse 出
+    thought: string;             // 从 ReAct prompt 强制输出的 "Thought:" 行 parse 出
     action: { name: string; arguments: Record<string, unknown> };
-    observation: unknown;
+    observation: unknown;        // 可能被截短到 2000 字符,见 §6 规则 #4
   }>;
   terminationReason: 'text-final' | 'final-action-called' | 'max-iter';
-  terminationNote: { zh: string; en: string };  // 给用户看的一句话解释
+  terminationNote: string;       // 单语言
 };
 
-type TopologyComparisonData = {
-  // Station 7 用:同一 example,两种 agent 拓扑各跑一遍
-  reactive: AgentLoopData;       // 复用 Station 6 的格式
+type TopologyData = {
+  // 即 topology.zh.json / topology.en.json 的根 schema
+  reactive: AgentLoopData;       // Station 5/6 都从这里取数据
   deliberative: {
     plan: Array<{
       id: string;
-      stepLabel: { zh: string; en: string };
+      stepLabel: string;         // 单语言
       expectedToolCall?: { name: string; arguments: Record<string, unknown> };
     }>;
     execution: Array<{
-      planStepId: string;
+      planStepId: string | null; // null = 模型未按 plan 执行的 unplanned 步骤
       actualCall: { name: string; arguments: Record<string, unknown> };
       observation: unknown;
+      deviated: boolean;
     }>;
-    notes: { zh: string; en: string };  // "plan 与 execution 是否完全吻合"的说明
+    deviationSummary: string;    // 单语言
   };
 };
 ```
@@ -342,9 +413,9 @@ type ToolContext = {
 | `list_directory(path)` | 否 | `ctx.fs.list(path)`,fs 来自 `data/sandboxes/downloads-bigfiles/fs.json` 装入的 Map |
 | `get_file_size(path)` | 否 | `ctx.fs.stat(path).size` |
 | `get_weather(city, date)` | 否 | `ctx.fetch('https://api.open-meteo.com/v1/forecast?...')` |
-| `send_notification({title, body})` | **是** | `ctx.notify({title, body})`,返回 `{delivered, channel}` |
+| `send_notification({title, body})` | **是** | `ctx.notify({title, body})`,返回 `{delivered, channel}`。浏览器实现按 `Notification.permission` 三分:`granted` 真发系统通知;`denied` 直接 toast;`default` 走 toast + 角落渲染"启用系统通知"链接,链接 onClick 调 `requestPermission`(满足用户手势)|
 | `fetch_wikipedia_article(title)` | 否 | `ctx.fetch('https://en.wikipedia.org/w/api.php?action=parse&page=...&prop=text&format=json&origin=*')`,从返回 HTML 抽 plain text |
-| `save_tweet_draft({text})` | **是** | 校验 `text.length <= 280`;`ctx.clipboard.writeText(text)`;UI 渲染推文卡片;返回 `{copiedToClipboard: true, length}` |
+| `save_tweet_draft({text})` | **是** | 校验 `text.length <= 280`;**UI 渲染推文卡片 + 一个"📋 复制"按钮**(浏览器要求 `clipboard.writeText` 在用户手势内调用,所以不在 agent loop 回放里自动写,而是等用户点按钮)。返回 `{cardRendered: true, text, length}`。点了复制按钮后再调 `ctx.clipboard.writeText` |
 | `fetch_hn_top()` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/topstories.json')`,取前 30 |
 | `fetch_hn_story(id)` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')` |
 | `save_recommendation({story_id, title, reason})` | **是** | `ctx.storage.setItem('last-rec', JSON.stringify({...}))`;UI 渲染推荐卡片;返回 `{saved: true, key: 'last-rec'}` |
@@ -354,11 +425,14 @@ type ToolContext = {
 
 - 📦 sandbox(内存 FS) + 💾 纯本地副作用(`save_*` / `send_notification`):
   状态完全确定,运行时实跑必然等于录制时 observation。
-- 🌐 live API(weather / Wikipedia / HN): 远端会变。**v1 默认用 `execution.json`
-  缓存里的 observation,不真调 live**,以保证与模型预录 reasoning 一致;
-  Station 5 提供一个"🔄 从 live 刷新"按钮,点击后真调一次 API,UI 显著标注
-  "刷新结果与预录推理可能不符 —— 这正是预录 demo 的局限,v1.1 Live 模式会解决"。
-  Wikipedia API 对客户端 CORS 友好(`origin=*`),且无 rate limit 焦虑。
+- 🌐 live API(weather / Wikipedia / HN): 远端会变。**v1 默认用 `topology.json`
+  里录制时捕获的 observation,不真调 live**(observation 是 agent-loops.ts 实跑
+  时的真实结果,落盘进 topology.json),以保证与模型预录 reasoning 一致;
+  Station 5 提供一个"🔄 从 live 刷新"按钮,点击后真调一次 API。**刷新行为只更新
+  Station 5 当前显示的 observation 卡片;Station 6/7 不受影响,因为它们的下游推理
+  是基于录制时快照的**。刷新后 UI 显示一个浅黄横条:"⚠️ 你看到的是当前 live 数据。
+  下面的 agent 推理仍来自录制时的快照(可能不符)。"诚实标注矛盾,比强行同步两边
+  更教学友好。Wikipedia API 对客户端 CORS 友好(`origin=*`),且无 rate limit 焦虑。
 
 **录制时使用 Node-context:** `send_notification` / `save_*` 实际不弹通知 /
 不写真剪贴板,只产生 mock observation。这些 observation 仍是"真"的(由真代码
@@ -373,11 +447,11 @@ type ToolContext = {
 | 脚本 | 干啥 | 调用次数 / example |
 |---|---|---|
 | `tokenize.ts` | 用 tiktoken (cl100k_base) 切 task prompt | 本地,0 API |
-| `logits.ts` | **纯文本回答模式**(不带 tools),OpenAI Chat Completions `logprobs:true, top_logprobs:20, temperature: 1.0`。抓答复中 8-12 个有教学意义的 step | 1 |
+| `logits.ts` | **纯文本回答模式**(不带 tools),OpenAI Chat Completions `logprobs:true, top_logprobs:20, temperature: 1.0`。从完整答复里挑 8-12 个 step。挑选启发式(按命中顺序,直到凑齐 8-12):(1) 熵高于阈值(> 1.5 nats);(2) top-1 与 top-2 logprob 差距 < 1.0(model 在两个 token 间犹豫);(3) top-1 是空白 / 标点 / 格式 token(教学点"格式 token 吃掉很多概率");(4) 兜底用均匀采样补齐 | 1 |
 | `sampling.ts` | 从 logits 录制中选一个 baseStep。**跑 4 次** OpenAI,共享前缀 prompt 到 baseStep,各自换 sampling 参数(greedy / top_k=5 / top_p=0.9 / temperature=1.5),录后续 ~20 token | 4 |
 | `function-calls.ts` | **带 tools 模式**,system prompt 要求 `Thought: <一句话>\n然后调工具`,跑一次拿 reasoning + tool call。再跑两次额外抓 top-3 候选工具 | 1-3 |
 | `agent-loops.ts` | 跑两次完整 agent loop:`--mode=reactive` 用 ReAct 风 prompt;`--mode=deliberative` 用"先输出 plan,然后按 plan 执行"风 prompt。`MAX_ITERATIONS=10`。两次都用 `src/tools/*` + Node-context 真实执行工具 | 2 |
-| `cache-live.ts` | 对每个 🌐 live 工具调一次,把 observation 缓存到 `execution.json`,作为运行时默认数据源 | 0(只调 public API) |
+| (无独立 cache-live.ts) | live 工具的 observation 在 `agent-loops.ts` 实跑时已落盘到 `topology.json`,无需独立缓存脚本 | — |
 
 **总录制量估算:** 每 example ~8 次模型调用,× 2 语言 = ~16 次,× 4 example = ~64 次
 gpt-4.1 调用,总成本约 $3-8。
@@ -387,6 +461,10 @@ gpt-4.1 调用,总成本约 $3-8。
 
 ```
 You are an autonomous agent. Available tools: <tool list>.
+
+LANGUAGE: Respond ONLY in <zh-CN | en>. All "Thought:" lines, intermediate text,
+and final answer must be in that language. Tool arguments (paths, IDs) are
+language-neutral and stay as-is.
 
 CRITICAL FORMAT RULES:
 1. Before EVERY tool call, output exactly one line starting with "Thought: " 
@@ -402,7 +480,17 @@ First, output a numbered plan (1. 2. 3. ...) of the tool calls you intend to mak
 Then execute the plan in order without revising it. If a step fails, continue to
 the next step and note the failure in your final response.
 </deliberative-only>
+
+<example-specific extras: e.g. for hn-weekend-pick:>
+Before recommending, fetch full details of AT LEAST 5 top stories so you can
+score by content, not just title.
+</example-specific>
 ```
+
+**录制脚本的错误处理:**
+- 工具调用失败(网络 5xx / Wikipedia 503 / 等)→ 重试 3 次,指数退避(1s/3s/9s)
+- 仍失败 → 脚本 exit code 非零,人工介入决定重试或调整 prompt
+- **CI 不跑录制脚本**。录制是一次性 artifact,commit 进 git,重录是有意为之的更新
 
 **约定:**
 
@@ -441,9 +529,9 @@ the next step and note the failure in your final response.
 | 剪贴板写入失败(`save_tweet_draft`,权限或环境限制) | UI 显示"复制失败,请手动复制下方文本",同时展示文本框可手动选中 |
 | 内存 FS 加载 fixture 失败 | downloads 例子的 station 5/6/7 占位"沙箱数据加载失败" |
 
-**Zod 校验:** 所有 `data/examples/*/*.json` 在 React 组件首次读取时通过 `src/types/
-schemas.ts`(由 §7 的 TS 类型生成对应 Zod schema)校验。校验失败直接走"录制数据
-未就绪"占位 —— **绝不允许半残的数据混进 UI 渲染**。
+**Zod 校验:** 所有 `data/examples/*/*.{zh,en}.json` 在 React 组件首次读取时通过
+`src/types/schemas.ts` 的 Zod schema(§7 的 TS 类型由 Zod 推出,Zod 是单一来源)
+校验。校验失败直接走"录制数据未就绪"占位 —— **绝不允许半残的数据混进 UI 渲染**。
 
 **不做:** 全局错误边界、Sentry、重试策略、错误上报。
 
@@ -504,20 +592,20 @@ from-tokens-to-tools/
 │   ├── styles/theme.css        # 白板主题
 │   ├── components/
 │   │   ├── whiteboard/         # InkArrow / ChalkText / TokenChip / ProbBar
-│   │   ├── stations/           # Tokenize / Logits / Sampling / FunctionCall / Execution / AgentLoop / TopologyComparison
-│   │   ├── layout/             # Header / ProgressBar / ExampleSelector / LanguageToggle
+│   │   ├── stations/           # Tokenize / Logits / Sampling / FunctionCall / Execution / AgentLoop / Topology / Epilogue
+│   │   ├── layout/             # Header / ProgressBar / ExampleSelector / LanguageToggle / Epilogue
 │   │   └── shared/
 │   ├── hooks/                  # useExample / useLanguage / useStationData / useScrollProgress
 │   ├── tools/                  # list_directory / get_file_size / get_weather / send_notification / fetch_wikipedia_article / save_tweet_draft / fetch_hn_top / fetch_hn_story / save_recommendation
 │   ├── runtime/                # browser-context.ts(ToolContext 浏览器版)
 │   ├── state/                  # Zustand stores
 │   ├── data/
-│   │   ├── examples/<example-id>/<station>.json
+│   │   ├── examples/<example-id>/<station>.{zh,en}.json
 │   │   ├── sandboxes/<example-id>/fs.json
 │   │   └── i18n/{zh,en}.ts
 │   ├── types/
 │   └── utils/sampling.ts
-├── scripts/record/             # config.ts / node-context.ts / tokenize.ts / logits.ts / sampling.ts / function-calls.ts / agent-loops.ts / cache-live.ts / manifests/<example-id>.yaml
+├── scripts/record/             # config.ts / node-context.ts / tokenize.ts / logits.ts / sampling.ts / function-calls.ts / agent-loops.ts / manifests/<example-id>.yaml
 └── docs/
     ├── recording-notes.md      # 录制流程 + 系统 prompts + 数据完整性规则
     └── superpowers/specs/      # 本文件所在目录
