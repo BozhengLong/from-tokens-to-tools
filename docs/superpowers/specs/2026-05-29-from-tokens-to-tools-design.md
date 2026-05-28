@@ -483,7 +483,7 @@ type ToolContext = {
 | `tokenize.ts` | 用 tiktoken (cl100k_base) 切 task prompt | 本地,0 API |
 | `logits.ts` | **纯文本回答模式**(不带 tools),OpenAI Chat Completions `logprobs:true, top_logprobs:20, temperature: 1.0`。从完整答复里挑 8-12 个 step。挑选启发式(按命中顺序,直到凑齐 8-12):(1) 熵高于阈值(> 1.5 nats);(2) top-1 与 top-2 logprob 差距 < 1.0(model 在两个 token 间犹豫);(3) top-1 是空白 / 标点 / 格式 token(教学点"格式 token 吃掉很多概率");(4) 兜底用均匀采样补齐 | 1 |
 | `sampling.ts` | 从 `logits.json` 的 steps 里**选熵最高**的那个作为 baseStep。**跑 4 次** OpenAI,共享前缀 prompt 到 baseStep,各自换 sampling 参数:greedy (`temperature:0`) / low-temp (`temperature:0.5`) / top-p (`top_p:0.9, temperature:1`) / high-temp (`temperature:1.5`);**故意不设 seed**(要看不同路径)。录后续 ~20 token | 4 |
-| `function-calls.ts` | **带 tools 模式**,system prompt 要求 `Thought: <一句话>\n然后调工具`,跑一次拿 reasoning + tool call。再跑两次额外抓 top-3 候选工具 | 1-3 |
+| `function-calls.ts` | **带 tools 模式**,**与 agent-loops.ts reactive 模式用同一 system prompt + 同一 seed**(保证 first tool call 与 Station 5 实跑一致),`logprobs:true`。从 response 提取:(a) thought 文本;(b) tool call;(c) 工具名第一个 token 的 top-3 logprobs(作为"模型在考虑哪些工具"的候选展示)。**约束:script 启动时先 dry-run agent-loops.ts reactive 的第一步并对比,call 不一致则 fail-loud**。 | 1 |
 | `agent-loops.ts` | 跑两次完整 agent loop:`--mode=reactive` 用 ReAct 风 prompt;`--mode=deliberative` 用"先输出 plan,然后按 plan 执行"风 prompt。`MAX_ITERATIONS=10`。两次都用 `src/tools/*` + Node-context 真实执行工具 | 2 |
 | (无独立 cache-live.ts) | live 工具的 observation 在 `agent-loops.ts` 实跑时已落盘到 `topology.<lang>.json`,无需独立缓存脚本 | — |
 
