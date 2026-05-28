@@ -1,0 +1,16 @@
+id: hn-weekend-pick
+name:
+  zh: "HN 周末读物"
+  en: "HN weekend pick"
+taskPrompt:
+  zh: "拉 Hacker News 当前 top 10,先看标题挑出 3-5 个可能适合周末细读的故事,再 fetch 这些故事的详情(text/url),最后选 1 个推荐并写一段简短理由。"
+  en: "Fetch HN top 10. From titles, pick 3-5 stories that look suitable for weekend reading. Fetch their details. Recommend one and write a short reason."
+tools:
+  - fetch_hn_top
+  - fetch_hn_story
+  - save_recommendation
+finalActionTools:
+  - save_recommendation
+systemPromptExtras:
+  zh: "在 save_recommendation 之前必须先 fetch 至少 3 个 story 的详情。"
+  en: "Before save_recommendation, fetch details of at least 3 stories."

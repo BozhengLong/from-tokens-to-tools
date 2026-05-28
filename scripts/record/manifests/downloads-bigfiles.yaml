@@ -1,0 +1,12 @@
+id: downloads-bigfiles
+name:
+  zh: "找大文件"
+  en: "Find big downloads"
+taskPrompt:
+  zh: "列出 ~/Downloads 文件夹里大于 1GB 的文件,按大小从大到小排列。"
+  en: "List files in ~/Downloads larger than 1GB, sorted from largest to smallest."
+tools:
+  - list_directory
+  - get_file_size
+finalActionTools: []
+sandboxFixture: downloads-bigfiles

@@ -1,0 +1,12 @@
+id: shanghai-weather
+name:
+  zh: "上海天气提醒"
+  en: "Shanghai weather reminder"
+taskPrompt:
+  zh: "查一下上海明天的天气,如果有雨或有较高降水概率,提醒我带伞。"
+  en: "Check tomorrow's weather in Shanghai. If it's rainy or has high precipitation probability, remind me to bring an umbrella."
+tools:
+  - get_weather
+  - send_notification
+finalActionTools:
+  - send_notification

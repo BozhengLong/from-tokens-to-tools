@@ -1,0 +1,12 @@
+id: wikipedia-tweet
+name:
+  zh: "Transformer 推文"
+  en: "Transformer tweet"
+taskPrompt:
+  zh: "读 Wikipedia 上 'Transformer (machine learning model)' 条目的开头摘要,写一条 280 字符以内的推文向新手介绍它。"
+  en: "Read the lead section of the Wikipedia article 'Transformer (machine learning model)' and write a tweet (≤280 chars) introducing it to a newcomer."
+tools:
+  - fetch_wikipedia_article
+  - save_tweet_draft
+finalActionTools:
+  - save_tweet_draft
