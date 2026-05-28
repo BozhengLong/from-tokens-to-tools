@@ -1,16 +1,29 @@
 // scripts/record/tokenize.ts
 import { writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
-import { encoding_for_model } from 'tiktoken';
+import { encoding_for_model, type TiktokenModel, type Tiktoken } from 'tiktoken';
 import { loadManifest } from './manifest-loader.js';
-import { PATHS } from './config.js';
+import { PATHS, RECORDING_CONFIG } from './config.js';
 import { TokenizeDataSchema, type TokenizeData } from '../../src/types/schemas.js';
+
+// Pick the tokenizer matching the chat model so Station 1 reflects what the
+// model that actually generated the recording sees. tiktoken's known-model
+// list varies by version; fall back to gpt-4 (cl100k_base) if the chat model
+// isn't recognized.
+function encodingForChatModel(): { enc: Tiktoken; tokenizer: string } {
+  const model = RECORDING_CONFIG.model;
+  try {
+    return { enc: encoding_for_model(model as TiktokenModel), tokenizer: model };
+  } catch {
+    return { enc: encoding_for_model('gpt-4'), tokenizer: 'cl100k_base (fallback)' };
+  }
+}
 
 export async function runTokenize(exampleId: string, lang: 'zh' | 'en'): Promise<void> {
   const manifest = loadManifest(exampleId);
   const prompt = manifest.taskPrompt[lang];
 
-  const enc = encoding_for_model('gpt-4'); // cl100k_base
+  const { enc, tokenizer } = encodingForChatModel();
   const tokenIds = enc.encode(prompt);
 
   const promptBytes = new TextEncoder().encode(prompt);
@@ -33,7 +46,7 @@ export async function runTokenize(exampleId: string, lang: 'zh' | 'en'): Promise
 
   const data: TokenizeData = {
     _meta: {
-      model: 'cl100k_base',
+      model: tokenizer,
       recordedAt: new Date().toISOString(),
       scriptVersion: 'tokenize.ts',
       lang,

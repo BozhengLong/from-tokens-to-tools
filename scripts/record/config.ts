@@ -1,6 +1,6 @@
 // scripts/record/config.ts
 export const RECORDING_CONFIG = {
-  model: 'gpt-4.1',
+  model: 'gpt-4o',
   seed: 42,                          // for reproducibility; sampling.ts overrides
   topLogprobs: 20,
   maxIterations: 10,                 // agent-loops cap
