@@ -39,6 +39,8 @@
   store 提供一个 `resetAllStationState()` action。
 - **初始 example:** 默认加载 `downloads-bigfiles`(本地沙箱、无网络依赖、最直观
   地贴近"控制电脑"主题)。
+- **默认 UI 语言:** zh(主要受众是中文读者)。用户可顶部 toggle 切换;选择会写入
+  localStorage,下次访问保留。
 - **数据懒加载:** 首屏只 import 默认 example × 默认语言的 5 个 JSON。切例子或切
   语言时 `import('@/data/examples/' + id + '/topology.' + lang + '.json')` 等懒载,
   Vite 自动 code split。
@@ -58,13 +60,12 @@
   不进首屏 bundle)
 - 字体全部**自托管 woff2**(零网络依赖):
   - **Patrick Hand / Caveat(手写体,只用于英文标题和钩子)** —— 这两个字体
-    是 Latin-only,**zh 模式下中文标题自动 fall through 到系统手写体或无衬线**
-    (`-apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
-    sans-serif`)。"白板感"在 zh 模式靠 stroke 和布局营造,不强求手写体字体
-  - Inter Variable(英文正文)—— subset 后 ~80KB woff2;`font-display: swap`
-  - **中文正文**用系统字体栈,不打包 web 字体(完整 CJK web font 太重,subset
-    工程量大,运行时受益有限);UI 默认走系统 `PingFang SC` / `Microsoft YaHei` /
-    `Noto Sans CJK SC`
+    是 Latin-only,合计约 60KB。**仅当 UI 语言为 en 时按需 lazy load**;zh 模式
+    不加载,中文标题用系统 CJK 字体栈
+  - Inter Variable(英文正文)—— subset 后 ~80KB woff2;**en 模式才加载**
+  - **中文字体**用系统栈,不打包 web 字体(完整 CJK web font 太重,subset
+    工程量大,运行时受益有限):`-apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Microsoft YaHei", "Noto Sans CJK SC", sans-serif`
 - 沙箱: 自研轻量内存 FS(`Map<path, {size, mtime}>`,只存元数据,无文件内容)。
   不引 `@zenfs/core` —— 该例子只用到 `list_directory` / `get_file_size`,真实 FS API 是 overkill
 - 静态构建,部署到 Netlify / Vercel / GitHub Pages 任意
@@ -633,19 +634,23 @@ score by content, not just title.
 ## 14. Roadmap(README 注明,不在 v1 工作量内)
 
 - **v1.1 Live 模式**:用户填 baseURL + apiKey + provider(Anthropic / OpenAI /
-  Ollama / OpenRouter),Station 2/4/6 切到真调。key 只存 localStorage,
-  无后端。
+  Ollama / OpenRouter),Station 2/3/4/6/7 都切到真调(Station 1 本就纯本地,
+  Station 5 已支持 live 刷新)。key 只存 localStorage,无后端。
 - **v1.2 用户自定义 example**:填 prompt + 选工具,触发一次 live 录制,
   落地新 example。
 - **v1.3 可分享的路径快照**:把滚动位置 + 例子 ID + 采样参数编码到 URL。
 
 ## 15. 性能预算
 
-- 首屏 < 300KB gzip(基线估算:React+ReactDOM ~45KB / Framer Motion ~50KB /
-  Tailwind purged ~10KB / Zustand+Zod ~10KB / Inter Variable subset ~80KB /
-  Patrick Hand+Caveat woff2 各 ~10KB / 默认 example 的 5 个 JSON ~50KB)
-- 切例子或切语言时新数据 < 100KB gzip
-- KaTeX(JS+CSS ~80KB)和 Wikipedia 的 plain text 提取依赖,**全部懒载**,不进首屏
+- 首屏 < 250KB gzip(默认 zh 模式不加载英文字体)。基线估算:
+  React+ReactDOM ~45KB / Framer Motion ~50KB / Tailwind purged ~10KB /
+  Zustand+Zod ~10KB / 默认 example 默认语言的 5 个 JSON ~20KB gzip /
+  App 代码 ~30-50KB ≈ **总 175-195KB gzip**
+- 切例子 / 切语言时新数据 < 30KB gzip(JSON 文件)
+- **懒加载(不进首屏 bundle):**
+  - Inter Variable subset (~80KB) —— 切到 en 模式时加载
+  - Patrick Hand + Caveat (~60KB) —— 切到 en 模式时加载
+  - KaTeX JS + CSS (~80KB) —— 滚到 Station 3 时加载
 - 滚动 60 fps(动画只用 transform / opacity)
 
 ## 16. 完整目录结构
