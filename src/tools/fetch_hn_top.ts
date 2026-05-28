@@ -7,11 +7,15 @@ type Result = { stories: Story[] } | { error: 'fetch-failed' };
 
 const TIMEOUT_MS = 5000;
 
-const withTimeout = <T>(p: Promise<T>, ms: number): Promise<T> =>
-  Promise.race([
-    p,
-    new Promise<never>((_, rej) => setTimeout(() => rej(new Error('timeout')), ms)),
-  ]);
+const withTimeout = <T>(p: Promise<T>, ms: number): Promise<T> => {
+  let timer: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_, rej) => {
+    timer = setTimeout(() => rej(new Error('timeout')), ms);
+  });
+  // clearTimeout in finally so the timer never outlives the race —
+  // otherwise up to 11 dangling 5s timers per call keep the Node event loop alive.
+  return Promise.race([p, timeout]).finally(() => clearTimeout(timer));
+};
 
 export const fetchHnTopTool: Tool<Args, Result> = {
   name: 'fetch_hn_top',

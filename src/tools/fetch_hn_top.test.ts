@@ -1,5 +1,5 @@
 // src/tools/fetch_hn_top.test.ts
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { fetchHnTopTool } from './fetch_hn_top';
 import type { ToolContext } from './types';
 
@@ -42,5 +42,16 @@ describe('fetch_hn_top', () => {
     const out = await fetchHnTopTool.exec({}, mockCtx(makeFetch(responses)));
     const stories = (out as any).stories;
     expect(stories.map((s: any) => s.id)).toEqual([1, 3]);
+  });
+
+  it('returns fetch-failed when the top request never resolves (timeout branch)', async () => {
+    vi.useFakeTimers();
+    // fetch that never settles, forcing the 5s withTimeout race to reject
+    const neverFetch = (() => new Promise<Response>(() => {})) as typeof fetch;
+    const promise = fetchHnTopTool.exec({}, mockCtx(neverFetch));
+    await vi.advanceTimersByTimeAsync(5001);
+    const out = await promise;
+    expect((out as any).error).toBe('fetch-failed');
+    vi.useRealTimers();
   });
 });
