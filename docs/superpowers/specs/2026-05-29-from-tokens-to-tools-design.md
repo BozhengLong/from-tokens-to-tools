@@ -57,10 +57,14 @@
 - KaTeX(只用于 Station 3 的 softmax 公式;JS + CSS 都通过 dynamic import 懒加载,
   不进首屏 bundle)
 - 字体全部**自托管 woff2**(零网络依赖):
-  - Patrick Hand / Caveat(手写体,用于标题和钩子)—— `font-display: swap`,
-    首屏先用系统衬线 fallback
-  - Inter(正文无衬线)—— 用 `inter-var.woff2` variable font,~20KB,
-    `font-display: swap`
+  - **Patrick Hand / Caveat(手写体,只用于英文标题和钩子)** —— 这两个字体
+    是 Latin-only,**zh 模式下中文标题自动 fall through 到系统手写体或无衬线**
+    (`-apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
+    sans-serif`)。"白板感"在 zh 模式靠 stroke 和布局营造,不强求手写体字体
+  - Inter Variable(英文正文)—— subset 后 ~80KB woff2;`font-display: swap`
+  - **中文正文**用系统字体栈,不打包 web 字体(完整 CJK web font 太重,subset
+    工程量大,运行时受益有限);UI 默认走系统 `PingFang SC` / `Microsoft YaHei` /
+    `Noto Sans CJK SC`
 - 沙箱: 自研轻量内存 FS(`Map<path, {size, mtime}>`,只存元数据,无文件内容)。
   不引 `@zenfs/core` —— 该例子只用到 `list_directory` / `get_file_size`,真实 FS API 是 overkill
 - 静态构建,部署到 Netlify / Vercel / GitHub Pages 任意
@@ -437,10 +441,10 @@ type ToolContext = {
 | `get_file_size(path)` | 否 | `ctx.fs.stat(path).size` |
 | `get_weather(city, date)` | 否 | `ctx.fetch('https://api.open-meteo.com/v1/forecast?...')` |
 | `send_notification({title, body})` | **是** | `ctx.notify({title, body})`,返回 `{delivered, channel}`。浏览器实现按 `Notification.permission` 三分:`granted` 真发系统通知;`denied` 直接 toast;`default` 走 toast + 角落渲染"启用系统通知"链接,链接 onClick 调 `requestPermission`(满足用户手势)|
-| `fetch_wikipedia_article(title)` | 否 | `ctx.fetch('https://en.wikipedia.org/w/api.php?action=parse&page=...&prop=text&format=json&origin=*')`,从返回 HTML 抽 plain text |
+| `fetch_wikipedia_article(title)` | 否 | `ctx.fetch('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=' + encodeURIComponent(title) + '&format=json&origin=*')`,直接返回纯文本 lead section,无需 HTML 解析 |
 | `save_tweet_draft({text})` | **是** | 校验 `text.length <= 280`;**UI 渲染推文卡片 + 一个"📋 复制"按钮**(浏览器要求 `clipboard.writeText` 在用户手势内调用,所以不在 agent loop 回放里自动写,而是等用户点按钮)。返回 `{cardRendered: true, text, length}`。点了复制按钮后再调 `ctx.clipboard.writeText` |
-| `fetch_hn_top()` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/topstories.json')`,取前 30 |
-| `fetch_hn_story(id)` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')` |
+| `fetch_hn_top()` | 否 | 内部并行 `ctx.fetch('https://hacker-news.firebaseio.com/v0/topstories.json')` 拿 ID 列表,**取前 10 个 ID 并行 fetch 每个 item** 得到 `[{id, title, score, url?, type}, ...]`。一次返回带标题的 top 10,模型据此挑选要深入了解的少数几个 |
+| `fetch_hn_story(id)` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')`,返回 `{id, type, title, by, time, score, url?, text?, descendants?}`,其中 `text` 是 Ask HN / 评论的正文,`url` 是 link 类型的外链,二者通常二选一 |
 | `save_recommendation({story_id, title, reason})` | **是** | `ctx.storage.setItem('last-rec', JSON.stringify({...}))`;UI 渲染推荐卡片;返回 `{saved: true, key: 'last-rec'}` |
 
 **沙箱 + 工具的不变量:** 录制时和运行时跑同一份沙箱 fixture + 同一份工具实现,
@@ -554,8 +558,10 @@ score by content, not just title.
 
 ## 10. UI / 样式 / i18n
 
-- 白板主题: 米白底 `#FAF7F0` + 墨黑文字 `#1A1A1A` + 强调蓝/橙;手写体仅用于
-  标题和钩子文案,正文用无衬线(Inter)。所有文字-背景对比度 ≥ WCAG AA(4.5:1)。
+- 白板主题: 米白底 `#FAF7F0` + 墨黑文字 `#1A1A1A` + 强调蓝/橙。手写体(Patrick
+  Hand / Caveat)只在 **en 模式**的标题/钩子用;**zh 模式**标题用系统 CJK 字体
+  (`PingFang SC` 等)。正文统一无衬线(Inter for en、系统字体 for zh)。所有
+  文字-背景对比度 ≥ WCAG AA(4.5:1)。
 - 动画原则: 只用 transform / opacity,不触发 layout;每个 station 内部动画
   绑定 0-1 的 scroll progress(站内进度,不是全局)。
 - i18n: `src/data/i18n/{zh,en}.ts` 导出嵌套 key-value;组件用 `useLanguage()`
@@ -616,9 +622,11 @@ score by content, not just title.
 
 ## 15. 性能预算
 
-- 首屏 < 300KB gzip(React + Framer Motion + Tailwind 大致占 150KB,加壳和第一个
-  例子的数据)
-- 切例子时新例子的数据 < 100KB gzip
+- 首屏 < 300KB gzip(基线估算:React+ReactDOM ~45KB / Framer Motion ~50KB /
+  Tailwind purged ~10KB / Zustand+Zod ~10KB / Inter Variable subset ~80KB /
+  Patrick Hand+Caveat woff2 各 ~10KB / 默认 example 的 5 个 JSON ~50KB)
+- 切例子或切语言时新数据 < 100KB gzip
+- KaTeX(JS+CSS ~80KB)和 Wikipedia 的 plain text 提取依赖,**全部懒载**,不进首屏
 - 滚动 60 fps(动画只用 transform / opacity)
 
 ## 16. 完整目录结构
