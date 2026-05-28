@@ -36,8 +36,13 @@
 - Framer Motion(scroll-linked animations)
 - KaTeX(零星公式)
 - Patrick Hand / Caveat 字体(手写体,做"白板感"标题)
-- 沙箱: `@zenfs/core` 浏览器内虚拟文件系统(用于 Downloads 例子)
+- 沙箱: 自研轻量内存 FS(`Map<path, {size, mtime}>`,只存元数据,无文件内容)。
+  不引 `@zenfs/core` —— 该例子只用到 `list_directory` / `get_file_size`,真实 FS API 是 overkill
 - 静态构建,部署到 Netlify / Vercel / GitHub Pages 任意
+
+**模型提供商:全程 OpenAI(或 OpenAI 兼容代理)。** 同时支持 logprobs 和 function calling,
+7 站叙事主体始终是同一个模型。录制时读 `OPENAI_API_KEY` + `OPENAI_BASE_URL` 两个环境变量,
+后者允许指向自托管的 LiteLLM 代理。运行时零依赖。
 
 ## 4. 7 个 Station
 
@@ -52,21 +57,28 @@
 - **Interact:** 切换 example 重放;hover 任意 token 看高亮原文位置。
 - **钩子:** "AI 不读字。它读的是这串数字。"
 
-### Station 2 · Forward → Logits → 概率分布
+### Station 2 · Forward → Logprobs → 概率分布
 
-- **What:** 前缀 prompt 喂入"一次前向",产出 vocab 上的 logits。
+- **What:** 前缀 prompt 喂入"一次前向",模型对下一个 token 给出一个 vocab 上的分布。
 - **Visual:** 前缀 token 滑入抽象的"Transformer 黑盒"(白板上画的齿轮,故意不细究)→
-  右边出来 logits 数组 → softmax → top-20 概率柱状图(横向条,按 logprob 排序)。
-- **Interact:** 时间步滑块切换不同 step 的分布(预录);hover 单根柱看具体 token。
-- **钩子:** "每一步,模型给出整个词表的可能性投票。"
+  右边浮出 top-20 概率柱状图(横向条,按概率降序)。
+- **数据真实性说明:** OpenAI 的 `logprobs:true, top_logprobs:20` 返回 top-20 的
+  **logprobs**(不是完整 logits)。我们 `exp()` 后归一化得到 top-20 概率。完整 vocab
+  分布我们看不到。UI 在小字标注"展示 top-20 概率,完整词表分布对外不可见"。
+- **Interact:** 时间步滑块切换该 example 的不同 step 的分布(从预录里挑了 8-12 个有
+  教学意义的步);hover 单根柱看具体 token 文本。
+- **钩子:** "每一步,模型给出整个词表的可能性投票。我们能看到的是票数最高的 20 个。"
 
 ### Station 3 · Sampling(最 hands-on 的一站)
 
 - **What:** 从 Station 2 的分布里挑下一个 token。
 - **Visual:** 同一份 top-20 分布上,叠加 4 条彩色采样路径动画
   (greedy / top-k=5 / top-p=0.9 / temperature=1.5)。
-- **Interact:** temperature 滑块 (0→2) 实时改变分布柔化(纯前端 softmax 重算);
-  top-k / top-p 切换;"重新采样"按钮看随机路径。
+- **Interact:** temperature 滑块 (0→2) 实时改变分布柔化(纯前端在 logprobs 上
+  重新 softmax);top-k / top-p 切换;"重新采样"按钮看随机路径。
+- **温度变换的局限:** 由于我们只有 top-20,temperature 升高时本应"复活"的低概率
+  长尾 token 看不见。UI 小字标注"温度只影响可见 top-20 内部的相对比例;真实的
+  长尾分布我们看不到"。这本身也是个诚实的教学点。
 - **钩子:** "看,'确定性' 是个滑块。"
 
 ### Station 4 · 结构化输出 / Function Call 决策(最关键的一站)
@@ -99,35 +111,54 @@
 - **Interact:** 步进按钮(一步步推进);自动播放;点任意轮回看详情。
 - **钩子:** "一个 while 循环。条件是模型自己说停。"
 
-### Station 7 · 多步规划 / 任务拆解
+### Station 7 · Reactive vs Deliberative(两种 agent 拓扑)
 
-- **What:** 大任务被拆成子任务树,逐个执行。
-- **Visual:** 白板上画一棵任务树:根节点是用户原始任务,展开为 N 个子任务,
-  每个子任务节点关联到自己的 agent loop;随着执行,完成的节点打勾。
-- **Interact:** 折叠/展开任意子任务节点。
-- **钩子:** "Agent Loop 套 Agent Loop。一层规划,一层执行。"
+- **What:** 同一个 example,用两种 agent 拓扑跑两遍,并列展示对比。
+  - **Reactive(承接 Station 6):** ReAct 风格,模型走一步看一步,每轮重新决定
+    下一个 tool call。
+  - **Deliberative:** 先用一个特殊 system prompt 让模型**先输出完整 plan**(一份
+    编号步骤列表),**然后**按 plan 逐步执行,中途不允许重新规划。
+- **Visual:** 左右分栏。左侧 Station 6 的回路时间线(已建立)。右侧白板上先画出
+  完整 plan(编号列表 + 箭头),然后每个 step 依次"打勾",观察过程中 plan 不变。
+- **Interact:** 并行步进两侧;到任意时点暂停看对比;切换不同 example 看两种拓扑
+  对相同任务的差异表现。
+- **钩子:** "同一个任务,两种 agent。一个是'走着看',一个是'想清楚再走'。
+  真实的 Claude / Codex 是两者混合。"
+- **教学点:** Deliberative 拓扑提前承诺了路径,如果中途某步失败/被环境改变,
+  reactive 能调整,deliberative 会撞墙。这是 agent 设计里真实存在的权衡 ——
+  我们不用造一个深度任务树来强行展示"规划",规划本身的存在与权衡才是要讲的东西。
 
 ## 5. 4 个 Example
 
-| ID | 任务 | 工具链 | Station 5 模式 |
-|---|---|---|---|
-| `downloads-bigfiles` | 列出 `~/Downloads` 里大于 1GB 的文件 | `list_directory` → `get_file_size` → `filter` | 📦 sandbox(虚拟 FS) |
-| `shanghai-weather` | 查上海明天天气 + 提醒带伞 | `get_weather` → `should_remind` → `send_notification` | 🌐 live(open-meteo.com)+ 📦(浏览器 Notification API)|
-| `readme-pr` | 读某 repo 的 README,总结,起草 PR 描述 | `fetch_readme` → `summarize`(模型本身) → `draft_pr_description` | 🌐 live(GitHub public API,只读) |
-| `hn-weekend-pick` | 拉 HN 今天前 5 条,挑一个最适合周末读的 | `fetch_hn_top` → `score_for_weekend` → `recommend` | 🌐 live(HN public API)|
+**Tool 的定义(严格):** 工具是**真代码执行的 I/O 或副作用**,模型本身无法完成。
+模型用 reasoning 做的事(过滤、判断、总结、评分、挑选)**不是工具**,在 demo 里
+它们留在 Station 4 的 reasoning 流里,不会出现在 Station 5 的执行框中。
+
+| ID | 任务 | 工具(只有真代码) | 模型 reasoning 里做的 | Station 5 模式 |
+|---|---|---|---|---|
+| `downloads-bigfiles` | 列出 `~/Downloads` 里大于 1GB 的文件 | `list_directory`, `get_file_size` | 按大小过滤、组织答案 | 📦 sandbox(内存 FS,只存元数据) |
+| `shanghai-weather` | 查上海明天天气 + 提醒带伞 | `get_weather`, `send_notification` | 判断是否要提醒、撰写提醒文案 | 🌐 live(open-meteo)+ 📦(Notification API) |
+| `readme-pr` | 读某 repo 的 README,起草 PR 描述 | `fetch_readme`, `save_pr_draft({title, body})` | 总结 README、撰写 PR 标题与正文 | 🌐 live(GitHub public API,只读) |
+| `hn-weekend-pick` | 拉 HN top 30,挑一个最适合周末读的 | `fetch_hn_top`, `fetch_hn_story(id)`, `save_recommendation({id, title, reason})` | 评估周末适合度、挑选、写推荐理由 | 🌐 live(HN public API) |
+
+`save_pr_draft` 和 `save_recommendation` 是"final action"工具 —— 模型把最终产出
+作为参数交付给 runtime,UI 上呈现为"交付物卡片"。这让每个 example 都有可见的结尾。
 
 ## 6. 数据完整性规则
 
 **这是本 demo 不容协商的规则。** 写在 `docs/recording-notes.md` 公开:
 
-1. **模型输出 = 100% 真实。** reasoning / logits / tool call / 采样路径,
-   全部来自实跑 API,不修改一个字符。需要短就**重跑**直到拿到合适输出,
+1. **模型输出 = 100% 真实。** reasoning / logprobs / tool call / 采样起点,
+   全部来自实跑 OpenAI API,不修改一个字符。需要短就**重跑**直到拿到合适输出,
    或调整 system prompt(prompt 也存进 `recording-notes.md`)。
 2. **Tool 执行 = 真代码,真沙箱。** 不存在手编 observation。
 3. **截断允许,改写禁止。** 文本太长用 `slice(0, n)` 截 + 省略号,
    不删中间几句话。
 4. **双语:** 同一 prompt 跑两次(zh / en),分别存,承认两种语言下推理路径
    可能略有不同。
+5. **唯一一处"重算"允许:** Station 3 的 temperature 滑块在前端基于真实抓到的
+   top-20 logprobs **重新 softmax**,这不是造假,这是把模型的真实分布在 vocab 子
+   空间里做温度变换 —— 数学上正确,UI 标注清楚"温度只作用在 top-20 内部"。
 
 ## 7. 数据模型
 
@@ -142,9 +173,9 @@ src/data/
 │   │   ├── logits.json
 │   │   ├── sampling.json
 │   │   ├── function-calls.json
-│   │   ├── execution.json       # 真跑沙箱后的缓存(也作为离线 fallback)
-│   │   ├── agent-loop.json
-│   │   └── planning.json
+│   │   ├── execution.json        # live 工具的缓存 observation(运行时默认源)
+│   │   ├── agent-loop.json       # Station 6 用:reactive 模式的完整 loop 录制
+│   │   └── topology.json         # Station 7 用:reactive + deliberative 两份对比数据
 │   ├── shanghai-weather/
 │   ├── readme-pr/
 │   └── hn-weekend-pick/
@@ -157,11 +188,17 @@ src/data/
 ### 7.2 核心 TypeScript 类型(`src/types/recording.ts` 节选)
 
 ```ts
+type ToolSpec = {
+  name: string;                  // 例如 "list_directory"
+  description: { zh: string; en: string };
+  parameters: JSONSchema;        // OpenAI function calling 的 schema 格式
+};
+
 type Example = {
   id: string;
   name: { zh: string; en: string };
   taskPrompt: { zh: string; en: string };
-  tools: ToolSpec[];
+  tools: ToolSpec[];             // 该 example 允许使用的工具集
 };
 
 type TokenizeData = {
@@ -201,17 +238,22 @@ type AgentLoopData = {
   terminationReason: { zh: string; en: string };
 };
 
-type PlanningData = {
-  rootGoal: { zh: string; en: string };
-  tree: PlanNode;
-};
-
-type PlanNode = {
-  id: string;
-  label: { zh: string; en: string };
-  status: 'pending' | 'done';
-  children?: PlanNode[];
-  loopRef?: string;
+type TopologyComparisonData = {
+  // Station 7 用:同一 example,两种 agent 拓扑各跑一遍
+  reactive: AgentLoopData;       // 复用 Station 6 的格式
+  deliberative: {
+    plan: Array<{
+      id: string;
+      stepLabel: { zh: string; en: string };
+      expectedToolCall?: { name: string; arguments: Record<string, unknown> };
+    }>;
+    execution: Array<{
+      planStepId: string;
+      actualCall: { name: string; arguments: Record<string, unknown> };
+      observation: unknown;
+    }>;
+    notes: { zh: string; en: string };  // "plan 与 execution 是否完全吻合"的说明
+  };
 };
 ```
 
@@ -223,25 +265,32 @@ type PlanNode = {
 type Tool<Args, Result> = {
   name: string;
   schema: JSONSchema;
-  exec(args: Args, sandbox?: Sandbox): Promise<Result>;
+  exec(args: Args, ctx: ToolContext): Promise<Result>;
+};
+
+type ToolContext = {
+  fs?: InMemoryFs;               // 内存 FS,仅 downloads 例子用
+  store: ToolOutputStore;        // 收集 save_* 工具的最终交付物
 };
 ```
 
 | 工具 | 执行方式 |
 |---|---|
-| `list_directory` / `get_file_size` | `@zenfs/core` 虚拟 FS,初始状态从 `data/sandboxes/downloads-bigfiles/fs.json` 加载 |
-| `get_weather` | `fetch('https://api.open-meteo.com/...')` |
-| `send_notification` | `new Notification(...)` 浏览器 API,拒绝授权时降级为页内 toast |
-| `fetch_readme` | `fetch('https://api.github.com/repos/.../readme')`,base64 解码 |
-| `draft_pr_description` | 本地纯函数,根据 README 摘要 + 模型预录输出生成 PR 描述 markdown |
-| `fetch_hn_top` | `fetch('https://hacker-news.firebaseio.com/v0/topstories.json')` 等 |
-| `score_for_weekend` / `recommend` | 本地纯函数 |
+| `list_directory(path)` | 读 `data/sandboxes/downloads-bigfiles/fs.json`(20-30 条 fixture)装入 `Map<path, {size, mtime}>`,返回路径下的条目 |
+| `get_file_size(path)` | 同上,返回 size |
+| `get_weather(city, date)` | `fetch('https://api.open-meteo.com/v1/forecast?...')`,带 cache fallback |
+| `send_notification({title, body})` | 调用 `new Notification(...)`,无权限时降级为页内 toast,返回 `{delivered: true \| false, channel}` |
+| `fetch_readme(owner, repo)` | `fetch('https://api.github.com/repos/.../readme')`,base64 解码 |
+| `save_pr_draft({title, body})` | 写入 `ToolOutputStore`,UI 渲染为"PR 草稿卡片"。无外部副作用 |
+| `fetch_hn_top()` | `fetch('https://hacker-news.firebaseio.com/v0/topstories.json')`,取前 30 |
+| `fetch_hn_story(id)` | `fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')` |
+| `save_recommendation({story_id, title, reason})` | 写入 `ToolOutputStore`,UI 渲染为"推荐卡片"。无外部副作用 |
 
-**沙箱 + 工具的不变量:** 录制时和运行时跑同一份沙箱状态 + 同一份工具实现,
+**沙箱 + 工具的不变量:** 录制时和运行时跑同一份沙箱 fixture + 同一份工具实现,
 所以"录制时的 observation"和"运行时实跑的 observation"必须一致。
 
-- 📦 sandbox(虚拟 FS)和本地纯函数: 状态完全确定,运行时实跑必然等于录制时
-  observation。
+- 📦 sandbox(内存 FS) + 纯本地工具(`save_*`): 状态完全确定,运行时实跑必然
+  等于录制时 observation。
 - 🌐 live API(weather / HN / GitHub): 远端会变。**v1 默认用 `execution.json`
   缓存里的 observation,不真调 live**,以保证与模型预录 reasoning 一致;
   Station 5 提供一个"🔄 从 live 刷新"按钮,点击后真调一次 API,UI 显著标注
@@ -249,24 +298,26 @@ type Tool<Args, Result> = {
 
 ## 9. 预录流程
 
-`scripts/record/` 下的 Node + TS 脚本:
+`scripts/record/` 下的 Node + TS 脚本,**全部基于 OpenAI(或兼容代理)**:
 
 | 脚本 | 干啥 | 调谁 |
 |---|---|---|
 | `tokenize.ts` | 用 tiktoken 切 prompt | 本地 |
-| `logits.ts` | OpenAI `logprobs:true, top_logprobs:20` 抓多步分布 | OpenAI API |
-| `sampling.ts` | 基于已抓 logits 离线模拟 4 种采样策略 | 纯计算 |
-| `function-calls.ts` | Anthropic tool use 拿真实 reasoning + call | `ANTHROPIC_API_KEY` |
-| `agent-loop.ts` | 跑一次真实 agent loop(3-5 轮),工具用 `src/tools/*` 真实执行 | `ANTHROPIC_API_KEY` |
-| `planning.ts` | 手写任务树 YAML → 转 JSON | 本地 |
-| `cache-live.ts` | 对每个 🌐 live 工具调一次,把 observation 缓存到 `execution.json`,作为离线 fallback | 各 public API |
+| `logits.ts` | OpenAI Chat Completions `logprobs:true, top_logprobs:20`,抓答复中 8-12 个有教学意义的 step | OpenAI |
+| `sampling.ts` | 基于已抓 logprobs 离线模拟 4 种采样策略 | 纯计算 |
+| `function-calls.ts` | OpenAI function calling 拿真实 reasoning + tool call,展开 top-3 候选工具 | OpenAI |
+| `agent-loops.ts` | 跑两次完整 agent loop:`--mode=reactive` 用 ReAct 风 prompt;`--mode=deliberative` 用"先输出 plan 再执行"风 prompt。两次都用 `src/tools/*` 真实执行工具 | OpenAI + 本地工具 |
+| `cache-live.ts` | 对每个 🌐 live 工具调一次,把 observation 缓存到 `execution.json`,作为运行时默认数据源 | 各 public API |
 
 **约定:**
 
-- 录制脚本读 `process.env.ANTHROPIC_API_KEY`(用户 `.zshrc` 已有)。
+- 录制脚本读 `process.env.OPENAI_API_KEY` 和 `process.env.OPENAI_BASE_URL`
+  (后者允许指向自托管的 LiteLLM 代理)。
 - `.env.example` 提供模板,`.env` 进 `.gitignore`。
 - **运行时不需要任何 API key**:所有预录 JSON 在 repo 里。
-- 运行 `npm run record:<example-id>` 触发该例子的全部脚本。
+- 运行 `npm run record -- --example=<example-id>` 触发该例子的全部脚本。
+- 模型默认 `gpt-4.1`(或代理后端能解析的同级别模型),具体在
+  `scripts/record/config.ts` 里定义。
 
 ## 10. UI / 样式 / i18n
 
@@ -284,7 +335,7 @@ type Tool<Args, Result> = {
 | 例子 JSON 加载失败 | 该 station 占位"录制数据未就绪",其他站正常 |
 | Live API 调用(用户点🔄刷新时)失败 | 显示 toast "实时调用失败,继续展示缓存结果",不破坏当前 station 状态 |
 | Notification 权限被拒 | 降级为页内 toast,文案说明 |
-| 虚拟 FS 初始化失败(老浏览器) | 该例子 station 5/6/7 占位"需要现代浏览器" |
+| 内存 FS 加载 fixture 失败 | downloads 例子的 station 5/6/7 占位"沙箱数据加载失败" |
 
 **不做:** 全局错误边界、Sentry、重试策略。
 
@@ -319,9 +370,10 @@ type Tool<Args, Result> = {
 
 ## 15. 性能预算
 
-- 首屏 < 200KB gzip(壳 + 第一个例子的 tokenize+logits)
-- 切例子时新例子的数据 < 100KB
-- 滚动 60 fps
+- 首屏 < 300KB gzip(React + Framer Motion + Tailwind 大致占 150KB,加壳和第一个
+  例子的数据)
+- 切例子时新例子的数据 < 100KB gzip
+- 滚动 60 fps(动画只用 transform / opacity)
 
 ## 16. 完整目录结构
 
@@ -342,18 +394,18 @@ from-tokens-to-tools/
 │   ├── styles/theme.css        # 白板主题
 │   ├── components/
 │   │   ├── whiteboard/         # InkArrow / ChalkText / TokenChip / ProbBar
-│   │   ├── stations/           # Tokenize / Logits / Sampling / FunctionCall / Execution / AgentLoop / Planning
+│   │   ├── stations/           # Tokenize / Logits / Sampling / FunctionCall / Execution / AgentLoop / TopologyComparison
 │   │   ├── layout/             # Header / ProgressBar / ExampleSelector / LanguageToggle
 │   │   └── shared/
 │   ├── hooks/                  # useExample / useLanguage / useStationData / useScrollProgress
-│   ├── tools/                  # list_directory / get_file_size / get_weather / send_notification / fetch_readme / draft_pr_description / fetch_hn_top / score_for_weekend / recommend
+│   ├── tools/                  # list_directory / get_file_size / get_weather / send_notification / fetch_readme / save_pr_draft / fetch_hn_top / fetch_hn_story / save_recommendation
 │   ├── data/
 │   │   ├── examples/<example-id>/<station>.json
 │   │   ├── sandboxes/<example-id>/fs.json
 │   │   └── i18n/{zh,en}.ts
 │   ├── types/
 │   └── utils/sampling.ts
-├── scripts/record/             # tokenize.ts / logits.ts / sampling.ts / function-calls.ts / agent-loop.ts / planning.ts / cache-live.ts
+├── scripts/record/             # config.ts / tokenize.ts / logits.ts / sampling.ts / function-calls.ts / agent-loops.ts / cache-live.ts
 └── docs/
     ├── recording-notes.md      # 录制流程 + 系统 prompts + 数据完整性规则
     └── superpowers/specs/      # 本文件所在目录
