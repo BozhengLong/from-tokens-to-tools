@@ -448,10 +448,10 @@ type ToolContext = {
 | `get_file_size(path)` | 否 | `ctx.fs.stat(path).size` |
 | `get_weather(city, date)` | 否 | `ctx.fetch('https://api.open-meteo.com/v1/forecast?...')` |
 | `send_notification({title, body})` | **是** | `ctx.notify({title, body})`,返回 `{delivered, channel}`。浏览器实现按 `Notification.permission` 三分:`granted` 真发系统通知;`denied` 直接 toast;`default` 走 toast + 角落渲染"启用系统通知"链接,链接 onClick 调 `requestPermission`(满足用户手势)|
-| `fetch_wikipedia_article(title)` | 否 | `ctx.fetch('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=' + encodeURIComponent(title) + '&format=json&origin=*')`,直接返回纯文本 lead section,无需 HTML 解析 |
+| `fetch_wikipedia_article(title)` | 否 | `ctx.fetch('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=' + encodeURIComponent(title) + '&format=json&origin=*')`,直接返回纯文本 lead section,无需 HTML 解析。响应里 `pages` 对象的 page id 是 `-1` 或带 `missing` 字段表示标题不存在,工具返回 `{error: 'missingtitle'}` |
 | `save_tweet_draft({text})` | **是** | 校验 `text.length <= 280`;**UI 渲染推文卡片 + 一个"📋 复制"按钮**(浏览器要求 `clipboard.writeText` 在用户手势内调用,所以不在 agent loop 回放里自动写,而是等用户点按钮)。返回 `{cardRendered: true, text, length}`。点了复制按钮后再调 `ctx.clipboard.writeText` |
-| `fetch_hn_top()` | 否 | 内部并行 `ctx.fetch('https://hacker-news.firebaseio.com/v0/topstories.json')` 拿 ID 列表,**取前 10 个 ID 并行 fetch 每个 item** 得到 `[{id, title, score, url?, type}, ...]`。一次返回带标题的 top 10,模型据此挑选要深入了解的少数几个 |
-| `fetch_hn_story(id)` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')`,返回 `{id, type, title, by, time, score, url?, text?, descendants?}`,其中 `text` 是 Ask HN / 评论的正文,`url` 是 link 类型的外链,二者通常二选一 |
+| `fetch_hn_top()` | 否 | 内部并行 `ctx.fetch('https://hacker-news.firebaseio.com/v0/topstories.json')` 拿 ID 列表,**取前 10 个 ID 并行 fetch 每个 item**(每个 fetch 5s 超时),过滤 `{deleted: true}` 项,得到 `[{id, title, score, url?, type}, ...]`。一次返回带标题的 top 10,模型据此挑选要深入了解的少数几个 |
+| `fetch_hn_story(id)` | 否 | `ctx.fetch('https://hacker-news.firebaseio.com/v0/item/{id}.json')`,返回 `{id, type, title, by, time, score, url?, text?, descendants?}`,其中 `text` 是 Ask HN / 评论的正文,`url` 是 link 类型的外链,二者通常二选一。`{deleted: true}` / `{dead: true}` 时返回 `{error: 'unavailable'}` |
 | `save_recommendation({story_id, title, reason})` | **是** | `ctx.storage.setItem('last-rec', JSON.stringify({...}))`;UI 渲染推荐卡片;返回 `{saved: true, key: 'last-rec'}` |
 
 **沙箱 + 工具的不变量:** 录制时和运行时跑同一份沙箱 fixture + 同一份工具实现,
@@ -555,7 +555,16 @@ score by content, not just title.
 - 模型默认 `gpt-4.1`,具体在 `scripts/record/config.ts` 里定义。
 - **`seed` 参数**:除 `sampling.ts` 外的所有脚本都设 `seed`(在 `config.ts` 里
   定义,如 `seed: 42`),保证模型不变情况下可复现重录。sampling.ts 不设 seed
-  以保留路径间的真实差异。
+  以保留路径间的真实差异。OpenAI 文档说明 seed 是 best-effort、后端升级可能
+  打破复现性 —— recording-notes 里注明。
+- **`stream: false`**:所有录制请求**非流式**。logits.ts 必须非流式(因为
+  logprobs 在流式响应里的字段位置和聚合方式更复杂);其他脚本统一非流式以简化。
+- **`parallel_tool_calls: false`**:OpenAI 默认允许并行 tool call。我们关掉,
+  每轮单次 tool call,Station 6 的 Thought→Action→Observation 单一节奏更清晰。
+- **Deliberative 模式 plan 解析:** 模型输出 `1. ... 2. ...` 的编号列表。
+  `agent-loops.ts --mode=deliberative` 用正则 `/^\d+\.\s+(.+)$/m` 提取条目。
+  如果格式不符 → 重试最多 3 次(prompt 加 reminder),仍失败 → 录制脚本 exit
+  非零,人工调整 prompt。
 - **每个录制 JSON 包含 `_meta` 字段**记录来源:`{model, recordedAt, scriptVersion,
   seed?: number, lang: 'zh'|'en'}`,便于后续追踪和 debug。Zod schema 把 `_meta`
   作为必填头部。
@@ -617,6 +626,9 @@ score by content, not just title.
 - 自定义 tokenizer / 自定义模型
 - 集成 IDE 代码高亮 / monaco
 - 中英以外的语言
+- PWA / ServiceWorker(首次访问需联网)
+- 防 prompt injection(录制内容固定为 benign 公共数据;运行时无 live 模型,
+  注入无攻击面;v1.1 Live 模式时需重新评估)
 
 ## 14. Roadmap(README 注明,不在 v1 工作量内)
 
