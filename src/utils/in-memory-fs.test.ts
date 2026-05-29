@@ -31,4 +31,18 @@ describe('InMemoryFs', () => {
   it('stat throws for unknown file', () => {
     expect(() => fs.stat('/Downloads/nope.zip')).toThrow();
   });
+
+  it('normalizes ~ so ~/Downloads matches /Downloads keys', () => {
+    // the model echoes the task prompt's "~/Downloads"; fixtures use "/Downloads"
+    expect(fs.list('~/Downloads')).toHaveLength(3);
+    expect(fs.stat('~/Downloads/movie.mp4').size).toBe(2_400_000_000);
+  });
+
+  it('normalizes ~-prefixed fixture keys too', () => {
+    const tildeFs = new InMemoryFs({
+      '~/Downloads/a.bin': { size: 10, mtime: '2025-01-01T00:00:00Z' },
+    });
+    expect(tildeFs.list('/Downloads').map((e) => e.name)).toEqual(['a.bin']);
+    expect(tildeFs.list('~/Downloads').map((e) => e.name)).toEqual(['a.bin']);
+  });
 });

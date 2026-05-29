@@ -16,7 +16,9 @@ export const fetchWikipediaArticleTool: Tool<Args, Result> = {
     required: ['title'],
   },
   async exec(args, ctx) {
-    const url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&titles=${encodeURIComponent(args.title)}&format=json&origin=*`;
+    // redirects=1 resolves renamed/redirected titles (e.g. the ML "Transformer"
+    // article was renamed) so extracts returns the real lead section, not empty.
+    const url = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=true&explaintext=true&redirects=1&titles=${encodeURIComponent(args.title)}&format=json&origin=*`;
     try {
       const res = await ctx.fetch(url);
       if (!res.ok) return { error: 'fetch-failed' };

@@ -15,7 +15,10 @@ const baseSystemPrompt = (manifest: Example, lang: 'zh' | 'en', deliberative: bo
   const langDirective = lang === 'zh' ? 'zh-CN' : 'en';
   const finalNames = manifest.finalActionTools.join(', ') || '(none)';
   const extras = manifest.systemPromptExtras?.[lang] ?? '';
+  const today = new Date().toISOString().slice(0, 10);
   return `You are an autonomous agent. Available tools: ${manifest.tools.map((t) => t.name).join(', ')}.
+
+CONTEXT: Today's date is ${today}. When the user says "tomorrow", compute the date relative to today.
 
 LANGUAGE: Respond ONLY in ${langDirective}. All "Thought:" lines and your final answer must be in that language. Tool arguments stay as-is.
 
@@ -31,6 +34,19 @@ ${extras}`;
 export type RunResult = AgentLoopData & {
   rawMessages: ChatCompletionMessageParam[];
   firstCallLogprobs?: unknown;
+  // Full text content of the first assistant turn, verbatim. Deliberative mode
+  // emits its numbered plan here (often without a "Thought:" prefix), so the
+  // plan parser in agent-loops reads this rather than the extracted thought.
+  firstTurnContent?: string;
+};
+
+// The model's pre-tool-call reasoning. Prefer an explicit "Thought:" line when
+// the model complies with the format rule; otherwise fall back to the whole
+// content (the model still reasoned, just without the prefix — capture it).
+const extractThought = (content: string): string => {
+  const m = content.match(/Thought:\s*(.+?)$/m);
+  if (m?.[1]) return m[1].trim();
+  return content.trim();
 };
 
 export async function runAgent(
@@ -55,6 +71,7 @@ export async function runAgent(
   let terminationReason: AgentLoopData['terminationReason'] = 'max-iter';
   let finalText: string | undefined;
   let firstCallLogprobs: unknown;
+  let firstTurnContent: string | undefined;
 
   for (let iter = 0; iter < RECORDING_CONFIG.maxIterations; iter++) {
     const args: ChatCompletionCreateParamsNonStreaming = {
@@ -78,6 +95,9 @@ export async function runAgent(
     if (iter === 0 && options.logprobs) {
       firstCallLogprobs = choice.logprobs;
     }
+    if (iter === 0) {
+      firstTurnContent = message.content ?? '';
+    }
 
     if (!message.tool_calls || message.tool_calls.length === 0) {
       finalText = message.content ?? '';
@@ -92,9 +112,7 @@ export async function runAgent(
     const toolName = call.function.name;
     const toolArgs = JSON.parse(call.function.arguments) as Record<string, unknown>;
 
-    const content = message.content ?? '';
-    const thoughtMatch = content.match(/Thought:\s*(.+?)$/m);
-    const thought = thoughtMatch?.[1]?.trim() ?? '';
+    const thought = extractThought(message.content ?? '');
 
     const tool = ALL_TOOLS[toolName];
     if (!tool) throw new Error(`Unknown tool: ${toolName}`);
@@ -130,6 +148,7 @@ export async function runAgent(
     terminationNote: terminationNoteFor(terminationReason, lang),
     rawMessages: messages,
     firstCallLogprobs,
+    firstTurnContent,
   };
 }
 

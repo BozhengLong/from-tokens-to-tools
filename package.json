@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
-    "record": "tsx scripts/record/index.ts"
+    "record": "NODE_USE_ENV_PROXY=1 tsx scripts/record/index.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.1",

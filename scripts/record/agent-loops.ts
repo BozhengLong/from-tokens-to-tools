@@ -33,10 +33,20 @@ The two recordings must agree (same seed + same prompt).`
     throw new Error(`Deliberative recording for ${exampleId}/${lang} hit max-iter`);
   }
 
-  const firstThought = deliberativeResult.iterations[0]?.thought ?? deliberativeResult.finalText ?? '';
-  const planLines = Array.from(firstThought.matchAll(/^\s*(\d+)\.\s+(.+)$/gm));
+  // The numbered plan lives in the first assistant turn's full content (the model
+  // emits it before/alongside its first tool call, often without a "Thought:"
+  // prefix). Fall back to the first iteration's thought, then finalText.
+  const planSource =
+    deliberativeResult.firstTurnContent ||
+    deliberativeResult.iterations[0]?.thought ||
+    deliberativeResult.finalText ||
+    '';
+  const planLines = Array.from(planSource.matchAll(/^\s*(\d+)[.、)]\s*(.+)$/gm));
   if (planLines.length === 0) {
-    throw new Error(`Deliberative ${exampleId}/${lang}: no numbered plan parsed from first thought. Re-record with stronger prompt.`);
+    throw new Error(
+      `Deliberative ${exampleId}/${lang}: no numbered plan parsed. Re-record with stronger prompt.\n` +
+        `--- first-turn content was ---\n${planSource.slice(0, 500)}`
+    );
   }
   const plan: TopologyData['deliberative']['plan'] = planLines.map((m, i) => ({
     id: `step-${i + 1}`,
