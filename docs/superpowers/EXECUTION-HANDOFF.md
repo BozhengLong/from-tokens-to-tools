@@ -1,72 +1,68 @@
 # Execution Handoff — from-tokens-to-tools
 
-> **Resume instruction (read this first):** Plan A is done & pushed. The next job is **executing Plan B** (the frontend demo) using **subagent-driven-development**. Plan B is at `docs/superpowers/plans/2026-05-29-plan-B-frontend.md` — 25 tasks, 6 phases. Start at Task 1 (or wherever `git log` shows you left off).
+> **Resume instruction (read first):** The next job is **executing Plan C2** (the v2 frontend zoom experience) using **superpowers:subagent-driven-development**. Plan C2 is at `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md` — 22 tasks, hero-slice-first. Start at **Task 1** (or wherever `git log` shows you left off). Pre-flight + all data (Plan C1) are DONE — C2 is pure frontend that consumes them.
 
-Last updated: 2026-05-29. Working model is now **Opus 4.8 (1M context)**.
+Last updated: 2026-05-30. Working model: **Opus 4.8 (1M context)**.
 
 ---
 
-## Where things are
+## Project in one paragraph
 
-- **Repo:** `~/workspace/from-tokens-to-tools/` — public GitHub: https://github.com/BozhengLong/from-tokens-to-tools (remote `origin`, branch `main`, `gh` authed as BozhengLong)
-- **Design spec:** `docs/superpowers/specs/2026-05-29-from-tokens-to-tools-design.md` (9 rounds of self-review; authoritative)
-- **Plan A (done):** `docs/superpowers/plans/2026-05-29-plan-A-recording-pipeline.md` — tag `plan-a-complete`
-- **Plan B (to execute):** `docs/superpowers/plans/2026-05-29-plan-B-frontend.md`
-- **Recording integrity rules:** `docs/recording-notes.md`
+An interactive explainer: "why does a thing that only predicts the next *token* end up controlling your computer?" **v1** shipped (scroll narrative, 7 stations) but was judged "shows machinery, doesn't teach." **v2** is a redesign: a two-axis **semantic-zoom** journey (Structure Y) — pan a real agent's task *story*, zoom into any "model speaks" beat to discover it's just next-token prediction, all the way down to a **live token microscope** running a tiny model in the viewer's browser. Whiteboard / 3B1B aesthetic kept.
 
-## Current status
+## Status
 
-- ✅ **Plan A complete**: foundation + 9 tools + recording pipeline + **40 validated JSON files** (4 examples × 2 langs × 5 station files) in `src/data/examples/<id>/<station>.{zh,en}.json`. 32 unit tests pass, build green, pushed.
-- ⬜ **Plan B not started**: no UI yet — `src/App.tsx` is still the Vite boilerplate (Task 1 strips it). Front-end is the whole remaining job.
+- ✅ **v1 complete** — tag `plan-b-complete` (reachable; no longer the mounted app).
+- ✅ **v2 spec** — `docs/superpowers/specs/2026-05-29-from-tokens-to-tools-v2-zoom-design.md` (self-reviewed, hardened).
+- ✅ **Plan C1 (data/backstage) complete** — tag `plan-c1-complete`. 10 tasks. 70 tests pass, build green.
+- 📝 **Plan C2 (frontend) WRITTEN, not started** — `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md` (22 tasks). **← execute this next.**
+- Repo: public GitHub `BozhengLong/from-tokens-to-tools` (origin/main; HEAD at the C2-plan commit). `gh` authed.
 
-## How to execute Plan B (the workflow that worked for Plan A)
+## How to execute (the workflow that's been working)
 
-Use **superpowers:subagent-driven-development**. Per task (or per small batch of mechanical tasks):
+**superpowers:subagent-driven-development.** Per task (or small batch of mechanical tasks): dispatch an implementer subagent with the FULL task text pasted in (or point it at the exact plan task + paste the conventions + the critical gotchas below) → spec-compliance review (read the code, don't trust the report) → code-quality review for keystone tasks → mark done → continue without stopping. Commit each task separately with the plan's exact message + trailer `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>` (HEREDOC `-F -`; no `-c commit.gpgsign=false`).
 
-1. **Dispatch an implementer subagent** (general-purpose) with the FULL task text pasted in (don't make it read the plan file), plus context: repo path, latest commit, strict-TS notes, exact commit message. For mechanical UI tasks you can batch several tasks into one implementer call (Plan A batched Tasks 10-20 and 21-24 successfully).
-2. **Spec-review subagent** — verify it built what was asked (read the code, don't trust the report).
-3. **Code-quality review subagent** — for substantive/keystone tasks. Skip for trivial presentational components if build+typecheck pass.
-4. Fix issues inline or via a follow-up subagent; mark task done; continue. **Don't stop between tasks** unless blocked.
+For C2, the controller can also **verify the running journey via Playwright MCP** between tasks (as done for v1) — load the dev server, click Next/zoom, check no console errors.
 
-**Commit conventions:** each task commits separately with the plan's exact message. Trailer: `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`. Don't pass `-c commit.gpgsign=false` unless gpg actually breaks.
+## C2 user-gated tasks (need the human — pause for these)
 
-**Verification after each task/batch:** `npm test` (currently 32 tests) and `npm run build` must stay green.
+- **Task 16 Step 3** — manual check of the live-model button in a real **WebGPU browser** (Playwright likely lacks WebGPU; the *recorded default* is verifiable headless).
+- **Tasks 19 & 20** — the `clean-big-files` and `error-recovery` scenarios each need **one real Claude Code session** captured (same as C1's hero capture: run `claude` in the sandbox, fix/do the task, then the controller harvests the transcript from `~/.claude/projects/...`).
+- **Task 22** — deploy decisions: host (GitHub Pages vs Vercel) + where the ~178 MB weights live.
 
-## Tech stack ACTUAL versions (newer than typical docs assume)
+The hero slice (Tasks 1–17) is otherwise autonomous; deliver it, then let the user eyeball the real demo before scaling.
 
-- **React 19.2**, **Vite 8**, **TypeScript ~6** (3-tsconfig layout: root references `tsconfig.app.json` + `tsconfig.node.json`; `paths`/`@` alias live in `tsconfig.app.json`)
-- **Tailwind v4** — CSS-first config. Theme tokens are in `src/index.css` inside an `@theme` block (NOT a `tailwind.config.ts`). Whiteboard utilities already exist: `bg-whiteboard-bg` (#FAF7F0), `text-whiteboard-ink` (#1A1A1A), `whiteboard-accent-blue` (#2C5282), `whiteboard-accent-orange` (#DD6B20); font families `font-sans` (Inter+CJK) and `font-hand` (Patrick Hand/Caveat). `@tailwindcss/vite` plugin in `vite.config.ts`.
-- **Zustand 5**, **Zod 4**, **vitest 4**, **framer-motion ^12.40** (✅ installed). `@rollup/plugin-yaml ^4.1.2` wired in vite.config.ts (for importing YAML manifests). `@testing-library/react` + `jsdom` are NOT yet installed — Plan B Task 9 installs them.
-- **Node v25**, ESM. `@` alias = `src/`. In `src/` use `@/...` imports. In `scripts/` use `.js` extensions (NodeNext).
+## CRITICAL v2 facts & gotchas (hard-won in C1 — don't regress)
 
-## Conventions / gotchas (carried from Plan A)
+- **Browsers in CN cannot reach huggingface.co** (CORS + region) — confirmed. **node CAN reach `hf-mirror.com`.** ⇒ **Self-host the model weights same-origin.** Download once via node from hf-mirror; the browser loads from our own origin (`env.allowRemoteModels=false; env.allowLocalModels=true; env.localModelPath='/models'`). This also makes the deployed demo work in CN.
+- **Live model = `HuggingFaceTB/SmolLM2-135M-Instruct`, dtype `q4`, ~178 MB.** (Qwen3-0.6B had no ONNX build; Qwen2.5-0.5B was ~500 MB — both rejected.) WebGPU verified: load ~750 ms, forward ~133 ms, real logits.
+- **Read logits from the FLAT buffer:** `output.logits.data` (Float32Array) + `logits.dims`; last row = `[(seq-1)*vocab, seq*vocab)`. **NOT** `Tensor.slice().tolist()` (collapses dims in this transformers.js version).
+- **Weights location:** C1 cached them at `scripts/v2/models/` (gitignored). **C2 Task 14 retargets the prefetch to `public/models/`** (gitignored) so Vite serves them at `/models/...`, and adds `npm run prefetch:model`. **Run `npm run prefetch:model` before the live button works** (dev + CI).
+- **Default = recorded token data (tiny JSON, ships, instant, CN-safe); live model = opt-in behind a button** (~178 MB, browser-cached). The recorded path is the tested baseline and must always work.
+- **Data model:** `src/types/v2-schemas.ts` — `StoryRun`/`Beat`/`ZoomContent` with **bilingual fields inline** ⇒ **ONE `story.json` per scenario** (not zh/en files). Real captured `thought`/`observation`/`seedContext` are single-language; only authored teaching text (title/summary/zoom/bridge) is bilingual. A beat's `zoom.seedContext` MUST equal the matching `BEATS` seed in `scripts/v2/capture-token-fallback.ts`.
+- **`src/microscope/`** (built in C1): `dist.ts` (`topKFromLogits`, `sampleIndex`, `TokenProb`), `types.ts` (`TokenMicroscope` iface), `recorded.ts` (`RecordedMicroscope(fallback, beatId)`), `live.ts` (`LiveMicroscope.create(modelId?, onProgress?)`). **`dist.ts` imports `../utils/sampling` RELATIVELY** (not `@/...`) because a tsx node script imports it.
+- **Hero data DONE:** `src/data/v2/fix-failing-test/{story.json (8 beats), token-fallback.json (b1,b3), raw-transcript.jsonl}` + `sandboxes/fix-failing-test/` (node:test buggy repo). Validated.
+- **Harvester:** `scripts/v2/harvest.ts` (`harvestTranscript`) handles the real transcript shape (string-or-array content; granular thinking/text/tool_use; attaches narration to each tool call). Validator: `scripts/v2/validate-v2.ts`.
 
-- Strict TS: `noUnusedLocals`, `verbatimModuleSyntax` on → use `import type` for type-only imports; no unused vars.
-- Tests: vitest `include: ['src/**/*.test.ts']`, global env `node`. Hook/DOM tests need `// @vitest-environment jsdom` docblock at top of the file (Plan B installs `@testing-library/react` + `jsdom` in Task 9).
-- Do NOT commit scratch files (`_probe.ts`, `_dbg.ts`, etc.) or `.env`. `.env` is gitignored and contains the OpenAI key — never commit it; it has appeared in chat, so treat as sensitive.
-- Plan B is self-contained: it only READS the recorded JSON; no API calls, no recording. So executing Plan B costs no API budget.
+## Tech stack / conventions
 
-## Recorded data shapes (for briefing subagents) — defined in `src/types/schemas.ts`
+- React 19.2, Vite 8, Tailwind v4 (CSS-first `@theme` in `src/index.css`; whiteboard tokens `whiteboard-bg/ink/accent-blue/accent-orange`, `font-hand`/`font-sans`), Zustand 5, Zod 4, framer-motion ^12.40, `@huggingface/transformers` (installed), vitest 4 + `@testing-library/react` + jsdom.
+- Strict TS: `import type` for types; `noUnusedLocals` (prefix intentionally-unused params with `_`); **`erasableSyntaxOnly` ON → NO TS parameter-properties** (use explicit field decls). `@` = `src/`. tsx node scripts can't resolve `@` (use relative).
+- vitest include = `['src/**/*.test.ts','scripts/**/*.test.ts']`, env `node`; DOM/hook tests need `// @vitest-environment jsdom` as the FIRST line.
+- Reuse v1 whiteboard primitives (`src/components/whiteboard/`) + i18n pattern. v2 components live under `src/components/v2/`.
 
-- `TokenizeData` = `{ _meta, prompt, tokens: {id,text,byteRange:[number,number]}[] }`
-- `LogitsData` = `{ _meta, steps: {stepIndex, contextPreview, topK: {token,tokenId,logprob}[]}[] }`
-- `SamplingData` = `{ _meta, baseStep, baseStepLogprobs: {token,tokenId,logprob}[], paths: {method:'greedy'|'low-temp'|'top-p'|'high-temp', params, tokens: string[]}[] }`
-- `FunctionCallData` = `{ _meta, reasoning, toolCandidates: {name,logprob}[], call: {name,arguments} }`
-- `TopologyData` = `{ _meta, reactive: AgentLoopData, deliberative: {plan:{id,stepLabel,expectedToolCall?}[], execution:{planStepId:string|null,actualCall,observation,deviated}[], deviationSummary} }`
-- `AgentLoopData` = `{ iterations:{thought,action:{name,arguments},observation}[], terminationReason:'text-final'|'final-action-called'|'max-iter', finalText?, terminationNote }`
-- Manifests: `scripts/record/manifests/<id>.yaml` (importable via @rollup/plugin-yaml). Examples: `downloads-bigfiles`, `shanghai-weather`, `wikipedia-tweet`, `hn-weekend-pick`. Default example = `downloads-bigfiles`, default lang = `zh`.
-
-## Plan B deferred items (NOT in scope unless user asks to fold in)
-
-KaTeX formula (Station 3), "🔄 refresh from live" button, `save_*` real browser side effects (clipboard/notification/localStorage), deep mobile gesture polish, deployment. The user was told about these; the `save_*` side effects carry the most conceptual weight (design's answer to "aren't save_ tools fake?").
-
-## Useful commands
+## Verification commands
 
 ```bash
 cd ~/workspace/from-tokens-to-tools
-npm test                 # 32 tests currently
-npm run build            # tsc -b && vite build
-npm run dev -- --port 5180   # manual visual check
-git log --oneline | head -20 # see where execution left off
-npx tsx scripts/record/validate.ts   # re-validate recorded data (no API)
+npm test                              # 70 tests currently (v1 56 + C1)
+npm run build                         # tsc -b && vite build
+npx tsx scripts/v2/validate-v2.ts     # validate v2 story/token data
+npm run prefetch:model                # (after C2 Task 14) download weights -> public/models
+npm run dev -- --port 5193            # manual / Playwright check
+git log --oneline | head -25          # where execution left off
 ```
+
+## Task tracker
+
+C1 tasks were tracked as TaskCreate #51–56 (all completed). For C2, create fresh tracking tasks (one per phase or per task) when resuming.
