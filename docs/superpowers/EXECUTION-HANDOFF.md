@@ -1,6 +1,6 @@
 # Execution Handoff — from-tokens-to-tools
 
-> **Resume instruction (read first):** The next job is **executing Plan C2** (the v2 frontend zoom experience) using **superpowers:subagent-driven-development**. Plan C2 is at `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md` — 22 tasks, hero-slice-first. Start at **Task 1** (or wherever `git log` shows you left off). Pre-flight + all data (Plan C1) are DONE — C2 is pure frontend that consumes them.
+> **Resume instruction (read first):** The **C2 hero slice (Tasks 1–17) is COMPLETE, pushed, and Playwright-verified** (recorded journey: intro → pan 8 beats → zoom L1→L2→L3 → real recorded token microscope → step scrubber → zh/en toggle → keyboard nav, 0 console errors; 80/80 tests, build green). The remaining work is **Plan C2's scale phase (Tasks 18–22)** in `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md`, most of which is **user-gated**: Tasks 19 & 20 need the human to run one real Claude Code session each (clean-big-files, error-recovery); Task 22 needs deploy decisions. Task 18 (ExampleSwitcher) should land WITH 19/20 (it points at those scenarios). Task 21 (OutlineMode a11y fallback) is autonomous. **One unverified hero item:** Task 16 Step 3 — the live-model button needs a real WebGPU browser (Playwright lacks WebGPU); the recorded default is fully verified.
 
 Last updated: 2026-05-30. Working model: **Opus 4.8 (1M context)**.
 
@@ -15,7 +15,8 @@ An interactive explainer: "why does a thing that only predicts the next *token* 
 - ✅ **v1 complete** — tag `plan-b-complete` (reachable; no longer the mounted app).
 - ✅ **v2 spec** — `docs/superpowers/specs/2026-05-29-from-tokens-to-tools-v2-zoom-design.md` (self-reviewed, hardened).
 - ✅ **Plan C1 (data/backstage) complete** — tag `plan-c1-complete`. 10 tasks. 70 tests pass, build green.
-- 📝 **Plan C2 (frontend) WRITTEN, not started** — `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md` (22 tasks). **← execute this next.**
+- ✅ **Plan C2 hero slice (Tasks 1–17) COMPLETE** — pushed to main (HEAD `350d1b9`). 80/80 tests, build green, Playwright-verified recorded journey. Weights self-hosted at `public/models/` (gitignored; `npm run prefetch:model`).
+- 📝 **Plan C2 scale phase (Tasks 18–22) REMAINING** — `docs/superpowers/plans/2026-05-30-plan-C2-frontend-zoom.md`. Mostly user-gated (capture 2 scenarios, deploy). **← do this next, with the user.**
 - Repo: public GitHub `BozhengLong/from-tokens-to-tools` (origin/main; HEAD at the C2-plan commit). `gh` authed.
 
 ## How to execute (the workflow that's been working)
