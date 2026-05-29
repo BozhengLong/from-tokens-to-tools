@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:28.258Z",
+    "scriptVersion": "function-calls.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "reasoning": "I will first check the weather for Shanghai on 2026-05-30 to gather details about the conditions.",
+  "toolCandidates": [
+    {
+      "name": "get_weather",
+      "logprob": 0
+    }
+  ],
+  "call": {
+    "name": "get_weather",
+    "arguments": {
+      "city": "Shanghai",
+      "date": "2026-05-30"
+    }
+  }
+}

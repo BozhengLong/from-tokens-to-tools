@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:13.165Z",
+    "scriptVersion": "sampling.ts",
+    "lang": "en"
+  },
+  "baseStep": 11,
+  "baseStepLogprobs": [
+    {
+      "token": " excel",
+      "tokenId": 0,
+      "logprob": -1.4621368646621704
+    },
+    {
+      "token": " are",
+      "tokenId": 0,
+      "logprob": -1.7746368646621704
+    },
+    {
+      "token": ",",
+      "tokenId": 0,
+      "logprob": -2.118386745452881
+    },
+    {
+      "token": " and",
+      "tokenId": 0,
+      "logprob": -2.259011745452881
+    },
+    {
+      "token": " use",
+      "tokenId": 0,
+      "logprob": -2.899636745452881
+    },
+    {
+      "token": " process",
+      "tokenId": 0,
+      "logprob": -2.930886745452881
+    },
+    {
+      "token": " handle",
+      "tokenId": 0,
+      "logprob": -3.118386745452881
+    },
+    {
+      "token": " can",
+      "tokenId": 0,
+      "logprob": -3.368386745452881
+    },
+    {
+      "token": " efficiently",
+      "tokenId": 0,
+      "logprob": -3.368386745452881
+    },
+    {
+      "token": " have",
+      "tokenId": 0,
+      "logprob": -3.524636745452881
+    },
+    {
+      "token": " understand",
+      "tokenId": 0,
+      "logprob": -3.696511745452881
+    },
+    {
+      "token": " revolution",
+      "tokenId": 0,
+      "logprob": -3.884011745452881
+    },
+    {
+      "token": " capture",
+      "tokenId": 0,
+      "logprob": -4.493386745452881
+    },
+    {
+      "token": " focus",
+      "tokenId": 0,
+      "logprob": -4.915261745452881
+    },
+    {
+      "token": " leverage",
+      "tokenId": 0,
+      "logprob": -5.180886745452881
+    },
+    {
+      "token": " learn",
+      "tokenId": 0,
+      "logprob": -5.243386745452881
+    },
+    {
+      "token": " analyze",
+      "tokenId": 0,
+      "logprob": -5.415261745452881
+    },
+    {
+      "token": " &",
+      "tokenId": 0,
+      "logprob": -5.430886745452881
+    },
+    {
+      "token": " power",
+      "tokenId": 0,
+      "logprob": -5.805886745452881
+    },
+    {
+      "token": " were",
+      "tokenId": 0,
+      "logprob": -6.305886745452881
+    }
+  ],
+  "paths": [
+    {
+      "method": "greedy",
+      "params": {
+        "temperature": 0
+      },
+      "tokens": [
+        "a",
+        "r",
+        "e",
+        " ",
+        "d",
+        "e",
+        "s",
+        "i",
+        "g",
+        "n",
+        "e",
+        "d",
+        " ",
+        "t",
+        "o",
+        " ",
+        "h",
+        "a",
+        "n",
+        "d",
+        "l",
+        "e",
+        " ",
+        "s",
+        "e"
+      ]
+    },
+    {
+      "method": "low-temp",
+      "params": {
+        "temperature": 0.5
+      },
+      "tokens": [
+        "a",
+        "r",
+        "e",
+        " ",
+        "d",
+        "e",
+        "s",
+        "i",
+        "g",
+        "n",
+        "e",
+        "d",
+        " ",
+        "t",
+        "o",
+        " ",
+        "p",
+        "r",
+        "o",
+        "c",
+        "e",
+        "s",
+        "s",
+        " ",
+        "s"
+      ]
+    },
+    {
+      "method": "top-p",
+      "params": {
+        "top_p": 0.9,
+        "temperature": 1
+      },
+      "tokens": [
+        "e",
+        "x",
+        "c",
+        "e",
+        "l",
+        " ",
+        "a",
+        "t",
+        " ",
+        "p",
+        "r",
+        "o",
+        "c",
+        "e",
+        "s",
+        "s",
+        "i",
+        "n",
+        "g",
+        " ",
+        "s",
+        "e",
+        "q",
+        "u",
+        "e"
+      ]
+    },
+    {
+      "method": "high-temp",
+      "params": {
+        "temperature": 1.5
+      },
+      "tokens": [
+        "e",
+        "n",
+        "a",
+        "b",
+        "l",
+        "e",
+        " ",
+        "c",
+        "o",
+        "m",
+        "p",
+        "u",
+        "t",
+        "e",
+        "r",
+        "s",
+        " ",
+        "t",
+        "o",
+        " ",
+        "h",
+        "a",
+        "n",
+        "d",
+        "l"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,427 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:26.500Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "zh"
+  },
+  "prompt": "拉 Hacker News 当前 top 10,先看标题挑出 3-5 个可能适合周末细读的故事,再 fetch 这些故事的详情(text/url),最后选 1 个推荐并写一段简短理由。",
+  "tokens": [
+    {
+      "id": 25557,
+      "text": "拉",
+      "byteRange": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": 143881,
+      "text": " Hacker",
+      "byteRange": [
+        3,
+        10
+      ]
+    },
+    {
+      "id": 5984,
+      "text": " News",
+      "byteRange": [
+        10,
+        15
+      ]
+    },
+    {
+      "id": 172449,
+      "text": " 当前",
+      "byteRange": [
+        15,
+        22
+      ]
+    },
+    {
+      "id": 2344,
+      "text": " top",
+      "byteRange": [
+        22,
+        26
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": 702,
+      "text": "10",
+      "byteRange": [
+        27,
+        29
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        29,
+        30
+      ]
+    },
+    {
+      "id": 12231,
+      "text": "先",
+      "byteRange": [
+        30,
+        33
+      ]
+    },
+    {
+      "id": 3812,
+      "text": "看",
+      "byteRange": [
+        33,
+        36
+      ]
+    },
+    {
+      "id": 57488,
+      "text": "标题",
+      "byteRange": [
+        36,
+        42
+      ]
+    },
+    {
+      "id": 81143,
+      "text": "挑",
+      "byteRange": [
+        42,
+        45
+      ]
+    },
+    {
+      "id": 6390,
+      "text": "出",
+      "byteRange": [
+        45,
+        48
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        48,
+        49
+      ]
+    },
+    {
+      "id": 18,
+      "text": "3",
+      "byteRange": [
+        49,
+        50
+      ]
+    },
+    {
+      "id": 12,
+      "text": "-",
+      "byteRange": [
+        50,
+        51
+      ]
+    },
+    {
+      "id": 20,
+      "text": "5",
+      "byteRange": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": 116446,
+      "text": " 个",
+      "byteRange": [
+        52,
+        56
+      ]
+    },
+    {
+      "id": 42043,
+      "text": "可能",
+      "byteRange": [
+        56,
+        62
+      ]
+    },
+    {
+      "id": 49650,
+      "text": "适",
+      "byteRange": [
+        62,
+        65
+      ]
+    },
+    {
+      "id": 4377,
+      "text": "合",
+      "byteRange": [
+        65,
+        68
+      ]
+    },
+    {
+      "id": 17442,
+      "text": "周",
+      "byteRange": [
+        68,
+        71
+      ]
+    },
+    {
+      "id": 56534,
+      "text": "末",
+      "byteRange": [
+        71,
+        74
+      ]
+    },
+    {
+      "id": 33706,
+      "text": "细",
+      "byteRange": [
+        74,
+        77
+      ]
+    },
+    {
+      "id": 19075,
+      "text": "读",
+      "byteRange": [
+        77,
+        80
+      ]
+    },
+    {
+      "id": 1616,
+      "text": "的",
+      "byteRange": [
+        80,
+        83
+      ]
+    },
+    {
+      "id": 67731,
+      "text": "故事",
+      "byteRange": [
+        83,
+        89
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        89,
+        90
+      ]
+    },
+    {
+      "id": 29020,
+      "text": "再",
+      "byteRange": [
+        90,
+        93
+      ]
+    },
+    {
+      "id": 12011,
+      "text": " fetch",
+      "byteRange": [
+        93,
+        99
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        99,
+        100
+      ]
+    },
+    {
+      "id": 86283,
+      "text": "这些",
+      "byteRange": [
+        100,
+        106
+      ]
+    },
+    {
+      "id": 67731,
+      "text": "故事",
+      "byteRange": [
+        106,
+        112
+      ]
+    },
+    {
+      "id": 1616,
+      "text": "的",
+      "byteRange": [
+        112,
+        115
+      ]
+    },
+    {
+      "id": 54913,
+      "text": "详情",
+      "byteRange": [
+        115,
+        121
+      ]
+    },
+    {
+      "id": 13414,
+      "text": "(text",
+      "byteRange": [
+        121,
+        126
+      ]
+    },
+    {
+      "id": 135759,
+      "text": "/url",
+      "byteRange": [
+        126,
+        130
+      ]
+    },
+    {
+      "id": 936,
+      "text": "),",
+      "byteRange": [
+        130,
+        132
+      ]
+    },
+    {
+      "id": 66664,
+      "text": "最后",
+      "byteRange": [
+        132,
+        138
+      ]
+    },
+    {
+      "id": 10487,
+      "text": "选",
+      "byteRange": [
+        138,
+        141
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        141,
+        142
+      ]
+    },
+    {
+      "id": 16,
+      "text": "1",
+      "byteRange": [
+        142,
+        143
+      ]
+    },
+    {
+      "id": 116446,
+      "text": " 个",
+      "byteRange": [
+        143,
+        147
+      ]
+    },
+    {
+      "id": 19896,
+      "text": "推荐",
+      "byteRange": [
+        147,
+        153
+      ]
+    },
+    {
+      "id": 21008,
+      "text": "并",
+      "byteRange": [
+        153,
+        156
+      ]
+    },
+    {
+      "id": 32444,
+      "text": "写",
+      "byteRange": [
+        156,
+        159
+      ]
+    },
+    {
+      "id": 2432,
+      "text": "一",
+      "byteRange": [
+        159,
+        162
+      ]
+    },
+    {
+      "id": 27561,
+      "text": "段",
+      "byteRange": [
+        162,
+        165
+      ]
+    },
+    {
+      "id": 27891,
+      "text": "简",
+      "byteRange": [
+        165,
+        168
+      ]
+    },
+    {
+      "id": 40730,
+      "text": "短",
+      "byteRange": [
+        168,
+        171
+      ]
+    },
+    {
+      "id": 133602,
+      "text": "理由",
+      "byteRange": [
+        171,
+        177
+      ]
+    },
+    {
+      "id": 788,
+      "text": "。",
+      "byteRange": [
+        177,
+        180
+      ]
+    }
+  ]
+}

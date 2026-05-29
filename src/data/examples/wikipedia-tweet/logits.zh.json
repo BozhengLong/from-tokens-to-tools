@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:43.850Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "steps": [
+    {
+      "stepIndex": 3,
+      "contextPreview": "Transformer 是一种",
+      "topK": [
+        {
+          "token": "用于",
+          "tokenId": 0,
+          "logprob": -0.8183405995368958
+        },
+        {
+          "token": "深",
+          "tokenId": 0,
+          "logprob": -1.927715539932251
+        },
+        {
+          "token": "革命",
+          "tokenId": 0,
+          "logprob": -2.146465539932251
+        },
+        {
+          "token": "机器",
+          "tokenId": 0,
+          "logprob": -2.318340539932251
+        },
+        {
+          "token": "神",
+          "tokenId": 0,
+          "logprob": -3.052715539932251
+        },
+        {
+          "token": "由",
+          "tokenId": 0,
+          "logprob": -3.224590539932251
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -3.912090539932251
+        },
+        {
+          "token": "创新",
+          "tokenId": 0,
+          "logprob": -3.958965539932251
+        },
+        {
+          "token": "基",
+          "tokenId": 0,
+          "logprob": -4.14646577835083
+        },
+        {
+          "token": "革",
+          "tokenId": 0,
+          "logprob": -4.30271577835083
+        },
+        {
+          "token": "强",
+          "tokenId": 0,
+          "logprob": -4.49021577835083
+        },
+        {
+          "token": "广",
+          "tokenId": 0,
+          "logprob": -4.80271577835083
+        },
+        {
+          "token": "突破",
+          "tokenId": 0,
+          "logprob": -5.36521577835083
+        },
+        {
+          "token": "开",
+          "tokenId": 0,
+          "logprob": -5.45896577835083
+        },
+        {
+          "token": "先进",
+          "tokenId": 0,
+          "logprob": -6.03709077835083
+        },
+        {
+          "token": "变",
+          "tokenId": 0,
+          "logprob": -6.74021577835083
+        },
+        {
+          "token": "新",
+          "tokenId": 0,
+          "logprob": -7.08396577835083
+        },
+        {
+          "token": "现代",
+          "tokenId": 0,
+          "logprob": -7.09959077835083
+        },
+        {
+          "token": "改变",
+          "tokenId": 0,
+          "logprob": -7.30271577835083
+        },
+        {
+          "token": "高级",
+          "tokenId": 0,
+          "logprob": -7.41209077835083
+        }
+      ]
+    },
+    {
+      "stepIndex": 8,
+      "contextPreview": "Transformer 是一种深度学习模型，",
+      "topK": [
+        {
+          "token": "专",
+          "tokenId": 0,
+          "logprob": -1.2220045328140259
+        },
+        {
+          "token": "广",
+          "tokenId": 0,
+          "logprob": -1.2845045328140259
+        },
+        {
+          "token": "特别",
+          "tokenId": 0,
+          "logprob": -2.0970044136047363
+        },
+        {
+          "token": "主要",
+          "tokenId": 0,
+          "logprob": -2.3313794136047363
+        },
+        {
+          "token": "\\xe6\\x93",
+          "tokenId": 0,
+          "logprob": -2.5032544136047363
+        },
+        {
+          "token": "最",
+          "tokenId": 0,
+          "logprob": -3.0501294136047363
+        },
+        {
+          "token": "尤其",
+          "tokenId": 0,
+          "logprob": -3.5501294136047363
+        },
+        {
+          "token": "首次",
+          "tokenId": 0,
+          "logprob": -4.097004413604736
+        },
+        {
+          "token": "常",
+          "tokenId": 0,
+          "logprob": -4.800129413604736
+        },
+        {
+          "token": "适",
+          "tokenId": 0,
+          "logprob": -5.222004413604736
+        },
+        {
+          "token": "因",
+          "tokenId": 0,
+          "logprob": -5.268879413604736
+        },
+        {
+          "token": "革",
+          "tokenId": 0,
+          "logprob": -5.659504413604736
+        },
+        {
+          "token": "革命",
+          "tokenId": 0,
+          "logprob": -5.878254413604736
+        },
+        {
+          "token": "旨",
+          "tokenId": 0,
+          "logprob": -6.940754413604736
+        },
+        {
+          "token": "通常",
+          "tokenId": 0,
+          "logprob": -7.128254413604736
+        },
+        {
+          "token": "利用",
+          "tokenId": 0,
+          "logprob": -7.518879413604736
+        },
+        {
+          "token": "尤",
+          "tokenId": 0,
+          "logprob": -7.550129413604736
+        },
+        {
+          "token": "首先",
+          "tokenId": 0,
+          "logprob": -7.753254413604736
+        },
+        {
+          "token": "首",
+          "tokenId": 0,
+          "logprob": -7.847004413604736
+        },
+        {
+          "token": "采用",
+          "tokenId": 0,
+          "logprob": -7.925129413604736
+        }
+      ]
+    },
+    {
+      "stepIndex": 16,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如",
+      "topK": [
+        {
+          "token": "自然",
+          "tokenId": 0,
+          "logprob": -0.4616871774196625
+        },
+        {
+          "token": "文本",
+          "tokenId": 0,
+          "logprob": -1.2898122072219849
+        },
+        {
+          "token": "语言",
+          "tokenId": 0,
+          "logprob": -2.3679370880126953
+        },
+        {
+          "token": "文字",
+          "tokenId": 0,
+          "logprob": -7.555437088012695
+        },
+        {
+          "token": " NLP",
+          "tokenId": 0,
+          "logprob": -9.242937088012695
+        },
+        {
+          "token": "语",
+          "tokenId": 0,
+          "logprob": -9.524187088012695
+        },
+        {
+          "token": "N",
+          "tokenId": 0,
+          "logprob": -9.711687088012695
+        },
+        {
+          "token": "文",
+          "tokenId": 0,
+          "logprob": -11.586687088012695
+        },
+        {
+          "token": "句",
+          "tokenId": 0,
+          "logprob": -11.867937088012695
+        },
+        {
+          "token": "人",
+          "tokenId": 0,
+          "logprob": -12.727312088012695
+        },
+        {
+          "token": "：",
+          "tokenId": 0,
+          "logprob": -13.102312088012695
+        },
+        {
+          "token": "自",
+          "tokenId": 0,
+          "logprob": -13.196062088012695
+        },
+        {
+          "token": "\\xe2",
+          "tokenId": 0,
+          "logprob": -13.305437088012695
+        },
+        {
+          "token": "文章",
+          "tokenId": 0,
+          "logprob": -13.852312088012695
+        },
+        {
+          "token": "翻",
+          "tokenId": 0,
+          "logprob": -13.914812088012695
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -14.633562088012695
+        },
+        {
+          "token": "词",
+          "tokenId": 0,
+          "logprob": -14.899187088012695
+        },
+        {
+          "token": "时间",
+          "tokenId": 0,
+          "logprob": -15.039812088012695
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -15.164812088012695
+        },
+        {
+          "token": "天然",
+          "tokenId": 0,
+          "logprob": -15.196062088012695
+        }
+      ]
+    },
+    {
+      "stepIndex": 22,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。",
+      "topK": [
+        {
+          "token": "它",
+          "tokenId": 0,
+          "logprob": -0.5643231272697449
+        },
+        {
+          "token": "与",
+          "tokenId": 0,
+          "logprob": -1.5018231868743896
+        },
+        {
+          "token": "其",
+          "tokenId": 0,
+          "logprob": -2.6268231868743896
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -2.9080731868743896
+        },
+        {
+          "token": "引",
+          "tokenId": 0,
+          "logprob": -3.6893231868743896
+        },
+        {
+          "token": "由",
+          "tokenId": 0,
+          "logprob": -4.1580729484558105
+        },
+        {
+          "token": "不同",
+          "tokenId": 0,
+          "logprob": -4.1580729484558105
+        },
+        {
+          "token": "相比",
+          "tokenId": 0,
+          "logprob": -5.1893229484558105
+        },
+        {
+          "token": "相",
+          "tokenId": 0,
+          "logprob": -5.8143229484558105
+        },
+        {
+          "token": "最",
+          "tokenId": 0,
+          "logprob": -6.0174479484558105
+        },
+        {
+          "token": "利用",
+          "tokenId": 0,
+          "logprob": -6.2361979484558105
+        },
+        {
+          "token": "凭",
+          "tokenId": 0,
+          "logprob": -6.3611979484558105
+        },
+        {
+          "token": "首次",
+          "tokenId": 0,
+          "logprob": -6.5799479484558105
+        },
+        {
+          "token": "使用",
+          "tokenId": 0,
+          "logprob": -6.8299479484558105
+        },
+        {
+          "token": "采用",
+          "tokenId": 0,
+          "logprob": -6.9393229484558105
+        },
+        {
+          "token": "由于",
+          "tokenId": 0,
+          "logprob": -7.2830729484558105
+        },
+        {
+          "token": "该",
+          "tokenId": 0,
+          "logprob": -7.2986979484558105
+        },
+        {
+          "token": "无需",
+          "tokenId": 0,
+          "logprob": -7.3143229484558105
+        },
+        {
+          "token": "Transformer",
+          "tokenId": 0,
+          "logprob": -7.4393229484558105
+        },
+        {
+          "token": "于",
+          "tokenId": 0,
+          "logprob": -7.5174479484558105
+        }
+      ]
+    },
+    {
+      "stepIndex": 29,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络",
+      "topK": [
+        {
+          "token": "不同",
+          "tokenId": 0,
+          "logprob": -0.6759928464889526
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -0.8009928464889526
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -3.800992965698242
+        },
+        {
+          "token": "相比",
+          "tokenId": 0,
+          "logprob": -4.082242965698242
+        },
+        {
+          "token": "(R",
+          "tokenId": 0,
+          "logprob": -5.800992965698242
+        },
+        {
+          "token": "模型",
+          "tokenId": 0,
+          "logprob": -9.550992965698242
+        },
+        {
+          "token": " （",
+          "tokenId": 0,
+          "logprob": -9.597867965698242
+        },
+        {
+          "token": " R",
+          "tokenId": 0,
+          "logprob": -10.582242965698242
+        },
+        {
+          "token": "不",
+          "tokenId": 0,
+          "logprob": -11.660367965698242
+        },
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -11.754117965698242
+        },
+        {
+          "token": "方法",
+          "tokenId": 0,
+          "logprob": -11.816617965698242
+        },
+        {
+          "token": "相",
+          "tokenId": 0,
+          "logprob": -12.082242965698242
+        },
+        {
+          "token": "结构",
+          "tokenId": 0,
+          "logprob": -12.300992965698242
+        },
+        {
+          "token": "有所",
+          "tokenId": 0,
+          "logprob": -12.675992965698242
+        },
+        {
+          "token": "区别",
+          "tokenId": 0,
+          "logprob": -12.754117965698242
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -12.894742965698242
+        },
+        {
+          "token": "(",
+          "tokenId": 0,
+          "logprob": -12.972867965698242
+        },
+        {
+          "token": "R",
+          "tokenId": 0,
+          "logprob": -13.285367965698242
+        },
+        {
+          "token": "架",
+          "tokenId": 0,
+          "logprob": -13.363492965698242
+        },
+        {
+          "token": "如",
+          "tokenId": 0,
+          "logprob": -13.457242965698242
+        }
+      ]
+    },
+    {
+      "stepIndex": 37,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用",
+      "topK": [
+        {
+          "token": "注意",
+          "tokenId": 0,
+          "logprob": -0.6431478261947632
+        },
+        {
+          "token": "自",
+          "tokenId": 0,
+          "logprob": -0.8306478261947632
+        },
+        {
+          "token": "一种",
+          "tokenId": 0,
+          "logprob": -4.127522945404053
+        },
+        {
+          "token": "“",
+          "tokenId": 0,
+          "logprob": -4.861897945404053
+        },
+        {
+          "token": "了",
+          "tokenId": 0,
+          "logprob": -5.455647945404053
+        },
+        {
+          "token": "了一",
+          "tokenId": 0,
+          "logprob": -6.190022945404053
+        },
+        {
+          "token": "多",
+          "tokenId": 0,
+          "logprob": -6.205647945404053
+        },
+        {
+          "token": "基",
+          "tokenId": 0,
+          "logprob": -6.596272945404053
+        },
+        {
+          "token": "全",
+          "tokenId": 0,
+          "logprob": -6.768147945404053
+        },
+        {
+          "token": "\"",
+          "tokenId": 0,
+          "logprob": -6.877522945404053
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -7.846272945404053
+        },
+        {
+          "token": " \"",
+          "tokenId": 0,
+          "logprob": -7.893147945404053
+        },
+        {
+          "token": "称",
+          "tokenId": 0,
+          "logprob": -7.908772945404053
+        },
+        {
+          "token": "所谓",
+          "tokenId": 0,
+          "logprob": -8.315022468566895
+        },
+        {
+          "token": "的是",
+          "tokenId": 0,
+          "logprob": -8.346272468566895
+        },
+        {
+          "token": " self",
+          "tokenId": 0,
+          "logprob": -8.424397468566895
+        },
+        {
+          "token": "一个",
+          "tokenId": 0,
+          "logprob": -8.924397468566895
+        },
+        {
+          "token": "完全",
+          "tokenId": 0,
+          "logprob": -8.924397468566895
+        },
+        {
+          "token": "名",
+          "tokenId": 0,
+          "logprob": -9.065022468566895
+        },
+        {
+          "token": "Attention",
+          "tokenId": 0,
+          "logprob": -9.361897468566895
+        }
+      ]
+    },
+    {
+      "stepIndex": 41,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制",
+      "topK": [
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -1.2822380065917969
+        },
+        {
+          "token": "来",
+          "tokenId": 0,
+          "logprob": -1.5009880065917969
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -1.7978630065917969
+        },
+        {
+          "token": "，可以",
+          "tokenId": 0,
+          "logprob": -2.297863006591797
+        },
+        {
+          "token": "，使",
+          "tokenId": 0,
+          "logprob": -2.329113006591797
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -2.938488006591797
+        },
+        {
+          "token": "，可",
+          "tokenId": 0,
+          "logprob": -4.610363006591797
+        },
+        {
+          "token": "，让",
+          "tokenId": 0,
+          "logprob": -4.672863006591797
+        },
+        {
+          "token": "，这",
+          "tokenId": 0,
+          "logprob": -5.016613006591797
+        },
+        {
+          "token": "，实现",
+          "tokenId": 0,
+          "logprob": -5.250988006591797
+        },
+        {
+          "token": "，通过",
+          "tokenId": 0,
+          "logprob": -5.313488006591797
+        },
+        {
+          "token": "，以",
+          "tokenId": 0,
+          "logprob": -5.688488006591797
+        },
+        {
+          "token": "，同时",
+          "tokenId": 0,
+          "logprob": -5.907238006591797
+        },
+        {
+          "token": "，不",
+          "tokenId": 0,
+          "logprob": -5.954113006591797
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -6.016613006591797
+        },
+        {
+          "token": "，大",
+          "tokenId": 0,
+          "logprob": -6.016613006591797
+        },
+        {
+          "token": "，并",
+          "tokenId": 0,
+          "logprob": -6.110363006591797
+        },
+        {
+          "token": "实现",
+          "tokenId": 0,
+          "logprob": -6.110363006591797
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -6.157238006591797
+        },
+        {
+          "token": "，提高",
+          "tokenId": 0,
+          "logprob": -6.282238006591797
+        }
+      ]
+    },
+    {
+      "stepIndex": 45,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制和并行计算",
+      "topK": [
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -1.2576689720153809
+        },
+        {
+          "token": "，使",
+          "tokenId": 0,
+          "logprob": -1.3201689720153809
+        },
+        {
+          "token": "来",
+          "tokenId": 0,
+          "logprob": -2.007668972015381
+        },
+        {
+          "token": "，大",
+          "tokenId": 0,
+          "logprob": -2.648293972015381
+        },
+        {
+          "token": "，提高",
+          "tokenId": 0,
+          "logprob": -2.695168972015381
+        },
+        {
+          "token": "，因此",
+          "tokenId": 0,
+          "logprob": -3.382668972015381
+        },
+        {
+          "token": "，从",
+          "tokenId": 0,
+          "logprob": -3.648293972015381
+        },
+        {
+          "token": "，实现",
+          "tokenId": 0,
+          "logprob": -3.726418972015381
+        },
+        {
+          "token": "，更",
+          "tokenId": 0,
+          "logprob": -4.179543972015381
+        },
+        {
+          "token": "，这",
+          "tokenId": 0,
+          "logprob": -4.398293972015381
+        },
+        {
+          "token": "，可以",
+          "tokenId": 0,
+          "logprob": -4.679543972015381
+        },
+        {
+          "token": "，以",
+          "tokenId": 0,
+          "logprob": -4.929543972015381
+        },
+        {
+          "token": "技术",
+          "tokenId": 0,
+          "logprob": -4.945168972015381
+        },
+        {
+          "token": "提高",
+          "tokenId": 0,
+          "logprob": -5.382668972015381
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -5.413918972015381
+        },
+        {
+          "token": "能力",
+          "tokenId": 0,
+          "logprob": -5.648293972015381
+        },
+        {
+          "token": "实现",
+          "tokenId": 0,
+          "logprob": -5.679543972015381
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -5.757668972015381
+        },
+        {
+          "token": "，让",
+          "tokenId": 0,
+          "logprob": -6.085793972015381
+        },
+        {
+          "token": "架",
+          "tokenId": 0,
+          "logprob": -6.148293972015381
+        }
+      ]
+    },
+    {
+      "stepIndex": 47,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制和并行计算，提高了",
+      "topK": [
+        {
+          "token": "训练",
+          "tokenId": 0,
+          "logprob": -0.5854269862174988
+        },
+        {
+          "token": "效率",
+          "tokenId": 0,
+          "logprob": -1.4135520458221436
+        },
+        {
+          "token": "处理",
+          "tokenId": 0,
+          "logprob": -1.9916770458221436
+        },
+        {
+          "token": "模型",
+          "tokenId": 0,
+          "logprob": -3.9135520458221436
+        },
+        {
+          "token": "计算",
+          "tokenId": 0,
+          "logprob": -4.3198018074035645
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -4.4916768074035645
+        },
+        {
+          "token": "性能",
+          "tokenId": 0,
+          "logprob": -4.8041768074035645
+        },
+        {
+          "token": "速度",
+          "tokenId": 0,
+          "logprob": -5.4291768074035645
+        },
+        {
+          "token": "对",
+          "tokenId": 0,
+          "logprob": -5.9604268074035645
+        },
+        {
+          "token": "长",
+          "tokenId": 0,
+          "logprob": -6.8666768074035645
+        },
+        {
+          "token": "建",
+          "tokenId": 0,
+          "logprob": -7.9760518074035645
+        },
+        {
+          "token": "序",
+          "tokenId": 0,
+          "logprob": -8.163552284240723
+        },
+        {
+          "token": "学习",
+          "tokenId": 0,
+          "logprob": -8.241677284240723
+        },
+        {
+          "token": "效",
+          "tokenId": 0,
+          "logprob": -8.272927284240723
+        },
+        {
+          "token": "任务",
+          "tokenId": 0,
+          "logprob": -8.913552284240723
+        },
+        {
+          "token": "文本",
+          "tokenId": 0,
+          "logprob": -8.913552284240723
+        },
+        {
+          "token": "语言",
+          "tokenId": 0,
+          "logprob": -8.960427284240723
+        },
+        {
+          "token": "效果",
+          "tokenId": 0,
+          "logprob": -8.960427284240723
+        },
+        {
+          "token": "数据",
+          "tokenId": 0,
+          "logprob": -8.991677284240723
+        },
+        {
+          "token": "大",
+          "tokenId": 0,
+          "logprob": -9.022927284240723
+        }
+      ]
+    },
+    {
+      "stepIndex": 50,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制和并行计算，提高了训练效率和",
+      "topK": [
+        {
+          "token": "性能",
+          "tokenId": 0,
+          "logprob": -0.6506213545799255
+        },
+        {
+          "token": "效果",
+          "tokenId": 0,
+          "logprob": -1.0256214141845703
+        },
+        {
+          "token": "模型",
+          "tokenId": 0,
+          "logprob": -3.1506214141845703
+        },
+        {
+          "token": "处理",
+          "tokenId": 0,
+          "logprob": -3.2131214141845703
+        },
+        {
+          "token": "精",
+          "tokenId": 0,
+          "logprob": -4.65062141418457
+        },
+        {
+          "token": "准确",
+          "tokenId": 0,
+          "logprob": -4.82249641418457
+        },
+        {
+          "token": "表现",
+          "tokenId": 0,
+          "logprob": -5.24437141418457
+        },
+        {
+          "token": "能力",
+          "tokenId": 0,
+          "logprob": -5.77562141418457
+        },
+        {
+          "token": "速度",
+          "tokenId": 0,
+          "logprob": -5.99437141418457
+        },
+        {
+          "token": "结果",
+          "tokenId": 0,
+          "logprob": -6.00999641418457
+        },
+        {
+          "token": "翻",
+          "tokenId": 0,
+          "logprob": -7.18187141418457
+        },
+        {
+          "token": "序",
+          "tokenId": 0,
+          "logprob": -7.35374641418457
+        },
+        {
+          "token": "捕",
+          "tokenId": 0,
+          "logprob": -7.38499641418457
+        },
+        {
+          "token": "长",
+          "tokenId": 0,
+          "logprob": -7.97874641418457
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -8.02562141418457
+        },
+        {
+          "token": "建",
+          "tokenId": 0,
+          "logprob": -8.10374641418457
+        },
+        {
+          "token": "语言",
+          "tokenId": 0,
+          "logprob": -8.10374641418457
+        },
+        {
+          "token": "文本",
+          "tokenId": 0,
+          "logprob": -8.35374641418457
+        },
+        {
+          "token": "灵",
+          "tokenId": 0,
+          "logprob": -8.55687141418457
+        },
+        {
+          "token": "生成",
+          "tokenId": 0,
+          "logprob": -8.85374641418457
+        }
+      ]
+    },
+    {
+      "stepIndex": 53,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制和并行计算，提高了训练效率和捕获长",
+      "topK": [
+        {
+          "token": "距离",
+          "tokenId": 0,
+          "logprob": -0.3693988025188446
+        },
+        {
+          "token": "程",
+          "tokenId": 0,
+          "logprob": -1.213148832321167
+        },
+        {
+          "token": "距",
+          "tokenId": 0,
+          "logprob": -5.635023593902588
+        },
+        {
+          "token": "依",
+          "tokenId": 0,
+          "logprob": -5.697523593902588
+        },
+        {
+          "token": "远",
+          "tokenId": 0,
+          "logprob": -6.525648593902588
+        },
+        {
+          "token": "范围",
+          "tokenId": 0,
+          "logprob": -6.635023593902588
+        },
+        {
+          "token": "序",
+          "tokenId": 0,
+          "logprob": -6.869398593902588
+        },
+        {
+          "token": "时间",
+          "tokenId": 0,
+          "logprob": -8.072524070739746
+        },
+        {
+          "token": "时",
+          "tokenId": 0,
+          "logprob": -8.135024070739746
+        },
+        {
+          "token": "-range",
+          "tokenId": 0,
+          "logprob": -8.666274070739746
+        },
+        {
+          "token": "跨度",
+          "tokenId": 0,
+          "logprob": -10.963149070739746
+        },
+        {
+          "token": "短",
+          "tokenId": 0,
+          "logprob": -11.119399070739746
+        },
+        {
+          "token": "句",
+          "tokenId": 0,
+          "logprob": -11.619399070739746
+        },
+        {
+          "token": "-distance",
+          "tokenId": 0,
+          "logprob": -11.900649070739746
+        },
+        {
+          "token": "期",
+          "tokenId": 0,
+          "logprob": -12.275649070739746
+        },
+        {
+          "token": "文本",
+          "tokenId": 0,
+          "logprob": -12.806899070739746
+        },
+        {
+          "token": "途",
+          "tokenId": 0,
+          "logprob": -13.010024070739746
+        },
+        {
+          "token": "程序",
+          "tokenId": 0,
+          "logprob": -13.385024070739746
+        },
+        {
+          "token": "段",
+          "tokenId": 0,
+          "logprob": -13.572524070739746
+        },
+        {
+          "token": "效",
+          "tokenId": 0,
+          "logprob": -13.744399070739746
+        }
+      ]
+    },
+    {
+      "stepIndex": 57,
+      "contextPreview": "Transformer 是一种深度学习模型，专为处理序列数据（如自然语言）而设计。与传统的循环神经网络（RNN）不同，Transformer 使用自注意力机制和并行计算，提高了训练效率和捕获长距离关系的能力",
+      "topK": [
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -0.5201177597045898
+        },
+        {
+          "token": "。这",
+          "tokenId": 0,
+          "logprob": -0.9576177597045898
+        },
+        {
+          "token": "。在",
+          "tokenId": 0,
+          "logprob": -4.20761775970459
+        },
+        {
+          "token": "。因此",
+          "tokenId": 0,
+          "logprob": -6.50449275970459
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -6.81699275970459
+        },
+        {
+          "token": "，是",
+          "tokenId": 0,
+          "logprob": -6.84824275970459
+        },
+        {
+          "token": "。从",
+          "tokenId": 0,
+          "logprob": -7.23886775970459
+        },
+        {
+          "token": "，使",
+          "tokenId": 0,
+          "logprob": -7.31699275970459
+        },
+        {
+          "token": "，被",
+          "tokenId": 0,
+          "logprob": -7.78574275970459
+        },
+        {
+          "token": "。目前",
+          "tokenId": 0,
+          "logprob": -8.02011775970459
+        },
+        {
+          "token": "，这",
+          "tokenId": 0,
+          "logprob": -8.69199275970459
+        },
+        {
+          "token": "，因此",
+          "tokenId": 0,
+          "logprob": -8.86386775970459
+        },
+        {
+          "token": "，非常",
+          "tokenId": 0,
+          "logprob": -8.86386775970459
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -9.09824275970459
+        },
+        {
+          "token": "，其",
+          "tokenId": 0,
+          "logprob": -9.42636775970459
+        },
+        {
+          "token": "，从",
+          "tokenId": 0,
+          "logprob": -9.48886775970459
+        },
+        {
+          "token": "，自",
+          "tokenId": 0,
+          "logprob": -10.05136775970459
+        },
+        {
+          "token": "。不",
+          "tokenId": 0,
+          "logprob": -10.20761775970459
+        },
+        {
+          "token": "，它",
+          "tokenId": 0,
+          "logprob": -10.20761775970459
+        },
+        {
+          "token": "，大",
+          "tokenId": 0,
+          "logprob": -10.27011775970459
+        }
+      ]
+    }
+  ]
+}

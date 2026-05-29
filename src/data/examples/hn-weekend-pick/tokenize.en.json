@@ -1,0 +1,291 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:17:16.772Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "en"
+  },
+  "prompt": "Fetch HN top 10. From titles, pick 3-5 stories that look suitable for weekend reading. Fetch their details. Recommend one and write a short reason.",
+  "tokens": [
+    {
+      "id": 23822,
+      "text": "Fetch",
+      "byteRange": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": 487,
+      "text": " H",
+      "byteRange": [
+        5,
+        7
+      ]
+    },
+    {
+      "id": 45,
+      "text": "N",
+      "byteRange": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": 2344,
+      "text": " top",
+      "byteRange": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": 702,
+      "text": "10",
+      "byteRange": [
+        13,
+        15
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        15,
+        16
+      ]
+    },
+    {
+      "id": 7217,
+      "text": " From",
+      "byteRange": [
+        16,
+        21
+      ]
+    },
+    {
+      "id": 22517,
+      "text": " titles",
+      "byteRange": [
+        21,
+        28
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": 5230,
+      "text": " pick",
+      "byteRange": [
+        29,
+        34
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        34,
+        35
+      ]
+    },
+    {
+      "id": 18,
+      "text": "3",
+      "byteRange": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": 12,
+      "text": "-",
+      "byteRange": [
+        36,
+        37
+      ]
+    },
+    {
+      "id": 20,
+      "text": "5",
+      "byteRange": [
+        37,
+        38
+      ]
+    },
+    {
+      "id": 9970,
+      "text": " stories",
+      "byteRange": [
+        38,
+        46
+      ]
+    },
+    {
+      "id": 484,
+      "text": " that",
+      "byteRange": [
+        46,
+        51
+      ]
+    },
+    {
+      "id": 1631,
+      "text": " look",
+      "byteRange": [
+        51,
+        56
+      ]
+    },
+    {
+      "id": 13127,
+      "text": " suitable",
+      "byteRange": [
+        56,
+        65
+      ]
+    },
+    {
+      "id": 395,
+      "text": " for",
+      "byteRange": [
+        65,
+        69
+      ]
+    },
+    {
+      "id": 10668,
+      "text": " weekend",
+      "byteRange": [
+        69,
+        77
+      ]
+    },
+    {
+      "id": 6085,
+      "text": " reading",
+      "byteRange": [
+        77,
+        85
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        85,
+        86
+      ]
+    },
+    {
+      "id": 39653,
+      "text": " Fetch",
+      "byteRange": [
+        86,
+        92
+      ]
+    },
+    {
+      "id": 1043,
+      "text": " their",
+      "byteRange": [
+        92,
+        98
+      ]
+    },
+    {
+      "id": 4878,
+      "text": " details",
+      "byteRange": [
+        98,
+        106
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        106,
+        107
+      ]
+    },
+    {
+      "id": 60672,
+      "text": " Recommend",
+      "byteRange": [
+        107,
+        117
+      ]
+    },
+    {
+      "id": 1001,
+      "text": " one",
+      "byteRange": [
+        117,
+        121
+      ]
+    },
+    {
+      "id": 326,
+      "text": " and",
+      "byteRange": [
+        121,
+        125
+      ]
+    },
+    {
+      "id": 5067,
+      "text": " write",
+      "byteRange": [
+        125,
+        131
+      ]
+    },
+    {
+      "id": 261,
+      "text": " a",
+      "byteRange": [
+        131,
+        133
+      ]
+    },
+    {
+      "id": 4022,
+      "text": " short",
+      "byteRange": [
+        133,
+        139
+      ]
+    },
+    {
+      "id": 5207,
+      "text": " reason",
+      "byteRange": [
+        139,
+        146
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        146,
+        147
+      ]
+    }
+  ]
+}

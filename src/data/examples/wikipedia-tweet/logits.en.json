@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:05.718Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "steps": [
+    {
+      "stepIndex": 0,
+      "contextPreview": "",
+      "topK": [
+        {
+          "token": "Discover",
+          "tokenId": 0,
+          "logprob": -1.1226025819778442
+        },
+        {
+          "token": "The",
+          "tokenId": 0,
+          "logprob": -1.7788525819778442
+        },
+        {
+          "token": "Cur",
+          "tokenId": 0,
+          "logprob": -2.2476024627685547
+        },
+        {
+          "token": "Transform",
+          "tokenId": 0,
+          "logprob": -2.4038524627685547
+        },
+        {
+          "token": "\\xf0\\x9f\\x9a",
+          "tokenId": 0,
+          "logprob": -2.4351024627685547
+        },
+        {
+          "token": "\\xf0\\x9f\\xa4",
+          "tokenId": 0,
+          "logprob": -2.9038524627685547
+        },
+        {
+          "token": "\\xf0\\x9f\\x94",
+          "tokenId": 0,
+          "logprob": -2.9663524627685547
+        },
+        {
+          "token": "Check",
+          "tokenId": 0,
+          "logprob": -3.4663524627685547
+        },
+        {
+          "token": "\"",
+          "tokenId": 0,
+          "logprob": -4.153852462768555
+        },
+        {
+          "token": "\\xf0\\x9f\\x8c",
+          "tokenId": 0,
+          "logprob": -4.372602462768555
+        },
+        {
+          "token": "Sure",
+          "tokenId": 0,
+          "logprob": -4.435102462768555
+        },
+        {
+          "token": "Want",
+          "tokenId": 0,
+          "logprob": -4.997602462768555
+        },
+        {
+          "token": "Unlock",
+          "tokenId": 0,
+          "logprob": -5.153852462768555
+        },
+        {
+          "token": "Meet",
+          "tokenId": 0,
+          "logprob": -5.560102462768555
+        },
+        {
+          "token": "\\xf0\\x9f",
+          "tokenId": 0,
+          "logprob": -5.622602462768555
+        },
+        {
+          "token": "Exc",
+          "tokenId": 0,
+          "logprob": -5.903852462768555
+        },
+        {
+          "token": "Looking",
+          "tokenId": 0,
+          "logprob": -5.997602462768555
+        },
+        {
+          "token": "\\xf0\\x9f\\x93",
+          "tokenId": 0,
+          "logprob": -6.060102462768555
+        },
+        {
+          "token": "Explore",
+          "tokenId": 0,
+          "logprob": -6.091352462768555
+        },
+        {
+          "token": "Ever",
+          "tokenId": 0,
+          "logprob": -6.153852462768555
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "contextPreview": "Discover Transformers",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -0.8316414952278137
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -1.362891435623169
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -1.753516435623169
+        },
+        {
+          "token": "!",
+          "tokenId": 0,
+          "logprob": -2.128516435623169
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -5.175391674041748
+        },
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -5.534766674041748
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -6.034766674041748
+        },
+        {
+          "token": "—a",
+          "tokenId": 0,
+          "logprob": -6.206641674041748
+        },
+        {
+          "token": "—the",
+          "tokenId": 0,
+          "logprob": -6.206641674041748
+        },
+        {
+          "token": " —",
+          "tokenId": 0,
+          "logprob": -8.10507869720459
+        },
+        {
+          "token": " \\xf0\\x9f\\x94",
+          "tokenId": 0,
+          "logprob": -9.81601619720459
+        },
+        {
+          "token": " \\xf0\\x9f\\x8c",
+          "tokenId": 0,
+          "logprob": -9.98007869720459
+        },
+        {
+          "token": " \\xf0\\x9f\\xa4",
+          "tokenId": 0,
+          "logprob": -10.07382869720459
+        },
+        {
+          "token": " \\xf0\\x9f\\x9a",
+          "tokenId": 0,
+          "logprob": -10.80039119720459
+        },
+        {
+          "token": " \\xf0\\x9f",
+          "tokenId": 0,
+          "logprob": -11.40195369720459
+        },
+        {
+          "token": "–",
+          "tokenId": 0,
+          "logprob": -11.62070369720459
+        },
+        {
+          "token": " \\xf0\\x9f\\x93",
+          "tokenId": 0,
+          "logprob": -11.83164119720459
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -11.98789119720459
+        },
+        {
+          "token": "\\xf0\\x9f\\x94",
+          "tokenId": 0,
+          "logprob": -12.28476619720459
+        },
+        {
+          "token": " \\xf0\\x9f\\x8e",
+          "tokenId": 0,
+          "logprob": -12.44882869720459
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "contextPreview": "Discover Transformers!",
+      "topK": [
+        {
+          "token": " \\xf0\\x9f\\xa4",
+          "tokenId": 0,
+          "logprob": -1.0436170101165771
+        },
+        {
+          "token": " These",
+          "tokenId": 0,
+          "logprob": -1.8092420101165771
+        },
+        {
+          "token": " \\xf0\\x9f\\x9a",
+          "tokenId": 0,
+          "logprob": -1.8717420101165771
+        },
+        {
+          "token": " \\xf0\\x9f\\x8c",
+          "tokenId": 0,
+          "logprob": -2.074867010116577
+        },
+        {
+          "token": " \\xf0\\x9f",
+          "tokenId": 0,
+          "logprob": -2.402992010116577
+        },
+        {
+          "token": " They're",
+          "tokenId": 0,
+          "logprob": -3.231117010116577
+        },
+        {
+          "token": " \\xf0\\x9f\\x94",
+          "tokenId": 0,
+          "logprob": -3.652992010116577
+        },
+        {
+          "token": " \\xf0\\x9f\\x92",
+          "tokenId": 0,
+          "logprob": -4.215492248535156
+        },
+        {
+          "token": " A",
+          "tokenId": 0,
+          "logprob": -4.324867248535156
+        },
+        {
+          "token": " \\xf0\\x9f\\x93",
+          "tokenId": 0,
+          "logprob": -5.387367248535156
+        },
+        {
+          "token": " They",
+          "tokenId": 0,
+          "logprob": -5.715492248535156
+        },
+        {
+          "token": " This",
+          "tokenId": 0,
+          "logprob": -5.871742248535156
+        },
+        {
+          "token": " \\xe2\\x9a",
+          "tokenId": 0,
+          "logprob": -5.965492248535156
+        },
+        {
+          "token": " Introdu",
+          "tokenId": 0,
+          "logprob": -6.121742248535156
+        },
+        {
+          "token": " \\xf0\\x9f\\x8e",
+          "tokenId": 0,
+          "logprob": -6.512367248535156
+        },
+        {
+          "token": " In",
+          "tokenId": 0,
+          "logprob": -6.574867248535156
+        },
+        {
+          "token": " Revolution",
+          "tokenId": 0,
+          "logprob": -7.996742248535156
+        },
+        {
+          "token": " Originally",
+          "tokenId": 0,
+          "logprob": -8.059242248535156
+        },
+        {
+          "token": " \\xe2\\x9c",
+          "tokenId": 0,
+          "logprob": -8.215492248535156
+        },
+        {
+          "token": " The",
+          "tokenId": 0,
+          "logprob": -8.840492248535156
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96",
+      "topK": [
+        {
+          "token": "✨",
+          "tokenId": 0,
+          "logprob": -1.1718637943267822
+        },
+        {
+          "token": " These",
+          "tokenId": 0,
+          "logprob": -1.2031137943267822
+        },
+        {
+          "token": " A",
+          "tokenId": 0,
+          "logprob": -1.8281137943267822
+        },
+        {
+          "token": " They're",
+          "tokenId": 0,
+          "logprob": -2.0468637943267822
+        },
+        {
+          "token": "\\xf0\\x9f\\x94",
+          "tokenId": 0,
+          "logprob": -4.265613555908203
+        },
+        {
+          "token": "\\xf0\\x9f\\x93",
+          "tokenId": 0,
+          "logprob": -4.328113555908203
+        },
+        {
+          "token": " They",
+          "tokenId": 0,
+          "logprob": -4.390613555908203
+        },
+        {
+          "token": " This",
+          "tokenId": 0,
+          "logprob": -4.484363555908203
+        },
+        {
+          "token": "\\xf0\\x9f\\x92",
+          "tokenId": 0,
+          "logprob": -4.796863555908203
+        },
+        {
+          "token": " In",
+          "tokenId": 0,
+          "logprob": -4.859363555908203
+        },
+        {
+          "token": " The",
+          "tokenId": 0,
+          "logprob": -4.937488555908203
+        },
+        {
+          "token": "\\xf0\\x9f\\x8c",
+          "tokenId": 0,
+          "logprob": -5.046863555908203
+        },
+        {
+          "token": "\\xf0\\x9f\\x9a",
+          "tokenId": 0,
+          "logprob": -5.453113555908203
+        },
+        {
+          "token": " An",
+          "tokenId": 0,
+          "logprob": -5.562488555908203
+        },
+        {
+          "token": "\\xf0\\x9f",
+          "tokenId": 0,
+          "logprob": -5.671863555908203
+        },
+        {
+          "token": " Introdu",
+          "tokenId": 0,
+          "logprob": -6.890613555908203
+        },
+        {
+          "token": "🔥",
+          "tokenId": 0,
+          "logprob": -6.968738555908203
+        },
+        {
+          "token": " Developed",
+          "tokenId": 0,
+          "logprob": -7.218738555908203
+        },
+        {
+          "token": " First",
+          "tokenId": 0,
+          "logprob": -7.546863555908203
+        },
+        {
+          "token": " P",
+          "tokenId": 0,
+          "logprob": -7.546863555908203
+        }
+      ]
+    },
+    {
+      "stepIndex": 6,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These",
+      "topK": [
+        {
+          "token": " powerful",
+          "tokenId": 0,
+          "logprob": -1.0070574283599854
+        },
+        {
+          "token": " machine",
+          "tokenId": 0,
+          "logprob": -1.8508074283599854
+        },
+        {
+          "token": " game",
+          "tokenId": 0,
+          "logprob": -2.3351824283599854
+        },
+        {
+          "token": " cutting",
+          "tokenId": 0,
+          "logprob": -2.5383074283599854
+        },
+        {
+          "token": " innovative",
+          "tokenId": 0,
+          "logprob": -2.7414324283599854
+        },
+        {
+          "token": " revolutionary",
+          "tokenId": 0,
+          "logprob": -2.9133074283599854
+        },
+        {
+          "token": " advanced",
+          "tokenId": 0,
+          "logprob": -2.9289324283599854
+        },
+        {
+          "token": " groundbreaking",
+          "tokenId": 0,
+          "logprob": -3.0383074283599854
+        },
+        {
+          "token": " are",
+          "tokenId": 0,
+          "logprob": -3.4445574283599854
+        },
+        {
+          "token": " AI",
+          "tokenId": 0,
+          "logprob": -3.5383074283599854
+        },
+        {
+          "token": " deep",
+          "tokenId": 0,
+          "logprob": -5.194557189941406
+        },
+        {
+          "token": " neural",
+          "tokenId": 0,
+          "logprob": -5.491432189941406
+        },
+        {
+          "token": " state",
+          "tokenId": 0,
+          "logprob": -5.757057189941406
+        },
+        {
+          "token": " ML",
+          "tokenId": 0,
+          "logprob": -6.725807189941406
+        },
+        {
+          "token": " breakthrough",
+          "tokenId": 0,
+          "logprob": -6.803932189941406
+        },
+        {
+          "token": " incredible",
+          "tokenId": 0,
+          "logprob": -6.882057189941406
+        },
+        {
+          "token": " powerhouse",
+          "tokenId": 0,
+          "logprob": -6.897682189941406
+        },
+        {
+          "token": " models",
+          "tokenId": 0,
+          "logprob": -7.069557189941406
+        },
+        {
+          "token": " amazing",
+          "tokenId": 0,
+          "logprob": -7.350807189941406
+        },
+        {
+          "token": " revolution",
+          "tokenId": 0,
+          "logprob": -7.944557189941406
+        }
+      ]
+    },
+    {
+      "stepIndex": 9,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models",
+      "topK": [
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -0.7289789319038391
+        },
+        {
+          "token": " revolution",
+          "tokenId": 0,
+          "logprob": -1.5102288722991943
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -2.2914788722991943
+        },
+        {
+          "token": " are",
+          "tokenId": 0,
+          "logprob": -2.9008538722991943
+        },
+        {
+          "token": " have",
+          "tokenId": 0,
+          "logprob": -2.9946038722991943
+        },
+        {
+          "token": " excel",
+          "tokenId": 0,
+          "logprob": -3.2758538722991943
+        },
+        {
+          "token": " power",
+          "tokenId": 0,
+          "logprob": -4.307104110717773
+        },
+        {
+          "token": " use",
+          "tokenId": 0,
+          "logprob": -4.541479110717773
+        },
+        {
+          "token": " introduced",
+          "tokenId": 0,
+          "logprob": -5.588354110717773
+        },
+        {
+          "token": " process",
+          "tokenId": 0,
+          "logprob": -5.666479110717773
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -5.713354110717773
+        },
+        {
+          "token": " transform",
+          "tokenId": 0,
+          "logprob": -5.807104110717773
+        },
+        {
+          "token": " analyze",
+          "tokenId": 0,
+          "logprob": -6.525854110717773
+        },
+        {
+          "token": " were",
+          "tokenId": 0,
+          "logprob": -6.885229110717773
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -6.994604110717773
+        },
+        {
+          "token": " transformed",
+          "tokenId": 0,
+          "logprob": -6.994604110717773
+        },
+        {
+          "token": " handle",
+          "tokenId": 0,
+          "logprob": -7.463354110717773
+        },
+        {
+          "token": " redefine",
+          "tokenId": 0,
+          "logprob": -7.541479110717773
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -7.557104110717773
+        },
+        {
+          "token": " focus",
+          "tokenId": 0,
+          "logprob": -7.557104110717773
+        }
+      ]
+    },
+    {
+      "stepIndex": 11,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI",
+      "topK": [
+        {
+          "token": " excel",
+          "tokenId": 0,
+          "logprob": -1.4621368646621704
+        },
+        {
+          "token": " are",
+          "tokenId": 0,
+          "logprob": -1.7746368646621704
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -2.118386745452881
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -2.259011745452881
+        },
+        {
+          "token": " use",
+          "tokenId": 0,
+          "logprob": -2.899636745452881
+        },
+        {
+          "token": " process",
+          "tokenId": 0,
+          "logprob": -2.930886745452881
+        },
+        {
+          "token": " handle",
+          "tokenId": 0,
+          "logprob": -3.118386745452881
+        },
+        {
+          "token": " can",
+          "tokenId": 0,
+          "logprob": -3.368386745452881
+        },
+        {
+          "token": " efficiently",
+          "tokenId": 0,
+          "logprob": -3.368386745452881
+        },
+        {
+          "token": " have",
+          "tokenId": 0,
+          "logprob": -3.524636745452881
+        },
+        {
+          "token": " understand",
+          "tokenId": 0,
+          "logprob": -3.696511745452881
+        },
+        {
+          "token": " revolution",
+          "tokenId": 0,
+          "logprob": -3.884011745452881
+        },
+        {
+          "token": " capture",
+          "tokenId": 0,
+          "logprob": -4.493386745452881
+        },
+        {
+          "token": " focus",
+          "tokenId": 0,
+          "logprob": -4.915261745452881
+        },
+        {
+          "token": " leverage",
+          "tokenId": 0,
+          "logprob": -5.180886745452881
+        },
+        {
+          "token": " learn",
+          "tokenId": 0,
+          "logprob": -5.243386745452881
+        },
+        {
+          "token": " analyze",
+          "tokenId": 0,
+          "logprob": -5.415261745452881
+        },
+        {
+          "token": " &",
+          "tokenId": 0,
+          "logprob": -5.430886745452881
+        },
+        {
+          "token": " power",
+          "tokenId": 0,
+          "logprob": -5.805886745452881
+        },
+        {
+          "token": " were",
+          "tokenId": 0,
+          "logprob": -6.305886745452881
+        }
+      ]
+    },
+    {
+      "stepIndex": 13,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI are designed",
+      "topK": [
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -0.41299328207969666
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -1.084868311882019
+        },
+        {
+          "token": " primarily",
+          "tokenId": 0,
+          "logprob": -8.905180931091309
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -9.014555931091309
+        },
+        {
+          "token": " specifically",
+          "tokenId": 0,
+          "logprob": -10.116118431091309
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -10.373930931091309
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -10.991118431091309
+        },
+        {
+          "token": " especially",
+          "tokenId": 0,
+          "logprob": -11.537993431091309
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -11.748930931091309
+        },
+        {
+          "token": " around",
+          "tokenId": 0,
+          "logprob": -11.858305931091309
+        },
+        {
+          "token": " mainly",
+          "tokenId": 0,
+          "logprob": -12.420805931091309
+        },
+        {
+          "token": " initially",
+          "tokenId": 0,
+          "logprob": -13.428618431091309
+        },
+        {
+          "token": " efficiently",
+          "tokenId": 0,
+          "logprob": -13.506743431091309
+        },
+        {
+          "token": " not",
+          "tokenId": 0,
+          "logprob": -13.717680931091309
+        },
+        {
+          "token": " particularly",
+          "tokenId": 0,
+          "logprob": -14.045805931091309
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -14.131743431091309
+        },
+        {
+          "token": " originally",
+          "tokenId": 0,
+          "logprob": -14.131743431091309
+        },
+        {
+          "token": " without",
+          "tokenId": 0,
+          "logprob": -14.287993431091309
+        },
+        {
+          "token": " specially",
+          "tokenId": 0,
+          "logprob": -14.483305931091309
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -14.756743431091309
+        }
+      ]
+    },
+    {
+      "stepIndex": 14,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI are designed to",
+      "topK": [
+        {
+          "token": " handle",
+          "tokenId": 0,
+          "logprob": -0.44592294096946716
+        },
+        {
+          "token": " process",
+          "tokenId": 0,
+          "logprob": -1.3365479707717896
+        },
+        {
+          "token": " understand",
+          "tokenId": 0,
+          "logprob": -2.6177978515625
+        },
+        {
+          "token": " efficiently",
+          "tokenId": 0,
+          "logprob": -4.2740478515625
+        },
+        {
+          "token": " improve",
+          "tokenId": 0,
+          "logprob": -6.3990478515625
+        },
+        {
+          "token": " excel",
+          "tokenId": 0,
+          "logprob": -6.5709228515625
+        },
+        {
+          "token": " capture",
+          "tokenId": 0,
+          "logprob": -6.7271728515625
+        },
+        {
+          "token": " enhance",
+          "tokenId": 0,
+          "logprob": -6.9302978515625
+        },
+        {
+          "token": " analyze",
+          "tokenId": 0,
+          "logprob": -7.3052978515625
+        },
+        {
+          "token": " effectively",
+          "tokenId": 0,
+          "logprob": -7.3521728515625
+        },
+        {
+          "token": " better",
+          "tokenId": 0,
+          "logprob": -7.3834228515625
+        },
+        {
+          "token": " manage",
+          "tokenId": 0,
+          "logprob": -7.4302978515625
+        },
+        {
+          "token": " transform",
+          "tokenId": 0,
+          "logprob": -7.9146728515625
+        },
+        {
+          "token": " tackle",
+          "tokenId": 0,
+          "logprob": -8.0865478515625
+        },
+        {
+          "token": " grasp",
+          "tokenId": 0,
+          "logprob": -8.2115478515625
+        },
+        {
+          "token": " boost",
+          "tokenId": 0,
+          "logprob": -8.2740478515625
+        },
+        {
+          "token": " learn",
+          "tokenId": 0,
+          "logprob": -8.7896728515625
+        },
+        {
+          "token": " recognize",
+          "tokenId": 0,
+          "logprob": -8.8052978515625
+        },
+        {
+          "token": " work",
+          "tokenId": 0,
+          "logprob": -9.2740478515625
+        },
+        {
+          "token": " read",
+          "tokenId": 0,
+          "logprob": -9.3834228515625
+        }
+      ]
+    },
+    {
+      "stepIndex": 15,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI are designed to handle",
+      "topK": [
+        {
+          "token": " sequential",
+          "tokenId": 0,
+          "logprob": -0.5875197052955627
+        },
+        {
+          "token": " sequence",
+          "tokenId": 0,
+          "logprob": -1.306269645690918
+        },
+        {
+          "token": " sequences",
+          "tokenId": 0,
+          "logprob": -1.931269645690918
+        },
+        {
+          "token": " complex",
+          "tokenId": 0,
+          "logprob": -4.978144645690918
+        },
+        {
+          "token": " data",
+          "tokenId": 0,
+          "logprob": -4.993769645690918
+        },
+        {
+          "token": " vast",
+          "tokenId": 0,
+          "logprob": -5.243769645690918
+        },
+        {
+          "token": " tasks",
+          "tokenId": 0,
+          "logprob": -6.056269645690918
+        },
+        {
+          "token": " language",
+          "tokenId": 0,
+          "logprob": -6.150019645690918
+        },
+        {
+          "token": " various",
+          "tokenId": 0,
+          "logprob": -7.212519645690918
+        },
+        {
+          "token": " seq",
+          "tokenId": 0,
+          "logprob": -7.556269645690918
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -7.587519645690918
+        },
+        {
+          "token": " natural",
+          "tokenId": 0,
+          "logprob": -7.759394645690918
+        },
+        {
+          "token": " diverse",
+          "tokenId": 0,
+          "logprob": -8.009394645690918
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -8.118769645690918
+        },
+        {
+          "token": " large",
+          "tokenId": 0,
+          "logprob": -8.478144645690918
+        },
+        {
+          "token": " varied",
+          "tokenId": 0,
+          "logprob": -8.556269645690918
+        },
+        {
+          "token": " all",
+          "tokenId": 0,
+          "logprob": -8.759394645690918
+        },
+        {
+          "token": " different",
+          "tokenId": 0,
+          "logprob": -8.900019645690918
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -9.025019645690918
+        },
+        {
+          "token": " sequ",
+          "tokenId": 0,
+          "logprob": -9.056269645690918
+        }
+      ]
+    },
+    {
+      "stepIndex": 17,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI are designed to handle sequential data",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -0.8431574106216431
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -1.780657410621643
+        },
+        {
+          "token": " efficiently",
+          "tokenId": 0,
+          "logprob": -2.1400322914123535
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -2.2181572914123535
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -2.8119072914123535
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -3.3275322914123535
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -3.9837822914123535
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -4.3900322914123535
+        },
+        {
+          "token": " tasks",
+          "tokenId": 0,
+          "logprob": -4.4212822914123535
+        },
+        {
+          "token": " more",
+          "tokenId": 0,
+          "logprob": -4.6869072914123535
+        },
+        {
+          "token": " effectively",
+          "tokenId": 0,
+          "logprob": -5.0931572914123535
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -5.5619072914123535
+        },
+        {
+          "token": " without",
+          "tokenId": 0,
+          "logprob": -6.2494072914123535
+        },
+        {
+          "token": " through",
+          "tokenId": 0,
+          "logprob": -6.4525322914123535
+        },
+        {
+          "token": " while",
+          "tokenId": 0,
+          "logprob": -6.4525322914123535
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -6.5619072914123535
+        },
+        {
+          "token": " but",
+          "tokenId": 0,
+          "logprob": -6.7494072914123535
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -6.8900322914123535
+        },
+        {
+          "token": " &",
+          "tokenId": 0,
+          "logprob": -7.0931572914123535
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -7.1556572914123535
+        }
+      ]
+    },
+    {
+      "stepIndex": 18,
+      "contextPreview": "Discover Transformers! \\xf0\\x9f\\xa4\\x96 These game-changing models in AI are designed to handle sequential data,",
+      "topK": [
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -0.662894070148468
+        },
+        {
+          "token": " making",
+          "tokenId": 0,
+          "logprob": -1.6628940105438232
+        },
+        {
+          "token": " revolution",
+          "tokenId": 0,
+          "logprob": -2.4753940105438232
+        },
+        {
+          "token": " exc",
+          "tokenId": 0,
+          "logprob": -2.8660190105438232
+        },
+        {
+          "token": " transforming",
+          "tokenId": 0,
+          "logprob": -3.6941440105438232
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -3.7253940105438232
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -4.303519248962402
+        },
+        {
+          "token": " perfect",
+          "tokenId": 0,
+          "logprob": -4.741019248962402
+        },
+        {
+          "token": " powering",
+          "tokenId": 0,
+          "logprob": -4.819144248962402
+        },
+        {
+          "token": " enabling",
+          "tokenId": 0,
+          "logprob": -4.912894248962402
+        },
+        {
+          "token": " shining",
+          "tokenId": 0,
+          "logprob": -5.006644248962402
+        },
+        {
+          "token": " improving",
+          "tokenId": 0,
+          "logprob": -5.069144248962402
+        },
+        {
+          "token": " boosting",
+          "tokenId": 0,
+          "logprob": -5.178519248962402
+        },
+        {
+          "token": " outperform",
+          "tokenId": 0,
+          "logprob": -5.756644248962402
+        },
+        {
+          "token": " enhancing",
+          "tokenId": 0,
+          "logprob": -5.803519248962402
+        },
+        {
+          "token": " excel",
+          "tokenId": 0,
+          "logprob": -5.834769248962402
+        },
+        {
+          "token": " especially",
+          "tokenId": 0,
+          "logprob": -6.084769248962402
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -6.131644248962402
+        },
+        {
+          "token": " mastering",
+          "tokenId": 0,
+          "logprob": -6.178519248962402
+        },
+        {
+          "token": " but",
+          "tokenId": 0,
+          "logprob": -6.241019248962402
+        }
+      ]
+    }
+  ]
+}

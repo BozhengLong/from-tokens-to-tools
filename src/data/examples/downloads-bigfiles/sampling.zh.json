@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:13:55.751Z",
+    "scriptVersion": "sampling.ts",
+    "lang": "zh"
+  },
+  "baseStep": 31,
+  "baseStepLogprobs": [
+    {
+      "token": "使用",
+      "tokenId": 0,
+      "logprob": -0.4592393636703491
+    },
+    {
+      "token": "运行",
+      "tokenId": 0,
+      "logprob": -1.1154893636703491
+    },
+    {
+      "token": "执行",
+      "tokenId": 0,
+      "logprob": -3.2404894828796387
+    },
+    {
+      "token": "输入",
+      "tokenId": 0,
+      "logprob": -6.646739482879639
+    },
+    {
+      "token": "用",
+      "tokenId": 0,
+      "logprob": -10.42798900604248
+    },
+    {
+      "token": "通过",
+      "tokenId": 0,
+      "logprob": -12.97486400604248
+    },
+    {
+      "token": "进行",
+      "tokenId": 0,
+      "logprob": -13.63111400604248
+    },
+    {
+      "token": "运",
+      "tokenId": 0,
+      "logprob": -13.86548900604248
+    },
+    {
+      "token": "键",
+      "tokenId": 0,
+      "logprob": -13.89673900604248
+    },
+    {
+      "token": "尝",
+      "tokenId": 0,
+      "logprob": -14.24048900604248
+    },
+    {
+      "token": "打开",
+      "tokenId": 0,
+      "logprob": -14.67798900604248
+    },
+    {
+      "token": "利用",
+      "tokenId": 0,
+      "logprob": -14.94361400604248
+    },
+    {
+      "token": "（",
+      "tokenId": 0,
+      "logprob": -15.08423900604248
+    },
+    {
+      "token": "进入",
+      "tokenId": 0,
+      "logprob": -15.20923900604248
+    },
+    {
+      "token": " 使用",
+      "tokenId": 0,
+      "logprob": -15.30298900604248
+    },
+    {
+      "token": "依",
+      "tokenId": 0,
+      "logprob": -15.59986400604248
+    },
+    {
+      "token": "按",
+      "tokenId": 0,
+      "logprob": -15.86548900604248
+    },
+    {
+      "token": "跑",
+      "tokenId": 0,
+      "logprob": -16.146739959716797
+    },
+    {
+      "token": "这样",
+      "tokenId": 0,
+      "logprob": -16.302989959716797
+    },
+    {
+      "token": "按照",
+      "tokenId": 0,
+      "logprob": -16.427989959716797
+    }
+  ],
+  "paths": [
+    {
+      "method": "greedy",
+      "params": {
+        "temperature": 0
+      },
+      "tokens": [
+        "使",
+        "用",
+        "以",
+        "下",
+        "命",
+        "令",
+        "：",
+        "\n\n`",
+        "`",
+        "`",
+        "b",
+        "a",
+        "s",
+        "h",
+        "\nf",
+        "i",
+        "n",
+        "d",
+        " ",
+        "~",
+        "/",
+        "D",
+        "o",
+        "w",
+        "n"
+      ]
+    },
+    {
+      "method": "low-temp",
+      "params": {
+        "temperature": 0.5
+      },
+      "tokens": [
+        "使",
+        "用",
+        "以",
+        "下",
+        "命",
+        "令",
+        "：",
+        "\n\n`",
+        "`",
+        "`",
+        "b",
+        "a",
+        "s",
+        "h",
+        "\nf",
+        "i",
+        "n",
+        "d",
+        " ",
+        "~",
+        "/",
+        "D",
+        "o",
+        "w",
+        "n"
+      ]
+    },
+    {
+      "method": "top-p",
+      "params": {
+        "top_p": 0.9,
+        "temperature": 1
+      },
+      "tokens": [
+        "使",
+        "用",
+        "以",
+        "下",
+        "命",
+        "令",
+        "：",
+        "\n\n`",
+        "`",
+        "`",
+        "b",
+        "a",
+        "s",
+        "h",
+        "\nf",
+        "i",
+        "n",
+        "d",
+        " ",
+        "~",
+        "/",
+        "D",
+        "o",
+        "w",
+        "n"
+      ]
+    },
+    {
+      "method": "high-temp",
+      "params": {
+        "temperature": 1.5
+      },
+      "tokens": [
+        "使",
+        "用",
+        "以",
+        "下",
+        "命",
+        "令",
+        "：",
+        "\n\n`",
+        "`",
+        "`",
+        "b",
+        "a",
+        "s",
+        "h",
+        "\nf",
+        "i",
+        "n",
+        "d",
+        " ",
+        "~",
+        "/",
+        "D",
+        "o",
+        "w",
+        "n"
+      ]
+    }
+  ]
+}

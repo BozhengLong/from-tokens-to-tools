@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:26.405Z",
+    "scriptVersion": "agent-loops.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "reactive": {
+    "iterations": [
+      {
+        "thought": "I will fetch the lead section of the Wikipedia article 'Transformer (machine learning model)' to gather accurate information for the tweet.",
+        "action": {
+          "name": "fetch_wikipedia_article",
+          "arguments": {
+            "title": "Transformer (machine learning model)"
+          }
+        },
+        "observation": {
+          "_truncated": true,
+          "originalLength": 2048,
+          "preview": "{\"title\":\"Transformer (deep learning)\",\"extract\":\"In deep learning, the transformer is a family of artificial neural network architectures based on the multi-head attention mechanism, in which text is converted to numerical representations called tokens, and each token is converted into a vector via lookup from a word embedding table. At each layer, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism, allowing the signal for key tokens to be amplified and less important tokens to be diminished. Because self-attention alone is permutation-invariant, transformers inject positional information, typically through positional encodings or learned positional embeddings, so token order can affect the output.\\nTransformers have the advantage of having no recurrent units, therefore requiring less training time than earlier recurrent neural architectures (RNNs) such as long short-term memory (LSTM). Later variations have been widely adopted for training large language models (LLMs) on large (language) datasets. Modern transformer designs are commonly grouped into encoder-only, decoder-only, and encoder-decoder variants, depending on whether they are optimized for representation learning, autoregressive generation, or conditional sequence-to-sequence tasks.\\n\\nThe original version of the transformer architecture was proposed in the 2017 paper \\\"Attention Is All You Need\\\" by researchers at Google. The predecessors of transformers were developed as an improvement over previous architectures for machine translation, but have found many applications since. They are used in large-scale natural language processing, computer vision (vision transformers), reinforcement learning, audio, multimodal learning, robotics,, playing chess and at disaster responses. It has also led to the development of pre-trained systems, such as generative pre-trained transformers (GPTs) and BERT (bidirectional e"
+        }
+      }
+    ],
+    "terminationReason": "text-final",
+    "finalText": "Transformers are a breakthrough in deep learning. Introduced in 2017, they use multi-head attention to turn text into vectors, ditching RNNs for faster training. Widely used in NLP and beyond, they power models like GPT and BERT. #MachineLearning #AI #Transformers",
+    "terminationNote": "Model produced a text-only final answer and stopped."
+  },
+  "deliberative": {
+    "plan": [
+      {
+        "id": "step-1",
+        "stepLabel": "Fetch the lead section of the Wikipedia article titled 'Transformer (machine learning model)'."
+      },
+      {
+        "id": "step-2",
+        "stepLabel": "Use the information from the lead section to write a tweet introducing the concept of Transformers in machine learning."
+      },
+      {
+        "id": "step-3",
+        "stepLabel": "Thought: I need to fetch the Wikipedia article to read the lead section on 'Transformer (machine learning model)'."
+      }
+    ],
+    "execution": [
+      {
+        "planStepId": "step-1",
+        "actualCall": {
+          "name": "fetch_wikipedia_article",
+          "arguments": {
+            "title": "Transformer (machine learning model)"
+          }
+        },
+        "observation": {
+          "_truncated": true,
+          "originalLength": 2048,
+          "preview": "{\"title\":\"Transformer (deep learning)\",\"extract\":\"In deep learning, the transformer is a family of artificial neural network architectures based on the multi-head attention mechanism, in which text is converted to numerical representations called tokens, and each token is converted into a vector via lookup from a word embedding table. At each layer, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism, allowing the signal for key tokens to be amplified and less important tokens to be diminished. Because self-attention alone is permutation-invariant, transformers inject positional information, typically through positional encodings or learned positional embeddings, so token order can affect the output.\\nTransformers have the advantage of having no recurrent units, therefore requiring less training time than earlier recurrent neural architectures (RNNs) such as long short-term memory (LSTM). Later variations have been widely adopted for training large language models (LLMs) on large (language) datasets. Modern transformer designs are commonly grouped into encoder-only, decoder-only, and encoder-decoder variants, depending on whether they are optimized for representation learning, autoregressive generation, or conditional sequence-to-sequence tasks.\\n\\nThe original version of the transformer architecture was proposed in the 2017 paper \\\"Attention Is All You Need\\\" by researchers at Google. The predecessors of transformers were developed as an improvement over previous architectures for machine translation, but have found many applications since. They are used in large-scale natural language processing, computer vision (vision transformers), reinforcement learning, audio, multimodal learning, robotics,, playing chess and at disaster responses. It has also led to the development of pre-trained systems, such as generative pre-trained transformers (GPTs) and BERT (bidirectional e"
+        },
+        "deviated": false
+      }
+    ],
+    "deviationSummary": "Plan: 3 steps; actual: 1. Deviation observed."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:14.905Z",
+    "scriptVersion": "agent-loops.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reactive": {
+    "iterations": [
+      {
+        "thought": "需要查询2026年5月30日上海的天气。",
+        "action": {
+          "name": "get_weather",
+          "arguments": {
+            "city": "上海",
+            "date": "2026-05-30"
+          }
+        },
+        "observation": {
+          "date": "2026-05-30",
+          "t_max": 27.8,
+          "t_min": 17.9,
+          "precipitation_probability": 0,
+          "weathercode": 3
+        }
+      },
+      {
+        "thought": "确定上海明天没有降水概率高的情况，不需要提醒带伞。将天气情况总结后发送通知。",
+        "action": {
+          "name": "send_notification",
+          "arguments": {
+            "title": "上海明天天气",
+            "body": "明天上海的最高气温为27.8°C，最低气温为17.9°C，天气主要为多云。不需要携带雨伞。"
+          }
+        },
+        "observation": {
+          "delivered": false,
+          "channel": "mock"
+        }
+      }
+    ],
+    "terminationReason": "final-action-called",
+    "terminationNote": "模型调用了 final-action 工具后停止"
+  },
+  "deliberative": {
+    "plan": [
+      {
+        "id": "step-1",
+        "stepLabel": "使用get_weather工具查询上海在2026年5月30日的天气。"
+      },
+      {
+        "id": "step-2",
+        "stepLabel": "根据天气信息判断是否需要在通知中提醒用户带伞。"
+      },
+      {
+        "id": "step-3",
+        "stepLabel": "使用send_notification工具发送一条通知，总结天气情况和是否需要带伞的提醒。"
+      }
+    ],
+    "execution": [
+      {
+        "planStepId": "step-1",
+        "actualCall": {
+          "name": "get_weather",
+          "arguments": {
+            "city": "上海",
+            "date": "2026-05-30"
+          }
+        },
+        "observation": {
+          "date": "2026-05-30",
+          "t_max": 27.8,
+          "t_min": 17.9,
+          "precipitation_probability": 0,
+          "weathercode": 3
+        },
+        "deviated": false
+      },
+      {
+        "planStepId": "step-2",
+        "actualCall": {
+          "name": "send_notification",
+          "arguments": {
+            "title": "上海天气预报",
+            "body": "明天天气预报：最高气温27.8°C，最低气温17.9°C。天气晴朗，不会下雨，无需带伞。"
+          }
+        },
+        "observation": {
+          "delivered": false,
+          "channel": "mock"
+        },
+        "deviated": false
+      }
+    ],
+    "deviationSummary": "Plan 有 3 步,实际执行 2 步,出现偏离。"
+  }
+}

@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:19.679Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "steps": [
+    {
+      "stepIndex": 6,
+      "contextPreview": "I'm unable to check real-time",
+      "topK": [
+        {
+          "token": " weather",
+          "tokenId": 0,
+          "logprob": -0.7424157857894897
+        },
+        {
+          "token": " data",
+          "tokenId": 0,
+          "logprob": -0.8674157857894897
+        },
+        {
+          "token": " information",
+          "tokenId": 0,
+          "logprob": -2.2892909049987793
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -6.336165904998779
+        },
+        {
+          "token": " internet",
+          "tokenId": 0,
+          "logprob": -7.601790904998779
+        },
+        {
+          "token": " updates",
+          "tokenId": 0,
+          "logprob": -8.523665428161621
+        },
+        {
+          "token": " online",
+          "tokenId": 0,
+          "logprob": -10.164290428161621
+        },
+        {
+          "token": " events",
+          "tokenId": 0,
+          "logprob": -10.570540428161621
+        },
+        {
+          "token": " forecasts",
+          "tokenId": 0,
+          "logprob": -10.593977928161621
+        },
+        {
+          "token": " websites",
+          "tokenId": 0,
+          "logprob": -10.633040428161621
+        },
+        {
+          "token": " web",
+          "tokenId": 0,
+          "logprob": -11.281477928161621
+        },
+        {
+          "token": " details",
+          "tokenId": 0,
+          "logprob": -11.406477928161621
+        },
+        {
+          "token": " content",
+          "tokenId": 0,
+          "logprob": -11.453352928161621
+        },
+        {
+          "token": " sources",
+          "tokenId": 0,
+          "logprob": -11.578352928161621
+        },
+        {
+          "token": " current",
+          "tokenId": 0,
+          "logprob": -11.750227928161621
+        },
+        {
+          "token": " services",
+          "tokenId": 0,
+          "logprob": -11.898665428161621
+        },
+        {
+          "token": " external",
+          "tokenId": 0,
+          "logprob": -12.039290428161621
+        },
+        {
+          "token": " databases",
+          "tokenId": 0,
+          "logprob": -12.843977928161621
+        },
+        {
+          "token": " future",
+          "tokenId": 0,
+          "logprob": -12.867415428161621
+        },
+        {
+          "token": " news",
+          "tokenId": 0,
+          "logprob": -13.289290428161621
+        }
+      ]
+    },
+    {
+      "stepIndex": 11,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -0.1348598599433899
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -2.775484800338745
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -3.634859800338745
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -3.728609800338745
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -4.728610038757324
+        },
+        {
+          "token": " because",
+          "tokenId": 0,
+          "logprob": -6.041110038757324
+        },
+        {
+          "token": " at",
+          "tokenId": 0,
+          "logprob": -6.947360038757324
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -7.056735038757324
+        },
+        {
+          "token": " due",
+          "tokenId": 0,
+          "logprob": -8.275485038757324
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -9.916110038757324
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -11.197360038757324
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -11.275485038757324
+        },
+        {
+          "token": " through",
+          "tokenId": 0,
+          "logprob": -11.400485038757324
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -11.728610038757324
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -11.853610038757324
+        },
+        {
+          "token": " myself",
+          "tokenId": 0,
+          "logprob": -11.931735038757324
+        },
+        {
+          "token": " but",
+          "tokenId": 0,
+          "logprob": -12.212985038757324
+        },
+        {
+          "token": " right",
+          "tokenId": 0,
+          "logprob": -12.400485038757324
+        },
+        {
+          "token": " about",
+          "tokenId": 0,
+          "logprob": -12.556735038757324
+        },
+        {
+          "token": " given",
+          "tokenId": 0,
+          "logprob": -13.337985038757324
+        }
+      ]
+    },
+    {
+      "stepIndex": 13,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but",
+      "topK": [
+        {
+          "token": " I",
+          "tokenId": 0,
+          "logprob": -0.5536001324653625
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -0.8661001324653625
+        },
+        {
+          "token": " here's",
+          "tokenId": 0,
+          "logprob": -5.866100311279297
+        },
+        {
+          "token": " here",
+          "tokenId": 0,
+          "logprob": -6.709850311279297
+        },
+        {
+          "token": " there",
+          "tokenId": 0,
+          "logprob": -8.506725311279297
+        },
+        {
+          "token": " I'll",
+          "tokenId": 0,
+          "logprob": -9.459850311279297
+        },
+        {
+          "token": " I'd",
+          "tokenId": 0,
+          "logprob": -9.600475311279297
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -10.030162811279297
+        },
+        {
+          "token": " I'm",
+          "tokenId": 0,
+          "logprob": -10.256725311279297
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -10.491100311279297
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -11.498912811279297
+        },
+        {
+          "token": " there's",
+          "tokenId": 0,
+          "logprob": -12.827037811279297
+        },
+        {
+          "token": " you're",
+          "tokenId": 0,
+          "logprob": -12.827037811279297
+        },
+        {
+          "token": " I've",
+          "tokenId": 0,
+          "logprob": -12.928600311279297
+        },
+        {
+          "token": " what",
+          "tokenId": 0,
+          "logprob": -13.475475311279297
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -13.858287811279297
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -13.967662811279297
+        },
+        {
+          "token": " you'll",
+          "tokenId": 0,
+          "logprob": -14.272350311279297
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -14.319225311279297
+        },
+        {
+          "token": " you'd",
+          "tokenId": 0,
+          "logprob": -14.397350311279297
+        }
+      ]
+    },
+    {
+      "stepIndex": 16,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest",
+      "topK": [
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -1.1400504112243652
+        },
+        {
+          "token": " how",
+          "tokenId": 0,
+          "logprob": -1.7181754112243652
+        },
+        {
+          "token": " ways",
+          "tokenId": 0,
+          "logprob": -1.7650504112243652
+        },
+        {
+          "token": " some",
+          "tokenId": 0,
+          "logprob": -2.0150504112243652
+        },
+        {
+          "token": " steps",
+          "tokenId": 0,
+          "logprob": -2.2494254112243652
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -3.9369254112243652
+        },
+        {
+          "token": " what",
+          "tokenId": 0,
+          "logprob": -4.249425411224365
+        },
+        {
+          "token": " that",
+          "tokenId": 0,
+          "logprob": -4.327550411224365
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -4.499425411224365
+        },
+        {
+          "token": " checking",
+          "tokenId": 0,
+          "logprob": -4.577550411224365
+        },
+        {
+          "token": " an",
+          "tokenId": 0,
+          "logprob": -5.155675411224365
+        },
+        {
+          "token": " setting",
+          "tokenId": 0,
+          "logprob": -5.405675411224365
+        },
+        {
+          "token": " methods",
+          "tokenId": 0,
+          "logprob": -5.452550411224365
+        },
+        {
+          "token": " actions",
+          "tokenId": 0,
+          "logprob": -6.311925411224365
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -6.749425411224365
+        },
+        {
+          "token": " alternatives",
+          "tokenId": 0,
+          "logprob": -7.085362911224365
+        },
+        {
+          "token": " alternative",
+          "tokenId": 0,
+          "logprob": -7.429112911224365
+        },
+        {
+          "token": " general",
+          "tokenId": 0,
+          "logprob": -7.515050411224365
+        },
+        {
+          "token": " options",
+          "tokenId": 0,
+          "logprob": -7.882237911224365
+        },
+        {
+          "token": " solutions",
+          "tokenId": 0,
+          "logprob": -7.913487911224365
+        }
+      ]
+    },
+    {
+      "stepIndex": 18,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you",
+      "topK": [
+        {
+          "token": " can",
+          "tokenId": 0,
+          "logprob": -0.40713489055633545
+        },
+        {
+          "token": " might",
+          "tokenId": 0,
+          "logprob": -1.2977598905563354
+        },
+        {
+          "token": " could",
+          "tokenId": 0,
+          "logprob": -2.813385009765625
+        },
+        {
+          "token": " may",
+          "tokenId": 0,
+          "logprob": -7.375885009765625
+        },
+        {
+          "token": " do",
+          "tokenId": 0,
+          "logprob": -8.313385009765625
+        },
+        {
+          "token": " would",
+          "tokenId": 0,
+          "logprob": -9.227447509765625
+        },
+        {
+          "token": " check",
+          "tokenId": 0,
+          "logprob": -9.657135009765625
+        },
+        {
+          "token": " find",
+          "tokenId": 0,
+          "logprob": -9.680572509765625
+        },
+        {
+          "token": " set",
+          "tokenId": 0,
+          "logprob": -9.891510009765625
+        },
+        {
+          "token": " get",
+          "tokenId": 0,
+          "logprob": -10.524322509765625
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -10.774322509765625
+        },
+        {
+          "token": " accomplish",
+          "tokenId": 0,
+          "logprob": -11.172760009765625
+        },
+        {
+          "token": " proceed",
+          "tokenId": 0,
+          "logprob": -11.313385009765625
+        },
+        {
+          "token": " should",
+          "tokenId": 0,
+          "logprob": -11.321197509765625
+        },
+        {
+          "token": " manage",
+          "tokenId": 0,
+          "logprob": -11.336822509765625
+        },
+        {
+          "token": " handle",
+          "tokenId": 0,
+          "logprob": -11.391510009765625
+        },
+        {
+          "token": " keep",
+          "tokenId": 0,
+          "logprob": -11.633697509765625
+        },
+        {
+          "token": " achieve",
+          "tokenId": 0,
+          "logprob": -11.918853759765625
+        },
+        {
+          "token": " obtain",
+          "tokenId": 0,
+          "logprob": -12.836822509765625
+        },
+        {
+          "token": " stay",
+          "tokenId": 0,
+          "logprob": -12.930572509765625
+        }
+      ]
+    },
+    {
+      "stepIndex": 19,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you might",
+      "topK": [
+        {
+          "token": " do",
+          "tokenId": 0,
+          "logprob": -1.2289341688156128
+        },
+        {
+          "token": " set",
+          "tokenId": 0,
+          "logprob": -1.5258091688156128
+        },
+        {
+          "token": " accomplish",
+          "tokenId": 0,
+          "logprob": -2.3383092880249023
+        },
+        {
+          "token": " achieve",
+          "tokenId": 0,
+          "logprob": -2.6351842880249023
+        },
+        {
+          "token": " proceed",
+          "tokenId": 0,
+          "logprob": -2.6664342880249023
+        },
+        {
+          "token": " find",
+          "tokenId": 0,
+          "logprob": -2.7914342880249023
+        },
+        {
+          "token": " get",
+          "tokenId": 0,
+          "logprob": -2.8070592880249023
+        },
+        {
+          "token": " check",
+          "tokenId": 0,
+          "logprob": -3.0414342880249023
+        },
+        {
+          "token": " stay",
+          "tokenId": 0,
+          "logprob": -3.9008092880249023
+        },
+        {
+          "token": " go",
+          "tokenId": 0,
+          "logprob": -4.478934288024902
+        },
+        {
+          "token": " automate",
+          "tokenId": 0,
+          "logprob": -4.502371788024902
+        },
+        {
+          "token": " handle",
+          "tokenId": 0,
+          "logprob": -4.650809288024902
+        },
+        {
+          "token": " keep",
+          "tokenId": 0,
+          "logprob": -4.705496788024902
+        },
+        {
+          "token": " obtain",
+          "tokenId": 0,
+          "logprob": -5.189871788024902
+        },
+        {
+          "token": " manage",
+          "tokenId": 0,
+          "logprob": -6.010184288024902
+        },
+        {
+          "token": " approach",
+          "tokenId": 0,
+          "logprob": -6.244559288024902
+        },
+        {
+          "token": " easily",
+          "tokenId": 0,
+          "logprob": -6.252371788024902
+        },
+        {
+          "token": " access",
+          "tokenId": 0,
+          "logprob": -6.275809288024902
+        },
+        {
+          "token": " be",
+          "tokenId": 0,
+          "logprob": -6.400809288024902
+        },
+        {
+          "token": " receive",
+          "tokenId": 0,
+          "logprob": -6.416434288024902
+        }
+      ]
+    },
+    {
+      "stepIndex": 22,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you might set this up",
+      "topK": [
+        {
+          "token": " yourself",
+          "tokenId": 0,
+          "logprob": -1.1110644340515137
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -1.2985644340515137
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -1.4079394340515137
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -2.9235644340515137
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -3.3766894340515137
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -3.5798144340515137
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -4.236064434051514
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -4.501689434051514
+        },
+        {
+          "token": "!",
+          "tokenId": 0,
+          "logprob": -5.673564434051514
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -6.251689434051514
+        },
+        {
+          "token": "!\n\n",
+          "tokenId": 0,
+          "logprob": -6.423564434051514
+        },
+        {
+          "token": " independently",
+          "tokenId": 0,
+          "logprob": -6.595439434051514
+        },
+        {
+          "token": " manually",
+          "tokenId": 0,
+          "logprob": -7.157939434051514
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -7.345439434051514
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -7.642314434051514
+        },
+        {
+          "token": " instead",
+          "tokenId": 0,
+          "logprob": -7.939189434051514
+        },
+        {
+          "token": " through",
+          "tokenId": 0,
+          "logprob": -8.095439910888672
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -8.236064910888672
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -9.079814910888672
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -9.079814910888672
+        }
+      ]
+    },
+    {
+      "stepIndex": 23,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you might set this up yourself",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -0.3193711042404175
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -1.7724961042404175
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -2.850621223449707
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -3.553746223449707
+        },
+        {
+          "token": "!",
+          "tokenId": 0,
+          "logprob": -4.897496223449707
+        },
+        {
+          "token": "!\n\n",
+          "tokenId": 0,
+          "logprob": -4.944371223449707
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -7.131871223449707
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -7.241246223449707
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -8.006871223449707
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -8.444371223449707
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -9.022496223449707
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -9.616246223449707
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -9.850621223449707
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -10.131871223449707
+        },
+        {
+          "token": " through",
+          "tokenId": 0,
+          "logprob": -10.397496223449707
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -11.069371223449707
+        },
+        {
+          "token": ":\n",
+          "tokenId": 0,
+          "logprob": -11.100621223449707
+        },
+        {
+          "token": ".\n",
+          "tokenId": 0,
+          "logprob": -11.147496223449707
+        },
+        {
+          "token": " so",
+          "tokenId": 0,
+          "logprob": -11.288121223449707
+        },
+        {
+          "token": " depending",
+          "tokenId": 0,
+          "logprob": -11.850621223449707
+        }
+      ]
+    },
+    {
+      "stepIndex": 30,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you might set this up yourself. You could use a weather app",
+      "topK": [
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -0.4191436469554901
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -1.2316436767578125
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -4.0285186767578125
+        },
+        {
+          "token": " that",
+          "tokenId": 0,
+          "logprob": -4.0285186767578125
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -4.6066436767578125
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -6.1691436767578125
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -6.5285186767578125
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -7.0519561767578125
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -8.216018676757812
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -9.794143676757812
+        },
+        {
+          "token": " available",
+          "tokenId": 0,
+          "logprob": -9.817581176757812
+        },
+        {
+          "token": " capable",
+          "tokenId": 0,
+          "logprob": -10.137893676757812
+        },
+        {
+          "token": " installed",
+          "tokenId": 0,
+          "logprob": -10.497268676757812
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -10.559768676757812
+        },
+        {
+          "token": "'s",
+          "tokenId": 0,
+          "logprob": -10.630081176757812
+        },
+        {
+          "token": " which",
+          "tokenId": 0,
+          "logprob": -10.669143676757812
+        },
+        {
+          "token": " service",
+          "tokenId": 0,
+          "logprob": -11.036331176757812
+        },
+        {
+          "token": " that's",
+          "tokenId": 0,
+          "logprob": -12.247268676757812
+        },
+        {
+          "token": " equipped",
+          "tokenId": 0,
+          "logprob": -12.591018676757812
+        },
+        {
+          "token": "/service",
+          "tokenId": 0,
+          "logprob": -12.598831176757812
+        }
+      ]
+    },
+    {
+      "stepIndex": 33,
+      "contextPreview": "I'm unable to check real-time data or send notifications directly, but I can suggest how you might set this up yourself. You could use a weather app on your smartphone",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -1.3448221683502197
+        },
+        {
+          "token": " that",
+          "tokenId": 0,
+          "logprob": -1.3604471683502197
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -1.5479471683502197
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -1.6573221683502197
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -3.5948221683502197
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -4.110446929931641
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -4.235446929931641
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -5.047946929931641
+        },
+        {
+          "token": " which",
+          "tokenId": 0,
+          "logprob": -5.266696929931641
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -5.735446929931641
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -6.133884429931641
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -6.141696929931641
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -7.282321929931641
+        },
+        {
+          "token": " where",
+          "tokenId": 0,
+          "logprob": -7.610446929931641
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -8.41513442993164
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -8.89950942993164
+        },
+        {
+          "token": " capable",
+          "tokenId": 0,
+          "logprob": -8.96982192993164
+        },
+        {
+          "token": " —",
+          "tokenId": 0,
+          "logprob": -9.59482192993164
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -9.72763442993164
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -9.96982192993164
+        }
+      ]
+    },
+    {
+      "stepIndex": 43,
+      "contextPreview": "-time data or send notifications directly, but I can suggest how you might set this up yourself. You could use a weather app on your smartphone to check the forecast for tomorrow's weather in Shanghai",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -0.0986824482679367
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -2.661182403564453
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -3.801807403564453
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -7.145557403564453
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -7.426807403564453
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -9.333057403564453
+        },
+        {
+          "token": " manually",
+          "tokenId": 0,
+          "logprob": -9.645557403564453
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -9.676807403564453
+        },
+        {
+          "token": " automatically",
+          "tokenId": 0,
+          "logprob": -10.676807403564453
+        },
+        {
+          "token": " regularly",
+          "tokenId": 0,
+          "logprob": -10.692432403564453
+        },
+        {
+          "token": "—they",
+          "tokenId": 0,
+          "logprob": -10.958057403564453
+        },
+        {
+          "token": "—it",
+          "tokenId": 0,
+          "logprob": -11.043994903564453
+        },
+        {
+          "token": " yourself",
+          "tokenId": 0,
+          "logprob": -11.215869903564453
+        },
+        {
+          "token": " easily",
+          "tokenId": 0,
+          "logprob": -11.434619903564453
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -11.551807403564453
+        },
+        {
+          "token": " —",
+          "tokenId": 0,
+          "logprob": -11.934619903564453
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -12.090869903564453
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -12.270557403564453
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -12.489307403564453
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -12.520557403564453
+        }
+      ]
+    },
+    {
+      "stepIndex": 44,
+      "contextPreview": "time data or send notifications directly, but I can suggest how you might set this up yourself. You could use a weather app on your smartphone to check the forecast for tomorrow's weather in Shanghai.",
+      "topK": [
+        {
+          "token": " Most",
+          "tokenId": 0,
+          "logprob": -0.5432697534561157
+        },
+        {
+          "token": " Many",
+          "tokenId": 0,
+          "logprob": -1.0588947534561157
+        },
+        {
+          "token": " Apps",
+          "tokenId": 0,
+          "logprob": -4.215144634246826
+        },
+        {
+          "token": " These",
+          "tokenId": 0,
+          "logprob": -4.480769634246826
+        },
+        {
+          "token": " Enable",
+          "tokenId": 0,
+          "logprob": -4.527644634246826
+        },
+        {
+          "token": " \n\n",
+          "tokenId": 0,
+          "logprob": -4.840144634246826
+        },
+        {
+          "token": " Set",
+          "tokenId": 0,
+          "logprob": -5.465144634246826
+        },
+        {
+          "token": " Additionally",
+          "tokenId": 0,
+          "logprob": -5.558894634246826
+        },
+        {
+          "token": " Here",
+          "tokenId": 0,
+          "logprob": -5.715144634246826
+        },
+        {
+          "token": " You",
+          "tokenId": 0,
+          "logprob": -5.793269634246826
+        },
+        {
+          "token": " Look",
+          "tokenId": 0,
+          "logprob": -6.043269634246826
+        },
+        {
+          "token": " Make",
+          "tokenId": 0,
+          "logprob": -6.137019634246826
+        },
+        {
+          "token": " Here's",
+          "tokenId": 0,
+          "logprob": -6.746394634246826
+        },
+        {
+          "token": " If",
+          "tokenId": 0,
+          "logprob": -6.808894634246826
+        },
+        {
+          "token": " Then",
+          "tokenId": 0,
+          "logprob": -6.980769634246826
+        },
+        {
+          "token": " Applications",
+          "tokenId": 0,
+          "logprob": -7.183894634246826
+        },
+        {
+          "token": " To",
+          "tokenId": 0,
+          "logprob": -7.637019634246826
+        },
+        {
+          "token": " Ensure",
+          "tokenId": 0,
+          "logprob": -7.777644634246826
+        },
+        {
+          "token": " Typically",
+          "tokenId": 0,
+          "logprob": -7.949519634246826
+        },
+        {
+          "token": " Such",
+          "tokenId": 0,
+          "logprob": -8.293270111083984
+        }
+      ]
+    }
+  ]
+}

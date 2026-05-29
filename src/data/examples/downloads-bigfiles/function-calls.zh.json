@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:13:57.084Z",
+    "scriptVersion": "function-calls.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reasoning": "",
+  "toolCandidates": [
+    {
+      "name": "list_directory",
+      "logprob": 0
+    }
+  ],
+  "call": {
+    "name": "list_directory",
+    "arguments": {
+      "path": "~/Downloads"
+    }
+  }
+}

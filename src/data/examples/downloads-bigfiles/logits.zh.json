@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:13:49.414Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "steps": [
+    {
+      "stepIndex": 12,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于",
+      "topK": [
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -0.004080420359969139
+        },
+        {
+          "token": "1",
+          "tokenId": 0,
+          "logprob": -5.504080295562744
+        },
+        {
+          "token": " `",
+          "tokenId": 0,
+          "logprob": -13.113455772399902
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -17.050954818725586
+        },
+        {
+          "token": "`",
+          "tokenId": 0,
+          "logprob": -18.004079818725586
+        },
+        {
+          "token": " **",
+          "tokenId": 0,
+          "logprob": -18.425954818725586
+        },
+        {
+          "token": " \\(",
+          "tokenId": 0,
+          "logprob": -18.504079818725586
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -20.472829818725586
+        },
+        {
+          "token": "100",
+          "tokenId": 0,
+          "logprob": -20.550954818725586
+        },
+        {
+          "token": "一",
+          "tokenId": 0,
+          "logprob": -20.847829818725586
+        },
+        {
+          "token": "１",
+          "tokenId": 0,
+          "logprob": -21.238454818725586
+        },
+        {
+          "token": "10",
+          "tokenId": 0,
+          "logprob": -21.269704818725586
+        },
+        {
+          "token": "一个",
+          "tokenId": 0,
+          "logprob": -21.332204818725586
+        },
+        {
+          "token": "2",
+          "tokenId": 0,
+          "logprob": -21.347829818725586
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -21.488454818725586
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -21.722829818725586
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -21.800954818725586
+        },
+        {
+          "token": " *",
+          "tokenId": 0,
+          "logprob": -21.879079818725586
+        },
+        {
+          "token": "指定",
+          "tokenId": 0,
+          "logprob": -22.175954818725586
+        },
+        {
+          "token": "且",
+          "tokenId": 0,
+          "logprob": -22.660329818725586
+        }
+      ]
+    },
+    {
+      "stepIndex": 24,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小",
+      "topK": [
+        {
+          "token": "排列",
+          "tokenId": 0,
+          "logprob": -0.3631015419960022
+        },
+        {
+          "token": "排序",
+          "tokenId": 0,
+          "logprob": -1.2381014823913574
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -4.238101482391357
+        },
+        {
+          "token": "的",
+          "tokenId": 0,
+          "logprob": -9.784976959228516
+        },
+        {
+          "token": "排",
+          "tokenId": 0,
+          "logprob": -10.831851959228516
+        },
+        {
+          "token": "顺",
+          "tokenId": 0,
+          "logprob": -10.863101959228516
+        },
+        {
+          "token": "列",
+          "tokenId": 0,
+          "logprob": -11.503726959228516
+        },
+        {
+          "token": "显示",
+          "tokenId": 0,
+          "logprob": -12.066226959228516
+        },
+        {
+          "token": "对",
+          "tokenId": 0,
+          "logprob": -13.316226959228516
+        },
+        {
+          "token": "排名",
+          "tokenId": 0,
+          "logprob": -13.613101959228516
+        },
+        {
+          "token": "来",
+          "tokenId": 0,
+          "logprob": -15.675601959228516
+        },
+        {
+          "token": "输出",
+          "tokenId": 0,
+          "logprob": -15.800601959228516
+        },
+        {
+          "token": "整理",
+          "tokenId": 0,
+          "logprob": -15.847476959228516
+        },
+        {
+          "token": "展示",
+          "tokenId": 0,
+          "logprob": -15.909976959228516
+        },
+        {
+          "token": " 排",
+          "tokenId": 0,
+          "logprob": -16.003726959228516
+        },
+        {
+          "token": "依",
+          "tokenId": 0,
+          "logprob": -16.659976959228516
+        },
+        {
+          "token": "排行",
+          "tokenId": 0,
+          "logprob": -16.675601959228516
+        },
+        {
+          "token": "进行了",
+          "tokenId": 0,
+          "logprob": -16.722476959228516
+        },
+        {
+          "token": "打印",
+          "tokenId": 0,
+          "logprob": -17.128726959228516
+        },
+        {
+          "token": "列表",
+          "tokenId": 0,
+          "logprob": -17.534976959228516
+        }
+      ]
+    },
+    {
+      "stepIndex": 25,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序",
+      "topK": [
+        {
+          "token": "，你",
+          "tokenId": 0,
+          "logprob": -0.40890541672706604
+        },
+        {
+          "token": "，可以",
+          "tokenId": 0,
+          "logprob": -1.1276553869247437
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -4.471405506134033
+        },
+        {
+          "token": "，请",
+          "tokenId": 0,
+          "logprob": -8.643280029296875
+        },
+        {
+          "token": "，可",
+          "tokenId": 0,
+          "logprob": -9.299530029296875
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -10.002655029296875
+        },
+        {
+          "token": "，我们",
+          "tokenId": 0,
+          "logprob": -10.455780029296875
+        },
+        {
+          "token": "，需要",
+          "tokenId": 0,
+          "logprob": -10.862030029296875
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -11.002655029296875
+        },
+        {
+          "token": "可以",
+          "tokenId": 0,
+          "logprob": -11.408905029296875
+        },
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -12.502655029296875
+        },
+        {
+          "token": "的",
+          "tokenId": 0,
+          "logprob": -13.393280029296875
+        },
+        {
+          "token": "的话",
+          "tokenId": 0,
+          "logprob": -13.455780029296875
+        },
+        {
+          "token": "，我",
+          "tokenId": 0,
+          "logprob": -14.143280029296875
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -14.377655029296875
+        },
+        {
+          "token": "，有",
+          "tokenId": 0,
+          "logprob": -14.721405029296875
+        },
+        {
+          "token": "，这",
+          "tokenId": 0,
+          "logprob": -14.783905029296875
+        },
+        {
+          "token": " ，",
+          "tokenId": 0,
+          "logprob": -14.924530029296875
+        },
+        {
+          "token": "，\n",
+          "tokenId": 0,
+          "logprob": -15.158905029296875
+        },
+        {
+          "token": "你",
+          "tokenId": 0,
+          "logprob": -15.205780029296875
+        }
+      ]
+    },
+    {
+      "stepIndex": 31,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中",
+      "topK": [
+        {
+          "token": "使用",
+          "tokenId": 0,
+          "logprob": -0.4592393636703491
+        },
+        {
+          "token": "运行",
+          "tokenId": 0,
+          "logprob": -1.1154893636703491
+        },
+        {
+          "token": "执行",
+          "tokenId": 0,
+          "logprob": -3.2404894828796387
+        },
+        {
+          "token": "输入",
+          "tokenId": 0,
+          "logprob": -6.646739482879639
+        },
+        {
+          "token": "用",
+          "tokenId": 0,
+          "logprob": -10.42798900604248
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -12.97486400604248
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -13.63111400604248
+        },
+        {
+          "token": "运",
+          "tokenId": 0,
+          "logprob": -13.86548900604248
+        },
+        {
+          "token": "键",
+          "tokenId": 0,
+          "logprob": -13.89673900604248
+        },
+        {
+          "token": "尝",
+          "tokenId": 0,
+          "logprob": -14.24048900604248
+        },
+        {
+          "token": "打开",
+          "tokenId": 0,
+          "logprob": -14.67798900604248
+        },
+        {
+          "token": "利用",
+          "tokenId": 0,
+          "logprob": -14.94361400604248
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -15.08423900604248
+        },
+        {
+          "token": "进入",
+          "tokenId": 0,
+          "logprob": -15.20923900604248
+        },
+        {
+          "token": " 使用",
+          "tokenId": 0,
+          "logprob": -15.30298900604248
+        },
+        {
+          "token": "依",
+          "tokenId": 0,
+          "logprob": -15.59986400604248
+        },
+        {
+          "token": "按",
+          "tokenId": 0,
+          "logprob": -15.86548900604248
+        },
+        {
+          "token": "跑",
+          "tokenId": 0,
+          "logprob": -16.146739959716797
+        },
+        {
+          "token": "这样",
+          "tokenId": 0,
+          "logprob": -16.302989959716797
+        },
+        {
+          "token": "按照",
+          "tokenId": 0,
+          "logprob": -16.427989959716797
+        }
+      ]
+    },
+    {
+      "stepIndex": 38,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash",
+      "topK": [
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -19.046875
+        },
+        {
+          "token": "  \n",
+          "tokenId": 0,
+          "logprob": -19.765625
+        },
+        {
+          "token": "\t\n",
+          "tokenId": 0,
+          "logprob": -21.640625
+        },
+        {
+          "token": "    \n",
+          "tokenId": 0,
+          "logprob": -22.34375
+        },
+        {
+          "token": "   \n",
+          "tokenId": 0,
+          "logprob": -22.53125
+        },
+        {
+          "token": "\n\n",
+          "tokenId": 0,
+          "logprob": -23.484375
+        },
+        {
+          "token": "        \n",
+          "tokenId": 0,
+          "logprob": -25.984375
+        },
+        {
+          "token": "      \n",
+          "tokenId": 0,
+          "logprob": -26.6875
+        },
+        {
+          "token": "\t\t\n",
+          "tokenId": 0,
+          "logprob": -26.703125
+        },
+        {
+          "token": "的",
+          "tokenId": 0,
+          "logprob": -26.953125
+        },
+        {
+          "token": "            \n",
+          "tokenId": 0,
+          "logprob": -27.28125
+        },
+        {
+          "token": "     \n",
+          "tokenId": 0,
+          "logprob": -27.359375
+        },
+        {
+          "token": "\r\n",
+          "tokenId": 0,
+          "logprob": -27.53125
+        },
+        {
+          "token": ":\n",
+          "tokenId": 0,
+          "logprob": -27.65625
+        },
+        {
+          "token": "```",
+          "tokenId": 0,
+          "logprob": -27.6875
+        },
+        {
+          "token": "shell",
+          "tokenId": 0,
+          "logprob": -27.921875
+        },
+        {
+          "token": "python",
+          "tokenId": 0,
+          "logprob": -28
+        },
+        {
+          "token": "          \n",
+          "tokenId": 0,
+          "logprob": -28.0625
+        },
+        {
+          "token": "         \n",
+          "tokenId": 0,
+          "logprob": -28.140625
+        }
+      ]
+    },
+    {
+      "stepIndex": 42,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -0.0000013856492842023727
+        },
+        {
+          "token": "/",
+          "tokenId": 0,
+          "logprob": -13.531250953674316
+        },
+        {
+          "token": "/*",
+          "tokenId": 0,
+          "logprob": -18.031251907348633
+        },
+        {
+          "token": " \\(",
+          "tokenId": 0,
+          "logprob": -18.218751907348633
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -19.390626907348633
+        },
+        {
+          "token": " \\\n",
+          "tokenId": 0,
+          "logprob": -21.125001907348633
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -22.140626907348633
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -23.015626907348633
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -23.343751907348633
+        },
+        {
+          "token": " !",
+          "tokenId": 0,
+          "logprob": -23.375001907348633
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -24.453126907348633
+        },
+        {
+          "token": "  ",
+          "tokenId": 0,
+          "logprob": -25.125001907348633
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -25.593751907348633
+        },
+        {
+          "token": " /*",
+          "tokenId": 0,
+          "logprob": -25.640626907348633
+        },
+        {
+          "token": "/*.",
+          "tokenId": 0,
+          "logprob": -26.125001907348633
+        },
+        {
+          "token": "    ",
+          "tokenId": 0,
+          "logprob": -26.406251907348633
+        },
+        {
+          "token": " −",
+          "tokenId": 0,
+          "logprob": -26.515626907348633
+        },
+        {
+          "token": "   ",
+          "tokenId": 0,
+          "logprob": -26.625001907348633
+        },
+        {
+          "token": "\t",
+          "tokenId": 0,
+          "logprob": -26.921876907348633
+        },
+        {
+          "token": "      ",
+          "tokenId": 0,
+          "logprob": -27.734376907348633
+        }
+      ]
+    },
+    {
+      "stepIndex": 45,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": " \\(",
+          "tokenId": 0,
+          "logprob": -17.75
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -18.828125
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -21.828125
+        },
+        {
+          "token": " \\\n",
+          "tokenId": 0,
+          "logprob": -22.71875
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -22.890625
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -23.265625
+        },
+        {
+          "token": " !",
+          "tokenId": 0,
+          "logprob": -23.515625
+        },
+        {
+          "token": "  ",
+          "tokenId": 0,
+          "logprob": -23.671875
+        },
+        {
+          "token": " +",
+          "tokenId": 0,
+          "logprob": -25.03125
+        },
+        {
+          "token": " −",
+          "tokenId": 0,
+          "logprob": -25.640625
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -26.234375
+        },
+        {
+          "token": "   ",
+          "tokenId": 0,
+          "logprob": -26.703125
+        },
+        {
+          "token": "    ",
+          "tokenId": 0,
+          "logprob": -27.25
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -27.46875
+        },
+        {
+          "token": " -\n",
+          "tokenId": 0,
+          "logprob": -27.5
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -27.59375
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -27.65625
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -27.84375
+        },
+        {
+          "token": "\n\n",
+          "tokenId": 0,
+          "logprob": -28.609375
+        }
+      ]
+    },
+    {
+      "stepIndex": 50,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f -size +1G",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -3.128163257315464e-7
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -16.046875
+        },
+        {
+          "token": " \\(",
+          "tokenId": 0,
+          "logprob": -16.34375
+        },
+        {
+          "token": " !",
+          "tokenId": 0,
+          "logprob": -19.28125
+        },
+        {
+          "token": " \\\n",
+          "tokenId": 0,
+          "logprob": -20.21875
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -21.6875
+        },
+        {
+          "token": " |",
+          "tokenId": 0,
+          "logprob": -21.734375
+        },
+        {
+          "token": "  ",
+          "tokenId": 0,
+          "logprob": -22.5625
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -22.703125
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -22.71875
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -22.75
+        },
+        {
+          "token": "   ",
+          "tokenId": 0,
+          "logprob": -24.6875
+        },
+        {
+          "token": "    ",
+          "tokenId": 0,
+          "logprob": -25.234375
+        },
+        {
+          "token": "-ex",
+          "tokenId": 0,
+          "logprob": -25.703125
+        },
+        {
+          "token": "\t",
+          "tokenId": 0,
+          "logprob": -25.96875
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -26.140625
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -26.265625
+        },
+        {
+          "token": "c",
+          "tokenId": 0,
+          "logprob": -26.46875
+        },
+        {
+          "token": "\\(",
+          "tokenId": 0,
+          "logprob": -26.625
+        },
+        {
+          "token": "0",
+          "tokenId": 0,
+          "logprob": -26.78125
+        }
+      ]
+    },
+    {
+      "stepIndex": 53,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f -size +1G -exec ls",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -20
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -20.0625
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -22.75
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -24.90625
+        },
+        {
+          "token": "  ",
+          "tokenId": 0,
+          "logprob": -25.390625
+        },
+        {
+          "token": "   ",
+          "tokenId": 0,
+          "logprob": -26.2578125
+        },
+        {
+          "token": " '-",
+          "tokenId": 0,
+          "logprob": -27.03125
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -27.3984375
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -27.421875
+        },
+        {
+          "token": "-l",
+          "tokenId": 0,
+          "logprob": -27.5703125
+        },
+        {
+          "token": " {}",
+          "tokenId": 0,
+          "logprob": -27.59375
+        },
+        {
+          "token": "    ",
+          "tokenId": 0,
+          "logprob": -27.6015625
+        },
+        {
+          "token": "1",
+          "tokenId": 0,
+          "logprob": -27.7265625
+        },
+        {
+          "token": "-S",
+          "tokenId": 0,
+          "logprob": -27.890625
+        },
+        {
+          "token": "\t",
+          "tokenId": 0,
+          "logprob": -28.109375
+        },
+        {
+          "token": "/",
+          "tokenId": 0,
+          "logprob": -28.234375
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -28.2421875
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -28.65625
+        },
+        {
+          "token": "\n\n",
+          "tokenId": 0,
+          "logprob": -28.7265625
+        }
+      ]
+    },
+    {
+      "stepIndex": 55,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f -size +1G -exec ls -lh",
+      "topK": [
+        {
+          "token": " {}",
+          "tokenId": 0,
+          "logprob": -0.004317129962146282
+        },
+        {
+          "token": "S",
+          "tokenId": 0,
+          "logprob": -5.473067283630371
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -9.910567283630371
+        },
+        {
+          "token": " \"{}",
+          "tokenId": 0,
+          "logprob": -10.394942283630371
+        },
+        {
+          "token": " '{}'",
+          "tokenId": 0,
+          "logprob": -10.551192283630371
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -13.160567283630371
+        },
+        {
+          "token": "{}",
+          "tokenId": 0,
+          "logprob": -14.363692283630371
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -15.441817283630371
+        },
+        {
+          "token": " {}\\",
+          "tokenId": 0,
+          "logprob": -16.238691329956055
+        },
+        {
+          "token": " {},",
+          "tokenId": 0,
+          "logprob": -17.363691329956055
+        },
+        {
+          "token": "R",
+          "tokenId": 0,
+          "logprob": -17.457441329956055
+        },
+        {
+          "token": "Sd",
+          "tokenId": 0,
+          "logprob": -17.785566329956055
+        },
+        {
+          "token": "Sh",
+          "tokenId": 0,
+          "logprob": -18.082441329956055
+        },
+        {
+          "token": "F",
+          "tokenId": 0,
+          "logprob": -18.098066329956055
+        },
+        {
+          "token": " {}\",",
+          "tokenId": 0,
+          "logprob": -18.394941329956055
+        },
+        {
+          "token": " {",
+          "tokenId": 0,
+          "logprob": -18.566816329956055
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -18.660566329956055
+        },
+        {
+          "token": "Sr",
+          "tokenId": 0,
+          "logprob": -18.691816329956055
+        },
+        {
+          "token": "X",
+          "tokenId": 0,
+          "logprob": -18.848066329956055
+        },
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -19.066816329956055
+        }
+      ]
+    },
+    {
+      "stepIndex": 59,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f -size +1G -exec ls -lh {} + | sort",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -4.320199877838604e-7
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -14.78125
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -19.859375
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -19.859375
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -20.234375
+        },
+        {
+          "token": " '-",
+          "tokenId": 0,
+          "logprob": -23.640625
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -24.609375
+        },
+        {
+          "token": " \"-",
+          "tokenId": 0,
+          "logprob": -25.3125
+        },
+        {
+          "token": " {-",
+          "tokenId": 0,
+          "logprob": -25.453125
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -25.5625
+        },
+        {
+          "token": " [-",
+          "tokenId": 0,
+          "logprob": -25.59375
+        },
+        {
+          "token": " \\\n",
+          "tokenId": 0,
+          "logprob": -25.96875
+        },
+        {
+          "token": " -\n",
+          "tokenId": 0,
+          "logprob": -25.96875
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -26.359375
+        },
+        {
+          "token": " −",
+          "tokenId": 0,
+          "logprob": -26.421875
+        },
+        {
+          "token": "k",
+          "tokenId": 0,
+          "logprob": -26.5390625
+        },
+        {
+          "token": "  ",
+          "tokenId": 0,
+          "logprob": -27.0546875
+        },
+        {
+          "token": " (-",
+          "tokenId": 0,
+          "logprob": -27.1953125
+        },
+        {
+          "token": " -(",
+          "tokenId": 0,
+          "logprob": -27.2421875
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -27.25
+        }
+      ]
+    },
+    {
+      "stepIndex": 61,
+      "contextPreview": "要列出 `~/Downloads` 文件夹中大于 1GB 的文件，并按大小从大到小排序，你可以在终端中使用以下命令：\n\n```bash\nfind ~/Downloads -type f -size +1G -exec ls -lh {} + | sort -hr",
+      "topK": [
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -0.1063409149646759
+        },
+        {
+          "token": "k",
+          "tokenId": 0,
+          "logprob": -2.2938408851623535
+        },
+        {
+          "token": " --",
+          "tokenId": 0,
+          "logprob": -12.762591361999512
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -14.700091361999512
+        },
+        {
+          "token": "nk",
+          "tokenId": 0,
+          "logprob": -15.746966361999512
+        },
+        {
+          "token": "-k",
+          "tokenId": 0,
+          "logprob": -16.481340408325195
+        },
+        {
+          "token": " |",
+          "tokenId": 0,
+          "logprob": -16.621965408325195
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -16.746965408325195
+        },
+        {
+          "token": " k",
+          "tokenId": 0,
+          "logprob": -16.778215408325195
+        },
+        {
+          "token": "b",
+          "tokenId": 0,
+          "logprob": -18.731340408325195
+        },
+        {
+          "token": "hk",
+          "tokenId": 0,
+          "logprob": -19.309465408325195
+        },
+        {
+          "token": " –",
+          "tokenId": 0,
+          "logprob": -19.700090408325195
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -20.075090408325195
+        },
+        {
+          "token": "kb",
+          "tokenId": 0,
+          "logprob": -20.246965408325195
+        },
+        {
+          "token": "f",
+          "tokenId": 0,
+          "logprob": -20.512590408325195
+        },
+        {
+          "token": "t",
+          "tokenId": 0,
+          "logprob": -20.528215408325195
+        },
+        {
+          "token": "n",
+          "tokenId": 0,
+          "logprob": -20.590715408325195
+        },
+        {
+          "token": "\n\n",
+          "tokenId": 0,
+          "logprob": -20.700090408325195
+        },
+        {
+          "token": "K",
+          "tokenId": 0,
+          "logprob": -20.918840408325195
+        },
+        {
+          "token": "d",
+          "tokenId": 0,
+          "logprob": -20.965715408325195
+        }
+      ]
+    }
+  ]
+}

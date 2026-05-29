@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:51.533Z",
+    "scriptVersion": "function-calls.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reasoning": "",
+  "toolCandidates": [
+    {
+      "name": "fetch_wikipedia_article",
+      "logprob": 0
+    }
+  ],
+  "call": {
+    "name": "fetch_wikipedia_article",
+    "arguments": {
+      "title": "Transformer (machine learning model)"
+    }
+  }
+}

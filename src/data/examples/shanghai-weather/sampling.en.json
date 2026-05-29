@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:25.273Z",
+    "scriptVersion": "sampling.ts",
+    "lang": "en"
+  },
+  "baseStep": 19,
+  "baseStepLogprobs": [
+    {
+      "token": " do",
+      "tokenId": 0,
+      "logprob": -1.2289341688156128
+    },
+    {
+      "token": " set",
+      "tokenId": 0,
+      "logprob": -1.5258091688156128
+    },
+    {
+      "token": " accomplish",
+      "tokenId": 0,
+      "logprob": -2.3383092880249023
+    },
+    {
+      "token": " achieve",
+      "tokenId": 0,
+      "logprob": -2.6351842880249023
+    },
+    {
+      "token": " proceed",
+      "tokenId": 0,
+      "logprob": -2.6664342880249023
+    },
+    {
+      "token": " find",
+      "tokenId": 0,
+      "logprob": -2.7914342880249023
+    },
+    {
+      "token": " get",
+      "tokenId": 0,
+      "logprob": -2.8070592880249023
+    },
+    {
+      "token": " check",
+      "tokenId": 0,
+      "logprob": -3.0414342880249023
+    },
+    {
+      "token": " stay",
+      "tokenId": 0,
+      "logprob": -3.9008092880249023
+    },
+    {
+      "token": " go",
+      "tokenId": 0,
+      "logprob": -4.478934288024902
+    },
+    {
+      "token": " automate",
+      "tokenId": 0,
+      "logprob": -4.502371788024902
+    },
+    {
+      "token": " handle",
+      "tokenId": 0,
+      "logprob": -4.650809288024902
+    },
+    {
+      "token": " keep",
+      "tokenId": 0,
+      "logprob": -4.705496788024902
+    },
+    {
+      "token": " obtain",
+      "tokenId": 0,
+      "logprob": -5.189871788024902
+    },
+    {
+      "token": " manage",
+      "tokenId": 0,
+      "logprob": -6.010184288024902
+    },
+    {
+      "token": " approach",
+      "tokenId": 0,
+      "logprob": -6.244559288024902
+    },
+    {
+      "token": " easily",
+      "tokenId": 0,
+      "logprob": -6.252371788024902
+    },
+    {
+      "token": " access",
+      "tokenId": 0,
+      "logprob": -6.275809288024902
+    },
+    {
+      "token": " be",
+      "tokenId": 0,
+      "logprob": -6.400809288024902
+    },
+    {
+      "token": " receive",
+      "tokenId": 0,
+      "logprob": -6.416434288024902
+    }
+  ],
+  "paths": [
+    {
+      "method": "greedy",
+      "params": {
+        "temperature": 0
+      },
+      "tokens": [
+        "s",
+        "e",
+        "t",
+        " ",
+        "u",
+        "p",
+        " ",
+        "a",
+        " ",
+        "w",
+        "e",
+        "a",
+        "t",
+        "h",
+        "e",
+        "r",
+        " ",
+        "a",
+        "l",
+        "e",
+        "r",
+        "t",
+        " ",
+        "o",
+        "n"
+      ]
+    },
+    {
+      "method": "low-temp",
+      "params": {
+        "temperature": 0.5
+      },
+      "tokens": [
+        "s",
+        "e",
+        "t",
+        " ",
+        "u",
+        "p",
+        " ",
+        "a",
+        " ",
+        "w",
+        "e",
+        "a",
+        "t",
+        "h",
+        "e",
+        "r",
+        " ",
+        "a",
+        "l",
+        "e",
+        "r",
+        "t",
+        " ",
+        "o",
+        "n"
+      ]
+    },
+    {
+      "method": "top-p",
+      "params": {
+        "top_p": 0.9,
+        "temperature": 1
+      },
+      "tokens": [
+        "s",
+        "e",
+        "t",
+        " ",
+        "u",
+        "p",
+        " ",
+        "a",
+        "l",
+        "e",
+        "r",
+        "t",
+        "s",
+        " ",
+        "o",
+        "n",
+        " ",
+        "y",
+        "o",
+        "u",
+        "r",
+        " ",
+        "p",
+        "h",
+        "o"
+      ]
+    },
+    {
+      "method": "high-temp",
+      "params": {
+        "temperature": 1.5
+      },
+      "tokens": [
+        "s",
+        "e",
+        "t",
+        " ",
+        "u",
+        "p",
+        " ",
+        "r",
+        "e",
+        "m",
+        "i",
+        "n",
+        "d",
+        "e",
+        "r",
+        "s",
+        " ",
+        "o",
+        "r",
+        " ",
+        "n",
+        "o",
+        "t",
+        "i",
+        "f"
+      ]
+    }
+  ]
+}

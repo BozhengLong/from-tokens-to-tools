@@ -1,0 +1,195 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:13:41.235Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "zh"
+  },
+  "prompt": "列出 ~/Downloads 文件夹里大于 1GB 的文件,按大小从大到小排列。",
+  "tokens": [
+    {
+      "id": 19047,
+      "text": "列",
+      "byteRange": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": 6390,
+      "text": "出",
+      "byteRange": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": 116962,
+      "text": " ~/",
+      "byteRange": [
+        6,
+        9
+      ]
+    },
+    {
+      "id": 77485,
+      "text": "Downloads",
+      "byteRange": [
+        9,
+        18
+      ]
+    },
+    {
+      "id": 125051,
+      "text": " 文件",
+      "byteRange": [
+        18,
+        25
+      ]
+    },
+    {
+      "id": 98124,
+      "text": "夹",
+      "byteRange": [
+        25,
+        28
+      ]
+    },
+    {
+      "id": 8756,
+      "text": "里",
+      "byteRange": [
+        28,
+        31
+      ]
+    },
+    {
+      "id": 1640,
+      "text": "大",
+      "byteRange": [
+        31,
+        34
+      ]
+    },
+    {
+      "id": 10013,
+      "text": "于",
+      "byteRange": [
+        34,
+        37
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        37,
+        38
+      ]
+    },
+    {
+      "id": 16,
+      "text": "1",
+      "byteRange": [
+        38,
+        39
+      ]
+    },
+    {
+      "id": 9068,
+      "text": "GB",
+      "byteRange": [
+        39,
+        41
+      ]
+    },
+    {
+      "id": 42905,
+      "text": " 的",
+      "byteRange": [
+        41,
+        45
+      ]
+    },
+    {
+      "id": 32767,
+      "text": "文件",
+      "byteRange": [
+        45,
+        51
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": 33059,
+      "text": "按",
+      "byteRange": [
+        52,
+        55
+      ]
+    },
+    {
+      "id": 26525,
+      "text": "大小",
+      "byteRange": [
+        55,
+        61
+      ]
+    },
+    {
+      "id": 17705,
+      "text": "从",
+      "byteRange": [
+        61,
+        64
+      ]
+    },
+    {
+      "id": 1640,
+      "text": "大",
+      "byteRange": [
+        64,
+        67
+      ]
+    },
+    {
+      "id": 6946,
+      "text": "到",
+      "byteRange": [
+        67,
+        70
+      ]
+    },
+    {
+      "id": 5820,
+      "text": "小",
+      "byteRange": [
+        70,
+        73
+      ]
+    },
+    {
+      "id": 89736,
+      "text": "排列",
+      "byteRange": [
+        73,
+        79
+      ]
+    },
+    {
+      "id": 788,
+      "text": "。",
+      "byteRange": [
+        79,
+        82
+      ]
+    }
+  ]
+}

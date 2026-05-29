@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:17:30.765Z",
+    "scriptVersion": "sampling.ts",
+    "lang": "en"
+  },
+  "baseStep": 25,
+  "baseStepLogprobs": [
+    {
+      "token": " suitable",
+      "tokenId": 0,
+      "logprob": -0.991954505443573
+    },
+    {
+      "token": " interesting",
+      "tokenId": 0,
+      "logprob": -1.6169545650482178
+    },
+    {
+      "token": " and",
+      "tokenId": 0,
+      "logprob": -1.7575795650482178
+    },
+    {
+      "token": " stories",
+      "tokenId": 0,
+      "logprob": -1.8669545650482178
+    },
+    {
+      "token": " weekend",
+      "tokenId": 0,
+      "logprob": -3.7732045650482178
+    },
+    {
+      "token": " engaging",
+      "tokenId": 0,
+      "logprob": -4.382579326629639
+    },
+    {
+      "token": " potentially",
+      "tokenId": 0,
+      "logprob": -4.398204326629639
+    },
+    {
+      "token": " Hacker",
+      "tokenId": 0,
+      "logprob": -4.554454326629639
+    },
+    {
+      "token": " good",
+      "tokenId": 0,
+      "logprob": -4.601329326629639
+    },
+    {
+      "token": " potential",
+      "tokenId": 0,
+      "logprob": -4.804454326629639
+    },
+    {
+      "token": " which",
+      "tokenId": 0,
+      "logprob": -4.851329326629639
+    },
+    {
+      "token": " articles",
+      "tokenId": 0,
+      "logprob": -5.241954326629639
+    },
+    {
+      "token": " the",
+      "tokenId": 0,
+      "logprob": -5.538829326629639
+    },
+    {
+      "token": " top",
+      "tokenId": 0,
+      "logprob": -6.601329326629639
+    },
+    {
+      "token": " some",
+      "tokenId": 0,
+      "logprob": -6.788829326629639
+    },
+    {
+      "token": " compelling",
+      "tokenId": 0,
+      "logprob": -6.788829326629639
+    },
+    {
+      "token": " types",
+      "tokenId": 0,
+      "logprob": -7.163829326629639
+    },
+    {
+      "token": " intriguing",
+      "tokenId": 0,
+      "logprob": -7.179454326629639
+    },
+    {
+      "token": " a",
+      "tokenId": 0,
+      "logprob": -7.476329326629639
+    },
+    {
+      "token": " topics",
+      "tokenId": 0,
+      "logprob": -7.726329326629639
+    }
+  ],
+  "paths": [
+    {
+      "method": "greedy",
+      "params": {
+        "temperature": 0
+      },
+      "tokens": [
+        "i",
+        "n",
+        "t",
+        "e",
+        "r",
+        "e",
+        "s",
+        "t",
+        "i",
+        "n",
+        "g",
+        " ",
+        "s",
+        "t",
+        "o",
+        "r",
+        "i",
+        "e",
+        "s",
+        " ",
+        "f",
+        "o",
+        "r",
+        " ",
+        "w"
+      ]
+    },
+    {
+      "method": "low-temp",
+      "params": {
+        "temperature": 0.5
+      },
+      "tokens": [
+        "i",
+        "n",
+        "t",
+        "e",
+        "r",
+        "e",
+        "s",
+        "t",
+        "i",
+        "n",
+        "g",
+        " ",
+        "s",
+        "t",
+        "o",
+        "r",
+        "i",
+        "e",
+        "s",
+        " ",
+        "f",
+        "o",
+        "r",
+        " ",
+        "w"
+      ]
+    },
+    {
+      "method": "top-p",
+      "params": {
+        "top_p": 0.9,
+        "temperature": 1
+      },
+      "tokens": [
+        "i",
+        "n",
+        "t",
+        "e",
+        "r",
+        "e",
+        "s",
+        "t",
+        "i",
+        "n",
+        "g",
+        " ",
+        "w",
+        "e",
+        "e",
+        "k",
+        "e",
+        "n",
+        "d",
+        " ",
+        "r",
+        "e",
+        "a",
+        "d",
+        "s"
+      ]
+    },
+    {
+      "method": "high-temp",
+      "params": {
+        "temperature": 1.5
+      },
+      "tokens": [
+        "s",
+        "u",
+        "i",
+        "t",
+        "a",
+        "b",
+        "l",
+        "e",
+        " ",
+        "s",
+        "t",
+        "o",
+        "r",
+        "i",
+        "e",
+        "s",
+        " ",
+        "f",
+        "o",
+        "r",
+        " ",
+        "w",
+        "e",
+        "e",
+        "k"
+      ]
+    }
+  ]
+}

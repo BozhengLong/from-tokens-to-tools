@@ -1,0 +1,182 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:14:50.341Z",
+    "scriptVersion": "agent-loops.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "reactive": {
+    "iterations": [
+      {
+        "thought": "",
+        "action": {
+          "name": "list_directory",
+          "arguments": {
+            "path": "~/Downloads"
+          }
+        },
+        "observation": {
+          "entries": [
+            {
+              "name": "screen-recording-2025-03-15.mov",
+              "size": 2400000000,
+              "mtime": "2025-03-15T10:00:00Z"
+            },
+            {
+              "name": "keynote-deck-final-v3.key",
+              "size": 480000000,
+              "mtime": "2025-04-12T11:30:00Z"
+            },
+            {
+              "name": "macos-15-installer.dmg",
+              "size": 14800000000,
+              "mtime": "2025-02-20T08:00:00Z"
+            },
+            {
+              "name": "dataset-imagenet-subset.tar.gz",
+              "size": 8200000000,
+              "mtime": "2025-01-08T14:20:00Z"
+            },
+            {
+              "name": "podcast-episode-042.mp3",
+              "size": 89000000,
+              "mtime": "2025-05-22T19:05:00Z"
+            },
+            {
+              "name": "quarterly-report-Q1.pdf",
+              "size": 1240000,
+              "mtime": "2025-04-30T16:45:00Z"
+            },
+            {
+              "name": "family-vacation-photos.zip",
+              "size": 3200000000,
+              "mtime": "2025-03-29T20:10:00Z"
+            },
+            {
+              "name": "conference-talk-recording.mp4",
+              "size": 1900000000,
+              "mtime": "2025-04-18T13:25:00Z"
+            },
+            {
+              "name": "blender-project-scene-01.blend",
+              "size": 145000000,
+              "mtime": "2025-05-11T09:50:00Z"
+            },
+            {
+              "name": "icons-pack-pro.zip",
+              "size": 22000000,
+              "mtime": "2025-05-14T17:30:00Z"
+            },
+            {
+              "name": "sample.txt",
+              "size": 2400,
+              "mtime": "2025-05-28T10:00:00Z"
+            },
+            {
+              "name": "old-backup.tar",
+              "size": 5600000000,
+              "mtime": "2025-01-15T12:00:00Z"
+            }
+          ]
+        }
+      }
+    ],
+    "terminationReason": "text-final",
+    "finalText": "Here is a list of files in the `~/Downloads` directory that are larger than 1GB, sorted from largest to smallest:\n\n1. `macos-15-installer.dmg` - 14.8 GB\n2. `dataset-imagenet-subset.tar.gz` - 8.2 GB\n3. `old-backup.tar` - 5.6 GB\n4. `family-vacation-photos.zip` - 3.2 GB\n5. `screen-recording-2025-03-15.mov` - 2.4 GB\n6. `conference-talk-recording.mp4` - 1.9 GB",
+    "terminationNote": "Model produced a text-only final answer and stopped."
+  },
+  "deliberative": {
+    "plan": [
+      {
+        "id": "step-1",
+        "stepLabel": "List all files in the ~/Downloads directory to gather their file paths."
+      },
+      {
+        "id": "step-2",
+        "stepLabel": "For each file, get its size."
+      },
+      {
+        "id": "step-3",
+        "stepLabel": "Identify files larger than 1GB and sort them from largest to smallest."
+      }
+    ],
+    "execution": [
+      {
+        "planStepId": "step-1",
+        "actualCall": {
+          "name": "list_directory",
+          "arguments": {
+            "path": "~/Downloads"
+          }
+        },
+        "observation": {
+          "entries": [
+            {
+              "name": "screen-recording-2025-03-15.mov",
+              "size": 2400000000,
+              "mtime": "2025-03-15T10:00:00Z"
+            },
+            {
+              "name": "keynote-deck-final-v3.key",
+              "size": 480000000,
+              "mtime": "2025-04-12T11:30:00Z"
+            },
+            {
+              "name": "macos-15-installer.dmg",
+              "size": 14800000000,
+              "mtime": "2025-02-20T08:00:00Z"
+            },
+            {
+              "name": "dataset-imagenet-subset.tar.gz",
+              "size": 8200000000,
+              "mtime": "2025-01-08T14:20:00Z"
+            },
+            {
+              "name": "podcast-episode-042.mp3",
+              "size": 89000000,
+              "mtime": "2025-05-22T19:05:00Z"
+            },
+            {
+              "name": "quarterly-report-Q1.pdf",
+              "size": 1240000,
+              "mtime": "2025-04-30T16:45:00Z"
+            },
+            {
+              "name": "family-vacation-photos.zip",
+              "size": 3200000000,
+              "mtime": "2025-03-29T20:10:00Z"
+            },
+            {
+              "name": "conference-talk-recording.mp4",
+              "size": 1900000000,
+              "mtime": "2025-04-18T13:25:00Z"
+            },
+            {
+              "name": "blender-project-scene-01.blend",
+              "size": 145000000,
+              "mtime": "2025-05-11T09:50:00Z"
+            },
+            {
+              "name": "icons-pack-pro.zip",
+              "size": 22000000,
+              "mtime": "2025-05-14T17:30:00Z"
+            },
+            {
+              "name": "sample.txt",
+              "size": 2400,
+              "mtime": "2025-05-28T10:00:00Z"
+            },
+            {
+              "name": "old-backup.tar",
+              "size": 5600000000,
+              "mtime": "2025-01-15T12:00:00Z"
+            }
+          ]
+        },
+        "deviated": false
+      }
+    ],
+    "deviationSummary": "Plan: 3 steps; actual: 1. Deviation observed."
+  }
+}

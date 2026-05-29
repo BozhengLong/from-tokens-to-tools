@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:02.820Z",
+    "scriptVersion": "function-calls.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reasoning": "需要查询2026年5月30日上海的天气。",
+  "toolCandidates": [
+    {
+      "name": "get_weather",
+      "logprob": 0
+    }
+  ],
+  "call": {
+    "name": "get_weather",
+    "arguments": {
+      "city": "上海",
+      "date": "2026-05-30"
+    }
+  }
+}

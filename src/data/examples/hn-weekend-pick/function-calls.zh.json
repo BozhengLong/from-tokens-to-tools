@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:42.446Z",
+    "scriptVersion": "function-calls.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reasoning": "",
+  "toolCandidates": [
+    {
+      "name": "fetch_hn_top",
+      "logprob": 0
+    }
+  ],
+  "call": {
+    "name": "fetch_hn_top",
+    "arguments": {}
+  }
+}

@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:14:52.817Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "steps": [
+    {
+      "stepIndex": 0,
+      "contextPreview": "",
+      "topK": [
+        {
+          "token": "很",
+          "tokenId": 0,
+          "logprob": -0.7693065404891968
+        },
+        {
+          "token": "抱",
+          "tokenId": 0,
+          "logprob": -0.9568065404891968
+        },
+        {
+          "token": "对",
+          "tokenId": 0,
+          "logprob": -3.1130566596984863
+        },
+        {
+          "token": "我",
+          "tokenId": 0,
+          "logprob": -3.2380566596984863
+        },
+        {
+          "token": "好的",
+          "tokenId": 0,
+          "logprob": -4.425556659698486
+        },
+        {
+          "token": "请",
+          "tokenId": 0,
+          "logprob": -4.550556659698486
+        },
+        {
+          "token": "非常",
+          "tokenId": 0,
+          "logprob": -4.675556659698486
+        },
+        {
+          "token": "由于",
+          "tokenId": 0,
+          "logprob": -4.691181659698486
+        },
+        {
+          "token": "当然",
+          "tokenId": 0,
+          "logprob": -4.941181659698486
+        },
+        {
+          "token": "目前",
+          "tokenId": 0,
+          "logprob": -5.175556659698486
+        },
+        {
+          "token": "为了",
+          "tokenId": 0,
+          "logprob": -5.597431659698486
+        },
+        {
+          "token": "根据",
+          "tokenId": 0,
+          "logprob": -5.706806659698486
+        },
+        {
+          "token": "对于",
+          "tokenId": 0,
+          "logprob": -5.863056659698486
+        },
+        {
+          "token": "关于",
+          "tokenId": 0,
+          "logprob": -7.519306659698486
+        },
+        {
+          "token": "不好",
+          "tokenId": 0,
+          "logprob": -7.519306659698486
+        },
+        {
+          "token": "要",
+          "tokenId": 0,
+          "logprob": -7.675556659698486
+        },
+        {
+          "token": "明",
+          "tokenId": 0,
+          "logprob": -7.988056659698486
+        },
+        {
+          "token": "因为",
+          "tokenId": 0,
+          "logprob": -8.206806182861328
+        },
+        {
+          "token": "您",
+          "tokenId": 0,
+          "logprob": -8.284931182861328
+        },
+        {
+          "token": "建议",
+          "tokenId": 0,
+          "logprob": -8.331806182861328
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "contextPreview": "抱歉，我无法",
+      "topK": [
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -0.7838430404663086
+        },
+        {
+          "token": "提供",
+          "tokenId": 0,
+          "logprob": -1.5182180404663086
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -2.1119680404663086
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -2.6119680404663086
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -3.0494680404663086
+        },
+        {
+          "token": "直接",
+          "tokenId": 0,
+          "logprob": -3.2057180404663086
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -3.4869680404663086
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -4.861968040466309
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -7.361968040466309
+        },
+        {
+          "token": "获得",
+          "tokenId": 0,
+          "logprob": -7.611968040466309
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -7.705718040466309
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -7.815093040466309
+        },
+        {
+          "token": "为",
+          "tokenId": 0,
+          "logprob": -7.908843040466309
+        },
+        {
+          "token": "即时",
+          "tokenId": 0,
+          "logprob": -8.096343040466309
+        },
+        {
+          "token": "检查",
+          "tokenId": 0,
+          "logprob": -8.330718040466309
+        },
+        {
+          "token": "在线",
+          "tokenId": 0,
+          "logprob": -9.143218040466309
+        },
+        {
+          "token": "预测",
+          "tokenId": 0,
+          "logprob": -9.361968040466309
+        },
+        {
+          "token": "从",
+          "tokenId": 0,
+          "logprob": -9.486968040466309
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -9.721343040466309
+        },
+        {
+          "token": "实",
+          "tokenId": 0,
+          "logprob": -9.971343040466309
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "contextPreview": "抱歉，我无法实时",
+      "topK": [
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -1.0565907955169678
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -1.3378407955169678
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -1.8378407955169678
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -1.8378407955169678
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -2.7128407955169678
+        },
+        {
+          "token": "提供",
+          "tokenId": 0,
+          "logprob": -5.837841033935547
+        },
+        {
+          "token": "检查",
+          "tokenId": 0,
+          "logprob": -6.728466033935547
+        },
+        {
+          "token": "更新",
+          "tokenId": 0,
+          "logprob": -7.494091033935547
+        },
+        {
+          "token": "获得",
+          "tokenId": 0,
+          "logprob": -8.400341033935547
+        },
+        {
+          "token": "检",
+          "tokenId": 0,
+          "logprob": -8.744091033935547
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -9.337841033935547
+        },
+        {
+          "token": "联网",
+          "tokenId": 0,
+          "logprob": -10.212841033935547
+        },
+        {
+          "token": "搜索",
+          "tokenId": 0,
+          "logprob": -10.728466033935547
+        },
+        {
+          "token": "连接",
+          "tokenId": 0,
+          "logprob": -11.634716033935547
+        },
+        {
+          "token": "检测",
+          "tokenId": 0,
+          "logprob": -11.712841033935547
+        },
+        {
+          "token": "读取",
+          "tokenId": 0,
+          "logprob": -11.744091033935547
+        },
+        {
+          "token": "了解",
+          "tokenId": 0,
+          "logprob": -11.759716033935547
+        },
+        {
+          "token": "地",
+          "tokenId": 0,
+          "logprob": -11.806591033935547
+        },
+        {
+          "token": "接",
+          "tokenId": 0,
+          "logprob": -12.103466033935547
+        },
+        {
+          "token": "处理",
+          "tokenId": 0,
+          "logprob": -12.181591033935547
+        }
+      ]
+    },
+    {
+      "stepIndex": 7,
+      "contextPreview": "抱歉，我无法实时获取天气",
+      "topK": [
+        {
+          "token": "信息",
+          "tokenId": 0,
+          "logprob": -0.35946938395500183
+        },
+        {
+          "token": "数据",
+          "tokenId": 0,
+          "logprob": -1.2657194137573242
+        },
+        {
+          "token": "预",
+          "tokenId": 0,
+          "logprob": -4.000094413757324
+        },
+        {
+          "token": "情况",
+          "tokenId": 0,
+          "logprob": -7.062594413757324
+        },
+        {
+          "token": "状",
+          "tokenId": 0,
+          "logprob": -7.937594413757324
+        },
+        {
+          "token": "更新",
+          "tokenId": 0,
+          "logprob": -9.312594413757324
+        },
+        {
+          "token": "，但",
+          "tokenId": 0,
+          "logprob": -9.953219413757324
+        },
+        {
+          "token": "资讯",
+          "tokenId": 0,
+          "logprob": -10.078219413757324
+        },
+        {
+          "token": "预测",
+          "tokenId": 0,
+          "logprob": -10.250094413757324
+        },
+        {
+          "token": "资料",
+          "tokenId": 0,
+          "logprob": -10.296969413757324
+        },
+        {
+          "token": "。但",
+          "tokenId": 0,
+          "logprob": -10.390719413757324
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -10.656344413757324
+        },
+        {
+          "token": "。不过",
+          "tokenId": 0,
+          "logprob": -11.078219413757324
+        },
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -11.312594413757324
+        },
+        {
+          "token": "。但是",
+          "tokenId": 0,
+          "logprob": -11.328219413757324
+        },
+        {
+          "token": "。然而",
+          "tokenId": 0,
+          "logprob": -11.609469413757324
+        },
+        {
+          "token": "等",
+          "tokenId": 0,
+          "logprob": -11.734469413757324
+        },
+        {
+          "token": "数",
+          "tokenId": 0,
+          "logprob": -12.453219413757324
+        },
+        {
+          "token": "相关",
+          "tokenId": 0,
+          "logprob": -12.546969413757324
+        },
+        {
+          "token": "，但是",
+          "tokenId": 0,
+          "logprob": -12.812594413757324
+        }
+      ]
+    },
+    {
+      "stepIndex": 9,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过",
+      "topK": [
+        {
+          "token": "，你",
+          "tokenId": 0,
+          "logprob": -0.6254061460494995
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -1.5004061460494995
+        },
+        {
+          "token": "你",
+          "tokenId": 0,
+          "logprob": -1.6879061460494995
+        },
+        {
+          "token": "，我",
+          "tokenId": 0,
+          "logprob": -3.266031265258789
+        },
+        {
+          "token": "您",
+          "tokenId": 0,
+          "logprob": -4.797281265258789
+        },
+        {
+          "token": "，如果",
+          "tokenId": 0,
+          "logprob": -5.062906265258789
+        },
+        {
+          "token": "我",
+          "tokenId": 0,
+          "logprob": -6.047281265258789
+        },
+        {
+          "token": "，根据",
+          "tokenId": 0,
+          "logprob": -7.828531265258789
+        },
+        {
+          "token": "，可以",
+          "tokenId": 0,
+          "logprob": -8.062906265258789
+        },
+        {
+          "token": "如果",
+          "tokenId": 0,
+          "logprob": -8.203531265258789
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -9.234781265258789
+        },
+        {
+          "token": "建议",
+          "tokenId": 0,
+          "logprob": -9.234781265258789
+        },
+        {
+          "token": "可以",
+          "tokenId": 0,
+          "logprob": -9.266031265258789
+        },
+        {
+          "token": "通常",
+          "tokenId": 0,
+          "logprob": -9.422281265258789
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -9.594156265258789
+        },
+        {
+          "token": "，一",
+          "tokenId": 0,
+          "logprob": -9.719156265258789
+        },
+        {
+          "token": "一般",
+          "tokenId": 0,
+          "logprob": -9.828531265258789
+        },
+        {
+          "token": "，对于",
+          "tokenId": 0,
+          "logprob": -9.891031265258789
+        },
+        {
+          "token": "根据",
+          "tokenId": 0,
+          "logprob": -10.062906265258789
+        },
+        {
+          "token": "，我们",
+          "tokenId": 0,
+          "logprob": -10.062906265258789
+        }
+      ]
+    },
+    {
+      "stepIndex": 12,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以",
+      "topK": [
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -0.6945903897285461
+        },
+        {
+          "token": "使用",
+          "tokenId": 0,
+          "logprob": -0.7258403897285461
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -5.2570905685424805
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -5.5383405685424805
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -6.0227155685424805
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -6.1164655685424805
+        },
+        {
+          "token": "尝",
+          "tokenId": 0,
+          "logprob": -7.2258405685424805
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -7.6945905685424805
+        },
+        {
+          "token": "参考",
+          "tokenId": 0,
+          "logprob": -8.03834056854248
+        },
+        {
+          "token": "用",
+          "tokenId": 0,
+          "logprob": -8.10084056854248
+        },
+        {
+          "token": "下载",
+          "tokenId": 0,
+          "logprob": -8.35084056854248
+        },
+        {
+          "token": "利用",
+          "tokenId": 0,
+          "logprob": -8.52271556854248
+        },
+        {
+          "token": "随",
+          "tokenId": 0,
+          "logprob": -9.17896556854248
+        },
+        {
+          "token": "检查",
+          "tokenId": 0,
+          "logprob": -9.35084056854248
+        },
+        {
+          "token": "自行",
+          "tokenId": 0,
+          "logprob": -9.36646556854248
+        },
+        {
+          "token": "借",
+          "tokenId": 0,
+          "logprob": -9.66334056854248
+        },
+        {
+          "token": "上",
+          "tokenId": 0,
+          "logprob": -9.83521556854248
+        },
+        {
+          "token": "打开",
+          "tokenId": 0,
+          "logprob": -9.92896556854248
+        },
+        {
+          "token": "前",
+          "tokenId": 0,
+          "logprob": -9.96021556854248
+        },
+        {
+          "token": "去",
+          "tokenId": 0,
+          "logprob": -9.96021556854248
+        }
+      ]
+    },
+    {
+      "stepIndex": 15,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用",
+      "topK": [
+        {
+          "token": "程序",
+          "tokenId": 0,
+          "logprob": -0.7412267923355103
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -0.9131017923355103
+        },
+        {
+          "token": "或者",
+          "tokenId": 0,
+          "logprob": -2.1474766731262207
+        },
+        {
+          "token": "、",
+          "tokenId": 0,
+          "logprob": -5.725601673126221
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -7.241226673126221
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -7.381851673126221
+        },
+        {
+          "token": "如",
+          "tokenId": 0,
+          "logprob": -8.584977149963379
+        },
+        {
+          "token": "软件",
+          "tokenId": 0,
+          "logprob": -8.881852149963379
+        },
+        {
+          "token": "来",
+          "tokenId": 0,
+          "logprob": -9.584977149963379
+        },
+        {
+          "token": "程",
+          "tokenId": 0,
+          "logprob": -9.616227149963379
+        },
+        {
+          "token": "，如",
+          "tokenId": 0,
+          "logprob": -9.694352149963379
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -9.803727149963379
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -9.803727149963379
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -10.053727149963379
+        },
+        {
+          "token": "，例如",
+          "tokenId": 0,
+          "logprob": -10.538102149963379
+        },
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -10.647477149963379
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -10.741227149963379
+        },
+        {
+          "token": "，比如",
+          "tokenId": 0,
+          "logprob": -10.741227149963379
+        },
+        {
+          "token": "例如",
+          "tokenId": 0,
+          "logprob": -11.584977149963379
+        },
+        {
+          "token": "比如",
+          "tokenId": 0,
+          "logprob": -12.209977149963379
+        }
+      ]
+    },
+    {
+      "stepIndex": 16,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用或",
+      "topK": [
+        {
+          "token": "网站",
+          "tokenId": 0,
+          "logprob": -0.605531632900238
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -1.3086566925048828
+        },
+        {
+          "token": "在线",
+          "tokenId": 0,
+          "logprob": -2.730531692504883
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -3.824281692504883
+        },
+        {
+          "token": "搜索",
+          "tokenId": 0,
+          "logprob": -3.886781692504883
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -4.074281692504883
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -4.136781692504883
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -4.230531692504883
+        },
+        {
+          "token": "网页",
+          "tokenId": 0,
+          "logprob": -4.808656692504883
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -5.199281692504883
+        },
+        {
+          "token": "上",
+          "tokenId": 0,
+          "logprob": -5.402406692504883
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -5.574281692504883
+        },
+        {
+          "token": "网络",
+          "tokenId": 0,
+          "logprob": -6.480531692504883
+        },
+        {
+          "token": "网上",
+          "tokenId": 0,
+          "logprob": -6.480531692504883
+        },
+        {
+          "token": "相关",
+          "tokenId": 0,
+          "logprob": -7.089906692504883
+        },
+        {
+          "token": "天气",
+          "tokenId": 0,
+          "logprob": -7.136781692504883
+        },
+        {
+          "token": "官方网站",
+          "tokenId": 0,
+          "logprob": -7.980531692504883
+        },
+        {
+          "token": "去",
+          "tokenId": 0,
+          "logprob": -8.371156692504883
+        },
+        {
+          "token": "线上",
+          "tokenId": 0,
+          "logprob": -8.699281692504883
+        },
+        {
+          "token": "服务",
+          "tokenId": 0,
+          "logprob": -8.871156692504883
+        }
+      ]
+    },
+    {
+      "stepIndex": 17,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用或网站",
+      "topK": [
+        {
+          "token": "来",
+          "tokenId": 0,
+          "logprob": -1.0328534841537476
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -1.1266034841537476
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -1.7672284841537476
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -3.314103603363037
+        },
+        {
+          "token": "，如",
+          "tokenId": 0,
+          "logprob": -3.485978603363037
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -3.735978603363037
+        },
+        {
+          "token": "，比如",
+          "tokenId": 0,
+          "logprob": -4.001603603363037
+        },
+        {
+          "token": "，例如",
+          "tokenId": 0,
+          "logprob": -4.251603603363037
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -4.595353603363037
+        },
+        {
+          "token": "如",
+          "tokenId": 0,
+          "logprob": -4.767228603363037
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -6.439103603363037
+        },
+        {
+          "token": "检查",
+          "tokenId": 0,
+          "logprob": -6.689103603363037
+        },
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -7.204728603363037
+        },
+        {
+          "token": "自行",
+          "tokenId": 0,
+          "logprob": -7.345353603363037
+        },
+        {
+          "token": "例如",
+          "tokenId": 0,
+          "logprob": -7.423478603363037
+        },
+        {
+          "token": "了解",
+          "tokenId": 0,
+          "logprob": -7.532853603363037
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -7.642228603363037
+        },
+        {
+          "token": "比如",
+          "tokenId": 0,
+          "logprob": -8.142228126525879
+        },
+        {
+          "token": "及时",
+          "tokenId": 0,
+          "logprob": -8.782853126525879
+        },
+        {
+          "token": "快速",
+          "tokenId": 0,
+          "logprob": -9.017228126525879
+        }
+      ]
+    },
+    {
+      "stepIndex": 19,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用或网站查看上海",
+      "topK": [
+        {
+          "token": "明",
+          "tokenId": 0,
+          "logprob": -0.4090874493122101
+        },
+        {
+          "token": "的",
+          "tokenId": 0,
+          "logprob": -1.0965874195098877
+        },
+        {
+          "token": "最新",
+          "tokenId": 0,
+          "logprob": -6.971587657928467
+        },
+        {
+          "token": "未来",
+          "tokenId": 0,
+          "logprob": -8.205962181091309
+        },
+        {
+          "token": "当地",
+          "tokenId": 0,
+          "logprob": -8.580962181091309
+        },
+        {
+          "token": "具体",
+          "tokenId": 0,
+          "logprob": -9.690337181091309
+        },
+        {
+          "token": "地区",
+          "tokenId": 0,
+          "logprob": -9.799712181091309
+        },
+        {
+          "token": "近期",
+          "tokenId": 0,
+          "logprob": -9.815337181091309
+        },
+        {
+          "token": "天气",
+          "tokenId": 0,
+          "logprob": -9.987212181091309
+        },
+        {
+          "token": "最近",
+          "tokenId": 0,
+          "logprob": -10.065337181091309
+        },
+        {
+          "token": "当天",
+          "tokenId": 0,
+          "logprob": -10.705962181091309
+        },
+        {
+          "token": "当前",
+          "tokenId": 0,
+          "logprob": -11.424712181091309
+        },
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -11.690337181091309
+        },
+        {
+          "token": "市",
+          "tokenId": 0,
+          "logprob": -12.143462181091309
+        },
+        {
+          "token": "本",
+          "tokenId": 0,
+          "logprob": -12.643462181091309
+        },
+        {
+          "token": "今天",
+          "tokenId": 0,
+          "logprob": -12.815337181091309
+        },
+        {
+          "token": "每天",
+          "tokenId": 0,
+          "logprob": -13.362212181091309
+        },
+        {
+          "token": "特",
+          "tokenId": 0,
+          "logprob": -13.409087181091309
+        },
+        {
+          "token": "近日",
+          "tokenId": 0,
+          "logprob": -13.487212181091309
+        },
+        {
+          "token": "即时",
+          "tokenId": 0,
+          "logprob": -13.627837181091309
+        }
+      ]
+    },
+    {
+      "stepIndex": 24,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用或网站查看上海明天的天气。",
+      "topK": [
+        {
+          "token": "请",
+          "tokenId": 0,
+          "logprob": -1.2586103677749634
+        },
+        {
+          "token": "通常",
+          "tokenId": 0,
+          "logprob": -1.8211103677749634
+        },
+        {
+          "token": "一般",
+          "tokenId": 0,
+          "logprob": -2.071110248565674
+        },
+        {
+          "token": "您",
+          "tokenId": 0,
+          "logprob": -2.633610248565674
+        },
+        {
+          "token": "建议",
+          "tokenId": 0,
+          "logprob": -2.883610248565674
+        },
+        {
+          "token": "根据",
+          "tokenId": 0,
+          "logprob": -3.071110248565674
+        },
+        {
+          "token": "记",
+          "tokenId": 0,
+          "logprob": -3.102360248565674
+        },
+        {
+          "token": "以下",
+          "tokenId": 0,
+          "logprob": -3.383610248565674
+        },
+        {
+          "token": "大",
+          "tokenId": 0,
+          "logprob": -3.899235248565674
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -3.992985248565674
+        },
+        {
+          "token": "常",
+          "tokenId": 0,
+          "logprob": -4.086735248565674
+        },
+        {
+          "token": "可以",
+          "tokenId": 0,
+          "logprob": -4.321110248565674
+        },
+        {
+          "token": "若",
+          "tokenId": 0,
+          "logprob": -4.430485248565674
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -4.696110248565674
+        },
+        {
+          "token": "  \n",
+          "tokenId": 0,
+          "logprob": -4.742985248565674
+        },
+        {
+          "token": "这样",
+          "tokenId": 0,
+          "logprob": -4.821110248565674
+        },
+        {
+          "token": "为了",
+          "tokenId": 0,
+          "logprob": -4.930485248565674
+        },
+        {
+          "token": "确保",
+          "tokenId": 0,
+          "logprob": -4.930485248565674
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -5.555485248565674
+        },
+        {
+          "token": "注意",
+          "tokenId": 0,
+          "logprob": -5.633610248565674
+        }
+      ]
+    },
+    {
+      "stepIndex": 25,
+      "contextPreview": "抱歉，我无法实时获取天气信息。不过，您可以使用天气应用或网站查看上海明天的天气。通常",
+      "topK": [
+        {
+          "token": "这些",
+          "tokenId": 0,
+          "logprob": -0.7276883125305176
+        },
+        {
+          "token": "，这",
+          "tokenId": 0,
+          "logprob": -1.2589383125305176
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -2.5089383125305176
+        },
+        {
+          "token": "情况下",
+          "tokenId": 0,
+          "logprob": -3.6651883125305176
+        },
+        {
+          "token": "这",
+          "tokenId": 0,
+          "logprob": -3.9151883125305176
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -4.133938312530518
+        },
+        {
+          "token": "，它",
+          "tokenId": 0,
+          "logprob": -4.196438312530518
+        },
+        {
+          "token": "可以",
+          "tokenId": 0,
+          "logprob": -4.368313312530518
+        },
+        {
+          "token": "天气",
+          "tokenId": 0,
+          "logprob": -5.008938312530518
+        },
+        {
+          "token": "来说",
+          "tokenId": 0,
+          "logprob": -5.040188312530518
+        },
+        {
+          "token": "像",
+          "tokenId": 0,
+          "logprob": -5.071438312530518
+        },
+        {
+          "token": "它",
+          "tokenId": 0,
+          "logprob": -5.274563312530518
+        },
+        {
+          "token": "，在",
+          "tokenId": 0,
+          "logprob": -5.368313312530518
+        },
+        {
+          "token": "您",
+          "tokenId": 0,
+          "logprob": -5.774563312530518
+        },
+        {
+          "token": "应用",
+          "tokenId": 0,
+          "logprob": -6.008938312530518
+        },
+        {
+          "token": "会",
+          "tokenId": 0,
+          "logprob": -6.024563312530518
+        },
+        {
+          "token": "，大",
+          "tokenId": 0,
+          "logprob": -6.087063312530518
+        },
+        {
+          "token": "这样的",
+          "tokenId": 0,
+          "logprob": -6.165188312530518
+        },
+        {
+          "token": "网站",
+          "tokenId": 0,
+          "logprob": -6.508938312530518
+        },
+        {
+          "token": "，可以",
+          "tokenId": 0,
+          "logprob": -6.571438312530518
+        }
+      ]
+    }
+  ]
+}

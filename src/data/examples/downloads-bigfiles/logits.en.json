@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:14:12.601Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "steps": [
+    {
+      "stepIndex": 14,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than",
+      "topK": [
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": " `",
+          "tokenId": 0,
+          "logprob": -17.3125
+        },
+        {
+          "token": " one",
+          "tokenId": 0,
+          "logprob": -17.328125
+        },
+        {
+          "token": " \\(",
+          "tokenId": 0,
+          "logprob": -17.625
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -19.0703125
+        },
+        {
+          "token": "1",
+          "tokenId": 0,
+          "logprob": -19.234375
+        },
+        {
+          "token": " **",
+          "tokenId": 0,
+          "logprob": -20.2734375
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -20.75
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -20.859375
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -20.9140625
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -23.03125
+        },
+        {
+          "token": " *",
+          "tokenId": 0,
+          "logprob": -23.09375
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -23.2421875
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -23.75
+        },
+        {
+          "token": " \\",
+          "tokenId": 0,
+          "logprob": -23.7734375
+        },
+        {
+          "token": " than",
+          "tokenId": 0,
+          "logprob": -23.9609375
+        },
+        {
+          "token": " approximately",
+          "tokenId": 0,
+          "logprob": -24.0078125
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -24.1796875
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -24.5078125
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -24.6875
+        }
+      ]
+    },
+    {
+      "stepIndex": 17,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB",
+      "topK": [
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -0.35386306047439575
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -1.213238000869751
+        },
+        {
+          "token": " sorted",
+          "tokenId": 0,
+          "logprob": -7.74448823928833
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -8.635112762451172
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -8.635112762451172
+        },
+        {
+          "token": " while",
+          "tokenId": 0,
+          "logprob": -13.041362762451172
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -13.346050262451172
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -13.392925262451172
+        },
+        {
+          "token": " (`",
+          "tokenId": 0,
+          "logprob": -14.471050262451172
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -15.377300262451172
+        },
+        {
+          "token": " each",
+          "tokenId": 0,
+          "logprob": -15.885112762451172
+        },
+        {
+          "token": " size",
+          "tokenId": 0,
+          "logprob": -16.322612762451172
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -16.408550262451172
+        },
+        {
+          "token": " ordered",
+          "tokenId": 0,
+          "logprob": -16.408550262451172
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -16.447612762451172
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -16.478862762451172
+        },
+        {
+          "token": "—and",
+          "tokenId": 0,
+          "logprob": -16.517925262451172
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -16.869487762451172
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -16.939800262451172
+        },
+        {
+          "token": " arranged",
+          "tokenId": 0,
+          "logprob": -17.150737762451172
+        }
+      ]
+    },
+    {
+      "stepIndex": 24,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -0.006403307896107435
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -5.75640344619751
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -6.44390344619751
+        },
+        {
+          "token": " size",
+          "tokenId": 0,
+          "logprob": -7.24077844619751
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -7.49077844619751
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -7.99077844619751
+        },
+        {
+          "token": " file",
+          "tokenId": 0,
+          "logprob": -11.709527969360352
+        },
+        {
+          "token": " via",
+          "tokenId": 0,
+          "logprob": -12.272027969360352
+        },
+        {
+          "token": " based",
+          "tokenId": 0,
+          "logprob": -13.506402969360352
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -14.240777969360352
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -15.147027969360352
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -15.389215469360352
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -15.576715469360352
+        },
+        {
+          "token": " within",
+          "tokenId": 0,
+          "logprob": -15.748590469360352
+        },
+        {
+          "token": " through",
+          "tokenId": 0,
+          "logprob": -15.772027969360352
+        },
+        {
+          "token": " filesize",
+          "tokenId": 0,
+          "logprob": -15.889215469360352
+        },
+        {
+          "token": " directly",
+          "tokenId": 0,
+          "logprob": -15.904840469360352
+        },
+        {
+          "token": " without",
+          "tokenId": 0,
+          "logprob": -16.10796546936035
+        },
+        {
+          "token": " sizes",
+          "tokenId": 0,
+          "logprob": -16.26421546936035
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -16.50640296936035
+        }
+      ]
+    },
+    {
+      "stepIndex": 33,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command",
+      "topK": [
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -0.8228901624679565
+        },
+        {
+          "token": " combined",
+          "tokenId": 0,
+          "logprob": -1.1978901624679565
+        },
+        {
+          "token": " along",
+          "tokenId": 0,
+          "logprob": -1.5728901624679565
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -3.510390281677246
+        },
+        {
+          "token": " together",
+          "tokenId": 0,
+          "logprob": -4.463515281677246
+        },
+        {
+          "token": " alongside",
+          "tokenId": 0,
+          "logprob": -4.932265281677246
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -6.776015281677246
+        },
+        {
+          "token": " coupled",
+          "tokenId": 0,
+          "logprob": -7.026015281677246
+        },
+        {
+          "token": " paired",
+          "tokenId": 0,
+          "logprob": -8.197890281677246
+        },
+        {
+          "token": " pip",
+          "tokenId": 0,
+          "logprob": -8.494765281677246
+        },
+        {
+          "token": " followed",
+          "tokenId": 0,
+          "logprob": -8.901015281677246
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -9.697890281677246
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -9.885390281677246
+        },
+        {
+          "token": " line",
+          "tokenId": 0,
+          "logprob": -10.057265281677246
+        },
+        {
+          "token": " integrated",
+          "tokenId": 0,
+          "logprob": -10.557265281677246
+        },
+        {
+          "token": "-line",
+          "tokenId": 0,
+          "logprob": -10.994765281677246
+        },
+        {
+          "token": " available",
+          "tokenId": 0,
+          "logprob": -10.994765281677246
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -11.119765281677246
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -11.276015281677246
+        },
+        {
+          "token": " combination",
+          "tokenId": 0,
+          "logprob": -11.432265281677246
+        }
+      ]
+    },
+    {
+      "stepIndex": 34,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in",
+      "topK": [
+        {
+          "token": " combination",
+          "tokenId": 0,
+          "logprob": -0.5804381370544434
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -1.3304381370544434
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -1.9241881370544434
+        },
+        {
+          "token": " conjunction",
+          "tokenId": 0,
+          "logprob": -3.7523131370544434
+        },
+        {
+          "token": " your",
+          "tokenId": 0,
+          "logprob": -5.236688137054443
+        },
+        {
+          "token": " Unix",
+          "tokenId": 0,
+          "logprob": -7.502313137054443
+        },
+        {
+          "token": " Linux",
+          "tokenId": 0,
+          "logprob": -7.533563137054443
+        },
+        {
+          "token": " terminal",
+          "tokenId": 0,
+          "logprob": -9.439813613891602
+        },
+        {
+          "token": " UNIX",
+          "tokenId": 0,
+          "logprob": -10.971063613891602
+        },
+        {
+          "token": " tandem",
+          "tokenId": 0,
+          "logprob": -11.346063613891602
+        },
+        {
+          "token": " Terminal",
+          "tokenId": 0,
+          "logprob": -11.721063613891602
+        },
+        {
+          "token": " bash",
+          "tokenId": 0,
+          "logprob": -13.189813613891602
+        },
+        {
+          "token": " `",
+          "tokenId": 0,
+          "logprob": -13.846063613891602
+        },
+        {
+          "token": " most",
+          "tokenId": 0,
+          "logprob": -14.361688613891602
+        },
+        {
+          "token": " Bash",
+          "tokenId": 0,
+          "logprob": -14.689813613891602
+        },
+        {
+          "token": " GNU",
+          "tokenId": 0,
+          "logprob": -15.002313613891602
+        },
+        {
+          "token": " collaboration",
+          "tokenId": 0,
+          "logprob": -15.471063613891602
+        },
+        {
+          "token": " any",
+          "tokenId": 0,
+          "logprob": -15.478876113891602
+        },
+        {
+          "token": " Ubuntu",
+          "tokenId": 0,
+          "logprob": -15.533563613891602
+        },
+        {
+          "token": " an",
+          "tokenId": 0,
+          "logprob": -15.619501113891602
+        }
+      ]
+    },
+    {
+      "stepIndex": 35,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a",
+      "topK": [
+        {
+          "token": " Unix",
+          "tokenId": 0,
+          "logprob": -0.4256756007671356
+        },
+        {
+          "token": " terminal",
+          "tokenId": 0,
+          "logprob": -1.253800630569458
+        },
+        {
+          "token": " Linux",
+          "tokenId": 0,
+          "logprob": -3.050675630569458
+        },
+        {
+          "token": " UNIX",
+          "tokenId": 0,
+          "logprob": -4.363175392150879
+        },
+        {
+          "token": " shell",
+          "tokenId": 0,
+          "logprob": -7.613175392150879
+        },
+        {
+          "token": " Terminal",
+          "tokenId": 0,
+          "logprob": -7.800675392150879
+        },
+        {
+          "token": " bash",
+          "tokenId": 0,
+          "logprob": -8.941300392150879
+        },
+        {
+          "token": " Bash",
+          "tokenId": 0,
+          "logprob": -9.628800392150879
+        },
+        {
+          "token": " command",
+          "tokenId": 0,
+          "logprob": -10.222550392150879
+        },
+        {
+          "token": " combination",
+          "tokenId": 0,
+          "logprob": -10.347550392150879
+        },
+        {
+          "token": " unix",
+          "tokenId": 0,
+          "logprob": -11.097550392150879
+        },
+        {
+          "token": " typical",
+          "tokenId": 0,
+          "logprob": -13.488175392150879
+        },
+        {
+          "token": " GNU",
+          "tokenId": 0,
+          "logprob": -13.800675392150879
+        },
+        {
+          "token": " POS",
+          "tokenId": 0,
+          "logprob": -14.269425392150879
+        },
+        {
+          "token": " `",
+          "tokenId": 0,
+          "logprob": -14.620987892150879
+        },
+        {
+          "token": " combined",
+          "tokenId": 0,
+          "logprob": -14.699112892150879
+        },
+        {
+          "token": " mac",
+          "tokenId": 0,
+          "logprob": -15.113175392150879
+        },
+        {
+          "token": " linux",
+          "tokenId": 0,
+          "logprob": -15.667862892150879
+        },
+        {
+          "token": " Mac",
+          "tokenId": 0,
+          "logprob": -15.753800392150879
+        },
+        {
+          "token": " Ubuntu",
+          "tokenId": 0,
+          "logprob": -15.839737892150879
+        }
+      ]
+    },
+    {
+      "stepIndex": 38,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -0.8697447776794434
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -1.0103697776794434
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -2.6666197776794434
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -2.7291197776794434
+        },
+        {
+          "token": " along",
+          "tokenId": 0,
+          "logprob": -3.3853697776794434
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -3.9166197776794434
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -3.9166197776794434
+        },
+        {
+          "token": " combined",
+          "tokenId": 0,
+          "logprob": -5.916619777679443
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -6.572869777679443
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -6.775994777679443
+        },
+        {
+          "token": " followed",
+          "tokenId": 0,
+          "logprob": -7.260369777679443
+        },
+        {
+          "token": " alongside",
+          "tokenId": 0,
+          "logprob": -7.525994777679443
+        },
+        {
+          "token": " environment",
+          "tokenId": 0,
+          "logprob": -7.713494777679443
+        },
+        {
+          "token": " shell",
+          "tokenId": 0,
+          "logprob": -7.838494777679443
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -8.229120254516602
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -8.588495254516602
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -8.650995254516602
+        },
+        {
+          "token": " together",
+          "tokenId": 0,
+          "logprob": -8.775995254516602
+        },
+        {
+          "token": " (`",
+          "tokenId": 0,
+          "logprob": -9.213495254516602
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -9.885370254516602
+        }
+      ]
+    },
+    {
+      "stepIndex": 39,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal.",
+      "topK": [
+        {
+          "token": " Here's",
+          "tokenId": 0,
+          "logprob": -0.5992677807807922
+        },
+        {
+          "token": " Here",
+          "tokenId": 0,
+          "logprob": -0.8805177807807922
+        },
+        {
+          "token": " Open",
+          "tokenId": 0,
+          "logprob": -4.458642959594727
+        },
+        {
+          "token": " The",
+          "tokenId": 0,
+          "logprob": -4.880517959594727
+        },
+        {
+          "token": " Run",
+          "tokenId": 0,
+          "logprob": -5.208642959594727
+        },
+        {
+          "token": " Below",
+          "tokenId": 0,
+          "logprob": -5.505517959594727
+        },
+        {
+          "token": " Use",
+          "tokenId": 0,
+          "logprob": -6.239892959594727
+        },
+        {
+          "token": " Execute",
+          "tokenId": 0,
+          "logprob": -6.458642959594727
+        },
+        {
+          "token": " You",
+          "tokenId": 0,
+          "logprob": -6.614892959594727
+        },
+        {
+          "token": " This",
+          "tokenId": 0,
+          "logprob": -6.818017959594727
+        },
+        {
+          "token": " \n\n",
+          "tokenId": 0,
+          "logprob": -7.708642959594727
+        },
+        {
+          "token": " Follow",
+          "tokenId": 0,
+          "logprob": -8.255517959594727
+        },
+        {
+          "token": " Specifically",
+          "tokenId": 0,
+          "logprob": -8.396142959594727
+        },
+        {
+          "token": " Enter",
+          "tokenId": 0,
+          "logprob": -9.146142959594727
+        },
+        {
+          "token": " Please",
+          "tokenId": 0,
+          "logprob": -9.208642959594727
+        },
+        {
+          "token": " Assuming",
+          "tokenId": 0,
+          "logprob": -9.239892959594727
+        },
+        {
+          "token": " Try",
+          "tokenId": 0,
+          "logprob": -9.864892959594727
+        },
+        {
+          "token": " If",
+          "tokenId": 0,
+          "logprob": -10.364892959594727
+        },
+        {
+          "token": " However",
+          "tokenId": 0,
+          "logprob": -10.505517959594727
+        },
+        {
+          "token": " Make",
+          "tokenId": 0,
+          "logprob": -10.521142959594727
+        }
+      ]
+    },
+    {
+      "stepIndex": 40,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal. Here's",
+      "topK": [
+        {
+          "token": " how",
+          "tokenId": 0,
+          "logprob": -0.8409802913665771
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -1.2003552913665771
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -1.3409802913665771
+        },
+        {
+          "token": " an",
+          "tokenId": 0,
+          "logprob": -5.630043029785156
+        },
+        {
+          "token": " one",
+          "tokenId": 0,
+          "logprob": -6.411293029785156
+        },
+        {
+          "token": " what",
+          "tokenId": 0,
+          "logprob": -7.130043029785156
+        },
+        {
+          "token": " exactly",
+          "tokenId": 0,
+          "logprob": -14.032386779785156
+        },
+        {
+          "token": " your",
+          "tokenId": 0,
+          "logprob": -14.137855529785156
+        },
+        {
+          "token": " command",
+          "tokenId": 0,
+          "logprob": -14.594886779785156
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -14.770668029785156
+        },
+        {
+          "token": " some",
+          "tokenId": 0,
+          "logprob": -15.399574279785156
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -15.600746154785156
+        },
+        {
+          "token": " what's",
+          "tokenId": 0,
+          "logprob": -15.833168029785156
+        },
+        {
+          "token": " something",
+          "tokenId": 0,
+          "logprob": -15.848793029785156
+        },
+        {
+          "token": " why",
+          "tokenId": 0,
+          "logprob": -16.110511779785156
+        },
+        {
+          "token": " is",
+          "tokenId": 0,
+          "logprob": -16.188636779785156
+        },
+        {
+          "token": " this",
+          "tokenId": 0,
+          "logprob": -16.202308654785156
+        },
+        {
+          "token": " that",
+          "tokenId": 0,
+          "logprob": -16.219886779785156
+        },
+        {
+          "token": " step",
+          "tokenId": 0,
+          "logprob": -16.366371154785156
+        },
+        {
+          "token": "how",
+          "tokenId": 0,
+          "logprob": -16.551918029785156
+        }
+      ]
+    },
+    {
+      "stepIndex": 44,
+      "contextPreview": "To list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal. Here's the exact command you",
+      "topK": [
+        {
+          "token": " can",
+          "tokenId": 0,
+          "logprob": -0.46435168385505676
+        },
+        {
+          "token": " would",
+          "tokenId": 0,
+          "logprob": -1.2456016540527344
+        },
+        {
+          "token": " could",
+          "tokenId": 0,
+          "logprob": -3.2456016540527344
+        },
+        {
+          "token": " need",
+          "tokenId": 0,
+          "logprob": -3.9174766540527344
+        },
+        {
+          "token": " should",
+          "tokenId": 0,
+          "logprob": -4.104976654052734
+        },
+        {
+          "token": " might",
+          "tokenId": 0,
+          "logprob": -4.823726654052734
+        },
+        {
+          "token": "’d",
+          "tokenId": 0,
+          "logprob": -9.089351654052734
+        },
+        {
+          "token": " will",
+          "tokenId": 0,
+          "logprob": -9.331539154052734
+        },
+        {
+          "token": " may",
+          "tokenId": 0,
+          "logprob": -9.448726654052734
+        },
+        {
+          "token": " want",
+          "tokenId": 0,
+          "logprob": -10.339351654052734
+        },
+        {
+          "token": "’ll",
+          "tokenId": 0,
+          "logprob": -12.042476654052734
+        },
+        {
+          "token": " use",
+          "tokenId": 0,
+          "logprob": -12.456539154052734
+        },
+        {
+          "token": " run",
+          "tokenId": 0,
+          "logprob": -13.870601654052734
+        },
+        {
+          "token": "'d",
+          "tokenId": 0,
+          "logprob": -14.901851654052734
+        },
+        {
+          "token": " are",
+          "tokenId": 0,
+          "logprob": -15.081539154052734
+        },
+        {
+          "token": " have",
+          "tokenId": 0,
+          "logprob": -15.448726654052734
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -15.550289154052734
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -15.753414154052734
+        },
+        {
+          "token": " ought",
+          "tokenId": 0,
+          "logprob": -15.847164154052734
+        },
+        {
+          "token": " must",
+          "tokenId": 0,
+          "logprob": -15.999507904052734
+        }
+      ]
+    },
+    {
+      "stepIndex": 46,
+      "contextPreview": "list files in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal. Here's the exact command you can use",
+      "topK": [
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -0.00028278882382437587
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -8.844033241271973
+        },
+        {
+          "token": ":\n",
+          "tokenId": 0,
+          "logprob": -9.640908241271973
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -10.312783241271973
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -10.656533241271973
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -11.797158241271973
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -12.625283241271973
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -12.875283241271973
+        },
+        {
+          "token": ":\n\n\n",
+          "tokenId": 0,
+          "logprob": -13.078408241271973
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -15.390908241271973
+        },
+        {
+          "token": ":\r\n\r\n",
+          "tokenId": 0,
+          "logprob": -15.828408241271973
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -16.125282287597656
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -16.273719787597656
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -16.328407287597656
+        },
+        {
+          "token": " within",
+          "tokenId": 0,
+          "logprob": -16.469032287597656
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -16.601844787597656
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -16.664344787597656
+        },
+        {
+          "token": "::\n\n",
+          "tokenId": 0,
+          "logprob": -16.758094787597656
+        },
+        {
+          "token": " with",
+          "tokenId": 0,
+          "logprob": -16.961219787597656
+        },
+        {
+          "token": ":\n\n\n\n",
+          "tokenId": 0,
+          "logprob": -17.109657287597656
+        }
+      ]
+    },
+    {
+      "stepIndex": 49,
+      "contextPreview": "es in the `~/Downloads` directory that are larger than 1GB and sort them from largest to smallest, you can use the `find` command in a Unix-based terminal. Here's the exact command you can use:\n\n```sh",
+      "topK": [
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -0.0000015048530030981055
+        },
+        {
+          "token": " \n",
+          "tokenId": 0,
+          "logprob": -13.500001907348633
+        },
+        {
+          "token": "  \n",
+          "tokenId": 0,
+          "logprob": -16.562501907348633
+        },
+        {
+          "token": "   \n",
+          "tokenId": 0,
+          "logprob": -18.281251907348633
+        },
+        {
+          "token": "\t\n",
+          "tokenId": 0,
+          "logprob": -19.031251907348633
+        },
+        {
+          "token": "    \n",
+          "tokenId": 0,
+          "logprob": -19.781251907348633
+        },
+        {
+          "token": "\n\n",
+          "tokenId": 0,
+          "logprob": -20.500001907348633
+        },
+        {
+          "token": "bash",
+          "tokenId": 0,
+          "logprob": -22.656251907348633
+        },
+        {
+          "token": ":\n",
+          "tokenId": 0,
+          "logprob": -22.828126907348633
+        },
+        {
+          "token": "     \n",
+          "tokenId": 0,
+          "logprob": -23.031251907348633
+        },
+        {
+          "token": "/bash",
+          "tokenId": 0,
+          "logprob": -23.500001907348633
+        },
+        {
+          "token": "\t\t\n",
+          "tokenId": 0,
+          "logprob": -23.843751907348633
+        },
+        {
+          "token": "\r\n",
+          "tokenId": 0,
+          "logprob": -24.156251907348633
+        },
+        {
+          "token": "      \n",
+          "tokenId": 0,
+          "logprob": -24.218751907348633
+        },
+        {
+          "token": "        \n",
+          "tokenId": 0,
+          "logprob": -24.234376907348633
+        },
+        {
+          "token": "`\n",
+          "tokenId": 0,
+          "logprob": -24.328126907348633
+        },
+        {
+          "token": "-b",
+          "tokenId": 0,
+          "logprob": -24.359376907348633
+        },
+        {
+          "token": "       \n",
+          "tokenId": 0,
+          "logprob": -24.468751907348633
+        },
+        {
+          "token": "\\\n",
+          "tokenId": 0,
+          "logprob": -24.671876907348633
+        },
+        {
+          "token": "           \n",
+          "tokenId": 0,
+          "logprob": -24.734376907348633
+        }
+      ]
+    }
+  ]
+}

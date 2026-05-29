@@ -1,0 +1,246 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:14:40.933Z",
+    "scriptVersion": "sampling.ts",
+    "lang": "en"
+  },
+  "baseStep": 38,
+  "baseStepLogprobs": [
+    {
+      "token": ".",
+      "tokenId": 0,
+      "logprob": -0.8697447776794434
+    },
+    {
+      "token": " (",
+      "tokenId": 0,
+      "logprob": -1.0103697776794434
+    },
+    {
+      "token": ",",
+      "tokenId": 0,
+      "logprob": -2.6666197776794434
+    },
+    {
+      "token": " like",
+      "tokenId": 0,
+      "logprob": -2.7291197776794434
+    },
+    {
+      "token": " along",
+      "tokenId": 0,
+      "logprob": -3.3853697776794434
+    },
+    {
+      "token": " such",
+      "tokenId": 0,
+      "logprob": -3.9166197776794434
+    },
+    {
+      "token": " with",
+      "tokenId": 0,
+      "logprob": -3.9166197776794434
+    },
+    {
+      "token": " combined",
+      "tokenId": 0,
+      "logprob": -5.916619777679443
+    },
+    {
+      "token": ":\n\n",
+      "tokenId": 0,
+      "logprob": -6.572869777679443
+    },
+    {
+      "token": " as",
+      "tokenId": 0,
+      "logprob": -6.775994777679443
+    },
+    {
+      "token": " followed",
+      "tokenId": 0,
+      "logprob": -7.260369777679443
+    },
+    {
+      "token": " alongside",
+      "tokenId": 0,
+      "logprob": -7.525994777679443
+    },
+    {
+      "token": " environment",
+      "tokenId": 0,
+      "logprob": -7.713494777679443
+    },
+    {
+      "token": " shell",
+      "tokenId": 0,
+      "logprob": -7.838494777679443
+    },
+    {
+      "token": " or",
+      "tokenId": 0,
+      "logprob": -8.229120254516602
+    },
+    {
+      "token": " and",
+      "tokenId": 0,
+      "logprob": -8.588495254516602
+    },
+    {
+      "token": ".\n\n",
+      "tokenId": 0,
+      "logprob": -8.650995254516602
+    },
+    {
+      "token": " together",
+      "tokenId": 0,
+      "logprob": -8.775995254516602
+    },
+    {
+      "token": " (`",
+      "tokenId": 0,
+      "logprob": -9.213495254516602
+    },
+    {
+      "token": " on",
+      "tokenId": 0,
+      "logprob": -9.885370254516602
+    }
+  ],
+  "paths": [
+    {
+      "method": "greedy",
+      "params": {
+        "temperature": 0
+      },
+      "tokens": [
+        ".",
+        " ",
+        "H",
+        "e",
+        "r",
+        "e",
+        "'",
+        "s",
+        " ",
+        "t",
+        "h",
+        "e",
+        " ",
+        "c",
+        "o",
+        "m",
+        "m",
+        "a",
+        "n",
+        "d",
+        " ",
+        "y",
+        "o",
+        "u",
+        " "
+      ]
+    },
+    {
+      "method": "low-temp",
+      "params": {
+        "temperature": 0.5
+      },
+      "tokens": [
+        ".",
+        " ",
+        "H",
+        "e",
+        "r",
+        "e",
+        "'",
+        "s",
+        " ",
+        "h",
+        "o",
+        "w",
+        " ",
+        "y",
+        "o",
+        "u",
+        " ",
+        "c",
+        "a",
+        "n",
+        " ",
+        "d",
+        "o",
+        " ",
+        "i"
+      ]
+    },
+    {
+      "method": "top-p",
+      "params": {
+        "top_p": 0.9,
+        "temperature": 1
+      },
+      "tokens": [
+        ".",
+        " ",
+        "H",
+        "e",
+        "r",
+        "e",
+        "'",
+        "s",
+        " ",
+        "t",
+        "h",
+        "e",
+        " ",
+        "c",
+        "o",
+        "m",
+        "m",
+        "a",
+        "n",
+        "d",
+        " ",
+        "y",
+        "o",
+        "u",
+        " "
+      ]
+    },
+    {
+      "method": "high-temp",
+      "params": {
+        "temperature": 1.5
+      },
+      "tokens": [
+        ".",
+        " ",
+        "H",
+        "e",
+        "r",
+        "e",
+        "'",
+        "s",
+        " ",
+        "a",
+        " ",
+        "c",
+        "o",
+        "m",
+        "p",
+        "l",
+        "e",
+        "t",
+        "e",
+        " ",
+        "c",
+        "o",
+        "m",
+        "m",
+        "a"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:40.123Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "zh"
+  },
+  "prompt": "读 Wikipedia 上 'Transformer (machine learning model)' 条目的开头摘要,写一条 280 字符以内的推文向新手介绍它。",
+  "tokens": [
+    {
+      "id": 19075,
+      "text": "读",
+      "byteRange": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": 26487,
+      "text": " Wikipedia",
+      "byteRange": [
+        3,
+        13
+      ]
+    },
+    {
+      "id": 30555,
+      "text": " 上",
+      "byteRange": [
+        13,
+        17
+      ]
+    },
+    {
+      "id": 461,
+      "text": " '",
+      "byteRange": [
+        17,
+        19
+      ]
+    },
+    {
+      "id": 48916,
+      "text": "Transformer",
+      "byteRange": [
+        19,
+        30
+      ]
+    },
+    {
+      "id": 350,
+      "text": " (",
+      "byteRange": [
+        30,
+        32
+      ]
+    },
+    {
+      "id": 48082,
+      "text": "machine",
+      "byteRange": [
+        32,
+        39
+      ]
+    },
+    {
+      "id": 7524,
+      "text": " learning",
+      "byteRange": [
+        39,
+        48
+      ]
+    },
+    {
+      "id": 2359,
+      "text": " model",
+      "byteRange": [
+        48,
+        54
+      ]
+    },
+    {
+      "id": 45517,
+      "text": ")'",
+      "byteRange": [
+        54,
+        56
+      ]
+    },
+    {
+      "id": 130788,
+      "text": " 条",
+      "byteRange": [
+        56,
+        60
+      ]
+    },
+    {
+      "id": 101991,
+      "text": "目的",
+      "byteRange": [
+        60,
+        66
+      ]
+    },
+    {
+      "id": 3044,
+      "text": "开",
+      "byteRange": [
+        66,
+        69
+      ]
+    },
+    {
+      "id": 18578,
+      "text": "头",
+      "byteRange": [
+        69,
+        72
+      ]
+    },
+    {
+      "id": 88323,
+      "text": "摘要",
+      "byteRange": [
+        72,
+        78
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        78,
+        79
+      ]
+    },
+    {
+      "id": 32444,
+      "text": "写",
+      "byteRange": [
+        79,
+        82
+      ]
+    },
+    {
+      "id": 2432,
+      "text": "一",
+      "byteRange": [
+        82,
+        85
+      ]
+    },
+    {
+      "id": 19867,
+      "text": "条",
+      "byteRange": [
+        85,
+        88
+      ]
+    },
+    {
+      "id": 220,
+      "text": " ",
+      "byteRange": [
+        88,
+        89
+      ]
+    },
+    {
+      "id": 17713,
+      "text": "280",
+      "byteRange": [
+        89,
+        92
+      ]
+    },
+    {
+      "id": 98350,
+      "text": " 字",
+      "byteRange": [
+        92,
+        96
+      ]
+    },
+    {
+      "id": 43487,
+      "text": "符",
+      "byteRange": [
+        96,
+        99
+      ]
+    },
+    {
+      "id": 131530,
+      "text": "以内",
+      "byteRange": [
+        99,
+        105
+      ]
+    },
+    {
+      "id": 1616,
+      "text": "的",
+      "byteRange": [
+        105,
+        108
+      ]
+    },
+    {
+      "id": 11800,
+      "text": "推",
+      "byteRange": [
+        108,
+        111
+      ]
+    },
+    {
+      "id": 4883,
+      "text": "文",
+      "byteRange": [
+        111,
+        114
+      ]
+    },
+    {
+      "id": 21308,
+      "text": "向",
+      "byteRange": [
+        114,
+        117
+      ]
+    },
+    {
+      "id": 3711,
+      "text": "新",
+      "byteRange": [
+        117,
+        120
+      ]
+    },
+    {
+      "id": 6034,
+      "text": "手",
+      "byteRange": [
+        120,
+        123
+      ]
+    },
+    {
+      "id": 37887,
+      "text": "介绍",
+      "byteRange": [
+        123,
+        129
+      ]
+    },
+    {
+      "id": 46569,
+      "text": "它",
+      "byteRange": [
+        129,
+        132
+      ]
+    },
+    {
+      "id": 788,
+      "text": "。",
+      "byteRange": [
+        132,
+        135
+      ]
+    }
+  ]
+}

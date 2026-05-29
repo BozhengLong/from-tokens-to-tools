@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:02.663Z",
+    "scriptVersion": "agent-loops.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "reactive": {
+    "iterations": [
+      {
+        "thought": "",
+        "action": {
+          "name": "fetch_wikipedia_article",
+          "arguments": {
+            "title": "Transformer (machine learning model)"
+          }
+        },
+        "observation": {
+          "_truncated": true,
+          "originalLength": 2048,
+          "preview": "{\"title\":\"Transformer (deep learning)\",\"extract\":\"In deep learning, the transformer is a family of artificial neural network architectures based on the multi-head attention mechanism, in which text is converted to numerical representations called tokens, and each token is converted into a vector via lookup from a word embedding table. At each layer, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism, allowing the signal for key tokens to be amplified and less important tokens to be diminished. Because self-attention alone is permutation-invariant, transformers inject positional information, typically through positional encodings or learned positional embeddings, so token order can affect the output.\\nTransformers have the advantage of having no recurrent units, therefore requiring less training time than earlier recurrent neural architectures (RNNs) such as long short-term memory (LSTM). Later variations have been widely adopted for training large language models (LLMs) on large (language) datasets. Modern transformer designs are commonly grouped into encoder-only, decoder-only, and encoder-decoder variants, depending on whether they are optimized for representation learning, autoregressive generation, or conditional sequence-to-sequence tasks.\\n\\nThe original version of the transformer architecture was proposed in the 2017 paper \\\"Attention Is All You Need\\\" by researchers at Google. The predecessors of transformers were developed as an improvement over previous architectures for machine translation, but have found many applications since. They are used in large-scale natural language processing, computer vision (vision transformers), reinforcement learning, audio, multimodal learning, robotics,, playing chess and at disaster responses. It has also led to the development of pre-trained systems, such as generative pre-trained transformers (GPTs) and BERT (bidirectional e"
+        }
+      },
+      {
+        "thought": "",
+        "action": {
+          "name": "save_tweet_draft",
+          "arguments": {
+            "text": "Transformer 是一类基于多头注意力机制的神经网络架构，最早由谷歌研究员在 2017 年提出。与传统 RNN 结构不同，Transformer 没有循环单元，因此训练时间更短。它们在大规模自然语言处理、计算机视觉等领域广泛应用，推动了 GPT、BERT 等预训练系统的发展。#机器学习 #深度学习"
+          }
+        },
+        "observation": {
+          "cardRendered": true,
+          "text": "Transformer 是一类基于多头注意力机制的神经网络架构，最早由谷歌研究员在 2017 年提出。与传统 RNN 结构不同，Transformer 没有循环单元，因此训练时间更短。它们在大规模自然语言处理、计算机视觉等领域广泛应用，推动了 GPT、BERT 等预训练系统的发展。#机器学习 #深度学习",
+          "length": 152
+        }
+      }
+    ],
+    "terminationReason": "final-action-called",
+    "terminationNote": "模型调用了 final-action 工具后停止"
+  },
+  "deliberative": {
+    "plan": [
+      {
+        "id": "step-1",
+        "stepLabel": "使用 fetch_wikipedia_article 工具获取 'Transformer (machine learning model)' 维基百科条目的开头摘要。"
+      },
+      {
+        "id": "step-2",
+        "stepLabel": "提取摘要信息并生成一条适合推特发布的新手介绍推文。"
+      },
+      {
+        "id": "step-3",
+        "stepLabel": "使用 save_tweet_draft 工具保存生成的推文草稿。"
+      }
+    ],
+    "execution": [
+      {
+        "planStepId": "step-1",
+        "actualCall": {
+          "name": "fetch_wikipedia_article",
+          "arguments": {
+            "title": "Transformer (machine learning model)"
+          }
+        },
+        "observation": {
+          "_truncated": true,
+          "originalLength": 2048,
+          "preview": "{\"title\":\"Transformer (deep learning)\",\"extract\":\"In deep learning, the transformer is a family of artificial neural network architectures based on the multi-head attention mechanism, in which text is converted to numerical representations called tokens, and each token is converted into a vector via lookup from a word embedding table. At each layer, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism, allowing the signal for key tokens to be amplified and less important tokens to be diminished. Because self-attention alone is permutation-invariant, transformers inject positional information, typically through positional encodings or learned positional embeddings, so token order can affect the output.\\nTransformers have the advantage of having no recurrent units, therefore requiring less training time than earlier recurrent neural architectures (RNNs) such as long short-term memory (LSTM). Later variations have been widely adopted for training large language models (LLMs) on large (language) datasets. Modern transformer designs are commonly grouped into encoder-only, decoder-only, and encoder-decoder variants, depending on whether they are optimized for representation learning, autoregressive generation, or conditional sequence-to-sequence tasks.\\n\\nThe original version of the transformer architecture was proposed in the 2017 paper \\\"Attention Is All You Need\\\" by researchers at Google. The predecessors of transformers were developed as an improvement over previous architectures for machine translation, but have found many applications since. They are used in large-scale natural language processing, computer vision (vision transformers), reinforcement learning, audio, multimodal learning, robotics,, playing chess and at disaster responses. It has also led to the development of pre-trained systems, such as generative pre-trained transformers (GPTs) and BERT (bidirectional e"
+        },
+        "deviated": false
+      },
+      {
+        "planStepId": "step-2",
+        "actualCall": {
+          "name": "save_tweet_draft",
+          "arguments": {
+            "text": "Transformers 是一种基于多头注意力机制的深度学习架构，将文本转为数值表示（token），通过自注意力机制处理，每层都可以增强关键token的信号。其没有循环单元，因此比传统RNN需要的训练时间更少。最初由Google在2017年提出，现广泛用于大规模NLP、视觉、音频等。 #机器学习 #Transformer"
+          }
+        },
+        "observation": {
+          "cardRendered": true,
+          "text": "Transformers 是一种基于多头注意力机制的深度学习架构，将文本转为数值表示（token），通过自注意力机制处理，每层都可以增强关键token的信号。其没有循环单元，因此比传统RNN需要的训练时间更少。最初由Google在2017年提出，现广泛用于大规模NLP、视觉、音频等。 #机器学习 #Transformer",
+          "length": 161
+        },
+        "deviated": false
+      }
+    ],
+    "deviationSummary": "Plan 有 3 步,实际执行 2 步,出现偏离。"
+  }
+}

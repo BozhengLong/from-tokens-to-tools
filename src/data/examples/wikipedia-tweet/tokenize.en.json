@@ -1,0 +1,251 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:02.755Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "en"
+  },
+  "prompt": "Read the lead section of the Wikipedia article 'Transformer (machine learning model)' and write a tweet (≤280 chars) introducing it to a newcomer.",
+  "tokens": [
+    {
+      "id": 4455,
+      "text": "Read",
+      "byteRange": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": 290,
+      "text": " the",
+      "byteRange": [
+        4,
+        8
+      ]
+    },
+    {
+      "id": 4124,
+      "text": " lead",
+      "byteRange": [
+        8,
+        13
+      ]
+    },
+    {
+      "id": 7102,
+      "text": " section",
+      "byteRange": [
+        13,
+        21
+      ]
+    },
+    {
+      "id": 328,
+      "text": " of",
+      "byteRange": [
+        21,
+        24
+      ]
+    },
+    {
+      "id": 290,
+      "text": " the",
+      "byteRange": [
+        24,
+        28
+      ]
+    },
+    {
+      "id": 26487,
+      "text": " Wikipedia",
+      "byteRange": [
+        28,
+        38
+      ]
+    },
+    {
+      "id": 5787,
+      "text": " article",
+      "byteRange": [
+        38,
+        46
+      ]
+    },
+    {
+      "id": 461,
+      "text": " '",
+      "byteRange": [
+        46,
+        48
+      ]
+    },
+    {
+      "id": 48916,
+      "text": "Transformer",
+      "byteRange": [
+        48,
+        59
+      ]
+    },
+    {
+      "id": 350,
+      "text": " (",
+      "byteRange": [
+        59,
+        61
+      ]
+    },
+    {
+      "id": 48082,
+      "text": "machine",
+      "byteRange": [
+        61,
+        68
+      ]
+    },
+    {
+      "id": 7524,
+      "text": " learning",
+      "byteRange": [
+        68,
+        77
+      ]
+    },
+    {
+      "id": 2359,
+      "text": " model",
+      "byteRange": [
+        77,
+        83
+      ]
+    },
+    {
+      "id": 45517,
+      "text": ")'",
+      "byteRange": [
+        83,
+        85
+      ]
+    },
+    {
+      "id": 326,
+      "text": " and",
+      "byteRange": [
+        85,
+        89
+      ]
+    },
+    {
+      "id": 5067,
+      "text": " write",
+      "byteRange": [
+        89,
+        95
+      ]
+    },
+    {
+      "id": 261,
+      "text": " a",
+      "byteRange": [
+        95,
+        97
+      ]
+    },
+    {
+      "id": 26778,
+      "text": " tweet",
+      "byteRange": [
+        97,
+        103
+      ]
+    },
+    {
+      "id": 350,
+      "text": " (",
+      "byteRange": [
+        103,
+        105
+      ]
+    },
+    {
+      "id": 104733,
+      "text": "≤",
+      "byteRange": [
+        105,
+        108
+      ]
+    },
+    {
+      "id": 17713,
+      "text": "280",
+      "byteRange": [
+        108,
+        111
+      ]
+    },
+    {
+      "id": 47991,
+      "text": " chars",
+      "byteRange": [
+        111,
+        117
+      ]
+    },
+    {
+      "id": 8,
+      "text": ")",
+      "byteRange": [
+        117,
+        118
+      ]
+    },
+    {
+      "id": 49659,
+      "text": " introducing",
+      "byteRange": [
+        118,
+        130
+      ]
+    },
+    {
+      "id": 480,
+      "text": " it",
+      "byteRange": [
+        130,
+        133
+      ]
+    },
+    {
+      "id": 316,
+      "text": " to",
+      "byteRange": [
+        133,
+        136
+      ]
+    },
+    {
+      "id": 261,
+      "text": " a",
+      "byteRange": [
+        136,
+        138
+      ]
+    },
+    {
+      "id": 159448,
+      "text": " newcomer",
+      "byteRange": [
+        138,
+        147
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        147,
+        148
+      ]
+    }
+  ]
+}

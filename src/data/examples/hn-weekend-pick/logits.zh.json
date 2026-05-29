@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:16:33.692Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "zh"
+  },
+  "steps": [
+    {
+      "stepIndex": 4,
+      "contextPreview": "抱歉，我不能",
+      "topK": [
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -0.3890966475009918
+        },
+        {
+          "token": "直接",
+          "tokenId": 0,
+          "logprob": -1.2640966176986694
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -3.982846736907959
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -5.357846736907959
+        },
+        {
+          "token": "提供",
+          "tokenId": 0,
+          "logprob": -5.451596736907959
+        },
+        {
+          "token": "拉",
+          "tokenId": 0,
+          "logprob": -5.857846736907959
+        },
+        {
+          "token": "为",
+          "tokenId": 0,
+          "logprob": -6.373471736907959
+        },
+        {
+          "token": "即时",
+          "tokenId": 0,
+          "logprob": -6.529721736907959
+        },
+        {
+          "token": "抓",
+          "tokenId": 0,
+          "logprob": -6.779721736907959
+        },
+        {
+          "token": "从",
+          "tokenId": 0,
+          "logprob": -6.967221736907959
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -7.123471736907959
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -7.732846736907959
+        },
+        {
+          "token": "够",
+          "tokenId": 0,
+          "logprob": -7.951596736907959
+        },
+        {
+          "token": "帮",
+          "tokenId": 0,
+          "logprob": -8.3890962600708
+        },
+        {
+          "token": "帮助",
+          "tokenId": 0,
+          "logprob": -8.3890962600708
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -8.4515962600708
+        },
+        {
+          "token": "在线",
+          "tokenId": 0,
+          "logprob": -8.4672212600708
+        },
+        {
+          "token": "自动",
+          "tokenId": 0,
+          "logprob": -8.5922212600708
+        },
+        {
+          "token": "实",
+          "tokenId": 0,
+          "logprob": -8.6390962600708
+        },
+        {
+          "token": "主动",
+          "tokenId": 0,
+          "logprob": -8.7015962600708
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "contextPreview": "抱歉，我不能直接",
+      "topK": [
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -0.9244024157524109
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -1.5494024753570557
+        },
+        {
+          "token": "从",
+          "tokenId": 0,
+          "logprob": -1.7369024753570557
+        },
+        {
+          "token": "拉",
+          "tokenId": 0,
+          "logprob": -2.2525274753570557
+        },
+        {
+          "token": "抓",
+          "tokenId": 0,
+          "logprob": -2.5337774753570557
+        },
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -4.127527236938477
+        },
+        {
+          "token": "为",
+          "tokenId": 0,
+          "logprob": -6.049402236938477
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -6.236902236938477
+        },
+        {
+          "token": "提供",
+          "tokenId": 0,
+          "logprob": -6.268152236938477
+        },
+        {
+          "token": "提",
+          "tokenId": 0,
+          "logprob": -6.315027236938477
+        },
+        {
+          "token": "查询",
+          "tokenId": 0,
+          "logprob": -6.940027236938477
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -6.955652236938477
+        },
+        {
+          "token": "去",
+          "tokenId": 0,
+          "logprob": -7.361902236938477
+        },
+        {
+          "token": "帮",
+          "tokenId": 0,
+          "logprob": -7.455652236938477
+        },
+        {
+          "token": "检",
+          "tokenId": 0,
+          "logprob": -7.611902236938477
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -8.002527236938477
+        },
+        {
+          "token": "读取",
+          "tokenId": 0,
+          "logprob": -8.174402236938477
+        },
+        {
+          "token": "请求",
+          "tokenId": 0,
+          "logprob": -8.252527236938477
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -8.361902236938477
+        },
+        {
+          "token": "帮助",
+          "tokenId": 0,
+          "logprob": -8.721277236938477
+        }
+      ]
+    },
+    {
+      "stepIndex": 8,
+      "contextPreview": "抱歉，我不能直接从 Hacker News",
+      "topK": [
+        {
+          "token": " 获取",
+          "tokenId": 0,
+          "logprob": -0.9743183255195618
+        },
+        {
+          "token": " 拉",
+          "tokenId": 0,
+          "logprob": -1.411818265914917
+        },
+        {
+          "token": " 或",
+          "tokenId": 0,
+          "logprob": -1.536818265914917
+        },
+        {
+          "token": " 上",
+          "tokenId": 0,
+          "logprob": -2.443068265914917
+        },
+        {
+          "token": " 实",
+          "tokenId": 0,
+          "logprob": -4.036818504333496
+        },
+        {
+          "token": " 等",
+          "tokenId": 0,
+          "logprob": -4.271193504333496
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -4.443068504333496
+        },
+        {
+          "token": " 提",
+          "tokenId": 0,
+          "logprob": -4.474318504333496
+        },
+        {
+          "token": " \\xe6\\x8a",
+          "tokenId": 0,
+          "logprob": -4.552443504333496
+        },
+        {
+          "token": " 中",
+          "tokenId": 0,
+          "logprob": -5.239943504333496
+        },
+        {
+          "token": " 网站",
+          "tokenId": 0,
+          "logprob": -6.271193504333496
+        },
+        {
+          "token": " \\xe8\\x8e",
+          "tokenId": 0,
+          "logprob": -7.427443504333496
+        },
+        {
+          "token": " 查询",
+          "tokenId": 0,
+          "logprob": -7.693068504333496
+        },
+        {
+          "token": " \\xe6\\xa3",
+          "tokenId": 0,
+          "logprob": -7.880568504333496
+        },
+        {
+          "token": " 请求",
+          "tokenId": 0,
+          "logprob": -8.005568504333496
+        },
+        {
+          "token": " \\xe6\\x8b",
+          "tokenId": 0,
+          "logprob": -8.380568504333496
+        },
+        {
+          "token": "（",
+          "tokenId": 0,
+          "logprob": -8.443068504333496
+        },
+        {
+          "token": " 动",
+          "tokenId": 0,
+          "logprob": -8.489943504333496
+        },
+        {
+          "token": " \\xe7",
+          "tokenId": 0,
+          "logprob": -8.833693504333496
+        },
+        {
+          "token": " 那",
+          "tokenId": 0,
+          "logprob": -8.880568504333496
+        }
+      ]
+    },
+    {
+      "stepIndex": 10,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取",
+      "topK": [
+        {
+          "token": "当前",
+          "tokenId": 0,
+          "logprob": -0.7677872180938721
+        },
+        {
+          "token": "实时",
+          "tokenId": 0,
+          "logprob": -0.8615372180938721
+        },
+        {
+          "token": "数据",
+          "tokenId": 0,
+          "logprob": -2.861537218093872
+        },
+        {
+          "token": "最新",
+          "tokenId": 0,
+          "logprob": -3.111537218093872
+        },
+        {
+          "token": "内容",
+          "tokenId": 0,
+          "logprob": -5.533411979675293
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -5.549036979675293
+        },
+        {
+          "token": "即时",
+          "tokenId": 0,
+          "logprob": -6.736536979675293
+        },
+        {
+          "token": "信息",
+          "tokenId": 0,
+          "logprob": -7.283411979675293
+        },
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -7.783411979675293
+        },
+        {
+          "token": "具体",
+          "tokenId": 0,
+          "logprob": -8.549036979675293
+        },
+        {
+          "token": "动态",
+          "tokenId": 0,
+          "logprob": -8.674036979675293
+        },
+        {
+          "token": "实",
+          "tokenId": 0,
+          "logprob": -8.970911979675293
+        },
+        {
+          "token": "到",
+          "tokenId": 0,
+          "logprob": -9.017786979675293
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -9.064661979675293
+        },
+        {
+          "token": "当",
+          "tokenId": 0,
+          "logprob": -9.252161979675293
+        },
+        {
+          "token": "或者",
+          "tokenId": 0,
+          "logprob": -9.392786979675293
+        },
+        {
+          "token": "其",
+          "tokenId": 0,
+          "logprob": -9.424036979675293
+        },
+        {
+          "token": "新闻",
+          "tokenId": 0,
+          "logprob": -9.861536979675293
+        },
+        {
+          "token": "目前",
+          "tokenId": 0,
+          "logprob": -9.861536979675293
+        },
+        {
+          "token": "在线",
+          "tokenId": 0,
+          "logprob": -9.939661979675293
+        }
+      ]
+    },
+    {
+      "stepIndex": 14,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单",
+      "topK": [
+        {
+          "token": "。不过",
+          "tokenId": 0,
+          "logprob": -1.112958312034607
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -1.362958312034607
+        },
+        {
+          "token": "。但是",
+          "tokenId": 0,
+          "logprob": -2.5192084312438965
+        },
+        {
+          "token": "。但",
+          "tokenId": 0,
+          "logprob": -2.7067084312438965
+        },
+        {
+          "token": "。然而",
+          "tokenId": 0,
+          "logprob": -2.9410834312438965
+        },
+        {
+          "token": "内容",
+          "tokenId": 0,
+          "logprob": -3.3942084312438965
+        },
+        {
+          "token": "或者",
+          "tokenId": 0,
+          "logprob": -3.3942084312438965
+        },
+        {
+          "token": "数据",
+          "tokenId": 0,
+          "logprob": -3.5192084312438965
+        },
+        {
+          "token": "，但",
+          "tokenId": 0,
+          "logprob": -3.5817084312438965
+        },
+        {
+          "token": "信息",
+          "tokenId": 0,
+          "logprob": -3.7379584312438965
+        },
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -3.8004584312438965
+        },
+        {
+          "token": "，因为",
+          "tokenId": 0,
+          "logprob": -4.4879584312438965
+        },
+        {
+          "token": "，不过",
+          "tokenId": 0,
+          "logprob": -5.3473334312438965
+        },
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -5.4098334312438965
+        },
+        {
+          "token": "。如果",
+          "tokenId": 0,
+          "logprob": -5.4098334312438965
+        },
+        {
+          "token": "，但是",
+          "tokenId": 0,
+          "logprob": -5.4410834312438965
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -5.7223334312438965
+        },
+        {
+          "token": "标题",
+          "tokenId": 0,
+          "logprob": -5.7848334312438965
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -6.3317084312438965
+        },
+        {
+          "token": "，也",
+          "tokenId": 0,
+          "logprob": -6.3785834312438965
+        }
+      ]
+    },
+    {
+      "stepIndex": 17,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以",
+      "topK": [
+        {
+          "token": "告诉",
+          "tokenId": 0,
+          "logprob": -1.3954522609710693
+        },
+        {
+          "token": "给",
+          "tokenId": 0,
+          "logprob": -1.6767022609710693
+        },
+        {
+          "token": "帮",
+          "tokenId": 0,
+          "logprob": -2.0360772609710693
+        },
+        {
+          "token": "帮助",
+          "tokenId": 0,
+          "logprob": -2.1610772609710693
+        },
+        {
+          "token": "建议",
+          "tokenId": 0,
+          "logprob": -2.3173272609710693
+        },
+        {
+          "token": "为",
+          "tokenId": 0,
+          "logprob": -2.4892022609710693
+        },
+        {
+          "token": "教",
+          "tokenId": 0,
+          "logprob": -3.1142022609710693
+        },
+        {
+          "token": "提供",
+          "tokenId": 0,
+          "logprob": -3.2704522609710693
+        },
+        {
+          "token": "指导",
+          "tokenId": 0,
+          "logprob": -3.7235772609710693
+        },
+        {
+          "token": "向",
+          "tokenId": 0,
+          "logprob": -4.864202499389648
+        },
+        {
+          "token": "推荐",
+          "tokenId": 0,
+          "logprob": -5.004827499389648
+        },
+        {
+          "token": "根据",
+          "tokenId": 0,
+          "logprob": -5.629827499389648
+        },
+        {
+          "token": "分享",
+          "tokenId": 0,
+          "logprob": -5.707952499389648
+        },
+        {
+          "token": "介绍",
+          "tokenId": 0,
+          "logprob": -6.426702499389648
+        },
+        {
+          "token": "模拟",
+          "tokenId": 0,
+          "logprob": -6.473577499389648
+        },
+        {
+          "token": "引",
+          "tokenId": 0,
+          "logprob": -6.770452499389648
+        },
+        {
+          "token": "描述",
+          "tokenId": 0,
+          "logprob": -7.098577499389648
+        },
+        {
+          "token": "协",
+          "tokenId": 0,
+          "logprob": -7.551702499389648
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -7.676702499389648
+        },
+        {
+          "token": "假",
+          "tokenId": 0,
+          "logprob": -7.879827499389648
+        }
+      ]
+    },
+    {
+      "stepIndex": 20,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何",
+      "topK": [
+        {
+          "token": "自己",
+          "tokenId": 0,
+          "logprob": -0.9897887706756592
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -1.9116637706756592
+        },
+        {
+          "token": "找到",
+          "tokenId": 0,
+          "logprob": -2.255413770675659
+        },
+        {
+          "token": "手",
+          "tokenId": 0,
+          "logprob": -2.552288770675659
+        },
+        {
+          "token": "自行",
+          "tokenId": 0,
+          "logprob": -2.864788770675659
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -3.005413770675659
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -3.208538770675659
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -3.271038770675659
+        },
+        {
+          "token": "使用",
+          "tokenId": 0,
+          "logprob": -3.661663770675659
+        },
+        {
+          "token": "去",
+          "tokenId": 0,
+          "logprob": -3.802288770675659
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -4.114789009094238
+        },
+        {
+          "token": "浏览",
+          "tokenId": 0,
+          "logprob": -4.771039009094238
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -4.849164009094238
+        },
+        {
+          "token": "亲",
+          "tokenId": 0,
+          "logprob": -5.255414009094238
+        },
+        {
+          "token": "做",
+          "tokenId": 0,
+          "logprob": -5.599164009094238
+        },
+        {
+          "token": "操作",
+          "tokenId": 0,
+          "logprob": -5.989789009094238
+        },
+        {
+          "token": "挑",
+          "tokenId": 0,
+          "logprob": -6.021039009094238
+        },
+        {
+          "token": "寻找",
+          "tokenId": 0,
+          "logprob": -6.161664009094238
+        },
+        {
+          "token": "找",
+          "tokenId": 0,
+          "logprob": -6.177289009094238
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -6.333539009094238
+        }
+      ]
+    },
+    {
+      "stepIndex": 23,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何找到这些内容",
+      "topK": [
+        {
+          "token": "，并",
+          "tokenId": 0,
+          "logprob": -1.2381349802017212
+        },
+        {
+          "token": "并",
+          "tokenId": 0,
+          "logprob": -1.3943849802017212
+        },
+        {
+          "token": "。\n\n",
+          "tokenId": 0,
+          "logprob": -2.1600098609924316
+        },
+        {
+          "token": "，以及",
+          "tokenId": 0,
+          "logprob": -2.3162598609924316
+        },
+        {
+          "token": "，",
+          "tokenId": 0,
+          "logprob": -2.8162598609924316
+        },
+        {
+          "token": "以及",
+          "tokenId": 0,
+          "logprob": -2.9412598609924316
+        },
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -2.9881348609924316
+        },
+        {
+          "token": "：\n\n",
+          "tokenId": 0,
+          "logprob": -3.5350098609924316
+        },
+        {
+          "token": "和",
+          "tokenId": 0,
+          "logprob": -4.081884860992432
+        },
+        {
+          "token": "，然后",
+          "tokenId": 0,
+          "logprob": -4.316259860992432
+        },
+        {
+          "token": "或",
+          "tokenId": 0,
+          "logprob": -5.675634860992432
+        },
+        {
+          "token": "。在",
+          "tokenId": 0,
+          "logprob": -5.831884860992432
+        },
+        {
+          "token": "或者",
+          "tokenId": 0,
+          "logprob": -5.878759860992432
+        },
+        {
+          "token": "，以",
+          "tokenId": 0,
+          "logprob": -6.081884860992432
+        },
+        {
+          "token": "：",
+          "tokenId": 0,
+          "logprob": -6.331884860992432
+        },
+        {
+          "token": "的方法",
+          "tokenId": 0,
+          "logprob": -6.535009860992432
+        },
+        {
+          "token": "。如果",
+          "tokenId": 0,
+          "logprob": -6.785009860992432
+        },
+        {
+          "token": "及",
+          "tokenId": 0,
+          "logprob": -6.863134860992432
+        },
+        {
+          "token": "供",
+          "tokenId": 0,
+          "logprob": -6.988134860992432
+        },
+        {
+          "token": "的",
+          "tokenId": 0,
+          "logprob": -7.128759860992432
+        }
+      ]
+    },
+    {
+      "stepIndex": 26,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何找到这些内容。\n\n以下是",
+      "topK": [
+        {
+          "token": "您",
+          "tokenId": 0,
+          "logprob": -0.9690967798233032
+        },
+        {
+          "token": "步骤",
+          "tokenId": 0,
+          "logprob": -1.8128467798233032
+        },
+        {
+          "token": "如何",
+          "tokenId": 0,
+          "logprob": -2.4690966606140137
+        },
+        {
+          "token": "一些",
+          "tokenId": 0,
+          "logprob": -2.5628466606140137
+        },
+        {
+          "token": "一个",
+          "tokenId": 0,
+          "logprob": -2.6878466606140137
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -2.8753466606140137
+        },
+        {
+          "token": "手",
+          "tokenId": 0,
+          "logprob": -3.3597216606140137
+        },
+        {
+          "token": "查",
+          "tokenId": 0,
+          "logprob": -3.5784716606140137
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -3.9065966606140137
+        },
+        {
+          "token": "一般",
+          "tokenId": 0,
+          "logprob": -3.9690966606140137
+        },
+        {
+          "token": "找到",
+          "tokenId": 0,
+          "logprob": -4.640971660614014
+        },
+        {
+          "token": "操作",
+          "tokenId": 0,
+          "logprob": -5.109721660614014
+        },
+        {
+          "token": "寻找",
+          "tokenId": 0,
+          "logprob": -5.156596660614014
+        },
+        {
+          "token": "几个",
+          "tokenId": 0,
+          "logprob": -5.344096660614014
+        },
+        {
+          "token": "你",
+          "tokenId": 0,
+          "logprob": -5.375346660614014
+        },
+        {
+          "token": "简单",
+          "tokenId": 0,
+          "logprob": -5.781596660614014
+        },
+        {
+          "token": "大",
+          "tokenId": 0,
+          "logprob": -5.906596660614014
+        },
+        {
+          "token": "推荐",
+          "tokenId": 0,
+          "logprob": -5.937846660614014
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -5.937846660614014
+        },
+        {
+          "token": "建议",
+          "tokenId": 0,
+          "logprob": -6.000346660614014
+        }
+      ]
+    },
+    {
+      "stepIndex": 28,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何找到这些内容。\n\n以下是您可以",
+      "topK": [
+        {
+          "token": "手",
+          "tokenId": 0,
+          "logprob": -1.7952054738998413
+        },
+        {
+          "token": "用",
+          "tokenId": 0,
+          "logprob": -1.9827054738998413
+        },
+        {
+          "token": "采取",
+          "tokenId": 0,
+          "logprob": -2.076455593109131
+        },
+        {
+          "token": "执行",
+          "tokenId": 0,
+          "logprob": -2.685830593109131
+        },
+        {
+          "token": "在",
+          "tokenId": 0,
+          "logprob": -2.826455593109131
+        },
+        {
+          "token": "使用",
+          "tokenId": 0,
+          "logprob": -2.857705593109131
+        },
+        {
+          "token": "自己",
+          "tokenId": 0,
+          "logprob": -2.967080593109131
+        },
+        {
+          "token": "尝",
+          "tokenId": 0,
+          "logprob": -3.013955593109131
+        },
+        {
+          "token": "做",
+          "tokenId": 0,
+          "logprob": -3.154580593109131
+        },
+        {
+          "token": "按照",
+          "tokenId": 0,
+          "logprob": -3.763955593109131
+        },
+        {
+          "token": "遵",
+          "tokenId": 0,
+          "logprob": -3.763955593109131
+        },
+        {
+          "token": "获取",
+          "tokenId": 0,
+          "logprob": -3.779580593109131
+        },
+        {
+          "token": "找到",
+          "tokenId": 0,
+          "logprob": -3.873330593109131
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -3.920205593109131
+        },
+        {
+          "token": "自行",
+          "tokenId": 0,
+          "logprob": -3.935830593109131
+        },
+        {
+          "token": "查看",
+          "tokenId": 0,
+          "logprob": -4.263955593109131
+        },
+        {
+          "token": "跟",
+          "tokenId": 0,
+          "logprob": -4.388955593109131
+        },
+        {
+          "token": "进行",
+          "tokenId": 0,
+          "logprob": -4.576455593109131
+        },
+        {
+          "token": "通过",
+          "tokenId": 0,
+          "logprob": -4.576455593109131
+        },
+        {
+          "token": "操作",
+          "tokenId": 0,
+          "logprob": -4.607705593109131
+        }
+      ]
+    },
+    {
+      "stepIndex": 33,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何找到这些内容。\n\n以下是您可以参考的步骤：\n\n1",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": "\\.",
+          "tokenId": 0,
+          "logprob": -16.8125
+        },
+        {
+          "token": ")",
+          "tokenId": 0,
+          "logprob": -19.375
+        },
+        {
+          "token": "．",
+          "tokenId": 0,
+          "logprob": -20.0625
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -20.296875
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -20.375
+        },
+        {
+          "token": "、",
+          "tokenId": 0,
+          "logprob": -20.4375
+        },
+        {
+          "token": "️⃣",
+          "tokenId": 0,
+          "logprob": -20.515625
+        },
+        {
+          "token": "️",
+          "tokenId": 0,
+          "logprob": -21.953125
+        },
+        {
+          "token": "。",
+          "tokenId": 0,
+          "logprob": -22.203125
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -22.640625
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -22.75
+        },
+        {
+          "token": "⃣",
+          "tokenId": 0,
+          "logprob": -22.75
+        },
+        {
+          "token": "**",
+          "tokenId": 0,
+          "logprob": -22.828125
+        },
+        {
+          "token": "）",
+          "tokenId": 0,
+          "logprob": -22.84375
+        },
+        {
+          "token": "‍.",
+          "tokenId": 0,
+          "logprob": -23.765625
+        },
+        {
+          "token": "号",
+          "tokenId": 0,
+          "logprob": -23.953125
+        },
+        {
+          "token": " **",
+          "tokenId": 0,
+          "logprob": -23.953125
+        },
+        {
+          "token": "\\\\.",
+          "tokenId": 0,
+          "logprob": -24.109375
+        },
+        {
+          "token": ".\n",
+          "tokenId": 0,
+          "logprob": -24.125
+        }
+      ]
+    },
+    {
+      "stepIndex": 34,
+      "contextPreview": "抱歉，我不能直接从 Hacker News 拉取当前的榜单。但我可以教您如何找到这些内容。\n\n以下是您可以参考的步骤：\n\n1.",
+      "topK": [
+        {
+          "token": " 打",
+          "tokenId": 0,
+          "logprob": -0.7664200663566589
+        },
+        {
+          "token": " **",
+          "tokenId": 0,
+          "logprob": -1.2039201259613037
+        },
+        {
+          "token": " ",
+          "tokenId": 0,
+          "logprob": -1.6726701259613037
+        },
+        {
+          "token": " 前",
+          "tokenId": 0,
+          "logprob": -3.2664201259613037
+        },
+        {
+          "token": " 请",
+          "tokenId": 0,
+          "logprob": -6.000794887542725
+        },
+        {
+          "token": " 浏览",
+          "tokenId": 0,
+          "logprob": -6.282044887542725
+        },
+        {
+          "token": " \\xe6\\x82",
+          "tokenId": 0,
+          "logprob": -6.672669887542725
+        },
+        {
+          "token": " 在",
+          "tokenId": 0,
+          "logprob": -6.953919887542725
+        },
+        {
+          "token": " 首",
+          "tokenId": 0,
+          "logprob": -7.016419887542725
+        },
+        {
+          "token": " 去",
+          "tokenId": 0,
+          "logprob": -7.360169887542725
+        },
+        {
+          "token": " [",
+          "tokenId": 0,
+          "logprob": -8.797670364379883
+        },
+        {
+          "token": " 登录",
+          "tokenId": 0,
+          "logprob": -8.844545364379883
+        },
+        {
+          "token": " 转",
+          "tokenId": 0,
+          "logprob": -9.110170364379883
+        },
+        {
+          "token": " 使用",
+          "tokenId": 0,
+          "logprob": -9.125795364379883
+        },
+        {
+          "token": " 开",
+          "tokenId": 0,
+          "logprob": -9.313295364379883
+        },
+        {
+          "token": " 查看",
+          "tokenId": 0,
+          "logprob": -9.391420364379883
+        },
+        {
+          "token": " 到",
+          "tokenId": 0,
+          "logprob": -9.516420364379883
+        },
+        {
+          "token": "访问",
+          "tokenId": 0,
+          "logprob": -9.657045364379883
+        },
+        {
+          "token": " ***",
+          "tokenId": 0,
+          "logprob": -9.797670364379883
+        },
+        {
+          "token": " 导",
+          "tokenId": 0,
+          "logprob": -9.860170364379883
+        }
+      ]
+    }
+  ]
+}

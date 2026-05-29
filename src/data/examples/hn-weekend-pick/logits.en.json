@@ -1,0 +1,1283 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:17:25.398Z",
+    "scriptVersion": "logits.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "steps": [
+    {
+      "stepIndex": 0,
+      "contextPreview": "",
+      "topK": [
+        {
+          "token": "I'm",
+          "tokenId": 0,
+          "logprob": -0.38471296429634094
+        },
+        {
+          "token": "I",
+          "tokenId": 0,
+          "logprob": -1.2284629344940186
+        },
+        {
+          "token": "As",
+          "tokenId": 0,
+          "logprob": -3.9159629344940186
+        },
+        {
+          "token": "Unfortunately",
+          "tokenId": 0,
+          "logprob": -5.790963172912598
+        },
+        {
+          "token": "Sorry",
+          "tokenId": 0,
+          "logprob": -7.165963172912598
+        },
+        {
+          "token": "While",
+          "tokenId": 0,
+          "logprob": -7.165963172912598
+        },
+        {
+          "token": "Currently",
+          "tokenId": 0,
+          "logprob": -7.197213172912598
+        },
+        {
+          "token": "To",
+          "tokenId": 0,
+          "logprob": -7.415963172912598
+        },
+        {
+          "token": "Since",
+          "tokenId": 0,
+          "logprob": -8.040963172912598
+        },
+        {
+          "token": "Sure",
+          "tokenId": 0,
+          "logprob": -8.697213172912598
+        },
+        {
+          "token": "Fetching",
+          "tokenId": 0,
+          "logprob": -8.822213172912598
+        },
+        {
+          "token": "Ap",
+          "tokenId": 0,
+          "logprob": -11.103463172912598
+        },
+        {
+          "token": "Here",
+          "tokenId": 0,
+          "logprob": -11.134713172912598
+        },
+        {
+          "token": "At",
+          "tokenId": 0,
+          "logprob": -11.415963172912598
+        },
+        {
+          "token": "I'd",
+          "tokenId": 0,
+          "logprob": -11.415963172912598
+        },
+        {
+          "token": "Although",
+          "tokenId": 0,
+          "logprob": -11.634713172912598
+        },
+        {
+          "token": "Certainly",
+          "tokenId": 0,
+          "logprob": -11.728463172912598
+        },
+        {
+          "token": "\n",
+          "tokenId": 0,
+          "logprob": -12.072213172912598
+        },
+        {
+          "token": "I'll",
+          "tokenId": 0,
+          "logprob": -12.462838172912598
+        },
+        {
+          "token": "Access",
+          "tokenId": 0,
+          "logprob": -12.556588172912598
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "contextPreview": "I'm currently unable to fetch",
+      "topK": [
+        {
+          "token": " live",
+          "tokenId": 0,
+          "logprob": -0.5809711813926697
+        },
+        {
+          "token": " real",
+          "tokenId": 0,
+          "logprob": -0.9247211813926697
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -3.4872212409973145
+        },
+        {
+          "token": " data",
+          "tokenId": 0,
+          "logprob": -4.7840962409973145
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -5.4403462409973145
+        },
+        {
+          "token": " up",
+          "tokenId": 0,
+          "logprob": -8.518470764160156
+        },
+        {
+          "token": " content",
+          "tokenId": 0,
+          "logprob": -9.409095764160156
+        },
+        {
+          "token": " dynamic",
+          "tokenId": 0,
+          "logprob": -9.432533264160156
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -9.604408264160156
+        },
+        {
+          "token": " current",
+          "tokenId": 0,
+          "logprob": -10.362220764160156
+        },
+        {
+          "token": " specific",
+          "tokenId": 0,
+          "logprob": -10.416908264160156
+        },
+        {
+          "token": " information",
+          "tokenId": 0,
+          "logprob": -10.448158264160156
+        },
+        {
+          "token": " Hacker",
+          "tokenId": 0,
+          "logprob": -10.479408264160156
+        },
+        {
+          "token": " updated",
+          "tokenId": 0,
+          "logprob": -10.612220764160156
+        },
+        {
+          "token": " H",
+          "tokenId": 0,
+          "logprob": -10.674720764160156
+        },
+        {
+          "token": " online",
+          "tokenId": 0,
+          "logprob": -10.799720764160156
+        },
+        {
+          "token": " updates",
+          "tokenId": 0,
+          "logprob": -11.080970764160156
+        },
+        {
+          "token": " realtime",
+          "tokenId": 0,
+          "logprob": -11.432533264160156
+        },
+        {
+          "token": " external",
+          "tokenId": 0,
+          "logprob": -11.487220764160156
+        },
+        {
+          "token": " direct",
+          "tokenId": 0,
+          "logprob": -11.713783264160156
+        }
+      ]
+    },
+    {
+      "stepIndex": 8,
+      "contextPreview": "I'm currently unable to fetch live data or",
+      "topK": [
+        {
+          "token": " browse",
+          "tokenId": 0,
+          "logprob": -0.7211405038833618
+        },
+        {
+          "token": " access",
+          "tokenId": 0,
+          "logprob": -0.7836405038833618
+        },
+        {
+          "token": " real",
+          "tokenId": 0,
+          "logprob": -3.9086403846740723
+        },
+        {
+          "token": " directly",
+          "tokenId": 0,
+          "logprob": -4.518015384674072
+        },
+        {
+          "token": " provide",
+          "tokenId": 0,
+          "logprob": -5.689890384674072
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -5.768015384674072
+        },
+        {
+          "token": " retrieve",
+          "tokenId": 0,
+          "logprob": -5.893015384674072
+        },
+        {
+          "token": " updates",
+          "tokenId": 0,
+          "logprob": -6.080515384674072
+        },
+        {
+          "token": " interact",
+          "tokenId": 0,
+          "logprob": -6.158640384674072
+        },
+        {
+          "token": " display",
+          "tokenId": 0,
+          "logprob": -6.205515384674072
+        },
+        {
+          "token": " connect",
+          "tokenId": 0,
+          "logprob": -6.643015384674072
+        },
+        {
+          "token": " check",
+          "tokenId": 0,
+          "logprob": -6.877390384674072
+        },
+        {
+          "token": " current",
+          "tokenId": 0,
+          "logprob": -6.908640384674072
+        },
+        {
+          "token": " perform",
+          "tokenId": 0,
+          "logprob": -7.111765384674072
+        },
+        {
+          "token": " update",
+          "tokenId": 0,
+          "logprob": -7.486765384674072
+        },
+        {
+          "token": " content",
+          "tokenId": 0,
+          "logprob": -7.502390384674072
+        },
+        {
+          "token": " internet",
+          "tokenId": 0,
+          "logprob": -7.580515384674072
+        },
+        {
+          "token": " specific",
+          "tokenId": 0,
+          "logprob": -7.814890384674072
+        },
+        {
+          "token": " visit",
+          "tokenId": 0,
+          "logprob": -7.877390384674072
+        },
+        {
+          "token": " search",
+          "tokenId": 0,
+          "logprob": -7.877390384674072
+        }
+      ]
+    },
+    {
+      "stepIndex": 10,
+      "contextPreview": "I'm currently unable to fetch live data or browse the",
+      "topK": [
+        {
+          "token": " internet",
+          "tokenId": 0,
+          "logprob": -0.3442787230014801
+        },
+        {
+          "token": " web",
+          "tokenId": 0,
+          "logprob": -1.2349036931991577
+        },
+        {
+          "token": " Internet",
+          "tokenId": 0,
+          "logprob": -8.000528335571289
+        },
+        {
+          "token": " latest",
+          "tokenId": 0,
+          "logprob": -9.953653335571289
+        },
+        {
+          "token": " current",
+          "tokenId": 0,
+          "logprob": -11.680215835571289
+        },
+        {
+          "token": " website",
+          "tokenId": 0,
+          "logprob": -12.180215835571289
+        },
+        {
+          "token": " Web",
+          "tokenId": 0,
+          "logprob": -12.680215835571289
+        },
+        {
+          "token": " real",
+          "tokenId": 0,
+          "logprob": -13.156778335571289
+        },
+        {
+          "token": " net",
+          "tokenId": 0,
+          "logprob": -14.023965835571289
+        },
+        {
+          "token": " H",
+          "tokenId": 0,
+          "logprob": -14.211465835571289
+        },
+        {
+          "token": " online",
+          "tokenId": 0,
+          "logprob": -14.820840835571289
+        },
+        {
+          "token": " actual",
+          "tokenId": 0,
+          "logprob": -14.945840835571289
+        },
+        {
+          "token": " content",
+          "tokenId": 0,
+          "logprob": -15.055215835571289
+        },
+        {
+          "token": " site",
+          "tokenId": 0,
+          "logprob": -15.344278335571289
+        },
+        {
+          "token": " news",
+          "tokenId": 0,
+          "logprob": -15.359903335571289
+        },
+        {
+          "token": " Hacker",
+          "tokenId": 0,
+          "logprob": -15.586465835571289
+        },
+        {
+          "token": " websites",
+          "tokenId": 0,
+          "logprob": -15.602090835571289
+        },
+        {
+          "token": " intern",
+          "tokenId": 0,
+          "logprob": -15.734903335571289
+        },
+        {
+          "token": " external",
+          "tokenId": 0,
+          "logprob": -15.945840835571289
+        },
+        {
+          "token": " most",
+          "tokenId": 0,
+          "logprob": -16.03177833557129
+        }
+      ]
+    },
+    {
+      "stepIndex": 11,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -1.1516817808151245
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -1.3860567808151245
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -1.7298067808151245
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -1.9798067808151245
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -2.339181900024414
+        },
+        {
+          "token": " directly",
+          "tokenId": 0,
+          "logprob": -3.854806900024414
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -8.182931900024414
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -8.636056900024414
+        },
+        {
+          "token": " due",
+          "tokenId": 0,
+          "logprob": -9.323556900024414
+        },
+        {
+          "token": " at",
+          "tokenId": 0,
+          "logprob": -9.386056900024414
+        },
+        {
+          "token": " including",
+          "tokenId": 0,
+          "logprob": -9.464181900024414
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -11.089181900024414
+        },
+        {
+          "token": " right",
+          "tokenId": 0,
+          "logprob": -11.198556900024414
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -11.198556900024414
+        },
+        {
+          "token": " but",
+          "tokenId": 0,
+          "logprob": -11.386056900024414
+        },
+        {
+          "token": " real",
+          "tokenId": 0,
+          "logprob": -11.401681900024414
+        },
+        {
+          "token": " myself",
+          "tokenId": 0,
+          "logprob": -11.479806900024414
+        },
+        {
+          "token": " independently",
+          "tokenId": 0,
+          "logprob": -11.651681900024414
+        },
+        {
+          "token": " because",
+          "tokenId": 0,
+          "logprob": -11.761056900024414
+        },
+        {
+          "token": " beyond",
+          "tokenId": 0,
+          "logprob": -12.120431900024414
+        }
+      ]
+    },
+    {
+      "stepIndex": 13,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real",
+      "topK": [
+        {
+          "token": "-time",
+          "tokenId": 0,
+          "logprob": -0.3174929618835449
+        },
+        {
+          "token": " time",
+          "tokenId": 0,
+          "logprob": -1.301867961883545
+        },
+        {
+          "token": "-t",
+          "tokenId": 0,
+          "logprob": -13.801868438720703
+        },
+        {
+          "token": " real",
+          "tokenId": 0,
+          "logprob": -13.934680938720703
+        },
+        {
+          "token": "-world",
+          "tokenId": 0,
+          "logprob": -15.231555938720703
+        },
+        {
+          "token": "-",
+          "tokenId": 0,
+          "logprob": -15.434680938720703
+        },
+        {
+          "token": " tiempo",
+          "tokenId": 0,
+          "logprob": -15.669055938720703
+        },
+        {
+          "token": "–",
+          "tokenId": 0,
+          "logprob": -15.669055938720703
+        },
+        {
+          "token": " times",
+          "tokenId": 0,
+          "logprob": -15.762805938720703
+        },
+        {
+          "token": "-Time",
+          "tokenId": 0,
+          "logprob": -15.786243438720703
+        },
+        {
+          "token": "‑",
+          "tokenId": 0,
+          "logprob": -15.825305938720703
+        },
+        {
+          "token": "_time",
+          "tokenId": 0,
+          "logprob": -15.942493438720703
+        },
+        {
+          "token": " life",
+          "tokenId": 0,
+          "logprob": -16.020618438720703
+        },
+        {
+          "token": " -",
+          "tokenId": 0,
+          "logprob": -16.254993438720703
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -16.372180938720703
+        },
+        {
+          "token": "-life",
+          "tokenId": 0,
+          "logprob": -16.426868438720703
+        },
+        {
+          "token": " tim",
+          "tokenId": 0,
+          "logprob": -16.528430938720703
+        },
+        {
+          "token": "-real",
+          "tokenId": 0,
+          "logprob": -16.606555938720703
+        },
+        {
+          "token": "-times",
+          "tokenId": 0,
+          "logprob": -16.926868438720703
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -16.958118438720703
+        }
+      ]
+    },
+    {
+      "stepIndex": 14,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time",
+      "topK": [
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -0.5050821304321289
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -0.9582071304321289
+        },
+        {
+          "token": " to",
+          "tokenId": 0,
+          "logprob": -4.567582130432129
+        },
+        {
+          "token": " for",
+          "tokenId": 0,
+          "logprob": -6.848832130432129
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -7.270707130432129
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -7.661332130432129
+        },
+        {
+          "token": " due",
+          "tokenId": 0,
+          "logprob": -8.551957130432129
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -9.942582130432129
+        },
+        {
+          "token": " directly",
+          "tokenId": 0,
+          "logprob": -10.317582130432129
+        },
+        {
+          "token": " including",
+          "tokenId": 0,
+          "logprob": -10.989457130432129
+        },
+        {
+          "token": " because",
+          "tokenId": 0,
+          "logprob": -11.161332130432129
+        },
+        {
+          "token": " (",
+          "tokenId": 0,
+          "logprob": -11.239457130432129
+        },
+        {
+          "token": " but",
+          "tokenId": 0,
+          "logprob": -11.567582130432129
+        },
+        {
+          "token": " so",
+          "tokenId": 0,
+          "logprob": -12.005082130432129
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -12.239457130432129
+        },
+        {
+          "token": " such",
+          "tokenId": 0,
+          "logprob": -13.051957130432129
+        },
+        {
+          "token": "—including",
+          "tokenId": 0,
+          "logprob": -13.286332130432129
+        },
+        {
+          "token": " myself",
+          "tokenId": 0,
+          "logprob": -13.333207130432129
+        },
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -13.661332130432129
+        },
+        {
+          "token": " like",
+          "tokenId": 0,
+          "logprob": -13.723832130432129
+        }
+      ]
+    },
+    {
+      "stepIndex": 16,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time. However",
+      "topK": [
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": 0
+        },
+        {
+          "token": " I",
+          "tokenId": 0,
+          "logprob": -17.25
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -19.578125
+        },
+        {
+          "token": ";",
+          "tokenId": 0,
+          "logprob": -20.4375
+        },
+        {
+          "token": ",\n",
+          "tokenId": 0,
+          "logprob": -20.765625
+        },
+        {
+          "token": ",I",
+          "tokenId": 0,
+          "logprob": -20.828125
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -21.109375
+        },
+        {
+          "token": "—",
+          "tokenId": 0,
+          "logprob": -21.15625
+        },
+        {
+          "token": " based",
+          "tokenId": 0,
+          "logprob": -21.78125
+        },
+        {
+          "token": " since",
+          "tokenId": 0,
+          "logprob": -22.15625
+        },
+        {
+          "token": ":",
+          "tokenId": 0,
+          "logprob": -22.234375
+        },
+        {
+          "token": " as",
+          "tokenId": 0,
+          "logprob": -22.234375
+        },
+        {
+          "token": " ,",
+          "tokenId": 0,
+          "logprob": -22.375
+        },
+        {
+          "token": "!",
+          "tokenId": 0,
+          "logprob": -22.46875
+        },
+        {
+          "token": " —",
+          "tokenId": 0,
+          "logprob": -22.875
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -22.9375
+        },
+        {
+          "token": ",,",
+          "tokenId": 0,
+          "logprob": -23.09375
+        },
+        {
+          "token": "<|end|>",
+          "tokenId": 0,
+          "logprob": -23.140625
+        },
+        {
+          "token": " you",
+          "tokenId": 0,
+          "logprob": -23.34375
+        },
+        {
+          "token": ",\n\n",
+          "tokenId": 0,
+          "logprob": -23.359375
+        }
+      ]
+    },
+    {
+      "stepIndex": 19,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time. However, I can",
+      "topK": [
+        {
+          "token": " guide",
+          "tokenId": 0,
+          "logprob": -0.752011239528656
+        },
+        {
+          "token": " help",
+          "tokenId": 0,
+          "logprob": -1.0332612991333008
+        },
+        {
+          "token": " suggest",
+          "tokenId": 0,
+          "logprob": -2.783261299133301
+        },
+        {
+          "token": " certainly",
+          "tokenId": 0,
+          "logprob": -3.252011299133301
+        },
+        {
+          "token": " provide",
+          "tokenId": 0,
+          "logprob": -3.548886299133301
+        },
+        {
+          "token": " give",
+          "tokenId": 0,
+          "logprob": -4.408261299133301
+        },
+        {
+          "token": " offer",
+          "tokenId": 0,
+          "logprob": -4.533261299133301
+        },
+        {
+          "token": " simulate",
+          "tokenId": 0,
+          "logprob": -5.111386299133301
+        },
+        {
+          "token": " assist",
+          "tokenId": 0,
+          "logprob": -5.783261299133301
+        },
+        {
+          "token": " still",
+          "tokenId": 0,
+          "logprob": -6.095761299133301
+        },
+        {
+          "token": " show",
+          "tokenId": 0,
+          "logprob": -6.220761299133301
+        },
+        {
+          "token": " demonstrate",
+          "tokenId": 0,
+          "logprob": -6.611386299133301
+        },
+        {
+          "token": " recommend",
+          "tokenId": 0,
+          "logprob": -6.720761299133301
+        },
+        {
+          "token": " definitely",
+          "tokenId": 0,
+          "logprob": -6.892636299133301
+        },
+        {
+          "token": " advise",
+          "tokenId": 0,
+          "logprob": -6.939511299133301
+        },
+        {
+          "token": " describe",
+          "tokenId": 0,
+          "logprob": -7.767636299133301
+        },
+        {
+          "token": " illustrate",
+          "tokenId": 0,
+          "logprob": -7.845761299133301
+        },
+        {
+          "token": " explain",
+          "tokenId": 0,
+          "logprob": -7.908261299133301
+        },
+        {
+          "token": " tell",
+          "tokenId": 0,
+          "logprob": -7.955136299133301
+        },
+        {
+          "token": " generate",
+          "tokenId": 0,
+          "logprob": -8.3926362991333
+        }
+      ]
+    },
+    {
+      "stepIndex": 24,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time. However, I can guide you on how to",
+      "topK": [
+        {
+          "token": " find",
+          "tokenId": 0,
+          "logprob": -0.5827752947807312
+        },
+        {
+          "token": " do",
+          "tokenId": 0,
+          "logprob": -2.270275354385376
+        },
+        {
+          "token": " check",
+          "tokenId": 0,
+          "logprob": -2.832775354385376
+        },
+        {
+          "token": " access",
+          "tokenId": 0,
+          "logprob": -3.020275354385376
+        },
+        {
+          "token": " manually",
+          "tokenId": 0,
+          "logprob": -3.114025354385376
+        },
+        {
+          "token": " select",
+          "tokenId": 0,
+          "logprob": -3.192150354385376
+        },
+        {
+          "token": " identify",
+          "tokenId": 0,
+          "logprob": -3.207775354385376
+        },
+        {
+          "token": " choose",
+          "tokenId": 0,
+          "logprob": -3.848400354385376
+        },
+        {
+          "token": " fetch",
+          "tokenId": 0,
+          "logprob": -3.942150354385376
+        },
+        {
+          "token": " approach",
+          "tokenId": 0,
+          "logprob": -4.348400115966797
+        },
+        {
+          "token": " retrieve",
+          "tokenId": 0,
+          "logprob": -4.848400115966797
+        },
+        {
+          "token": " get",
+          "tokenId": 0,
+          "logprob": -4.879650115966797
+        },
+        {
+          "token": " pick",
+          "tokenId": 0,
+          "logprob": -5.270275115966797
+        },
+        {
+          "token": " gather",
+          "tokenId": 0,
+          "logprob": -5.285900115966797
+        },
+        {
+          "token": " look",
+          "tokenId": 0,
+          "logprob": -5.559337615966797
+        },
+        {
+          "token": " browse",
+          "tokenId": 0,
+          "logprob": -6.129650115966797
+        },
+        {
+          "token": " obtain",
+          "tokenId": 0,
+          "logprob": -6.239025115966797
+        },
+        {
+          "token": " explore",
+          "tokenId": 0,
+          "logprob": -6.348400115966797
+        },
+        {
+          "token": " determine",
+          "tokenId": 0,
+          "logprob": -6.449962615966797
+        },
+        {
+          "token": " perform",
+          "tokenId": 0,
+          "logprob": -6.496837615966797
+        }
+      ]
+    },
+    {
+      "stepIndex": 25,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time. However, I can guide you on how to identify",
+      "topK": [
+        {
+          "token": " suitable",
+          "tokenId": 0,
+          "logprob": -0.991954505443573
+        },
+        {
+          "token": " interesting",
+          "tokenId": 0,
+          "logprob": -1.6169545650482178
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -1.7575795650482178
+        },
+        {
+          "token": " stories",
+          "tokenId": 0,
+          "logprob": -1.8669545650482178
+        },
+        {
+          "token": " weekend",
+          "tokenId": 0,
+          "logprob": -3.7732045650482178
+        },
+        {
+          "token": " engaging",
+          "tokenId": 0,
+          "logprob": -4.382579326629639
+        },
+        {
+          "token": " potentially",
+          "tokenId": 0,
+          "logprob": -4.398204326629639
+        },
+        {
+          "token": " Hacker",
+          "tokenId": 0,
+          "logprob": -4.554454326629639
+        },
+        {
+          "token": " good",
+          "tokenId": 0,
+          "logprob": -4.601329326629639
+        },
+        {
+          "token": " potential",
+          "tokenId": 0,
+          "logprob": -4.804454326629639
+        },
+        {
+          "token": " which",
+          "tokenId": 0,
+          "logprob": -4.851329326629639
+        },
+        {
+          "token": " articles",
+          "tokenId": 0,
+          "logprob": -5.241954326629639
+        },
+        {
+          "token": " the",
+          "tokenId": 0,
+          "logprob": -5.538829326629639
+        },
+        {
+          "token": " top",
+          "tokenId": 0,
+          "logprob": -6.601329326629639
+        },
+        {
+          "token": " some",
+          "tokenId": 0,
+          "logprob": -6.788829326629639
+        },
+        {
+          "token": " compelling",
+          "tokenId": 0,
+          "logprob": -6.788829326629639
+        },
+        {
+          "token": " types",
+          "tokenId": 0,
+          "logprob": -7.163829326629639
+        },
+        {
+          "token": " intriguing",
+          "tokenId": 0,
+          "logprob": -7.179454326629639
+        },
+        {
+          "token": " a",
+          "tokenId": 0,
+          "logprob": -7.476329326629639
+        },
+        {
+          "token": " topics",
+          "tokenId": 0,
+          "logprob": -7.726329326629639
+        }
+      ]
+    },
+    {
+      "stepIndex": 30,
+      "contextPreview": "I'm currently unable to fetch live data or browse the web in real time. However, I can guide you on how to identify suitable stories for weekend reading",
+      "topK": [
+        {
+          "token": " from",
+          "tokenId": 0,
+          "logprob": -0.7255541682243347
+        },
+        {
+          "token": " on",
+          "tokenId": 0,
+          "logprob": -1.1786792278289795
+        },
+        {
+          "token": " based",
+          "tokenId": 0,
+          "logprob": -2.3505542278289795
+        },
+        {
+          "token": " and",
+          "tokenId": 0,
+          "logprob": -2.6786792278289795
+        },
+        {
+          "token": " by",
+          "tokenId": 0,
+          "logprob": -4.2880539894104
+        },
+        {
+          "token": " using",
+          "tokenId": 0,
+          "logprob": -4.9130539894104
+        },
+        {
+          "token": " if",
+          "tokenId": 0,
+          "logprob": -5.2099289894104
+        },
+        {
+          "token": ".",
+          "tokenId": 0,
+          "logprob": -5.3974289894104
+        },
+        {
+          "token": " when",
+          "tokenId": 0,
+          "logprob": -5.8349289894104
+        },
+        {
+          "token": " once",
+          "tokenId": 0,
+          "logprob": -5.9443039894104
+        },
+        {
+          "token": " or",
+          "tokenId": 0,
+          "logprob": -6.1630539894104
+        },
+        {
+          "token": ",",
+          "tokenId": 0,
+          "logprob": -6.4130539894104
+        },
+        {
+          "token": ".\n\n",
+          "tokenId": 0,
+          "logprob": -6.6786789894104
+        },
+        {
+          "token": " typically",
+          "tokenId": 0,
+          "logprob": -7.1786789894104
+        },
+        {
+          "token": " yourself",
+          "tokenId": 0,
+          "logprob": -7.3505539894104
+        },
+        {
+          "token": ":\n\n",
+          "tokenId": 0,
+          "logprob": -7.4755539894104
+        },
+        {
+          "token": " among",
+          "tokenId": 0,
+          "logprob": -8.670866966247559
+        },
+        {
+          "token": " that",
+          "tokenId": 0,
+          "logprob": -9.389616966247559
+        },
+        {
+          "token": " in",
+          "tokenId": 0,
+          "logprob": -9.694304466247559
+        },
+        {
+          "token": " generally",
+          "tokenId": 0,
+          "logprob": -9.717741966247559
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:14.997Z",
+    "scriptVersion": "tokenize.ts",
+    "lang": "en"
+  },
+  "prompt": "Check tomorrow's weather in Shanghai, then send me a notification summarizing it; if it will rain or precipitation probability is high, remind me to bring an umbrella in the notification.",
+  "tokens": [
+    {
+      "id": 4383,
+      "text": "Check",
+      "byteRange": [
+        0,
+        5
+      ]
+    },
+    {
+      "id": 22021,
+      "text": " tomorrow",
+      "byteRange": [
+        5,
+        14
+      ]
+    },
+    {
+      "id": 885,
+      "text": "'s",
+      "byteRange": [
+        14,
+        16
+      ]
+    },
+    {
+      "id": 11122,
+      "text": " weather",
+      "byteRange": [
+        16,
+        24
+      ]
+    },
+    {
+      "id": 306,
+      "text": " in",
+      "byteRange": [
+        24,
+        27
+      ]
+    },
+    {
+      "id": 48173,
+      "text": " Shanghai",
+      "byteRange": [
+        27,
+        36
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        36,
+        37
+      ]
+    },
+    {
+      "id": 1815,
+      "text": " then",
+      "byteRange": [
+        37,
+        42
+      ]
+    },
+    {
+      "id": 4952,
+      "text": " send",
+      "byteRange": [
+        42,
+        47
+      ]
+    },
+    {
+      "id": 668,
+      "text": " me",
+      "byteRange": [
+        47,
+        50
+      ]
+    },
+    {
+      "id": 261,
+      "text": " a",
+      "byteRange": [
+        50,
+        52
+      ]
+    },
+    {
+      "id": 19232,
+      "text": " notification",
+      "byteRange": [
+        52,
+        65
+      ]
+    },
+    {
+      "id": 43991,
+      "text": " summar",
+      "byteRange": [
+        65,
+        72
+      ]
+    },
+    {
+      "id": 6396,
+      "text": "izing",
+      "byteRange": [
+        72,
+        77
+      ]
+    },
+    {
+      "id": 480,
+      "text": " it",
+      "byteRange": [
+        77,
+        80
+      ]
+    },
+    {
+      "id": 26,
+      "text": ";",
+      "byteRange": [
+        80,
+        81
+      ]
+    },
+    {
+      "id": 538,
+      "text": " if",
+      "byteRange": [
+        81,
+        84
+      ]
+    },
+    {
+      "id": 480,
+      "text": " it",
+      "byteRange": [
+        84,
+        87
+      ]
+    },
+    {
+      "id": 738,
+      "text": " will",
+      "byteRange": [
+        87,
+        92
+      ]
+    },
+    {
+      "id": 13873,
+      "text": " rain",
+      "byteRange": [
+        92,
+        97
+      ]
+    },
+    {
+      "id": 503,
+      "text": " or",
+      "byteRange": [
+        97,
+        100
+      ]
+    },
+    {
+      "id": 86661,
+      "text": " precipitation",
+      "byteRange": [
+        100,
+        114
+      ]
+    },
+    {
+      "id": 34933,
+      "text": " probability",
+      "byteRange": [
+        114,
+        126
+      ]
+    },
+    {
+      "id": 382,
+      "text": " is",
+      "byteRange": [
+        126,
+        129
+      ]
+    },
+    {
+      "id": 1932,
+      "text": " high",
+      "byteRange": [
+        129,
+        134
+      ]
+    },
+    {
+      "id": 11,
+      "text": ",",
+      "byteRange": [
+        134,
+        135
+      ]
+    },
+    {
+      "id": 22944,
+      "text": " remind",
+      "byteRange": [
+        135,
+        142
+      ]
+    },
+    {
+      "id": 668,
+      "text": " me",
+      "byteRange": [
+        142,
+        145
+      ]
+    },
+    {
+      "id": 316,
+      "text": " to",
+      "byteRange": [
+        145,
+        148
+      ]
+    },
+    {
+      "id": 5624,
+      "text": " bring",
+      "byteRange": [
+        148,
+        154
+      ]
+    },
+    {
+      "id": 448,
+      "text": " an",
+      "byteRange": [
+        154,
+        157
+      ]
+    },
+    {
+      "id": 77378,
+      "text": " umbrella",
+      "byteRange": [
+        157,
+        166
+      ]
+    },
+    {
+      "id": 306,
+      "text": " in",
+      "byteRange": [
+        166,
+        169
+      ]
+    },
+    {
+      "id": 290,
+      "text": " the",
+      "byteRange": [
+        169,
+        173
+      ]
+    },
+    {
+      "id": 19232,
+      "text": " notification",
+      "byteRange": [
+        173,
+        186
+      ]
+    },
+    {
+      "id": 13,
+      "text": ".",
+      "byteRange": [
+        186,
+        187
+      ]
+    }
+  ]
+}

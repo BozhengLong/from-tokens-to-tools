@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "model": "gpt-4o",
+    "recordedAt": "2026-05-29T01:15:40.031Z",
+    "scriptVersion": "agent-loops.ts",
+    "seed": 42,
+    "lang": "en"
+  },
+  "reactive": {
+    "iterations": [
+      {
+        "thought": "I will first check the weather for Shanghai on 2026-05-30 to gather details about the conditions.",
+        "action": {
+          "name": "get_weather",
+          "arguments": {
+            "city": "Shanghai",
+            "date": "2026-05-30"
+          }
+        },
+        "observation": {
+          "date": "2026-05-30",
+          "t_max": 27.8,
+          "t_min": 17.9,
+          "precipitation_probability": 0,
+          "weathercode": 3
+        }
+      },
+      {
+        "thought": "The weather in Shanghai on 2026-05-30 is expected to be clear with no precipitation. I will send a notification summarizing this.",
+        "action": {
+          "name": "send_notification",
+          "arguments": {
+            "title": "Weather Update for Shanghai - 2026-05-30",
+            "body": "The weather in Shanghai tomorrow (May 30, 2026) will be clear with temperatures ranging from 17.9°C to 27.8°C. No rain is expected, so there's no need to bring an umbrella."
+          }
+        },
+        "observation": {
+          "delivered": false,
+          "channel": "mock"
+        }
+      }
+    ],
+    "terminationReason": "final-action-called",
+    "terminationNote": "Model called the designated final-action tool."
+  },
+  "deliberative": {
+    "plan": [
+      {
+        "id": "step-1",
+        "stepLabel": "Get tomorrow's weather for Shanghai."
+      },
+      {
+        "id": "step-2",
+        "stepLabel": "Send a notification summarizing the weather. If rain or high precipitation is expected, include a reminder to bring an umbrella."
+      }
+    ],
+    "execution": [
+      {
+        "planStepId": "step-1",
+        "actualCall": {
+          "name": "get_weather",
+          "arguments": {
+            "city": "Shanghai",
+            "date": "2026-05-30"
+          }
+        },
+        "observation": {
+          "date": "2026-05-30",
+          "t_max": 27.8,
+          "t_min": 17.9,
+          "precipitation_probability": 0,
+          "weathercode": 3
+        },
+        "deviated": false
+      },
+      {
+        "planStepId": "step-2",
+        "actualCall": {
+          "name": "send_notification",
+          "arguments": {
+            "title": "Tomorrow's Weather in Shanghai",
+            "body": "The weather in Shanghai on 2026-05-30 will be clear with temperatures ranging from 17.9°C to 27.8°C. No rain is expected, so you won't need an umbrella."
+          }
+        },
+        "observation": {
+          "delivered": false,
+          "channel": "mock"
+        },
+        "deviated": false
+      }
+    ],
+    "deviationSummary": "Model followed plan exactly."
+  }
+}
