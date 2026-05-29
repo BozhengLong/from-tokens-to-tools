@@ -32,6 +32,22 @@ Two independent gestures:
 4. **Progressive disclosure / cognitive load:** at any instant you are either on the low-detail map or focused on a single beat's micro — never flooded.
 5. **Need-to-know:** each forward step answers a question you're now asking.
 
+### 2.1 Controls (honoring "no scroll, gated steps")
+
+- **Pan = explicit Next / Back** (buttons + ← → keys). Deliberate, gated — *not* free scroll. You advance when you choose to.
+- **Zoom = click a "zoom in" affordance on a beat** (and pinch on touch; optional scroll-to-zoom on desktop). Zoom out = a persistent "↑ back to map" control. A breadcrumb always shows **`beat i / N` + `depth L0–L3`** so you never feel lost.
+
+### 2.2 The guided first descent (so the core lesson is never skipped by accident)
+
+A viewer who only ever *pans* would see the story but never the token→command mechanism — which is the whole point. So the **first** "model speaks" beat **actively guides the viewer to zoom in once** (a pulsing "↓ look inside" cue, and the Next button is gently de-emphasized until they've descended at least once). After that first whole→part→whole loop, zooming is fully optional and self-paced. This guarantees every viewer experiences the macro↔micro move at least once.
+
+### 2.3 Accessibility & small screens
+
+Semantic zoom is inherently spatial/motion-based, so it needs a non-spatial equivalent:
+- **`prefers-reduced-motion`** → transitions become instant cross-fades (no scale animation), zoom still works.
+- **Accessible / screen-reader / keyboard-only mode** → the same level tree is also navigable as nested, expandable **disclosure sections** (an outline), so nothing depends on the zoom metaphor alone.
+- **Small screens** → pan/zoom degrades to a **stepped accordion** (tap a beat to expand its levels in place) rather than a spatial zoom, preserving the gated story + drill-down without fragile mobile gestures.
+
 ---
 
 ## 3. Structure Y — story is the spine, concepts live in the depth
@@ -61,7 +77,11 @@ The macro spine is **the agent's task story**, told in plain, relatable beats. T
 
 ## 4. Data — 100% real, from two honest sources
 
-**Integrity contract (carried over from v1, non-negotiable — see `docs/recording-notes.md`):** model output is 100% real (re-roll, never hand-edit); tools are real code against real sandboxes/APIs; recorded once and replayed deterministically; where any value is illustrative, truncated, or unavailable, **the UI says so**. No fabrication anywhere.
+**Integrity contract (carried over from v1, non-negotiable — see `docs/recording-notes.md`):** model output is 100% real (re-roll, never hand-edit); tools are real code against real sandboxes/APIs; where any value is illustrative, truncated, or unavailable, **the UI says so**. No fabrication anywhere.
+
+**Reconciling "recorded" with "live" (important — these are not in conflict):** v1's rule was "recorded once, replayed deterministically." v2 has *two* real modes, both honest:
+- **Replayed-real (Source A):** the agent story is a deterministic replay of a real captured run.
+- **Live-real (Source B):** the deepest token layer is *computed live, in front of you,* on a real model. Live real computation is not "faking" — it is, if anything, *more* honest than a recording. The contract is therefore restated as: **every datum is either replayed from a real capture or computed live by a real model; nothing is hand-authored to look real.**
 
 Because the two layers of Structure Y have different data needs, they have two clearly-labeled real sources:
 
@@ -75,9 +95,13 @@ The bottom-most "this is just next-token prediction" layer is powered by **Qwen3
 
 This makes the deepest zoom **live and interactive**: the viewer can type a snippet and watch real tokenization → the real next-token probability distribution → real sampling, and drag a temperature slider to **resample for real**. It runs entirely on the viewer's own device; no server, no API, ever.
 
-It is honestly labeled: *"This is the universal next-token mechanism, shown on a small open model you can fully see inside. Claude works the same way internally — it just doesn't expose its probabilities."* The token mechanism is universal across models, so demonstrating it on an inspectable model is sound.
+**Seed it with the real context (tightens the connection).** When the viewer drills into a specific "model speaks" beat, the microscope is **pre-loaded with the real context from that exact moment** (the prompt/conversation Claude actually had at that beat). So instead of an arbitrary toy, the learner sees *"given exactly what the agent saw here, here's what next-token prediction looks like on a model we can see inside."* The viewer can then edit it freely.
 
-**Fallback:** on devices without WebGPU (old browsers, some mobiles), the deepest layer degrades to **pre-recorded real token data** (captured once from the same Qwen3-0.6B), with a notice. This satisfies the integrity contract and keeps the experience whole.
+**The source handoff must be explicit and honest (this is a named design requirement, not a footnote).** The viewer arrives at the deep layer from a *Claude* beat but the microscope is *Qwen3*. The zoom boundary must visibly mark this handoff — e.g. a framed transition: *"Claude won't show us its probabilities (Anthropic's API doesn't expose them). So to see what next-token prediction actually looks like, here's a small open model running on your machine — same mechanism, fully inspectable."* The UI must never let the viewer believe they are watching Claude's internals. This labeling is a build-acceptance criterion, not optional polish.
+
+**Fallback (per device):** on devices without WebGPU (old browsers, some mobiles), the deepest layer degrades to **pre-recorded real token data** (captured once from the same Qwen3-0.6B), with a notice. Same `TokenMicroscope` interface; still real; keeps the experience whole.
+
+**Fallback (whole feature):** if the pre-flight (§7) shows the in-browser model is not viable at all, the deepest layer ships **recorded-only** for everyone (the option-② path). This still meets every success criterion in §10 — it loses live resampling, not the lesson. The live capability is an enhancement gated on the pre-flight, never a hard dependency of the project.
 
 **The tiny model does NOT do the task.** A 0.6B model can emit function-call-shaped text but is not a reliable agent — and it doesn't need to be. Real tool-calling/agentic work comes from Source A. Source B is only the token microscope. *Optional:* feed it a short fixed prompt so it generates a function-call-shaped snippet token-by-token live (concept ④ "tokens become a command" shown live); if it's too incoherent even for that, fall back to plain-text generation + explanation.
 
@@ -97,16 +121,21 @@ All three thread through the same zoom structure (Structure Y). The example swit
 
 ## 6. Tech architecture
 
-**Stack unchanged:** React 19, Vite 8, Tailwind v4 (CSS-first `@theme`), Zustand 5, Zod 4, framer-motion. Reuse v1's whiteboard primitives, i18n infra, store pattern, Zod-as-source-of-truth, in-memory FS, and the `recording-notes.md` integrity rules.
+**Stack unchanged:** React 19, Vite 8, Tailwind v4 (CSS-first `@theme`), Zustand 5, Zod 4, framer-motion. Reuse v1's whiteboard primitives, i18n infra, store pattern, Zod-as-source-of-truth, and the `recording-notes.md` integrity rules.
+
+*Retired from v1:* the custom tool layer (`list_directory`, `get_weather`, …) and the in-memory FS are **not** used in v2 — observations now come from a real Claude Code session's real tools, captured in the transcript and replayed. There is no live tool execution at runtime in v2; the only live computation is the token microscope (§4 Source B).
 
 **New core units:**
 
 1. **ZoomStage engine** — the semantic-zoom primitive. Holds, per beat, a stack of authored zoom levels; animates scale + crossfade between levels; tracks `(panIndex, zoomDepth)`; renders a persistent "you are here + how deep" indicator; supports click / keyboard / scroll-to-zoom and `prefers-reduced-motion`. One focused, independently testable component with a clear interface (`levels`, current depth, callbacks).
 2. **TokenMicroscope** — wraps transformers.js + Qwen3-0.6B-ONNX (via WebGPU). Lazy-loaded. API: `tokenize(text)`, `nextTokenDistribution(context) → {token, logprob}[]` (top-k from real logits), `sample(dist, temperature)`. Live temperature slider re-samples for real. WebGPU capability detection; recorded-data fallback path behind the same interface.
-3. **Data model v2 (Zod schemas)** — `StoryRun = { meta, beats: Beat[] , topology }`; `Beat = { kind: 'user' | 'model-speaks' | 'runtime-acts' | 'final', thought?, toolCall?, observation?, zoom?: ZoomContent }`; `ZoomContent` references the per-beat L1/L2/L3 material (and, for "model speaks" beats, the recorded token-fallback slice). Loop/deliberative shapes carried from v1's `AgentLoopData`/`TopologyData` where they still fit.
-4. **Recorder v2** — a harvester that converts a real Claude Code session transcript (`.jsonl`) into a validated `StoryRun` JSON, plus the buggy-repo fixture for the hero, plus a one-time Qwen3-0.6B capture producing the recorded token fallback.
+3. **Data model v2 (Zod schemas)** — `StoryRun = { meta, beats: Beat[], topology }`; `Beat = { kind: 'user' | 'model-speaks' | 'runtime-acts' | 'final', thought?, toolCall?, observation?, zoom?: ZoomContent }`; `ZoomContent` holds the authored per-beat L1/L2/L3 material (plain-language text, callouts, curiosity bridge) plus, for "model speaks" beats, the real seed-context for the live microscope and the recorded token-fallback slice. `StoryRun` is the new canonical shape; v1's `AgentLoopData`/`TopologyData` are reused only as the sub-structure for the loop-iteration list and the reactive/deliberative toggle.
+4. **Recorder v2 + curation.** Two distinct activities, do not conflate them:
+   - *Harvest (mechanical):* parse a real Claude Code session transcript (`.jsonl`) — user/assistant messages, `tool_use` blocks (the real function calls), `tool_result` blocks (the real observations), thinking blocks — into raw beats. (Run the capture session with **extended thinking ON** so each beat has visible reasoning to teach with; otherwise tool-call beats have no "thought".)
+   - *Curate + author (design work — the bulk of the effort):* a real session is messy (dozens of calls, huge outputs, system noise). A human/LLM pass **selects the teachable beats, trims observations, and writes the L1/L2/L3 zoom content** for each beat (the plain-language explanation, the "what to look at" callouts, the curiosity bridge to the next beat), in zh + en. This authored layer — not the transcript dump — is what makes it teach. Budget for it as the largest piece of C1, not an afterthought.
+   - Plus: the buggy-repo fixture for the hero, and a one-time Qwen3-0.6B capture producing the recorded token fallback (§4 Source B fallback).
 
-**Deploy:** static build on Vercel (or GitHub Pages). **Zero server compute** — the model runs in the viewer's browser. Model weights load from the **HuggingFace CDN** (keeps the deploy small; GH Pages is poor for hundreds of MB of binaries). WebGPU required for the live microscope; otherwise the recorded fallback is served.
+**Deploy:** static build on Vercel **or** GitHub Pages. **Zero server compute** — the model runs in the viewer's browser. Model weights load from the **HuggingFace CDN**, which keeps the deployed bundle small — so both Vercel and GH Pages work fine. (Self-hosting the weights would be the only thing GH Pages handles poorly; we don't.) WebGPU required for the live microscope; otherwise the recorded fallback is served.
 
 **What is replaced:** v1's scroll narrative, the 7 fixed station components, and the per-station data files (`tokenize/logits/sampling/function-calls/topology.json`) are superseded by `StoryRun` + zoom layers. v1 remains at tag `plan-b-complete`.
 
@@ -116,9 +145,9 @@ All three thread through the same zoom structure (Structure Y). The example swit
 
 A spike, before committing to the frontend, mirroring v1's "probe logprobs first" discipline:
 
-- In a blank Vite page, load **`onnx-community/Qwen3-0.6B` (transformers.js-compatible ONNX build)** via WebGPU and confirm we can: (a) load it, (b) tokenize text, (c) read **logits** for the next token, (d) compute top-k probabilities, (e) sample, (f) acceptable download size + first-load time.
+- In a blank Vite page, load **`onnx-community/Qwen3-0.6B` (transformers.js-compatible ONNX build)** via WebGPU and confirm we can: (a) load it; (b) tokenize text; (c) **read the raw `logits` tensor from a single forward pass** (not just `generate()` text — we specifically need the distribution over the next token, which is the whole point); (d) compute top-k probabilities via softmax; (e) sample from them; (f) feed it a custom multi-token context and read the distribution at the final position; (g) acceptable download size + first-load time on a mid-range laptop.
 - Disable Qwen3 "thinking" mode for the demo (we want plain next-token generation to show the distribution).
-- **Fallback if blocked:** if a usable Qwen3-0.6B ONNX/WebGPU build is unavailable or too heavy, drop to **Qwen2.5-0.5B-Instruct** (known transformers.js-compatible). Document whichever is used.
+- **Fallback if blocked:** if a usable Qwen3-0.6B ONNX/WebGPU build is unavailable or too heavy, drop to **Qwen2.5-0.5B-Instruct** (known transformers.js-compatible). If WebGPU/logits access fails entirely, trigger the §4 whole-feature recorded-only fallback. Document whichever path is taken.
 
 Outcome recorded in `docs/recording-notes.md`.
 
@@ -133,6 +162,9 @@ Outcome recorded in `docs/recording-notes.md`.
 | Claude Code transcript schema drift | Pin harvester to current format; store the raw transcript alongside the derived `StoryRun`. |
 | Tiny model too incoherent for the live function-call demo | Fall back to plain-text generation + explanation (still real, still labeled). |
 | Model download weight (~300–500 MB) | Load only on deepest-zoom opt-in; cache; show progress; never blocks the rest of the journey. |
+| **Scope creep** — v2 is materially bigger than v1 (custom zoom engine + in-browser ML + transcript harvest + authored curation × 3 scenarios × 2 langs). | **Build the hero scenario as a full vertical slice first** (§9), end-to-end, before the other two. Validates the whole pipeline cheaply; the other scenarios then reuse proven machinery. |
+| **Source-handoff confusion** (viewer thinks Qwen internals = Claude internals). | Explicit framed handoff at the zoom boundary is a build-acceptance criterion (§4). |
+| Zoom metaphor inaccessible (reduced-motion, screen-reader, mobile). | Disclosure-outline mode + stepped accordion on small screens (§2.3) — nothing depends on the spatial metaphor alone. |
 
 ---
 
@@ -143,14 +175,23 @@ This is two coupled subsystems; split like v1's A/B (which worked well):
 - **Plan C1 — Data & backstage.** Pre-flight model spike (§7); data model v2 Zod schemas (§6.3); the Claude Code session → `StoryRun` harvester (§6.4); capture the 3 real scenarios (incl. the buggy-repo fixture for the hero); one-time Qwen3-0.6B recorded-token fallback capture; update `recording-notes.md`.
 - **Plan C2 — Frontend zoom experience.** ZoomStage engine (§6.1); Structure Y navigation (pan + zoom + indicator); per-beat micro views (the L1/L2/L3 content for each concept); TokenMicroscope integration + fallback (§6.2); whiteboard visuals (reuse); i18n (extend); example switcher; deploy config.
 
-C1 defines and produces the data; C2 consumes it. Build the pre-flight spike + C1 schemas first.
+C1 defines and produces the data; C2 consumes it.
+
+**Build order — vertical slice first (de-risks the scope):**
+1. **Pre-flight spike** (§7) — prove the in-browser model + logits, or fall to recorded-only.
+2. **Hero end-to-end slice** — data model v2 schemas → harvest+curate *only* the "fix a failing test" run → ZoomStage + TokenMicroscope → the full hero journey working, deployed. This proves every moving part on one scenario.
+3. **Replicate** the proven pipeline for 🟢 clean-big-files and 🌤 error-recovery (mostly capture + curation, little new engineering).
+4. **Polish**: i18n completeness, accessibility/mobile modes, deploy hardening.
+
+So C1 and C2 interleave around the hero slice rather than running as two strict sequential phases; writing-plans will encode this ordering.
 
 ---
 
 ## 10. Success criteria
 
-- A non-technical viewer can, in one pass, articulate the chain: *you type → split into tokens → model scores the next token → sampling picks one → the picked tokens happen to form a command → your runtime executes it → the result feeds back → loop → that's an agent.*
-- At any "model speaks" beat, the viewer can zoom to a **live, real** token distribution running on their own machine and resample it.
-- Every datum is real and sourced; anything illustrative or fallback is labeled.
+- A non-technical viewer, following the natural path (which **guarantees one guided descent**, §2.2), can articulate the chain: *you type → split into tokens → model scores the next token → sampling picks one → the picked tokens happen to form a command → your runtime executes it → the result feeds back → loop → that's an agent.*
+- At any "model speaks" beat, the viewer can zoom to a **live, real** token distribution running on their own machine and resample it — *or*, where the device/pre-flight can't support live inference, a clearly-labeled recorded-real equivalent (the lesson survives either way).
+- Every datum is real and sourced (replayed-real or live-real); anything illustrative or fallback is labeled; the Claude→Qwen source handoff is explicit.
+- The experience is navigable without the zoom metaphor (reduced-motion / keyboard / small-screen modes).
 - The whiteboard aesthetic of v1 is preserved.
 - Deploys as a static site with zero server compute.
