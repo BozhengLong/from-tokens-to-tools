@@ -60,3 +60,16 @@ Re-recording is a deliberate one-time act, not a CI step. Run `npm run record --
 ## Mock side effects in Node
 
 During recording, `send_notification` / `save_tweet_draft` / `save_recommendation` go through the Node `ToolContext` (`node-context.ts`), which only logs to stdout and uses an in-memory Map. The observations they return are still real (produced by real tool code). The runtime browser version triggers real side effects (Notification API, clipboard, localStorage).
+
+---
+
+## v2 "zoomable journey" — pre-flight findings (2026-05-30)
+
+The v2 redesign (spec `docs/superpowers/specs/2026-05-29-from-tokens-to-tools-v2-zoom-design.md`) sources data from two real places: the **agent story** from a real Claude Code session transcript, and the **deepest token-microscope layer** from a tiny open model. The token-microscope path was de-risked by a browser spike. Findings (these correct several assumptions in the spec — propagated there):
+
+- **Browsers in CN cannot reach huggingface.co** (raw `fetch` → `Failed to fetch`; CORS + reachability). `hf-mirror.com` from the browser is likewise CORS-blocked. **node, however, reaches `hf-mirror.com` fine (status 200).**
+- **Decision: self-host the model weights, served same-origin** — NOT loaded from the HF CDN at runtime. Download once via node from hf-mirror (`scripts/v2/prefetch-model.ts` → `scripts/v2/models/<id>/`, gitignored), serve from our own origin; the browser loads with `env.allowRemoteModels=false; env.allowLocalModels=true; env.localModelPath`. Same origin ⇒ no CORS. This also makes the deployed demo work in CN (no third-party model host at runtime; weights ship with / are hosted alongside the app).
+- **Model: `HuggingFaceTB/SmolLM2-135M-Instruct`, dtype `q4`, ~178 MB.** (Qwen2.5-0.5B q4 was ~500 MB — rejected as too heavy; `onnx-community/Qwen3-0.6B` had no reachable ONNX build, 401.) SmolLM2's smaller vocab (49,152) keeps the download light. Verified in-browser via WebGPU: load ~750 ms, single forward ~133 ms, real logits (`The capital of France is` → top ` the` 18.27, ` Paris` 17.75).
+- **Read logits from the flat buffer**, not `Tensor.slice().tolist()` (slice collapses dims in this transformers.js version). Use `logits.data` (Float32Array) + dims: last row = indices `[(seq-1)*vocab, seq*vocab)`.
+- **The live model is OPT-IN.** Default deepest-layer experience = pre-recorded real token data (tiny JSON, instant, CN-safe, works on any device); the live SmolLM2 model loads only behind an explicit "load live model" button (~178 MB, browser-cached) for users who want to type + resample live. Non-WebGPU devices always get the recorded path.
+- **Integrity:** the live path is real-time real computation; the recorded path is captured once from the **same** model (SmolLM2-135M) via node. Both are real. The UI labels which is in use, and labels the **source handoff**: the agent story is Claude Code, the token microscope is SmolLM2 (shown because Anthropic's API exposes no logprobs).

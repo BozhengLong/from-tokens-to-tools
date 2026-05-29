@@ -13,6 +13,7 @@
     "record": "NODE_USE_ENV_PROXY=1 tsx scripts/record/index.ts"
   },
   "dependencies": {
+    "@huggingface/transformers": "^4.2.0",
     "framer-motion": "^12.40.0",
     "js-yaml": "^4.1.1",
     "openai": "^6.39.1",

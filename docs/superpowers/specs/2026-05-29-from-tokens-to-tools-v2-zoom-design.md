@@ -90,8 +90,10 @@ The macro story, tool calls, observations, loop, reactive/deliberative behavior,
 
 *Why not also get the token internals here?* The Anthropic API exposes **no logprobs** to any client (not a Claude Code limitation — the upstream simply doesn't offer them). Codex's reasoning-model path doesn't expose them either. So the deepest layer needs a different, fully-inspectable source.
 
-### Source B — Qwen3-0.6B in the viewer's browser (the deepest token layer)
-The bottom-most "this is just next-token prediction" layer is powered by **Qwen3-0.6B running locally in the viewer's browser** via **transformers.js + WebGPU**, lazily loaded only when the user drills to the deepest zoom. transformers.js is chosen over WebLLM specifically because it exposes the **raw logits + tokenizer** — exactly what we are trying to show.
+### Source B — a tiny open model in the viewer's browser (the deepest token layer)
+> **Pre-flight outcome (2026-05-30, see `docs/recording-notes.md`):** confirmed viable. Model = **`HuggingFaceTB/SmolLM2-135M-Instruct` (q4, ~178 MB)**, **self-hosted same-origin** — NOT the HF CDN (browsers in CN can't reach huggingface.co; we download once via node from `hf-mirror.com` and serve the weights ourselves). Verified in-browser via WebGPU: ~750 ms load, ~133 ms forward, real logits.
+
+The bottom-most "this is just next-token prediction" layer is powered by a **tiny open model — SmolLM2-135M-Instruct — running locally in the viewer's browser** via **transformers.js + WebGPU**, lazily loaded only when the user opts in at the deepest zoom. transformers.js is chosen over WebLLM specifically because it exposes the **raw logits + tokenizer** — exactly what we are trying to show. (135M is plenty: this layer demonstrates the *mechanism*; the model's smarts don't matter, its transparency does.)
 
 This makes the deepest zoom **live and interactive**: the viewer can type a snippet and watch real tokenization → the real next-token probability distribution → real sampling, and drag a temperature slider to **resample for real**. It runs entirely on the viewer's own device; no server, no API, ever.
 
@@ -99,7 +101,7 @@ This makes the deepest zoom **live and interactive**: the viewer can type a snip
 
 **The source handoff must be explicit and honest (this is a named design requirement, not a footnote).** The viewer arrives at the deep layer from a *Claude* beat but the microscope is *Qwen3*. The zoom boundary must visibly mark this handoff — e.g. a framed transition: *"Claude won't show us its probabilities (Anthropic's API doesn't expose them). So to see what next-token prediction actually looks like, here's a small open model running on your machine — same mechanism, fully inspectable."* The UI must never let the viewer believe they are watching Claude's internals. This labeling is a build-acceptance criterion, not optional polish.
 
-**Fallback (per device):** on devices without WebGPU (old browsers, some mobiles), the deepest layer degrades to **pre-recorded real token data** (captured once from the same Qwen3-0.6B), with a notice. Same `TokenMicroscope` interface; still real; keeps the experience whole.
+**Default = recorded; live = opt-in (decided 2026-05-30).** The deepest layer's DEFAULT is **pre-recorded real token data** (captured once from the same SmolLM2-135M via node — tiny JSON, instant, CN-safe, works on any device). The live model loads only behind an explicit "load live model (~178 MB)" button, and only on WebGPU-capable devices. The same `TokenMicroscope` interface backs both; both are real. (This refines the earlier framing: recorded is the baseline everyone gets; live is the enthusiast enhancement — chosen so no one is forced to download ~178 MB, important for the CN/mobile audience.)
 
 **Fallback (whole feature):** if the pre-flight (§7) shows the in-browser model is not viable at all, the deepest layer ships **recorded-only** for everyone (the option-② path). This still meets every success criterion in §10 — it loses live resampling, not the lesson. The live capability is an enhancement gated on the pre-flight, never a hard dependency of the project.
 
@@ -128,20 +130,22 @@ All three thread through the same zoom structure (Structure Y). The example swit
 **New core units:**
 
 1. **ZoomStage engine** — the semantic-zoom primitive. Holds, per beat, a stack of authored zoom levels; animates scale + crossfade between levels; tracks `(panIndex, zoomDepth)`; renders a persistent "you are here + how deep" indicator; supports click / keyboard / scroll-to-zoom and `prefers-reduced-motion`. One focused, independently testable component with a clear interface (`levels`, current depth, callbacks).
-2. **TokenMicroscope** — wraps transformers.js + Qwen3-0.6B-ONNX (via WebGPU). Lazy-loaded. API: `tokenize(text)`, `nextTokenDistribution(context) → {token, logprob}[]` (top-k from real logits), `sample(dist, temperature)`. Live temperature slider re-samples for real. WebGPU capability detection; recorded-data fallback path behind the same interface.
+2. **TokenMicroscope** — wraps transformers.js + **SmolLM2-135M-Instruct (q4)** loaded **same-origin** via WebGPU. Lazy-loaded, opt-in. API: `tokenize(text)`, `nextTokenTopK(context, k) → {token, id, logprob}[]` (top-k from real logits — read from the flat `logits.data` buffer + dims, NOT `slice().tolist()`, which collapses dims in this transformers.js version), `generateSteps(context, n, temperature)`. Live temperature slider re-samples for real. WebGPU detection; recorded-data backend behind the same interface is the default.
 3. **Data model v2 (Zod schemas)** — `StoryRun = { meta, beats: Beat[], topology }`; `Beat = { kind: 'user' | 'model-speaks' | 'runtime-acts' | 'final', thought?, toolCall?, observation?, zoom?: ZoomContent }`; `ZoomContent` holds the authored per-beat L1/L2/L3 material (plain-language text, callouts, curiosity bridge) plus, for "model speaks" beats, the real seed-context for the live microscope and the recorded token-fallback slice. `StoryRun` is the new canonical shape; v1's `AgentLoopData`/`TopologyData` are reused only as the sub-structure for the loop-iteration list and the reactive/deliberative toggle.
 4. **Recorder v2 + curation.** Two distinct activities, do not conflate them:
    - *Harvest (mechanical):* parse a real Claude Code session transcript (`.jsonl`) — user/assistant messages, `tool_use` blocks (the real function calls), `tool_result` blocks (the real observations), thinking blocks — into raw beats. (Run the capture session with **extended thinking ON** so each beat has visible reasoning to teach with; otherwise tool-call beats have no "thought".)
    - *Curate + author (design work — the bulk of the effort):* a real session is messy (dozens of calls, huge outputs, system noise). A human/LLM pass **selects the teachable beats, trims observations, and writes the L1/L2/L3 zoom content** for each beat (the plain-language explanation, the "what to look at" callouts, the curiosity bridge to the next beat), in zh + en. This authored layer — not the transcript dump — is what makes it teach. Budget for it as the largest piece of C1, not an afterthought.
    - Plus: the buggy-repo fixture for the hero, and a one-time Qwen3-0.6B capture producing the recorded token fallback (§4 Source B fallback).
 
-**Deploy:** static build on Vercel **or** GitHub Pages. **Zero server compute** — the model runs in the viewer's browser. Model weights load from the **HuggingFace CDN**, which keeps the deployed bundle small — so both Vercel and GH Pages work fine. (Self-hosting the weights would be the only thing GH Pages handles poorly; we don't.) WebGPU required for the live microscope; otherwise the recorded fallback is served.
+**Deploy:** static build on Vercel **or** GitHub Pages. **Zero server compute** — the (opt-in) model runs in the viewer's browser. Model weights are **self-hosted same-origin** (downloaded once via node from hf-mirror by `scripts/v2/prefetch-model.ts`; ~178 MB), NOT fetched from the HF CDN at runtime — browsers in CN can't reach HF. Host the weights on the same origin as the app (or a CN-accessible static host/CDN); they load only when a user opts into the live microscope. WebGPU required for live; otherwise the recorded data (default) is served.
 
 **What is replaced:** v1's scroll narrative, the 7 fixed station components, and the per-station data files (`tokenize/logits/sampling/function-calls/topology.json`) are superseded by `StoryRun` + zoom layers. v1 remains at tag `plan-b-complete`.
 
 ---
 
 ## 7. Pre-flight verification (MUST pass before frontend build)
+
+> **✅ DONE (2026-05-30) — outcome in `docs/recording-notes.md`:** live viable with self-hosted `HuggingFaceTB/SmolLM2-135M-Instruct` (q4, ~178 MB) loaded same-origin via WebGPU. The original Qwen3-0.6B target was dropped (no reachable ONNX build; Qwen2.5-0.5B was ~500 MB — too big). The real blocker was browser CORS to HF, solved by self-hosting the weights (download via node from hf-mirror → serve same-origin). The notes below are the original spike spec, retained for provenance.
 
 A spike, before committing to the frontend, mirroring v1's "probe logprobs first" discipline:
 

@@ -57,6 +57,8 @@ package.json                       # Task 1 — add @huggingface/transformers de
 
 ### Task 1: Pre-flight spike — can Qwen3-0.6B give us real logits in the browser?
 
+> **✅ DONE (2026-05-30) — executed during planning. Skip re-running; proceed to Task 2.** Outcome (in `docs/recording-notes.md`): live viable with self-hosted **`HuggingFaceTB/SmolLM2-135M-Instruct` (q4, ~178 MB)**, loaded **same-origin** via WebGPU. The browser cannot reach HF (CORS/region-blocked); node downloads from **hf-mirror** via the kept script **`scripts/v2/prefetch-model.ts`** into `scripts/v2/models/<id>/` (gitignored). `@huggingface/transformers` is installed. Qwen3-0.6B (no ONNX build) and Qwen2.5-0.5B (~500 MB) were rejected. Steps below retained for provenance.
+
 This is a **spike**, not TDD: WebGPU is unavailable in node/vitest, so this is verified **manually in a real browser**. The deliverable is a recorded decision, not a passing test.
 
 **Files:**
@@ -581,8 +583,12 @@ export class LiveMicroscope implements TokenMicroscope {
   readonly kind = 'live' as const;
   private constructor(private tokenizer: any, private model: any) {}
 
-  static async create(modelId: string, onProgress?: (p: number) => void): Promise<LiveMicroscope> {
-    env.allowRemoteModels = true;
+  static async create(modelId = 'HuggingFaceTB/SmolLM2-135M-Instruct', onProgress?: (p: number) => void): Promise<LiveMicroscope> {
+    // Same-origin local weights (downloaded by scripts/v2/prefetch-model.ts, served at
+    // /models). Browsers in CN can't reach HF, so we never load remotely.
+    env.allowRemoteModels = false;
+    env.allowLocalModels = true;
+    env.localModelPath = '/models';
     const tokenizer = await AutoTokenizer.from_pretrained(modelId);
     const model = await AutoModelForCausalLM.from_pretrained(modelId, {
       device: 'webgpu', dtype: 'q4',
@@ -599,10 +605,16 @@ export class LiveMicroscope implements TokenMicroscope {
 
   private async logitsAt(context: string): Promise<number[]> {
     const inputs = await this.tokenizer(context);
-    const { logits } = await this.model(inputs);
-    const seqLen = logits.dims[1];
-    const lastRow = logits.slice(0, seqLen - 1, null);
-    return Array.from((await lastRow.tolist())[0][0]) as number[];
+    const output = await this.model(inputs);
+    const logits = output.logits;               // dims [1, seq, vocab]
+    const dims = logits.dims as number[];
+    const seq = dims[dims.length - 2]!;
+    const vocab = dims[dims.length - 1]!;
+    // Read the last token's row from the flat buffer — slice().tolist() collapses
+    // dims unpredictably in this transformers.js version (confirmed in the spike).
+    const flat = logits.data as Float32Array;
+    const start = (seq - 1) * vocab;
+    return Array.from(flat.slice(start, start + vocab)) as number[];
   }
 
   async nextTokenTopK(context: string, k: number) {
@@ -663,7 +675,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { topKFromLogits, sampleIndex } from '../../src/microscope/dist.js';
 import { softmaxFromLogprobs } from '../../src/utils/sampling.js';
 
-const MODEL = process.env.V2_MODEL ?? 'onnx-community/Qwen2.5-0.5B-Instruct';
+const MODEL = process.env.V2_MODEL ?? 'HuggingFaceTB/SmolLM2-135M-Instruct';
 
 // (beatId -> the real seed context for that "model speaks" beat). Filled from the
 // curated StoryRun's zoom.seedContext. Edit these to match the captured story.
@@ -672,7 +684,11 @@ const BEATS: Record<string, string> = {
 };
 
 async function main() {
+  // node CAN reach hf-mirror (HF is blocked in CN). Reuse the prefetch cache so we
+  // don't re-download what scripts/v2/prefetch-model.ts already fetched.
+  env.remoteHost = 'https://hf-mirror.com';
   env.allowRemoteModels = true;
+  env.cacheDir = new URL('./models', import.meta.url).pathname; // scripts/v2/models
   const tokenizer = await AutoTokenizer.from_pretrained(MODEL);
   const model = await AutoModelForCausalLM.from_pretrained(MODEL, { dtype: 'q4' });
 
@@ -682,9 +698,13 @@ async function main() {
     const steps = [];
     for (let i = 0; i < 8; i++) {
       const inputs = await tokenizer(ctx);
-      const { logits } = await model(inputs);
-      const seqLen = logits.dims[1];
-      const row = Array.from((await logits.slice(0, seqLen - 1, null).tolist())[0][0]) as number[];
+      const output = await model(inputs);
+      const logits = output.logits;
+      const dims = logits.dims as number[];
+      const seq = dims[dims.length - 2]!;
+      const vocab = dims[dims.length - 1]!;
+      const flat = logits.data as Float32Array;
+      const row = Array.from(flat.slice((seq - 1) * vocab, seq * vocab)) as number[];
       const topK = topKFromLogits(row, 20, (id: number) => tokenizer.decode([id]));
       const probs = softmaxFromLogprobs(topK.map((t) => t.logprob));
       const chosenLocal = sampleIndex(probs, 0, () => 0); // greedy for a stable recording
