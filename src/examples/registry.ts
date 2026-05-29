@@ -51,3 +51,6 @@ export function assertExamplesValid(): void {
     }
   }
 }
+
+// Fail fast at module load if a hand-authored manifest is malformed.
+assertExamplesValid();

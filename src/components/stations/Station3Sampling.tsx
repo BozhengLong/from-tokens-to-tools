@@ -9,7 +9,7 @@ import { useLanguage } from '@/i18n/useLanguage';
 import { applyTemperature } from '@/utils/sampling';
 
 export function Station3Sampling() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const res = useStationData('sampling');
   const [temp, setTemp] = useState(1);
 
@@ -38,7 +38,7 @@ export function Station3Sampling() {
                 ))}
               </div>
               <p className="mt-2 font-mono text-xs text-whiteboard-ink/40">
-                {lang === 'zh' ? '温度只作用在可见 top-20 内部' : 'temperature only re-weights the visible top-20'}
+                {t('st3TempNote')}
               </p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
