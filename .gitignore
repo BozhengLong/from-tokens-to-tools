@@ -29,3 +29,4 @@ dist-ssr
 
 # self-hosted model weights (re-fetch via scripts/v2/prefetch-model.ts)
 scripts/v2/models/
+public/models/

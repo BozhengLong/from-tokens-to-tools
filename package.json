@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
-    "record": "NODE_USE_ENV_PROXY=1 tsx scripts/record/index.ts"
+    "record": "NODE_USE_ENV_PROXY=1 tsx scripts/record/index.ts",
+    "prefetch:model": "NODE_USE_ENV_PROXY=1 tsx scripts/v2/prefetch-model.ts"
   },
   "dependencies": {
     "@huggingface/transformers": "^4.2.0",
