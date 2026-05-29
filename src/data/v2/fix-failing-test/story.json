@@ -1,0 +1,125 @@
+{
+  "meta": { "scenario": "fix-failing-test", "source": "claude-code", "capturedAt": "2026-05-30" },
+  "topology": { "hasDeliberativeVariant": false },
+  "beats": [
+    {
+      "id": "b0",
+      "kind": "user",
+      "title": { "zh": "你给它一个任务", "en": "You give it a task" },
+      "summary": { "zh": "“跑一下测试,有个测试挂了,找到 bug 修好,然后确认全绿。”", "en": "\"Run the tests, one is failing, find the bug, fix it, confirm all green.\"" },
+      "thought": "跑一下测试,有个测试挂了,找到 bug 修好,然后确认全绿"
+    },
+    {
+      "id": "b1",
+      "kind": "model-speaks",
+      "title": { "zh": "模型决定:先跑测试", "en": "The model decides: run the tests first" },
+      "summary": { "zh": "它没有“决定”。它逐字预测,而预测出的这串字,恰好是一条跑测试的命令。", "en": "It didn't \"decide.\" It predicted tokens one by one — and the tokens it predicted happen to form a run-the-tests command." },
+      "thought": "Let me run the tests to confirm the failure and see the exact error.",
+      "toolCall": { "name": "Bash", "arguments": { "command": "npm test 2>&1", "description": "Run the test suite" } },
+      "zoom": {
+        "levels": [
+          { "level": 1,
+            "title": { "zh": "它在猜下一个 token", "en": "It is guessing the next token" },
+            "body": { "zh": "模型一次只做一件事:根据目前的文字,预测下一个最可能的 token。把这些 token 接起来,就成了你看到的“它决定跑测试”。它从头到尾没有“意图”,只有概率。", "en": "The model does exactly one thing at a time: given the text so far, predict the most likely next token. String those tokens together and you get what looks like \"it decided to run the tests.\" There is no intent underneath — only probability." } },
+          { "level": 2,
+            "title": { "zh": "分词 → 概率 → 采样 → 拼成调用", "en": "tokenize → probability → sampling → assembled call" },
+            "body": { "zh": "你的话先被切成 token;每一步,模型给整个词表打分(概率);采样挑一个;重复,直到拼出一段符合工具格式的 JSON。“调用工具”不是一个特殊动作,只是恰好长这样的一串文字。", "en": "Your words are split into tokens; at each step the model scores the whole vocabulary; sampling picks one; repeat until the tokens spell a tool-shaped piece of JSON. \"Calling a tool\" isn't a special action — it's just text that happens to look like this." },
+            "callouts": [ { "label": { "zh": "最长的条 = 模型觉得最可能的下一个 token", "en": "the longest bar = the model's most likely next token" }, "ref": "topk-0" } ] },
+          { "level": 3,
+            "title": { "zh": "最底层:真实的数字(你可以亲手摸)", "en": "The bottom: the real numbers (you can touch them)" },
+            "body": { "zh": "真实 token id、带小数的 logprob、模型吐出的原始 JSON,以及一条约定:你的运行时看到符合这个格式的字符串,就把它当成一次工具调用去执行。点“加载实时模型”,可以在你自己的电脑上现场重采样这一步。", "en": "Real token ids, decimal logprobs, the literal emitted JSON, and one convention: when your runtime sees a string in this shape, it treats it as a tool call and runs it. Hit \"load live model\" to resample this very step on your own machine." } }
+        ],
+        "seedContext": "I'm fixing a failing test. First I'll run the test suite. The shell command is: npm",
+        "tokenFallbackRef": "token-fallback.json#b1"
+      },
+      "bridge": { "zh": "可这串文字怎么就“真的把测试跑起来”了?", "en": "But how does this text actually make the tests run?" }
+    },
+    {
+      "id": "b2",
+      "kind": "runtime-acts",
+      "title": { "zh": "运行时真的跑了 → 红了", "en": "The runtime really runs it → red" },
+      "summary": { "zh": "不是模型在跑测试。是你的运行时拿着那串命令,真的执行,真的失败。", "en": "The model didn't run anything. Your runtime took that command string, really executed it, and it really failed." },
+      "observation": "✖ caps an over-100% discount at free (never negative)\n  AssertionError: Expected values to be strictly equal:\n  -15 !== 0\n  at cart.test.js:10:10\nℹ tests 3  ℹ pass 2  ℹ fail 1  (exit code 1)",
+      "zoom": {
+        "levels": [
+          { "level": 1,
+            "title": { "zh": "模型不碰你的电脑", "en": "The model never touches your computer" },
+            "body": { "zh": "模型只生成了一串文字。是运行时(这里是 node 测试器)真的去跑代码、读到 `-15 !== 0`、把这段真实输出递回去。这一步是整个故事里“token → 真实世界”的接缝。", "en": "The model only produced a string. It's the runtime (here, the node test runner) that actually runs the code, sees `-15 !== 0`, and hands that real output back. This step is the seam where \"tokens\" meet \"the real world.\"" } },
+          { "level": 2,
+            "title": { "zh": "真实的失败输出", "en": "The real failure output" },
+            "body": { "zh": "`applyDiscount(50, 130)` 返回了 -15,而测试要求 0。这是真的 node 测试器输出,不是我们编的——红就是红。", "en": "`applyDiscount(50, 130)` returned -15, but the test wants 0. This is the real node test-runner output, not something we wrote — red is red." } }
+        ]
+      },
+      "bridge": { "zh": "模型读到这段红色输出后,会怎么办?", "en": "Now that the model has read this red output, what does it do?" }
+    },
+    {
+      "id": "b3",
+      "kind": "model-speaks",
+      "title": { "zh": "模型读懂报错 → 给出修改", "en": "The model reads the error → proposes a fix" },
+      "summary": { "zh": "同样的机制:它把报错也当作文字读进去,再预测出一段“修改文件”的命令。", "en": "Same mechanism: it reads the error as more text, then predicts a string that happens to be an edit-the-file command." },
+      "thought": "Root cause confirmed. applyDiscount(50, 130) computes 50 - 50*(130/100) = -15. A discount over 100% yields a negative price because the function never clamps the result to zero. The fix is to clamp the result at 0.",
+      "toolCall": { "name": "Edit", "arguments": { "file_path": "cart.js", "old_string": "return price - price * (pct / 100);", "new_string": "return Math.max(0, price - price * (pct / 100));" } },
+      "zoom": {
+        "levels": [
+          { "level": 1,
+            "title": { "zh": "还是在猜 token —— 只是上下文变长了", "en": "Still guessing tokens — just with more context" },
+            "body": { "zh": "注意:这是和第二关“决定跑测试”完全相同的机制。唯一的区别是,现在的上下文里多了那段红色报错。模型据此预测出的下一串 token,恰好是一次精准的代码修改。", "en": "Notice: this is the exact same machinery as the \"run the tests\" beat. The only difference is that the red error is now part of the context. The next tokens the model predicts from it happen to be a precise code edit." } },
+          { "level": 2,
+            "title": { "zh": "同一套:分词 → 概率 → 采样 → 调用", "en": "Same pipeline: tokenize → probability → sampling → call" },
+            "body": { "zh": "“理解 bug 并修复”听起来很智能,但底层和拼出 `npm test` 没有两样——都是逐 token 采样,拼出一段符合 Edit 工具格式的文字。", "en": "\"Understanding the bug and fixing it\" sounds intelligent, but underneath it's no different from spelling out `npm test` — token-by-token sampling that assembles text in the Edit tool's shape." } },
+          { "level": 3,
+            "title": { "zh": "最底层:真实分布(可现场重采样)", "en": "The bottom: the real distribution (resample live)" },
+            "body": { "zh": "和第二关同一个显微镜:真实 token、真实 logprob。你可以拖动温度,看“确定性”如何变成一个可调的旋钮——同样的机制,贯穿模型每一次开口。", "en": "The same microscope as before: real tokens, real logprobs. Drag the temperature and watch \"certainty\" become a knob you can turn — the same mechanism, every time the model speaks." } }
+        ],
+        "seedContext": "The test failed because applyDiscount can return a negative price. To clamp it at zero in JavaScript, the fixed line uses Math.",
+        "tokenFallbackRef": "token-fallback.json#b3"
+      },
+      "bridge": { "zh": "改完了,怎么知道真的修好了?", "en": "Edit made — how do we know it actually worked?" }
+    },
+    {
+      "id": "b4",
+      "kind": "runtime-acts",
+      "title": { "zh": "运行时真的改了文件", "en": "The runtime really edits the file" },
+      "summary": { "zh": "又一次:模型只产生了“怎么改”的文字,真正动你硬盘上文件的是运行时。", "en": "Again: the model only produced the text of \"what to change\"; the runtime is what actually touches the file on your disk." },
+      "observation": "cart.js updated — return clamped with Math.max(0, …).",
+      "zoom": {
+        "levels": [
+          { "level": 1,
+            "title": { "zh": "“写字”和“动手”是两回事", "en": "\"Writing\" and \"acting\" are two different things" },
+            "body": { "zh": "这正是整趟旅程要回答的问题:一个只会生成 token 的东西,为什么能改你的代码?因为它从不直接动手——它写出指令,运行时照着做。", "en": "This is the whole question this journey answers: how can a thing that only generates tokens change your code? Because it never acts directly — it writes instructions, and the runtime carries them out." } }
+        ]
+      },
+      "bridge": { "zh": "现在再跑一次测试 ——", "en": "Now run the tests once more —" }
+    },
+    {
+      "id": "b5",
+      "kind": "model-speaks",
+      "title": { "zh": "模型决定:复测", "en": "The model decides: re-run" },
+      "summary": { "zh": "循环又转了一圈——同样是预测出一条跑测试的命令。", "en": "The loop turns again — once more it predicts a run-the-tests command." },
+      "thought": "Now let me verify the fix by running the full test suite.",
+      "toolCall": { "name": "Bash", "arguments": { "command": "npm test 2>&1", "description": "Re-run test suite to confirm all pass" } },
+      "zoom": {
+        "levels": [
+          { "level": 1,
+            "title": { "zh": "这就是“循环”", "en": "This is the loop" },
+            "body": { "zh": "看 → 改 → 再看。每一步都只是“读文字、预测文字”,但叠起来就成了一个会自我纠错的 agent。条件是:模型自己判断“绿了”,循环才停。", "en": "Look → change → look again. Each step is just \"read text, predict text,\" but stacked together they become an agent that corrects itself. The loop stops only when the model itself judges it's green." } }
+        ]
+      },
+      "bridge": { "zh": "结果呢?", "en": "And the result?" }
+    },
+    {
+      "id": "b6",
+      "kind": "runtime-acts",
+      "title": { "zh": "真的全绿了", "en": "Really all green" },
+      "summary": { "zh": "运行时再次真的执行,这次三个测试全过。", "en": "The runtime really executes again — this time all three tests pass." },
+      "observation": "✔ 100% off -> free\n✔ caps an over-100% discount at free (never negative)\n✔ 50% off\nℹ tests 3  ℹ pass 3  ℹ fail 0"
+    },
+    {
+      "id": "b7",
+      "kind": "final",
+      "title": { "zh": "收工 —— 没有魔法,只有约定", "en": "Done — no magic, just conventions" },
+      "summary": { "zh": "一个只会预测 token 的模型,靠“写文字 + 运行时执行 + 循环到自己说停”这几条约定,真的修好了你的代码。", "en": "A model that only predicts tokens, via a few conventions — emit text, let the runtime execute, loop until it says stop — really fixed your code." },
+      "thought": "All green. ✅ What was wrong: applyDiscount computed price - price*(pct/100) without bounding the result, so a >100% discount went negative (applyDiscount(50,130) returned -15 instead of 0). The fix: clamped at zero with Math.max(0, ...). Verification: npm test now reports 3 pass, 0 fail."
+    }
+  ]
+}

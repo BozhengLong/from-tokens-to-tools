@@ -7,8 +7,12 @@ const MODEL = process.env.V2_MODEL ?? 'HuggingFaceTB/SmolLM2-135M-Instruct';
 
 // (beatId -> the real seed context for that "model speaks" beat). Filled from the
 // curated StoryRun's zoom.seedContext. Edit these to match the captured story.
+// Seeds end mid-phrase (e.g. "… npm", "… Math.") so the model completes a real,
+// on-topic continuation rather than emitting newlines. Keep these IDENTICAL to the
+// matching beat's zoom.seedContext in story.json.
 const BEATS: Record<string, string> = {
-  b1: 'You are fixing a failing test in a JS project. The next action is to run the tests. Command:',
+  b1: "I'm fixing a failing test. First I'll run the test suite. The shell command is: npm",
+  b3: 'The test failed because applyDiscount can return a negative price. To clamp it at zero in JavaScript, the fixed line uses Math.',
 };
 
 async function main() {
