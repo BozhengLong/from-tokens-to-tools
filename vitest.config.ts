@@ -7,7 +7,7 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'scripts/**/*.test.ts'],
     // Repairs the non-functional native localStorage that Node >= 22 leaks into
     // jsdom test files. No-op in the global node env (no window). See the setup
     // file for details. This does NOT change the global `environment`.
