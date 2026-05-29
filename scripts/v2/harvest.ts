@@ -1,47 +1,74 @@
 // Parse a Claude Code session .jsonl into ordered raw beats. This is the MECHANICAL
 // half; curation (selecting/trimming/authoring zoom content) is a separate human/LLM pass.
+//
+// Real-transcript shape (verified against a captured session):
+// - noise event types (mode, permission-mode, attachment, file-history-snapshot,
+//   system, last-prompt, ai-title) are dropped.
+// - `message.content` is EITHER a plain string (a user prompt) OR an array of blocks.
+// - assistant turns are granular: separate events for `thinking`, `text`, `tool_use`.
+//   We accumulate narration/thinking and attach it to the next tool call as its thought;
+//   trailing narration with no following tool call becomes the `final` beat.
 export type RawBeat =
   | { kind: 'user'; text: string }
   | { kind: 'model-speaks'; thought: string; toolCall?: { name: string; arguments: Record<string, unknown> } }
   | { kind: 'runtime-acts'; observation: string }
   | { kind: 'final'; text: string };
 
-type Block =
-  | { type: 'text'; text: string }
-  | { type: 'tool_use'; id: string; name: string; input: Record<string, unknown> }
-  | { type: 'tool_result'; tool_use_id: string; content: unknown };
+type Block = { type: string; [k: string]: unknown };
+
+// CC message.content is either a plain string (a user turn) or an array of blocks.
+function normalizeContent(content: unknown): Block[] {
+  if (typeof content === 'string') return [{ type: 'text', text: content }];
+  if (Array.isArray(content)) return content as Block[];
+  return [];
+}
+
+function blockText(b: Block): string {
+  if (b.type === 'text') return String(b.text ?? '');
+  if (b.type === 'thinking') return String(b.thinking ?? '');
+  return '';
+}
 
 export function harvestTranscript(jsonl: string): RawBeat[] {
   const lines = jsonl.split('\n').map((l) => l.trim()).filter(Boolean);
   const beats: RawBeat[] = [];
+  let pendingThought = ''; // assistant narration/thinking awaiting its tool call
+
+  const addThought = (t: string) => { if (t) pendingThought += (pendingThought ? '\n' : '') + t; };
 
   for (const line of lines) {
-    let evt: any;
+    let evt: { type?: string; message?: { content?: unknown } };
     try { evt = JSON.parse(line); } catch { continue; }
-    if (evt.type !== 'user' && evt.type !== 'assistant') continue; // drop mode/hook/etc noise
-    const content: Block[] = evt.message?.content ?? [];
-    const text = content
-      .filter((b): b is Extract<Block, { type: 'text' }> => b.type === 'text')
-      .map((b) => b.text)
-      .join('\n')
-      .trim();
+    if (evt.type !== 'user' && evt.type !== 'assistant') continue; // drop noise event types
+    const blocks = normalizeContent(evt.message?.content);
 
     if (evt.type === 'user') {
-      const result = content.find((b): b is Extract<Block, { type: 'tool_result' }> => b.type === 'tool_result');
+      const result = blocks.find((b) => b.type === 'tool_result');
       if (result) {
         const obs = typeof result.content === 'string' ? result.content : JSON.stringify(result.content);
         beats.push({ kind: 'runtime-acts', observation: obs });
-      } else if (text) {
-        beats.push({ kind: 'user', text });
+      } else {
+        const text = blocks.map(blockText).join('\n').trim();
+        if (text) beats.push({ kind: 'user', text });
       }
-    } else { // assistant
-      const call = content.find((b): b is Extract<Block, { type: 'tool_use' }> => b.type === 'tool_use');
-      if (call) {
-        beats.push({ kind: 'model-speaks', thought: text, toolCall: { name: call.name, arguments: call.input } });
-      } else if (text) {
-        beats.push({ kind: 'final', text });
+    } else {
+      // assistant: blocks may be split across events; accumulate, attach to tool calls
+      for (const b of blocks) {
+        if (b.type === 'tool_use') {
+          beats.push({
+            kind: 'model-speaks',
+            thought: pendingThought.trim(),
+            toolCall: { name: String(b.name ?? ''), arguments: (b.input as Record<string, unknown>) ?? {} },
+          });
+          pendingThought = '';
+        } else {
+          addThought(blockText(b));
+        }
       }
     }
   }
+
+  const trailing = pendingThought.trim();
+  if (trailing) beats.push({ kind: 'final', text: trailing });
   return beats;
 }
