@@ -73,3 +73,14 @@ The v2 redesign (spec `docs/superpowers/specs/2026-05-29-from-tokens-to-tools-v2
 - **Read logits from the flat buffer**, not `Tensor.slice().tolist()` (slice collapses dims in this transformers.js version). Use `logits.data` (Float32Array) + dims: last row = indices `[(seq-1)*vocab, seq*vocab)`.
 - **The live model is OPT-IN.** Default deepest-layer experience = pre-recorded real token data (tiny JSON, instant, CN-safe, works on any device); the live SmolLM2 model loads only behind an explicit "load live model" button (~178 MB, browser-cached) for users who want to type + resample live. Non-WebGPU devices always get the recorded path.
 - **Integrity:** the live path is real-time real computation; the recorded path is captured once from the **same** model (SmolLM2-135M) via node. Both are real. The UI labels which is in use, and labels the **source handoff**: the agent story is Claude Code, the token microscope is SmolLM2 (shown because Anthropic's API exposes no logprobs).
+
+### v2 data foundation (Plan C1, complete)
+
+How each scenario's data is produced and how to re-create it:
+
+- **`src/data/v2/<scenario>/story.json`** — the curated, **bilingual** (zh/en inline) `StoryRun` (schema in `src/types/v2-schemas.ts`). Authored by hand from the harvested raw beats. There is ONE `story.json` per scenario (not separate zh/en files — the schema embeds both languages). Real captured `thought`/`observation`/`seedContext` stay single-language; only the teaching text (title/summary/zoom/bridge) is bilingual.
+- **`raw-transcript.jsonl`** — the real Claude Code session (provenance). To capture a new one: run a real Claude Code session on the scenario's sandbox (extended thinking ON), then copy its `~/.claude/projects/<encoded-path>/<session>.jsonl`.
+- **Harvest:** `scripts/v2/harvest.ts` (`harvestTranscript`) turns a transcript into ordered raw beats (drops noise events; handles string-or-array content; attaches narration to each tool call). Curation (selecting/trimming beats, writing the bilingual zoom L1/L2/L3) is a manual pass on top.
+- **`token-fallback.json`** — real SmolLM2-135M top-k token data for the "model-speaks" beats, produced by `scripts/v2/capture-token-fallback.ts` (node, via hf-mirror, reusing the `scripts/v2/models` cache). Its `BEATS` seeds MUST match each beat's `zoom.seedContext` in `story.json`. Greedy decode for a stable recording; the distribution is real (the 135M model's greedy *path* is imperfect, which is honest).
+- **Validate:** `npx tsx scripts/v2/validate-v2.ts` — Zod-validates every `story.json` + `token-fallback.json` and checks each `tokenFallbackRef` resolves.
+- The hero scenario (`fix-failing-test`) is done end-to-end. The other two (`clean-big-files`, `error-recovery`) reuse this exact flow and are produced during Plan C2's scale phase.
