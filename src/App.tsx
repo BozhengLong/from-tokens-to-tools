@@ -7,11 +7,15 @@ import { ZoomStage } from '@/components/v2/ZoomStage';
 import { NavControls } from '@/components/v2/controls/NavControls';
 import { Breadcrumb } from '@/components/v2/Breadcrumb';
 import { ExampleSwitcher } from '@/components/v2/ExampleSwitcher';
+import { OutlineMode } from '@/components/v2/OutlineMode';
 
 export default function App() {
   const { exampleId, lang, panIndex, setLang } = useV2Store();
   const t = useV2Strings(lang);
   const res = useStoryData(exampleId);
+
+  const outline = typeof window !== 'undefined' &&
+    (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 640);
 
   return (
     <div className="bg-whiteboard-bg text-whiteboard-ink font-sans">
@@ -22,6 +26,14 @@ export default function App() {
       {res.status === 'error' && <div className="flex min-h-screen items-center justify-center">{t('dataUnavailable')}</div>}
       {res.status === 'ready' && (() => {
         const { story, tokenFallback } = res;
+        if (outline) {
+          return (
+            <>
+              <ExampleSwitcher />
+              <OutlineMode beats={story.beats} tokenFallback={tokenFallback} lang={lang} />
+            </>
+          );
+        }
         const taskPrompt = story.beats[0]?.summary[lang] ?? '';
         return (
           <>
