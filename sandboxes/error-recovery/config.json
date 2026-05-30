@@ -1,0 +1,8 @@
+{
+  "project": "spring-catalog",
+  "items": [
+    { "name": "widget", "qty": 3, "price": 4.5 },
+    { "name": "gadget", "qty": 2, "price": 12 },
+    { "name": "sprocket", "qty": 10, "price": 0.75 }
+  ]
+}

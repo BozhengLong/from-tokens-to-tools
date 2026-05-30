@@ -1,0 +1,6 @@
+# The fixtures are sparse files with huge LOGICAL sizes — never commit them.
+# Only the scaffolding (this file, the generator, the README) is tracked.
+*
+!.gitignore
+!make-fixtures.sh
+!README.md
