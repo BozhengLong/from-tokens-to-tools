@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      # Validate every v2 scenario's story.json + token-fallback.json against the Zod
+      # schemas (model weights are NOT needed for build/validate — they load at runtime).
+      - run: npx tsx scripts/v2/validate-v2.ts
