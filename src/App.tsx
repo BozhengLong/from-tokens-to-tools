@@ -6,6 +6,7 @@ import { Epilogue } from '@/components/v2/Epilogue';
 import { ZoomStage } from '@/components/v2/ZoomStage';
 import { NavControls } from '@/components/v2/controls/NavControls';
 import { Breadcrumb } from '@/components/v2/Breadcrumb';
+import { ExampleSwitcher } from '@/components/v2/ExampleSwitcher';
 
 export default function App() {
   const { exampleId, lang, panIndex, setLang } = useV2Store();
@@ -24,6 +25,7 @@ export default function App() {
         const taskPrompt = story.beats[0]?.summary[lang] ?? '';
         return (
           <>
+            <ExampleSwitcher />
             <Breadcrumb beatCount={story.beats.length} />
             {/* Intro shows only at the very start (beat 0) for a clean landing */}
             {panIndex === 0 ? <Intro lang={lang} taskPrompt={taskPrompt} /> : null}
