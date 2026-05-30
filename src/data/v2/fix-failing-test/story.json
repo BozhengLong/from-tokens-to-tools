@@ -27,7 +27,7 @@
             "callouts": [ { "label": { "zh": "最长的条 = 模型觉得最可能的下一个 token", "en": "the longest bar = the model's most likely next token" }, "ref": "topk-0" } ] },
           { "level": 3,
             "title": { "zh": "最底层:真实的数字(你可以亲手摸)", "en": "The bottom: the real numbers (you can touch them)" },
-            "body": { "zh": "真实 token id、带小数的 logprob、模型吐出的原始 JSON,以及一条约定:你的运行时看到符合这个格式的字符串,就把它当成一次工具调用去执行。点“加载实时模型”,可以在你自己的电脑上现场重采样这一步。", "en": "Real token ids, decimal logprobs, the literal emitted JSON, and one convention: when your runtime sees a string in this shape, it treats it as a tool call and runs it. Hit \"load live model\" to resample this very step on your own machine." } }
+            "body": { "zh": "真实 token id、带小数的 logprob、模型吐出的原始 JSON,以及一条约定:你的运行时看到符合这个格式的字符串,就把它当成一次工具调用去执行。拖动下面的温度,就能当场重塑这同一组分数;想用你自己的文字试,就在你的设备上跑这个模型。", "en": "Real token ids, decimal logprobs, the literal emitted JSON, and one convention: when your runtime sees a string in this shape, it treats it as a tool call and runs it. Drag the temperature below to reshape these same scores; or run the model on your own device to try your own words." } }
         ],
         "seedContext": "I'm fixing a failing test. First I'll run the test suite. The shell command is: npm",
         "tokenFallbackRef": "token-fallback.json#b1"

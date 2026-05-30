@@ -2,8 +2,8 @@ import { ProbBar } from '@/components/whiteboard/ProbBar';
 import type { TokenProb } from '@/microscope/dist';
 import { probFromTopK } from '@/utils/probFromTopK';
 
-export function DistributionBars({ topK, highlightToken }: { topK: TokenProb[]; highlightToken?: string }) {
-  const probs = probFromTopK(topK.map((t) => t.logprob));
+export function DistributionBars({ topK, highlightToken, temperature = 1 }: { topK: TokenProb[]; highlightToken?: string; temperature?: number }) {
+  const probs = probFromTopK(topK.map((t) => t.logprob), temperature);
   const max = Math.max(...probs);
   return (
     <div className="space-y-1.5">

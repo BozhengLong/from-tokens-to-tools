@@ -22,7 +22,12 @@ export class LiveMicroscope implements TokenMicroscope {
     const tokenizer = await AutoTokenizer.from_pretrained(modelId);
     const model = await AutoModelForCausalLM.from_pretrained(modelId, {
       device: 'webgpu', dtype: 'q4',
-      progress_callback: (p: any) => onProgress?.(p?.progress ?? 0),
+      // Only report the dominant file's download (the ~174MB onnx); ignore the tiny
+      // tokenizer/config files so the progress bar is a clean monotonic 0→100 instead
+      // of resetting to 0 for each small file.
+      progress_callback: (p: any) => {
+        if (p?.status === 'progress' && (p?.total ?? 0) > 5_000_000) onProgress?.(p.progress ?? 0);
+      },
     });
     return new LiveMicroscope(tokenizer, model);
   }
